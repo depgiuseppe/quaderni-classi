@@ -1,0 +1,1329 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Matematica 4F Liceo Scientifico - Esponenziali, Logaritmi e Goniometria</title>
+  
+  <!-- Fogli di stile Reveal.js e KaTeX locali -->
+  <link rel="stylesheet" href="reveal/reveal.css">
+  <link rel="stylesheet" href="reveal/katex/dist/katex.min.css">
+
+  <style>
+    :root {
+      --bg-main: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-panel: #F8FAFC;
+      --border-card: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --col-primary: #2563EB;     /* Blue 600 */
+      --col-primary-dark: #1D4ED8;
+      --col-text: #0F172A;        /* Slate 900 */
+      --col-muted: #475569;       /* Slate 600 */
+      --col-green: #16A34A;       /* Green 600 */
+      --col-red: #DC2626;         /* Red 600 */
+      --col-amber: #D97706;       /* Amber 600 */
+      --col-purple: #7C3AED;      /* Violet 600 */
+      --col-cyan: #0284C7;        /* Sky 600 */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-main) !important;
+      color: var(--col-text) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .reveal {
+      background-color: var(--bg-main) !important;
+      color: var(--col-text) !important;
+      font-size: 19px;
+    }
+
+    .reveal .slides {
+      width: 1280px !important;
+      height: 820px !important;
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      height: 100% !important;
+      top: 0 !important;
+      padding: 16px 24px 24px 24px !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      background: var(--bg-main) !important;
+      color: var(--col-text) !important;
+    }
+
+    /* Intestazione Slide Pinned */
+    .slide-header {
+      flex-shrink: 0;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--border-card);
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .slide-header h2 {
+      font-size: 1.35em;
+      color: #1E293B;
+      margin: 0;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .slide-header .badge {
+      font-size: 0.58em;
+      background: var(--col-primary);
+      color: #FFFFFF;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: normal;
+    }
+
+    .slide-header .slide-hint {
+      font-size: 0.72em;
+      color: var(--col-muted);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Contenitore scorrevole per evitare qualsiasi overflow - Slider Visibile */
+    .slide-scroll-body {
+      flex-grow: 1;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      padding-right: 16px;
+      box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: var(--col-primary) #F1F5F9;
+    }
+
+    .slide-scroll-body::-webkit-scrollbar {
+      width: 9px;
+    }
+    .slide-scroll-body::-webkit-scrollbar-track {
+      background: #F1F5F9;
+      border-radius: 6px;
+      border: 1px solid var(--border-card);
+    }
+    .slide-scroll-body::-webkit-scrollbar-thumb {
+      background: var(--col-primary);
+      border-radius: 6px;
+    }
+    .slide-scroll-body::-webkit-scrollbar-thumb:hover {
+      background: var(--col-primary-dark);
+    }
+
+    /* Griglie e Layout */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .grid-2col-even {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .grid-3col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    /* Card didattiche modellate sugli ambienti LaTeX */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 15px 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      margin-bottom: 14px;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .card-def {
+      border-left: 5px solid var(--col-primary);
+      background: #F8FAFC;
+    }
+
+    .card-teo {
+      border-left: 5px solid var(--col-purple);
+      background: #FAF5FF;
+    }
+
+    .card-docente {
+      border-left: 5px solid var(--col-cyan);
+      background: #F0F9FF;
+    }
+
+    .card-err {
+      border-left: 5px solid var(--col-red);
+      background: #FEF2F2;
+    }
+
+    .card-es {
+      border-left: 5px solid var(--col-green);
+      background: #F0FDF4;
+    }
+
+    .card-warn {
+      border-left: 5px solid var(--col-amber);
+      background: #FFFBEB;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1.02em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-def .card-title { color: #1D4ED8; }
+    .card-teo .card-title { color: #6D28D9; }
+    .card-docente .card-title { color: #0369A1; }
+    .card-err .card-title { color: #B91C1C; }
+    .card-es .card-title { color: #15803D; }
+    .card-warn .card-title { color: #B45309; }
+
+    /* Box Multimediali & Video */
+    .media-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 14px;
+    }
+
+    .media-box video {
+      width: 100%;
+      max-height: 380px;
+      display: block;
+      background: #FFFFFF;
+    }
+
+    .media-box img {
+      width: 100%;
+      max-height: 380px;
+      display: block;
+      object-fit: contain;
+      background: #FFFFFF;
+    }
+
+    .media-caption {
+      padding: 9px 14px;
+      font-size: 0.84em;
+      color: var(--col-muted);
+      background: #F8FAFC;
+      border-top: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Tabelle Formulario & Dati */
+    table.didactic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9em;
+      margin-bottom: 12px;
+      background: #FFFFFF;
+    }
+
+    table.didactic-table th, table.didactic-table td {
+      border: 1px solid var(--border-card);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    table.didactic-table th {
+      background: #F1F5F9;
+      color: var(--col-text);
+      font-weight: 600;
+    }
+
+    table.didactic-table tr:nth-child(even) {
+      background: #F8FAFC;
+    }
+
+    /* Elenchi puliti anti-overflow */
+    ul.didactic-list, ol.didactic-list {
+      margin: 6px 0 10px 0;
+      padding-left: 22px;
+      line-height: 1.5;
+    }
+
+    ul.didactic-list li, ol.didactic-list li {
+      margin-bottom: 6px;
+    }
+
+    /* Badge stadi e passaggi */
+    .step-badge {
+      display: inline-block;
+      background: #E2E8F0;
+      color: #1E293B;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.82em;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    /* Widget Interattivi */
+    .widget-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .widget-title {
+      font-weight: 700;
+      font-size: 0.98em;
+      color: var(--col-primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .widget-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      background: #F8FAFC;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-card);
+    }
+
+    .widget-controls input[type=range] {
+      flex-grow: 1;
+      cursor: pointer;
+    }
+
+    .widget-display {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.92em;
+      color: var(--col-text);
+      background: #F1F5F9;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+    }
+
+    .stage-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .stage-btn {
+      background: #F1F5F9;
+      border: 1px solid var(--border-strong);
+      color: var(--col-text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.84em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .stage-btn:hover {
+      background: #E2E8F0;
+    }
+
+    .stage-btn.active {
+      background: var(--col-primary);
+      color: #FFFFFF;
+      border-color: var(--col-primary-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 1: Frontespizio & Quadro del Corso                              -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>📘 Corso di Matematica – Classe 4F Liceo Scientifico <span class="badge">Lezione Completa</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-docente">
+                <div class="card-title">👨‍🏫 Nota Didattica del Docente</div>
+                <p>Cari ragazzi, questa lezione multimediale raccoglie e sistematizza in modo organico l'intero percorso svolto in classe su <strong>funzioni esponenziali</strong>, <strong>teoria e teoremi dei logaritmi</strong>, <strong>risoluzione di equazioni e disequazioni trascendenti</strong>, <strong>studio qualitativo di funzioni fratte</strong> e <strong>goniometria</strong>.</p>
+                <p>Negli appunti del quaderno avete spesso annotato soltanto i passaggi salienti e i grafici finali. Qui invece analizziamo il <em>perché profondo</em> di ciascun passaggio, le dimostrazioni algebriche deduttive prive di salti logici, le animazioni cinematiche e la confutazione degli errori più insidiosi rilevati nelle vostre verifiche.</p>
+              </div>
+
+              <div class="card card-def">
+                <div class="card-title">🗺️ Mappa Concettuale delle Macro-Aree</div>
+                <ul class="didactic-list">
+                  <li><strong>Modulo 1: Il Numero $e$ e l'Esponenziale:</strong> Dalla capitalizzazione continua di Bernoulli alla biforcazione di monotonia per $a > 1$ e $0 < a < 1$.</li>
+                  <li><strong>Modulo 2: Teoria e Teoremi sui Logaritmi:</strong> Inversione funzionale, simmetria speculare $y = x$, e il ruolo tassativo preliminare delle C.E.</li>
+                  <li><strong>Modulo 3: Analisi di Funzione Fratta Esponenziale:</strong> Dominio, zeri, asintoti e cancellazione sistematica delle regioni del piano.</li>
+                  <li><strong>Modulo 4: Goniometria e Dinamica delle Onde:</strong> Circonferenza unitaria, relazioni pitagoriche, e protocollo a stadi intermedi delle trasformazioni geometriche.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <img src="frames/slide1_roadmap.png" alt="Roadmap del corso">
+                <div class="media-caption">
+                  <span>Architettura Didattica Sequenziale</span>
+                  <span class="badge">4 Moduli Chiave</span>
+                </div>
+              </div>
+              <div class="card card-warn">
+                <div class="card-title">⚠️ Modalità di Studio Consigliata</div>
+                <p>Durante la spiegazione alla LIM o durante il ripasso individuale, interagite con gli slider dinamici, guardate le animazioni scientifiche incorporate e verificate punto per punto i passaggi degli esercizi svolti.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 2: Genesi del Numero e - Il Problema di Jacob Bernoulli          -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>📈 La Genesi del Numero $e$: Il Problema di Jacob Bernoulli <span class="badge">Modulo 1</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">🎯 Definizione Analitica del Numero di Nepero</div>
+                <p>Il numero di Nepero $e$ è definito come il limite della successione ad esponente reale:</p>
+                \[ e = \lim_{n \to +\infty} \left(1 + \frac{1}{n}\right)^n \approx 2{,}718281828459\dots \]
+                <p>Si tratta di un numero <strong>irrazionale</strong> (non esprimibile come frazione di interi) e <strong>trascendente</strong> (non è radice di alcun polinomio a coefficienti razionali, dimostrato da Hermite nel 1873).</p>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">💡 Spiegazione del Docente: Il Ragionamento di Bernoulli (1683)</div>
+                <p>Immaginate di depositare un capitale iniziale $C = 1000\,€$ con un tasso di interesse nominale annuo del $100\%$ ($r = 1$). Se la banca riconosce gli interessi in $n$ periodi identici all'anno, il tasso per periodo è $1/n$ e il montante finale a fine anno è $M = C \left(1 + \frac{1}{n}\right)^n$:</p>
+                <ul class="didactic-list">
+                  <li><strong>$n = 1$ (Annuale):</strong> $M = 1000 \cdot (1 + 1)^1 = 2000\,€$. Guadagno: $+1000\,€$.</li>
+                  <li><strong>$n = 2$ (Semestrale):</strong> $M = 1000 \cdot (1 + 0{,}5)^2 = 1000 \cdot 2{,}25 = 2250\,€$. <em>Nota:</em> guadagniamo $250\,€$ in più perché a metà anno maturano interessi sui $500\,€$ di interessi generati nei primi 6 mesi! È il principio dell'<strong>interesse sull'interesse</strong>.</li>
+                  <li><strong>$n = 4$ (Trimestrale):</strong> $M = 1000 \cdot (1 + 0{,}25)^4 \approx 2441{,}41\,€$.</li>
+                  <li><strong>$n = 12$ (Mensile):</strong> $M = 1000 \cdot (1 + 1/12)^{12} \approx 2613{,}04\,€$.</li>
+                  <li><strong>$n = 365$ (Giornaliero):</strong> $M = 1000 \cdot (1 + 1/365)^{365} \approx 2714{,}57\,€$.</li>
+                </ul>
+              </div>
+
+              <div class="card card-err">
+                <div class="card-title">❓ Domanda Tipica in Classe: "Se $n \to \infty$ si diventa infinitamente ricchi?"</div>
+                <p><strong>NO, assolutamente no!</strong> Molti studenti pensano che capitalizzando istante per istante ($n \to \infty$) il capitale esploda. In realtà, mentre il numero di capitalizzazioni tende a infinito, la quota di interesse parziale $1/n$ tende a zero. La crescita è soggetta alla legge dei <strong>rendimenti marginali decrescenti</strong>: la curva rallenta la sua ascesa e sbatte contro un <strong>tetto invalicabile</strong> asintotico a $e \approx 2{,}71828$.</p>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <video controls autoplay loop muted>
+                  <source src="media/videos/animazioni/480p15/GenesiNumeroNepero.mp4" type="video/mp4">
+                  <img src="frames/GenesiNumeroNepero.png" alt="Grafico limite di Bernoulli">
+                </video>
+                <div class="media-caption">
+                  <span>Animazione Scientifica: Convergenza asintotica a $e$</span>
+                  <span class="badge">Sfondo Chiaro LIM</span>
+                </div>
+              </div>
+
+              <!-- Widget Interattivo Bernoulli -->
+              <div class="widget-container">
+                <div class="widget-title">⚙️ Simulatore Interattivo di Capitalizzazione di Bernoulli</div>
+                <div class="widget-controls">
+                  <label for="slider-n" style="font-size:0.85em; font-weight:600;">Frequenza $n$:</label>
+                  <input type="range" id="slider-n" min="1" max="100" value="2" oninput="updateBernoulli(this.value)">
+                  <span id="label-n" style="font-weight:700; color:var(--col-primary); width:35px;">2</span>
+                </div>
+                <div class="widget-display" id="bernoulli-out">
+                  n = 2 (Semestrale) &rarr; M = 1000 &times; (1 + 1/2)&sup2; = 2250.00 €<br>
+                  Rapporto M/C = 2.25000 | Scarto da e: -0.46828
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 3: Funzione Esponenziale e Monotonia                            -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>📈 Definizione e Monotonia della Funzione Esponenziale <span class="badge">Modulo 1</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">📘 Definizione Formale</div>
+                <p>Data una base reale $a > 0$ con $a \neq 1$, si definisce <strong>funzione esponenziale elementare</strong> la legge analitica:</p>
+                \[ f: \mathbb{R} \to (0, +\infty), \quad y = a^x \]
+                <ul class="didactic-list">
+                  <li><strong>Dominio naturale:</strong> $\mathcal{D} = \mathbb{R} = (-\infty, +\infty)$.</li>
+                  <li><strong>Codominio (Insieme immagine):</strong> $\mathcal{I} = \mathbb{R}^+ = (0, +\infty)$. L'esponenziale è <em>strettamente positiva</em>: $a^x > 0 \quad \forall x \in \mathbb{R}$.</li>
+                  <li><strong>Punto Invariante Fondamentale:</strong> Qualunque sia la base $a$, la curva passa sempre per $P(0, 1)$ poiché $a^0 = 1$.</li>
+                </ul>
+              </div>
+
+              <div class="card card-teo">
+                <div class="card-title">⚖️ Teorema della Biforcazione di Monotonia</div>
+                <p>Il comportamento qualitativo dipende drasticamente dal valore della base $a$ rispetto all'unità:</p>
+                <ul class="didactic-list">
+                  <li><strong>Caso $a > 1$ (Crescita Esponenziale):</strong> La funzione è <em>strettamente crescente</em>. Per $x_1 < x_2 \implies a^{x_1} < a^{x_2}$.
+                    \[ \lim_{x \to +\infty} a^x = +\infty, \quad \lim_{x \to -\infty} a^x = 0^+ \quad (\text{Asintoto orizzontale sinistro: } y = 0) \]
+                  </li>
+                  <li><strong>Caso $0 < a < 1$ (Decadimento Esponenziale):</strong> La funzione è <em>strettamente decrescente</em>. Per $x_1 < x_2 \implies a^{x_1} > a^{x_2}$.
+                    \[ \lim_{x \to +\infty} a^x = 0^+ \quad (\text{Asintoto orizzontale destro: } y = 0), \quad \lim_{x \to -\infty} a^x = +\infty \]
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">💡 Proprietà di Iniettività</div>
+                <p>Poiché è strettamente monotona, la funzione esponenziale è <strong>iniettiva</strong> su tutto $\mathbb{R}$:</p>
+                \[ a^{x_1} = a^{x_2} \iff x_1 = x_2 \]
+                <p>Questa proprietà è il fondamento teorico che ci consente di "uguagliare gli esponenti" nella risoluzione delle equazioni esponenziali!</p>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <video controls autoplay loop muted>
+                  <source src="media/videos/animazioni/480p15/ConfrontoFunzioniEsponenziali.mp4" type="video/mp4">
+                  <img src="frames/ConfrontoFunzioniEsponenziali.png" alt="Confronto esponenziali">
+                </video>
+                <div class="media-caption">
+                  <span>Animazione Scientifica: $y = 2^x$ vs $y = (1/2)^x$</span>
+                  <span class="badge">Simmetria Asse Y</span>
+                </div>
+              </div>
+
+              <div class="card card-warn">
+                <div class="card-title">⚠️ Simmetria Rispetto all'Asse $y$</div>
+                <p>Notate che $(1/a)^x = a^{-x}$. Per le proprietà delle trasformazioni geometriche, $f(-x)$ è il simmetrico di $f(x)$ rispetto all'asse delle ordinate $y$. Quindi la curva di $(1/2)^x$ è esattamente la riflessione speculare di $2^x$ attorno all'asse $y$!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 4: Equazioni Esponenziali e Metodi Risolutivi                    -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>✏️ Tipologie di Equazioni Esponenziali e Metodi Risolutivi <span class="badge">Modulo 1</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">1. Equazioni Elementari: $a^{f(x)} = b$</div>
+                <ul class="didactic-list">
+                  <li>Se $b \le 0$: <strong>Impossibile</strong>, poiché $a^{f(x)} > 0 \quad \forall x \in \mathbb{R}$. Ad esempio, $3^x = -5 \implies \emptyset$.</li>
+                  <li>Se $b > 0$: Esiste una ed una sola soluzione reale data da $f(x) = \log_a b$.</li>
+                </ul>
+              </div>
+
+              <div class="card card-es">
+                <div class="card-title">2. Metodo per Sostituzione con Cambio Variabile: $t = a^x$</div>
+                <p>Consideriamo l'equazione notevole tipica del compito:</p>
+                \[ 2^{2x} - 5 \cdot 2^x + 4 = 0 \]
+                <ol class="didactic-list">
+                  <li><strong>Applicazione proprietà potenze:</strong> $2^{2x} = (2^x)^2$. Poniamo $t = 2^x$, con la condizione vincolante $t > 0$.</li>
+                  <li><strong>Risoluzione algebrica ausiliaria:</strong> $t^2 - 5t + 4 = 0 \implies (t - 1)(t - 4) = 0 \implies t_1 = 1, \ t_2 = 4$.</li>
+                  <li><strong>Ritorno alla variabile originale $x$:</strong>
+                    <ul>
+                      <li>$2^x = 1 \implies 2^x = 2^0 \implies x_1 = 0$</li>
+                      <li>$2^x = 4 \implies 2^x = 2^2 \implies x_2 = 2$</li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="card card-err">
+                <div class="card-title">⚠️ Errore Gravissimo da Evitare</div>
+                <p>Se la risoluzione in $t$ fornisce una radice negativa (ad esempio $t = -3$), <strong>non dovete MAI</strong> scrivere $x = \dots$. Dovete dichiararla immediatamente <em>inaccettabile</em> perché $a^x$ non può mai essere negativa!</p>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <img src="frames/equazioni_esponenziali.png" alt="Risoluzione grafica equazioni">
+                <div class="media-caption">
+                  <span>Interpretazione grafica: $y = 2^x$ intersecata con rette orizzontali</span>
+                  <span class="badge">Unicità Soluzione</span>
+                </div>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">💡 Basi Diverse ma Stesso Esponente</div>
+                <p>Quando abbiamo $a^{f(x)} = b^{f(x)}$ con $a \neq b$, dividiamo ambo i membri per $b^{f(x)} \neq 0$:</p>
+                \[ \left(\frac{a}{b}\right)^{f(x)} = 1 \implies \left(\frac{a}{b}\right)^{f(x)} = \left(\frac{a}{b}\right)^0 \implies f(x) = 0 \]
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 5: Risoluzione Grafica di Equazioni Trascendenti Miste           -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>📊 Risoluzione Grafica di Equazioni Trascendenti Miste <span class="badge">Modulo 1</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">🎯 Il Problema delle Equazioni Non Risolvibili Algebricamente</div>
+                <p>Molte equazioni di interesse fisico e matematico non possono essere risolte isolando la $x$ mediante passaggi algebrici elementari. Consideriamo il caso degli appunti:</p>
+                \[ 2^x = 1 - x^2 \]
+                <p>La presenza simultanea dell'incognita $x$ all'esponente e come base polinomiale rende l'equazione <strong>trascendente mista</strong>.</p>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">💡 Il Metodo Grafico di Scomposizione in Sistema</div>
+                <p>Si decompone l'equazione nell'intersezione di due curve note nel piano cartesiano:</p>
+                \[ \begin{cases} y = 2^x & \text{(Esponenziale crescente)} \\ y = 1 - x^2 & \text{(Parabola concava con vertice in } V(0, 1)\text{)} \end{cases} \]
+                <p>Le soluzioni dell'equazione corrispondono alle <strong>ascisse $x$ dei punti di intersezione</strong> fra le due curve:</p>
+                <ul class="didactic-list">
+                  <li><strong>Prima radice esatta ($x_1 = 0$):</strong> Per $x = 0$, $y = 2^0 = 1$ e $y = 1 - 0^2 = 1$. Il punto $P_1(0, 1)$ appartiene ad entrambe le curve!</li>
+                  <li><strong>Seconda radice approssimata ($x_2 \approx -0{,}715$):</strong> Nel terzo/secondo quadrante, per $x < 0$, la parabola sale verso il vertice mentre l'esponenziale decresce verso l'asintoto. Le due curve si intersecano nel punto $P_2(-0{,}715;\, 0{,}489)$.</li>
+                </ul>
+              </div>
+
+              <div class="card card-teo">
+                <div class="card-title">⚖️ Perché Esistono Esattamente Due Soluzioni?</div>
+                <p>La funzione $g(x) = 2^x + x^2 - 1$ ha derivata seconda strettamente positiva ($g''(x) > 0$), quindi è <strong>strettamente convessa</strong>. Una curva strettamente convessa non può intersecare l'asse orizzontale in più di due punti!</p>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <video controls autoplay loop muted>
+                  <source src="media/videos/animazioni/480p15/RisoluzioneGraficaTrascendente.mp4" type="video/mp4">
+                  <img src="frames/RisoluzioneGraficaTrascendente.png" alt="Risoluzione trascendente">
+                </video>
+                <div class="media-caption">
+                  <span>Animazione Scientifica: Intersezione $y = 2^x$ e $y = 1 - x^2$</span>
+                  <span class="badge">Due Soluzioni Reali</span>
+                </div>
+              </div>
+
+              <div class="card card-es">
+                <div class="card-title">✏️ Metodo di Bisezione per l'Approssimazione</div>
+                <p>Per trovare $x_2$, valutiamo $f(x) = 2^x + x^2 - 1$:</p>
+                <ul class="didactic-list">
+                  <li>$f(-1) = 2^{-1} + 1 - 1 = 0{,}5 > 0$</li>
+                  <li>$f(-0{,}5) = 2^{-0{,}5} + 0{,}25 - 1 = \frac{1}{\sqrt{2}} - 0{,}75 \approx 0{,}707 - 0{,}75 = -0{,}043 < 0$</li>
+                </ul>
+                <p>Per il <em>Teorema degli Zeri</em>, la radice cade nell'intervallo $(-1;\, -0{,}5)$!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 6: Disequazioni Esponenziali e Regola del Verso                  -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>⚖️ Disequazioni Esponenziali e Regola Aurea del Verso <span class="badge">Modulo 1</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-teo">
+                <div class="card-title">📜 Teorema Fondamentale sulle Disequazioni Esponenziali</div>
+                <p>Data la disequazione $a^{f(x)} > a^{g(x)}$, il passaggio al confronto fra gli esponenti è governato dalla monotonia della base:</p>
+                <table class="didactic-table">
+                  <thead>
+                    <tr>
+                      <th>Condizione sulla Base</th>
+                      <th>Comportamento Funzione</th>
+                      <th>Verso della Disuguaglianza</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>$a > 1$</strong></td>
+                      <td>Strettamente Crescente</td>
+                      <td><strong>SI CONSERVA:</strong> $f(x) > g(x)$</td>
+                    </tr>
+                    <tr>
+                      <td><strong>$0 < a < 1$</strong></td>
+                      <td>Strettamente Decrescente</td>
+                      <td><strong>SI INVERTE:</strong> $f(x) < g(x)$</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="card card-es">
+                <div class="card-title">✏️ Esercizio Svolto Guidato</div>
+                <p>Risolvere la disequazione: $\left(\frac{1}{2}\right)^{x^2 - 3} \ge \left(\frac{1}{2}\right)^{2x}$</p>
+                <ol class="didactic-list">
+                  <li><strong>Identificazione della base:</strong> La base è $a = 1/2$. Poiché $0 < 1/2 < 1$, dobbiamo <strong>invertire il verso</strong> della disuguaglianza!</li>
+                  <li><strong>Confronto degli esponenti:</strong>
+                    \[ x^2 - 3 \le 2x \iff x^2 - 2x - 3 \le 0 \]
+                  </li>
+                  <li><strong>Fattorizzazione trinomio:</strong> $(x - 3)(x + 1) \le 0$.</li>
+                  <li><strong>Insieme delle soluzioni:</strong> $-1 \le x \le 3$, ovvero l'intervallo chiuso e limitato $[-1, 3]$.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <img src="frames/disequazioni_esponenziali.png" alt="Regola del verso disequazioni">
+                <div class="media-caption">
+                  <span>Schema Grafico: Inversione del verso per basi frazionarie</span>
+                  <span class="badge">Regola Aurea</span>
+                </div>
+              </div>
+
+              <div class="card card-err">
+                <div class="card-title">⚠️ Errore Più Comune nei Compiti in Classe</div>
+                <p>Dimenticare di invertire il verso quando la base è compresa tra 0 e 1! Scrivere $x^2 - 3 \ge 2x$ porta a trovare l'intervallo complementare esterno ($x \le -1 \lor x \ge 3$), che è completamente <strong>falso</strong>.</p>
+                <p><em>Consiglio pratico del docente:</em> Se avete paura di dimenticare l'inversione, trasformate la base in esponente negativo: $(1/2)^t = 2^{-t}$, riportandovi ad una base $2 > 1$!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 7: Teoria dei Logaritmi e Teoremi Fondamentali                   -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>📐 Teoria dei Logaritmi: Definizione e Teoremi con Dimostrazione <span class="badge">Modulo 2</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">📘 Definizione Formale di Logaritmo</div>
+                <p>Dati due numeri reali $a > 0, a \neq 1$ (base) e $b > 0$ (argomento), si definisce <strong>logaritmo in base $a$ di $b$</strong> l'esponente $x$ al quale occorre elevare la base $a$ per ottenere l'argomento $b$:</p>
+                \[ x = \log_a b \iff a^x = b \]
+                <p>Da cui discende l'identità fondamentale: $a^{\log_a b} = b \quad \forall b > 0$.</p>
+              </div>
+
+              <div class="card card-teo">
+                <div class="card-title">📜 I 4 Teoremi Fondamentali sui Logaritmi</div>
+                <ol class="didactic-list">
+                  <li><strong>Teorema del Prodotto:</strong> $\log_a(x \cdot y) = \log_a x + \log_a y \quad (\forall x, y > 0)$</li>
+                  <li><strong>Teorema del Quoziente:</strong> $\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y \quad (\forall x, y > 0)$</li>
+                  <li><strong>Teorema della Potenza:</strong> $\log_a(x^k) = k \cdot \log_a x \quad (\forall x > 0, k \in \mathbb{R})$</li>
+                  <li><strong>Formula del Cambio di Base:</strong> $\log_a b = \frac{\log_c b}{\log_c a} = \frac{1}{\log_b a} \quad (\forall a, b, c > 0; a, c \neq 1)$</li>
+                </ol>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">🔍 Dimostrazione Rigorosa del Teorema del Prodotto</div>
+                <p>Poniamo $\alpha = \log_a x$ e $\beta = \log_a y$. Per definizione di logaritmo:</p>
+                \[ x = a^\alpha \quad \text{e} \quad y = a^\beta \]
+                <p>Moltiplicando membro a membro e applicando le proprietà delle potenze:</p>
+                \[ x \cdot y = a^\alpha \cdot a^\beta = a^{\alpha + \beta} \]
+                <p>Riapplicando la definizione di logaritmo al primo e terzo membro:</p>
+                \[ \log_a(x \cdot y) = \alpha + \beta = \log_a x + \log_a y \quad \blacksquare \]
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <img src="frames/proprieta_logaritmi.png" alt="Mappa proprietà logaritmi">
+                <div class="media-caption">
+                  <span>Sintesi dei Teoremi dei Logaritmi</span>
+                  <span class="badge">Formulario Rigoroso</span>
+                </div>
+              </div>
+
+              <div class="card card-warn">
+                <div class="card-title">⚠️ Falsi Teoremi (Allucinazioni Algebriche)</div>
+                <ul class="didactic-list">
+                  <li>$\log_a(x + y) \neq \log_a x + \log_a y$ &larr; Il logaritmo di una somma <strong>non è</strong> la somma dei logaritmi!</li>
+                  <li>$\log_a(x - y) \neq \frac{\log_a x}{\log_a y}$ &larr; Il logaritmo della differenza non è il rapporto!</li>
+                  <li>$\frac{\log_a x}{\log_a y} \neq \log_a(x - y)$ &larr; Il rapporto di due logaritmi è un cambio di base: $\log_y x$!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 8: Simmetria Esponenziale-Logaritmo                             -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>🪞 Funzione Logaritmica e Simmetria Speculare con l'Esponenziale <span class="badge">Modulo 2</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">📘 La Funzione Logaritmica come Inversa</div>
+                <p>La funzione esponenziale $f(x) = a^x$ è strettamente monotona e biiettiva da $\mathbb{R}$ su $(0, +\infty)$. Di conseguenza è <strong>invertibile</strong>:</p>
+                \[ f^{-1}: (0, +\infty) \to \mathbb{R}, \quad y = \log_a x \]
+                <ul class="didactic-list">
+                  <li><strong>Dominio:</strong> $(0, +\infty)$ &larr; <em>Coincide con il codominio dell'esponenziale!</em></li>
+                  <li><strong>Codominio:</strong> $\mathbb{R}$ &larr; <em>Coincide con il dominio dell'esponenziale!</em></li>
+                  <li><strong>Asintoto verticale:</strong> $x = 0$ (l'asse $y$). Infatti $\lim_{x \to 0^+} \log_a x = -\infty$ (per $a > 1$).</li>
+                  <li><strong>Intersezione con asse $x$:</strong> $P(1, 0)$ poiché $\log_a 1 = 0$.</li>
+                </ul>
+              </div>
+
+              <div class="card card-teo">
+                <div class="card-title">⚖️ Teorema della Simmetria Assiale rispetto a $y = x$</div>
+                <p>Il grafico di una funzione e quello della sua funzione inversa sono geometricamente <strong>simmetrici rispetto alla bisettrice del I e III quadrante ($y = x$)</strong>:</p>
+                \[ P(x_0, y_0) \in \text{Grafico}(a^x) \iff P'(y_0, x_0) \in \text{Grafico}(\log_a x) \]
+                <p>Esempio: $(0, 1) \leftrightarrow (1, 0)$, $(1, 2) \leftrightarrow (2, 1)$, $(2, 4) \leftrightarrow (4, 2)$.</p>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <video controls autoplay loop muted>
+                  <source src="media/videos/animazioni/480p15/SimmetriaEsponenzialeLogaritmo.mp4" type="video/mp4">
+                  <img src="frames/SimmetriaEsponenzialeLogaritmo.png" alt="Simmetria speculare">
+                </video>
+                <div class="media-caption">
+                  <span>Animazione Scientifica: Riflessione ortogonale sulla retta $y = x$</span>
+                  <span class="badge">Inversione Funzionale</span>
+                </div>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">💡 Monotonia a Confronto</div>
+                <ul class="didactic-list">
+                  <li>Se $a > 1$: sia l'esponenziale che il logaritmo sono <strong>strettamente crescenti</strong>.</li>
+                  <li>Se $0 < a < 1$: sia l'esponenziale che il logaritmo sono <strong>strettamente decrescenti</strong>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 9: Condizioni di Esistenza e Rettifica Esercizio Pagina 26       -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>⚠️ Condizioni di Esistenza (C.E.) e Rettifica Critica Pagina 26 <span class="badge">Modulo 2</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-err">
+                <div class="card-title">🚨 REGOLA AUREA TASSATIVA SULLE C.E.</div>
+                <p>Le <strong>Condizioni di Esistenza (C.E.)</strong> vanno determinate <strong>SEMPRE SUL TESTO DI PARTENZA</strong>, prima di eseguire qualunque passaggio algebrico o applicare le proprietà dei logaritmi!</p>
+                <p>Infatti: $\log_a [f(x) \cdot g(x)]$ richiede solo che il prodotto sia positivo ($f(x) \cdot g(x) > 0$), il che include il caso in cui <em>entrambi siano negativi</em> ($(-)\cdot(-) = +$). Ma $\log_a f(x) + \log_a g(x)$ richiede che siano <strong>entrambi strettamente positivi</strong>!</p>
+              </div>
+
+                            <div class="card card-teo">
+                <div class="card-title">🔍 Risoluzione Rigorosa delle Disequazioni Logaritmiche</div>
+                <p>Analizziamo la disequazione: $\log_2(x - 1) + \log_2(x - 3) \le 3$</p>
+                <div style="background:#F0FDF4; padding:12px; border-radius:6px; border:1px solid #86EFAC;">
+                  <strong style="color:#15803D;">✅ Fase 1 — Determinazione Tassativa delle C.E.:</strong><br>
+                  Impostazione del sistema dei singoli argomenti:<br>
+                  $\begin{cases} x - 1 > 0 \implies x > 1 \\ x - 3 > 0 \implies x > 3 \end{cases} \implies \mathbf{D = (3, +\infty)}$<br>
+                  <em>(Il dominio vincola fin dal principio l'insieme delle soluzioni ammissibili).</em>
+                </div>
+              </div>
+
+              <div class="card card-es">
+                <div class="card-title">✏️ Completamento Algebrico Corretto</div>
+                \[ \log_2[(x - 1)(x - 3)] \le 3 \iff (x - 1)(x - 3) \le 2^3 = 8 \]
+                \[ x^2 - 4x + 3 \le 8 \iff x^2 - 4x - 5 \le 0 \iff (x - 5)(x + 1) \le 0 \implies -1 \le x \le 5 \]
+                <p>Intersecando con le <strong>C.E. ($x > 3$)</strong>:</p>
+                \[ \mathcal{S} = [-1, 5] \cap (3, +\infty) = \mathbf{(3, 5]} \]
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <img src="frames/disequazioni_logaritmiche.png" alt="Grafico C.E. logaritmi">
+                <div class="media-caption">
+                  <span>Rappresentazione insiemistica del Dominio di Esistenza</span>
+                  <span class="badge">C.E. Vincolanti</span>
+                </div>
+              </div>
+
+              <div class="card card-warn">
+                <div class="card-title">💡 Morale Didattica per le Verifiche</div>
+                <p>Se aveste tenuto anche il ramo $x < 1$, avreste ottenuto erroneamente $[-1, 1)$, introducendo un'intera regione di soluzioni non ammissibili. Il docente al compito segna errore rosso bloccante!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 10: Studio Completo di Funzione Fratta Esponenziale (Es. 956)   -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>🔬 Studio Completo di Funzione Fratta Esponenziale (Es. 956) <span class="badge">Modulo 3</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">🎯 Testo del Problema: $y = \frac{e^x - 1}{e^x - 2}$</div>
+                <p>Eseguiamo lo studio qualitativo completo della funzione:</p>
+                <ol class="didactic-list">
+                  <li><strong>1. Determinazione del Dominio:</strong> Il denominatore non deve annullarsi:
+                    \[ e^x - 2 \neq 0 \iff e^x \neq 2 \iff x \neq \ln 2 \approx 0{,}693 \]
+                    \[ \mathcal{D} = (-\infty, \ln 2) \cup (\ln 2, +\infty) \]
+                  </li>
+                  <li><strong>2. Intersezioni con gli Assi Cartesiani:</strong>
+                    <ul>
+                      <li>Asse $y$ ($x = 0$): $y(0) = \frac{e^0 - 1}{e^0 - 2} = \frac{1 - 1}{1 - 2} = 0 \implies O(0, 0)$</li>
+                      <li>Asse $x$ ($y = 0$): $e^x - 1 = 0 \iff e^x = 1 \iff x = 0 \implies O(0, 0)$</li>
+                    </ul>
+                  </li>
+                  <li><strong>3. Studio del Segno della Frazione ($y > 0$):</strong>
+                    <ul>
+                      <li>Numeratore $N(x) \ge 0$: $e^x - 1 \ge 0 \iff e^x \ge 1 \iff x \ge 0$.</li>
+                      <li>Denominatore $D(x) > 0$: $e^x - 2 > 0 \iff e^x > 2 \iff x > \ln 2$.</li>
+                      <li><em>Tabella Segni:</em> Per $x < 0$: $(-)/(-) = \mathbf{+}$. Per $0 < x < \ln 2$: $(+)/(-) = \mathbf{-}$. Per $x > \ln 2$: $(+)/(+) = \mathbf{+}$.</li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="card card-teo">
+                <div class="card-title">4. Limiti agli Estremi e Ricerca Asintoti</div>
+                <ul class="didactic-list">
+                  <li><strong>Asintoto verticale in $x = \ln 2$:</strong>
+                    \[ \lim_{x \to (\ln 2)^+} \frac{e^x - 1}{e^x - 2} = \frac{1}{0^+} = +\infty, \quad \lim_{x \to (\ln 2)^-} \frac{e^x - 1}{e^x - 2} = \frac{1}{0^-} = -\infty \]
+                  </li>
+                  <li><strong>Asintoto orizzontale a $+\infty$:</strong> $\lim_{x \to +\infty} \frac{e^x(1 - e^{-x})}{e^x(1 - 2e^{-x})} = \mathbf{1} \implies \text{Asintoto } y = 1$.</li>
+                  <li><strong>Asintoto orizzontale a $-\infty$:</strong> $\lim_{x \to -\infty} \frac{0 - 1}{0 - 2} = \mathbf{\frac{1}{2}} \implies \text{Asintoto } y = \frac{1}{2}$.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <video controls autoplay loop muted>
+                  <source src="media/videos/animazioni/480p15/StudioSegnoFrattaEsponenziale.mp4" type="video/mp4">
+                  <img src="frames/StudioSegnoFrattaEsponenziale.png" alt="Studio del segno fratta esponenziale">
+                </video>
+                <div class="media-caption">
+                  <span>Animazione Scientifica: Asintoti e Regioni di Esistenza</span>
+                  <span class="badge">Cancellazione Piano</span>
+                </div>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">💡 La Tecnica della Cancellazione delle Regioni</div>
+                <p>Notate la bellezza geometrica: tra $0$ e $\ln 2$, poiché $y < 0$, <strong>cancelliamo l'intero semipiano superiore $y > 0$</strong>. La curva è forzata a partire dall'origine $O(0,0)$, piegare verso il basso e tuffarsi a $-\infty$ rasentando l'asintoto verticale $x = \ln 2$!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 11: Problema Parametrico con Valore Assoluto (Es. 978)          -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>📐 Discussione Parametrica con Valore Assoluto (Es. 978) <span class="badge">Modulo 3</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">🎯 Testo: Risolvere graficamente al variare di $k \in \mathbb{R}$:</div>
+                \[ |2^x - 1| = k \]
+                <p>Questo quesito d'esame richiede di discutere il numero di intersezioni tra la curva traslata con valore assoluto e il fascio improprio di rette orizzontali parallele all'asse $x$:</p>
+                \[ \begin{cases} y = |2^x - 1| & \text{(Curva fissa)} \\ y = k & \text{(Fascio improprio di rette orizzontali)} \end{cases} \]
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">🔍 Costruzione a Stadi della Curva $y = |2^x - 1|$</div>
+                <ol class="didactic-list">
+                  <li><strong>Curva base:</strong> $y_0 = 2^x$. Asintoto orizzontale $y = 0$, passa per $(0, 1)$.</li>
+                  <li><strong>Traslazione verticale verso il basso di 1:</strong> $y_1 = 2^x - 1$. Nuovo asintoto $y = -1$, passa per l'origine $(0, 0)$. Per $x < 0$ la curva assume valori negativi compresi in $(-1, 0)$.</li>
+                  <li><strong>Applicazione del Modulo:</strong> $y = |2^x - 1|$. La parte negativa ($x < 0$) viene ribaltata speculatemente rispetto all'asse $x$. Il vecchio asintoto $y = -1$ diventa il nuovo asintoto orizzontale sinistro <strong>$y = 1$</strong>!</li>
+                </ol>
+              </div>
+
+              <div class="card card-teo">
+                <div class="card-title">📊 Discussione Completa delle Soluzioni al Variare di $k$</div>
+                <table class="didactic-table">
+                  <thead>
+                    <tr><th>Parametro $k$</th><th>Numero Soluzioni</th><th>Interpretazione Geometrica</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>$k < 0$</strong></td><td>0 soluzioni</td><td>La retta $y = k$ è nel semipiano inferiore, la curva non esiste per $y < 0$.</td></tr>
+                    <tr><td><strong>$k = 0$</strong></td><td>1 soluzione ($x = 0$)</td><td>La retta è l'asse $x$, tocca il punto angoloso nell'origine $(0, 0)$.</td></tr>
+                    <tr><td><strong>$0 < k < 1$</strong></td><td><strong>2 soluzioni distinte</strong></td><td>La retta taglia entrambi i rami: uno sul ramo ribaltato ($x_1 < 0$) e uno sul ramo crescente ($x_2 > 0$).</td></tr>
+                    <tr><td><strong>$k \ge 1$</strong></td><td>1 soluzione</td><td>La retta è sopra o sull'asintoto $y = 1$. Interseca solo il ramo destro crescente.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <img src="frames/StudioSegnoFrattaEsponenziale.png" alt="Discussione parametrica">
+                <div class="media-caption">
+                  <span>Biforcazione parametrica di $|2^x - 1| = k$</span>
+                  <span class="badge">Punto Angoloso in (0,0)</span>
+                </div>
+              </div>
+
+              <div class="card card-warn">
+                <div class="card-title">💡 La Trappola dell'Asintoto Ribaltato</div>
+                <p>Molti studenti dimenticano che anche l'asintoto subisce l'azione del valore assoluto! L'asintoto $y = -1$ ribaltandosi diventa $y = +1$. Per questo motivo la soglia $k = 1$ funge da spartiacque tra 2 soluzioni e 1 soluzione!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 12: Fondamenti di Goniometria e Circonferenza Unitaria          -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>📐 Fondamenti di Goniometria: Circonferenza Unitaria e Sinusoide <span class="badge">Modulo 4</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-def">
+                <div class="card-title">📘 Misura in Radianti e Circonferenza Goniometrica</div>
+                <p>Si definisce <strong>radiante</strong> l'ampiezza dell'angolo al centro che sottende un arco di lunghezza pari al raggio: $\alpha = \frac{l}{r}$. Un angolo giro misura esattamente $2\pi\,\text{rad}$.</p>
+                <p>La <strong>circonferenza goniometrica</strong> è la circonferenza centrata nell'origine $O(0, 0)$ di raggio unitario $R = 1$, con equazione $x^2 + y^2 = 1$.</p>
+              </div>
+
+              <div class="card card-teo">
+                <div class="card-title">📜 Definizioni di Seno, Coseno e Tangente</div>
+                <p>Dato il punto $P$ sulla circonferenza individuato dall'angolo $\alpha$ formato con il semiasse positivo delle ascisse:</p>
+                \[ P(\cos\alpha, \sin\alpha) \iff \begin{cases} x_P = \cos\alpha & \text{(Proiezione orizzontale)} \\ y_P = \sin\alpha & \text{(Proiezione verticale)} \end{cases} \]
+                <ul class="didactic-list">
+                  <li><strong>Prima Relazione Fondamentale (Pitagora):</strong>
+                    \[ \cos^2\alpha + \sin^2\alpha = 1 \quad \forall \alpha \in \mathbb{R} \]
+                  </li>
+                  <li><strong>Seconda Relazione Fondamentale (Tangente):</strong>
+                    \[ \tan\alpha = \frac{\sin\alpha}{\cos\alpha} \quad \left(\alpha \neq \frac{\pi}{2} + k\pi\right) \]
+                    Rappresenta l'ordinata del punto $T(1, \tan\alpha)$ sulla retta tangente $x = 1$, nonché il coefficiente angolare della retta $OP$: $m = \tan\alpha$.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">💡 Tecnica Mnemonica dei Radicali per gli Angoli Notevoli</div>
+                <table class="didactic-table">
+                  <thead>
+                    <tr><th>$\alpha$ (Gradi)</th><th>$\alpha$ (Radianti)</th><th>$\sin\alpha = \frac{\sqrt{n}}{2}$</th><th>$\cos\alpha = \frac{\sqrt{4-n}}{2}$</th><th>$\tan\alpha$</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>$0^\circ$</td><td>$0$</td><td>$\frac{\sqrt{0}}{2} = 0$</td><td>$\frac{\sqrt{4}}{2} = 1$</td><td>$0$</td></tr>
+                    <tr><td>$30^\circ$</td><td>$\pi/6$</td><td>$\frac{\sqrt{1}}{2} = \frac{1}{2}$</td><td>$\frac{\sqrt{3}}{2}$</td><td>$\frac{\sqrt{3}}{3}$</td></tr>
+                    <tr><td>$45^\circ$</td><td>$\pi/4$</td><td>$\frac{\sqrt{2}}{2}$</td><td>$\frac{\sqrt{2}}{2}$</td><td>$1$</td></tr>
+                    <tr><td>$60^\circ$</td><td>$\pi/3$</td><td>$\frac{\sqrt{3}}{2}$</td><td>$\frac{\sqrt{1}}{2} = \frac{1}{2}$</td><td>$\sqrt{3}$</td></tr>
+                    <tr><td>$90^\circ$</td><td>$\pi/2$</td><td>$\frac{\sqrt{4}}{2} = 1$</td><td>$\frac{\sqrt{0}}{2} = 0$</td><td>Non esiste</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <video controls autoplay loop muted>
+                  <source src="media/videos/animazioni/480p15/CirconferenzaGoniometrica.mp4" type="video/mp4">
+                  <img src="frames/CirconferenzaGoniometrica.png" alt="Circonferenza goniometrica">
+                </video>
+                <div class="media-caption">
+                  <span>Animazione Scientifica: Generazione armonica della sinusoide</span>
+                  <span class="badge">Proiezione $y = \sin\alpha$</span>
+                </div>
+              </div>
+
+              <!-- Widget Interattivo Goniometro -->
+              <div class="widget-container">
+                <div class="widget-title">⚙️ Goniometro Interattivo: Dinamica Angolare</div>
+                <div class="widget-controls">
+                  <label for="slider-deg" style="font-size:0.85em; font-weight:600;">Angolo &alpha; (&deg;):</label>
+                  <input type="range" id="slider-deg" min="0" max="360" value="45" oninput="updateGonio(this.value)">
+                  <span id="label-deg" style="font-weight:700; color:var(--col-primary); width:45px;">45&deg;</span>
+                </div>
+                <div class="widget-display" id="gonio-out">
+                  &alpha; = 45&deg; (&pi;/4 rad) &rarr; cos(&alpha;) = 0.7071 | sin(&alpha;) = 0.7071<br>
+                  tan(&alpha;) = 1.0000 | cos&sup2;&alpha; + sin&sup2;&alpha; = 1.00000
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 13: Protocollo Rigoroso Trasformazioni Geometriche Onde        -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>🌊 Protocollo Rigoroso delle Trasformazioni Geometriche su Onde <span class="badge">Modulo 4</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-err">
+                <div class="card-title">🚨 LA REGOLA AUREA: Raccoglimento a Fattor Comune</div>
+                <p>Data una funzione d'onda del tipo $y = a \sin(bx + c) + d$, <strong>NON dovete MAI interpretare $+c$ come la traslazione orizzontale!</strong></p>
+                <p>Bisogna prima raccogliere obbligatoriamente il coefficiente $b$:</p>
+                \[ y = a \sin\left[ b \left(x + \frac{c}{b}\right) \right] + d \]
+                <p>Nel caso studiato in classe a Pagina 24-25 del quaderno: $y = -2\sin(4x + 1)$.</p>
+                \[ y = -2\sin\left[ 4 \left(x + \frac{1}{4}\right) \right] \]
+                <p>La traslazione orizzontale (sfasamento) è verso <strong>sinistra di $1/4$</strong> (e NON di 1!).</p>
+              </div>
+
+              <div class="card card-def">
+                <div class="card-title">📋 Il Protocollo Canonico Obbligatorio in 6 Stadi Intermedi</div>
+                <ol class="didactic-list">
+                  <li><span class="step-badge">Stadio 0</span> <strong>Funzione Base:</strong> $y_0 = \sin(x)$. Periodo fondamentale $T_0 = 2\pi$, ampiezza $A_0 = 1$.</li>
+                  <li><span class="step-badge">Stadio 1</span> <strong>Traslazione lungo $x$ (Fase):</strong> $y_1 = \sin\left(x + \frac{1}{4}\right)$. Traslazione orizzontale a sinistra di $1/4$.</li>
+                  <li><span class="step-badge">Stadio 2</span> <strong>Dilatazione/Contrazione lungo $x$ (Pulsazione $\omega$):</strong> $y_2 = \sin\left[4\left(x + \frac{1}{4}\right)\right]$. La pulsazione è $\omega = 4$, il nuovo periodo si comprime a:
+                    \[ T = \frac{2\pi}{\omega} = \frac{2\pi}{4} = \frac{\pi}{2} \approx 1{,}57 \]
+                  </li>
+                  <li><span class="step-badge">Stadio 3</span> <strong>Dilatazione verticale lungo $y$ (Ampiezza $A$):</strong> $y_3 = 2\sin\left[4\left(x + \frac{1}{4}\right)\right]$. Le creste salgono a $+2$ e le gole scendono a $-2$.</li>
+                  <li><span class="step-badge">Stadio 4</span> <strong>Riflessione/Ribaltamento verticale:</strong> $y_4 = -2\sin\left[4\left(x + \frac{1}{4}\right)\right]$. Il segno meno inverte creste e ventri (riflessione rispetto all'asse $x$).</li>
+                  <li><span class="step-badge">Stadio 5</span> <strong>Eventuale Valore Assoluto:</strong> $y_5 = \left|-2\sin\left[4\left(x + \frac{1}{4}\right)\right]\right|$. Le parti negative vengono ribaltate verso l'alto, generando una successione di sole creste positive di periodo dimezzato $T/2 = \pi/4$.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <video controls autoplay loop muted>
+                  <source src="media/videos/animazioni/480p15/OndeArmonicheComposte.mp4" type="video/mp4">
+                  <img src="frames/OndeArmonicheComposte.png" alt="Stadi intermedi onda armonica">
+                </video>
+                <div class="media-caption">
+                  <span>Animazione Scientifica: I 6 Stadi Intermedi Successivi</span>
+                  <span class="badge">Protocollo Rigoroso</span>
+                </div>
+              </div>
+
+              <!-- Widget Interattivo Trasformazioni Geometriche -->
+              <div class="widget-container">
+                <div class="widget-title">⚙️ Esploratore Interattivo degli Stadi Intermedi</div>
+                <div class="stage-btn-group">
+                  <button class="stage-btn" onclick="setWaveStage(0)">0. Base: sin(x)</button>
+                  <button class="stage-btn" onclick="setWaveStage(1)">1. Trasl. x (+1/4)</button>
+                  <button class="stage-btn" onclick="setWaveStage(2)">2. &omega;=4 (T=&pi;/2)</button>
+                  <button class="stage-btn" onclick="setWaveStage(3)">3. Ampiezza 2</button>
+                  <button class="stage-btn active" onclick="setWaveStage(4)">4. Ribalt. (-2)</button>
+                  <button class="stage-btn" onclick="setWaveStage(5)">5. Modulo |f|</button>
+                </div>
+                <div class="widget-display" id="wave-stage-desc">
+                  <strong>Stadio 4 (Curva Finale):</strong> y = -2 sin[4(x + 1/4)] &rarr; Periodo T = &pi;/2 &asymp; 1.57, Ampiezza A = 2, Creste e ventri invertiti.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 14: Teoremi sui Triangoli Rettangoli                            -->
+      <!-- ===================================================================== -->
+      <section>
+        <div class="slide-header">
+          <h2>📐 Teoremi sui Triangoli Rettangoli e Risoluzione dei Problemi <span class="badge">Modulo 4</span></h2>
+          <span class="slide-hint">↕ Scorri per consultare tutti i dettagli</span>
+        </div>
+        <div class="slide-scroll-body">
+          <div class="grid-2col">
+            <div>
+              <div class="card card-teo">
+                <div class="card-title">📜 Primo Teorema sui Triangoli Rettangoli</div>
+                <p>In un triangolo rettangolo, la misura di un cateto è uguale al prodotto della misura dell'ipotenusa per il seno dell'angolo opposto, oppure per il coseno dell'angolo adiacente:</p>
+                \[ b = a \cdot \sin\beta = a \cdot \cos\gamma \]
+                \[ c = a \cdot \sin\gamma = a \cdot \cos\beta \]
+              </div>
+
+              <div class="card card-teo">
+                <div class="card-title">📜 Secondo Teorema sui Triangoli Rettangoli</div>
+                <p>In un triangolo rettangolo, la misura di un cateto è uguale al prodotto dell'altro cateto per la tangente dell'angolo opposto, oppure per la cotangente dell'angolo adiacente:</p>
+                \[ b = c \cdot \tan\beta = c \cdot \cot\gamma \]
+                \[ c = b \cdot \tan\gamma = b \cdot \cot\beta \]
+              </div>
+
+              <div class="card card-es">
+                <div class="card-title">✏️ Esercizio di Verifica Applicativo (Pagina 28)</div>
+                <p>Dato un triangolo rettangolo con ipotenusa $a = 10\,\text{cm}$ e angolo acuto $\beta = 30^\circ$ ($\pi/6$ rad):</p>
+                <ul class="didactic-list">
+                  <li>Cateto opposto $b$: $b = a \cdot \sin(30^\circ) = 10 \cdot \frac{1}{2} = 5\,\text{cm}$.</li>
+                  <li>Cateto adiacente $c$: $c = a \cdot \cos(30^\circ) = 10 \cdot \frac{\sqrt{3}}{2} = 5\sqrt{3} \approx 8{,}66\,\text{cm}$.</li>
+                  <li>Verifica Teorema di Pitagora: $b^2 + c^2 = 5^2 + (5\sqrt{3})^2 = 25 + 75 = 100 = 10^2 = a^2 \quad \checkmark$</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div class="media-box">
+                <img src="frames/triangoli_rettangoli.png" alt="Triangolo rettangolo trigonometrico">
+                <div class="media-caption">
+                  <span>Risoluzione trigonometrica dei triangoli rettangoli</span>
+                  <span class="badge">Relazioni Fondamentali</span>
+                </div>
+              </div>
+
+              <div class="card card-docente">
+                <div class="card-title">💡 Collegamento con la Fisica: Scomposizione dei Vettori</div>
+                <p>Ricordate sempre che in fisica classica la scomposizione delle forze (ad esempio sul piano inclinato o nelle traiettorie balistiche del moto del proiettile) si basa esattamente su questi due teoremi:</p>
+                \[ F_x = F \cos\theta, \quad F_y = F \sin\theta \]
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 15: Quadro Sinottico degli Errori Tipici Rilevati               -->
+      <!-- ===================================================================== -->
+      
+
+    </div>
+  </div>
+
+  <!-- Script Reveal.js e KaTeX locali -->
+  <script src="reveal/reveal.js"></script>
+  <script src="reveal/math.js"></script>
+
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: false,
+      hash: true,
+      transition: 'slide',
+      width: 1280,
+      height: 820,
+      margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2.0,
+      plugins: [ RevealMath.KaTeX ]
+    });
+
+    // Funzione interattiva per il Limite di Bernoulli (Slide 2)
+    function updateBernoulli(val) {
+      val = parseInt(val);
+      document.getElementById('label-n').innerText = val;
+      const C = 1000;
+      const ratio = Math.pow(1 + 1/val, val);
+      const M = C * ratio;
+      const e_val = Math.E;
+      const diff = ratio - e_val;
+      
+      let freqLabel = "Personalizzata";
+      if (val === 1) freqLabel = "Annuale (n=1)";
+      else if (val === 2) freqLabel = "Semestrale (n=2)";
+      else if (val === 4) freqLabel = "Trimestrale (n=4)";
+      else if (val === 12) freqLabel = "Mensile (n=12)";
+      else if (val >= 90) freqLabel = "Quasi Continua (n=" + val + ")";
+
+      document.getElementById('bernoulli-out').innerHTML = 
+        `n = ${val} (${freqLabel}) &rarr; M = 1000 &times; (1 + 1/${val})<sup>${val}</sup> = <strong>${M.toFixed(2)} &euro;</strong><br>` +
+        `Rapporto M/C = <strong>${ratio.toFixed(5)}</strong> | Scarto asintotico da e: <strong>${diff.toFixed(5)}</strong>`;
+    }
+
+    // Funzione interattiva per il Goniometro (Slide 12)
+    function updateGonio(deg) {
+      deg = parseInt(deg);
+      document.getElementById('label-deg').innerText = deg + '°';
+      const rad = deg * (Math.PI / 180);
+      const c = Math.cos(rad);
+      const s = Math.sin(rad);
+      const t = Math.abs(c) < 0.0001 ? "Infinito (&plusmn;&infin;)" : Math.tan(rad).toFixed(4);
+      const idPit = (c*c + s*s).toFixed(5);
+
+      document.getElementById('gonio-out').innerHTML = 
+        `&alpha; = ${deg}&deg; (${(rad/Math.PI).toFixed(2)}&pi; rad) &rarr; cos(&alpha;) = <strong>${c.toFixed(4)}</strong> | sin(&alpha;) = <strong>${s.toFixed(4)}</strong><br>` +
+        `tan(&alpha;) = <strong>${t}</strong> | Verifica Pitagora: cos&sup2;&alpha; + sin&sup2;&alpha; = <strong>${idPit}</strong>`;
+    }
+
+    // Funzione interattiva per gli stadi d'onda (Slide 13)
+    const waveStageDescs = [
+      "<strong>Stadio 0 (Base):</strong> y = sin(x) &rarr; Periodo fondamentale T = 2&pi; &asymp; 6.28, Ampiezza A = 1, passante per l'origine O(0,0).",
+      "<strong>Stadio 1 (Traslazione Orizzontale x):</strong> y = sin(x + 1/4) &rarr; Sfasamento di 1/4 verso SINISTRA. La curva anticipa l'oscillazione.",
+      "<strong>Stadio 2 (Compressione x con &omega;=4):</strong> y = sin[4(x + 1/4)] &rarr; Pulsazione quadruplicata: il periodo si comprime a T = 2&pi;/4 = &pi;/2 &asymp; 1.57.",
+      "<strong>Stadio 3 (Dilatazione Verticale y con A=2):</strong> y = 2 sin[4(x + 1/4)] &rarr; L'ampiezza raddoppia: i picchi salgono a +2 e le valli scendono a -2.",
+      "<strong>Stadio 4 (Ribaltamento Verticale y):</strong> y = -2 sin[4(x + 1/4)] &rarr; Il segno meno ribalta la curva: dove c'era un picco ora c'è una gola (riflessione asse x).",
+      "<strong>Stadio 5 (Valore Assoluto):</strong> y = |-2 sin[4(x + 1/4)]| &rarr; Tutte le gole negative (-2) vengono riflesse verso l'alto (+2). Le semionde sono tutte positive con periodo dimezzato T/2 = &pi;/4."
+    ];
+
+    function setWaveStage(idx) {
+      const btns = document.querySelectorAll('.stage-btn');
+      btns.forEach((b, i) => {
+        if (i === idx) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      document.getElementById('wave-stage-desc').innerHTML = waveStageDescs[idx];
+    }
+  </script>
+</body>
+</html>

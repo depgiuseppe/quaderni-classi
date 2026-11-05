@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+  <title>Portale Studenti Classe 1B — Liceo «Leonardo da Vinci» Maglie</title>
+  <link rel="stylesheet" href="Fisica/reveal/katex/dist/katex.min.css" onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css';">
+  <script defer src="Fisica/reveal/katex/dist/katex.min.js"></script>
+  <script defer src="Fisica/reveal/katex/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --col-primary: #184C78;
+      --col-primary-hover: #12395B;
+      --col-accent-blue: #2563EB;
+      --col-accent-green: #16A34A;
+      --col-text: #0F172A;
+      --col-text-muted: #475569;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      background-color: var(--bg-page);
+      color: var(--col-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .top-bar {
+      background: #FFFFFF;
+      border-bottom: 2px solid var(--col-primary);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+    .top-bar-brand {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--col-primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .top-bar-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .nav-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: #F1F5F9;
+      color: #334155;
+      border: 1px solid var(--border-strong);
+      transition: all 0.15s ease;
+    }
+    .nav-pill:hover, .nav-pill.active {
+      background: var(--col-primary);
+      color: #FFFFFF;
+      border-color: var(--col-primary);
+    }
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+      flex: 1;
+    }
+    .hero-header {
+      background: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-top: 5px solid var(--col-primary);
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .school-badge {
+      display: inline-block;
+      background: #EFF6FF;
+      color: var(--col-primary);
+      border: 1px solid #BFDBFE;
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(1.65rem, 4vw, 2.3rem);
+      font-weight: 800;
+      color: var(--col-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: clamp(0.95rem, 2.2vw, 1.08rem);
+      color: var(--col-text-muted);
+      max-width: 720px;
+      margin: 0 auto 12px;
+    }
+    .teacher-meta {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 26px;
+      margin-bottom: 32px;
+    }
+    .subject-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 14px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .subject-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--col-primary);
+      box-shadow: 0 10px 24px rgba(24, 76, 120, 0.1);
+    }
+    .subject-card.math {
+      border-top: 4px solid var(--col-accent-blue);
+    }
+    .subject-card.physics {
+      border-top: 4px solid var(--col-accent-green);
+    }
+    .subject-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .subject-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.65rem;
+      background: #F1F5F9;
+      flex-shrink: 0;
+    }
+    .subject-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--col-text);
+      line-height: 1.25;
+    }
+    .subject-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--col-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .subject-desc {
+      color: var(--col-text-muted);
+      font-size: 0.94rem;
+      margin-bottom: 18px;
+    }
+    .topics-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 22px;
+      list-style: none;
+    }
+    .topics-box li {
+      font-size: 0.88rem;
+      color: #1E293B;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .topics-box li:last-child {
+      margin-bottom: 0;
+    }
+    .btn-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-html {
+      background: var(--col-primary);
+      color: #FFFFFF;
+      border: 1px solid var(--col-primary);
+      box-shadow: 0 2px 6px rgba(24, 76, 120, 0.2);
+    }
+    .btn-html:hover {
+      background: var(--col-primary-hover);
+    }
+    .btn-pdf {
+      background: #EFF6FF;
+      color: var(--col-primary);
+      border: 1px solid #BFDBFE;
+    }
+    .btn-pdf:hover {
+      background: #DBEAFE;
+    }
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-strong);
+      padding: 20px;
+      text-align: center;
+      font-size: 0.86rem;
+      color: var(--col-text-muted);
+    }
+    footer a {
+      color: var(--col-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    @media (max-width: 640px) {
+      .container {
+        padding: 20px 14px 40px;
+      }
+      .hero-header {
+        padding: 24px 16px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <a href="../index.html" class="top-bar-brand">🏛️ Portale Didattico StarNote</a>
+    <nav class="top-bar-nav">
+      <a href="index.html" class="nav-pill active">Classe 1B</a>
+      <a href="../4B/index.html" class="nav-pill">Classe 4B</a>
+      <a href="../4F/index.html" class="nav-pill">Classe 4F</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero-header">
+      <span class="school-badge">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie</span>
+      <h1>Portale Studenti — Classe 1B</h1>
+      <p class="subtitle">Compendi Digitali Interattivi (con formule matematiche KaTeX, animazioni Manim e simulatori di laboratorio) e Dispense Editoriali in PDF pronte per lo studio e la stampa.</p>
+      <div class="teacher-meta">Docente: Prof. Giuseppe De Pascali • Anno Scolastico 2026/2027</div>
+    </section>
+
+    <div class="cards-grid">
+      <!-- Card 1: Laboratorio Matematico -->
+      <article class="subject-card math">
+        <div>
+          <div class="subject-header">
+            <div class="subject-icon">📐</div>
+            <div>
+              <div class="subject-tag">Classe 1B • Matematica</div>
+              <h2 class="subject-title">Laboratorio Matematico</h2>
+            </div>
+          </div>
+          <p class="subject-desc">Aritmetica geometrica pitagorica, numeri figurati, accoppiamento di Gauss, successioni ricorsive e simulatore interattivo delle configurazioni poligonali.</p>
+          <ul class="topics-box">
+            <li><span>🔹</span> <span><strong>Numeri Triangolari $T_n$</strong> e formula chiusa di Gauss $T_n = \frac{n(n+1)}{2}$</span></li>
+            <li><span>🔹</span> <span><strong>Numeri Quadrati $Q_n = n^2$</strong>, gnomoni dispari e Teorema di Nicomaco ($Q_n = T_{n-1} + T_n$)</span></li>
+            <li><span>🔹</span> <span><strong>Numeri Pentagonali $P_n$</strong>, rettificazione geometrica di $\pi$ e problemi svolti</span></li>
+            <li><span>🎬</span> <span><strong>Animazione Manim &amp; Simulatore Canvas</strong> interattivo touch</span></li>
+          </ul>
+        </div>
+        <div class="btn-stack">
+          <a href="Laboratorio_Matematico/index.html" class="btn btn-html">
+            🌐 Apri Compendio Interattivo HTML
+          </a>
+          <a href="Laboratorio_Matematico/dispensa_lezione.pdf" class="btn btn-pdf" download>
+            📥 Scarica Dispensa PDF
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: Fisica -->
+      <article class="subject-card physics">
+        <div>
+          <div class="subject-header">
+            <div class="subject-icon">⚖️</div>
+            <div>
+              <div class="subject-tag">Classe 1B • Fisica</div>
+              <h2 class="subject-title">Fisica</h2>
+            </div>
+          </div>
+          <p class="subject-desc">Metodo sperimentale galileiano, strumenti di misura, equilibrio della bilancia a bracci uguali, propagazione delle incertezze, proporzionalità e formule inverse.</p>
+          <ul class="topics-box">
+            <li><span>🔹</span> <span><strong>Grandezze Fisiche &amp; SI</strong>, sensibilità, portata e bilancia a bracci uguali</span></li>
+            <li><span>🔹</span> <span><strong>Teoria degli Errori</strong>: valore medio, semidispersione massima, errore relativo e percentuale</span></li>
+            <li><span>🔹</span> <span><strong>Relazioni Matematiche</strong>: proporzionalità diretta, quadratica, inversa (iperbole) e formule inverse</span></li>
+            <li><span>🎬</span> <span><strong>Animazione Manim, Due Simulatori</strong> (Bilancia e Pendenza) ed Esercizi del libro risolti</span></li>
+          </ul>
+        </div>
+        <div class="btn-stack">
+          <a href="Fisica/index.html" class="btn btn-html">
+            🌐 Apri Compendio Interattivo HTML
+          </a>
+          <a href="Fisica/dispensa_lezione.pdf" class="btn btn-pdf" download>
+            📥 Scarica Dispensa PDF
+          </a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    Liceo Scientifico Statale «Leonardo da Vinci» – Maglie • Prof. Giuseppe De Pascali • <a href="../index.html">Indice Generale delle Classi</a>
+  </footer>
+
+</body>
+</html>

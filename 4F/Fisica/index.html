@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+  <title>Meccanica dei Fluidi e Termodinamica dei Gas – Classe 4F</title>
+  
+  <link rel="stylesheet" href="reveal/katex/dist/katex.min.css">
+
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-doc: #FFFFFF;
+      --border-doc: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --col-text: #0F172A;
+      --col-text-muted: #475569;
+      --col-primary: #184C78;
+      --col-primary-light: #2563EB;
+      --col-primary-dark: #0F2D4A;
+      --col-green: #16A34A;
+      --col-red: #DC2626;
+      --col-amber: #D97706;
+      --water-blue: #BAE6FD;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-page);
+      color: var(--col-text);
+      font-family: "KaTeX_Main", "Latin Modern Roman", "Computer Modern", Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-doc);
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(24, 76, 120, 0.2) transparent;
+      gap: 8px;
+      padding: 10px 16px;
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+      white-space: nowrap;
+    }
+    .sticky-nav::-webkit-scrollbar {
+      height: 4px;
+    }
+    .sticky-nav::-webkit-scrollbar-thumb {
+      background: rgba(24, 76, 120, 0.2);
+      border-radius: 4px;
+    }
+    .sticky-nav a {
+      flex: 0 0 auto;
+      color: var(--col-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .sticky-nav a:hover {
+      background: #EFF6FF;
+      color: var(--col-primary-light);
+    }
+
+    .main-container {
+      max-width: 980px;
+      margin: 30px auto;
+      background: var(--bg-doc);
+      border: 1px solid var(--border-doc);
+      border-radius: 12px;
+      padding: 40px 48px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .header-box {
+      border-bottom: 2px solid var(--border-strong);
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+      text-align: center;
+    }
+    .school-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--col-text-muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .main-title {
+      font-size: 32px;
+      color: var(--col-primary);
+      margin: 10px 0;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--col-text-muted);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      color: var(--col-primary);
+      border-bottom: 1px solid var(--border-strong);
+      padding-bottom: 8px;
+      margin-top: 44px;
+      font-size: 24px;
+    }
+    h3 {
+      color: #1E293B;
+      margin-top: 26px;
+      font-size: 20px;
+    }
+
+    .card {
+      background: #F8FAFC;
+      border: 1px solid var(--border-doc);
+      border-left: 4px solid var(--col-primary);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .card.comment {
+      border-left-color: var(--col-amber);
+      background: #FFFBEB;
+    }
+    .card.exercise {
+      border-left-color: var(--col-green);
+      background: #F0FDF4;
+    }
+    .card.theory {
+      border-left-color: var(--col-primary-light);
+      background: #F0F9FF;
+    }
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .formula-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      padding: 14px 20px;
+      border-radius: 8px;
+      margin: 16px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .clipping-container {
+      text-align: center;
+      margin: 16px 0 20px 0;
+    }
+    .clipping-container img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      border: 1px solid #E2E8F0;
+    }
+    .clipping-caption {
+      font-size: 13px;
+      color: var(--col-text-muted);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .interactive-panel {
+      background: #FFFFFF;
+      border: 2px solid var(--border-doc);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 30px 0;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .slider-container label {
+      min-width: 220px;
+      font-weight: 600;
+    }
+    input[type=range] { flex: 1; }
+    .val-display {
+      font-weight: 700;
+      color: var(--col-primary-light);
+      min-width: 110px;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border: 1px solid var(--border-doc);
+      border-radius: 8px;
+      background: #FFFFFF;
+      touch-action: none;
+      cursor: ew-resize;
+    }
+
+    /* Anti-Overflow Shield per KaTeX e Formule Matematiche (schermi 360px-414px) */
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 8px 0;
+      margin: 1em 0;
+      max-width: 100%;
+    }
+    .katex {
+      font-size: 1.05em;
+      max-width: 100%;
+    }
+    .katex-display > .katex {
+      white-space: normal;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .main-container {
+        padding: 24px 16px;
+        margin: 15px auto;
+        border-radius: 8px;
+      }
+      .main-title {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 18px;
+      }
+      .slider-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .slider-container label {
+        min-width: unset;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 16px;
+      }
+      .main-container {
+        padding: 20px 12px;
+        margin: 10px auto;
+      }
+      .katex-display {
+        font-size: 0.90em;
+        padding: 4px 0;
+      }
+      .katex {
+        font-size: 0.95em;
+      }
+      .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .katex-display {
+        font-size: 0.82em;
+      }
+      .katex {
+        font-size: 0.88em;
+      }
+    }
+  </style>
+
+  <script defer src="reveal/katex/dist/katex.min.js"></script>
+  <script defer src="reveal/katex/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+<style>
+    /* Mobile-First Hardening & Touch Shields */
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    .top-navbar {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      display: flex;
+      flex-wrap: nowrap !important;
+      gap: 8px;
+    }
+    .top-navbar .nav-link {
+      flex-shrink: 0;
+    }
+    .katex-display {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+      padding: 6px 0;
+    }
+    table {
+      max-width: 100%;
+      overflow-x: auto !important;
+      display: block;
+      -webkit-overflow-scrolling: touch;
+    }
+    canvas {
+      touch-action: none !important;
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    video {
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+
+  <!-- Sticky Navbar (Tutti i 7 Capitoli + Simulatore) -->
+  <nav class="sticky-nav">
+    <a href="#cap1">1. Statica & Archimede</a>
+    <a href="#cap2">2. Continuità</a>
+    <a href="#cap3">3. Bernoulli & Torricelli</a>
+    <a href="#cap4">4. Poiseuille</a>
+    <a href="#cap5">5. Principio Zero</a>
+    <a href="#cap6">6. Mole & Avogadro</a>
+    <a href="#cap7">7. Leggi dei Gas</a>
+    <a href="#simulatore">Simulatore Venturi</a>
+  </nav>
+
+  <div class="main-container">
+    
+    <!-- Intestazione Istituzionale -->
+    <div class="header-box">
+      <div class="school-title">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie</div>
+      <h1 class="main-title">Fisica – Classe 4F<br>Meccanica dei Fluidi e Termodinamica dei Gas</h1>
+      <div class="subtitle">Statica, Idrodinamica dei Fluidi Ideali, Principio Zero, Mole e Leggi Sperimentali dei Gas Perfetti</div>
+      <div style="font-size: 14px; color: var(--col-text-muted);">Docente: Prof. Giuseppe De Pascali | Anno Scolastico 2026/2027 | Conforme a PROMPT MASTER 4.0</div>
+      
+      <!-- Pulsanti Navigazione Risorse e Download -->
+      <div class="resource-links" style="margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+        <a href="../index.html" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #F1F5F9; color: #0F172A; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #CBD5E1;">
+          🏠 Portale Classe 4F
+        </a>
+        <a href="dispensa_lezione.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #184C78; color: #FFFFFF; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; box-shadow: 0 2px 6px rgba(24, 76, 120, 0.25);">
+          📥 Scarica Dispensa PDF
+        </a>
+        <a href="index.html" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #EFF6FF; color: #184C78; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #BFDBFE;">
+          🌐 Compendio HTML
+        </a>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 1 -->
+    <!-- ========================================================================= -->
+    <h2 id="cap1">Capitolo 1: Statica dei Fluidi: Pressione, Stevino, Pascal e Archimede</h2>
+    
+    <p>
+      La pressione &egrave; una grandezza scalare fondamentale definita come rapporto tra la forza perpendicolare e l'area:
+      $$p = \frac{F_\perp}{S} \quad [\text{Pa} = \text{N/m}^2]$$
+      Nei liquidi a riposo, la pressione esercitata dal peso proprio della colonna fluida &egrave; regolata dalla <strong>Legge di Stevino</strong>:
+    </p>
+    <div class="formula-box">
+      $$\mathbf{p = p_0 + \rho \cdot g \cdot h}$$
+    </div>
+    <p>dove $p_0 \approx 1{,}013 \cdot 10^5\,\text{Pa}$ &egrave; la pressione atmosferica al livello del mare e $\rho$ &egrave; la densit&agrave; del liquido ($\rho_{\text{acqua}} = 1000\,\text{kg/m}^3$, $\rho_{\text{mercurio}} = 13\,600\,\text{kg/m}^3$).</p>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">Principio di Pascal e Torchio Idraulico</div>
+      <p style="margin: 0;">
+        La pressione esercitata in qualsiasi punto di un liquido incomprimibile si trasmette inalterata a ogni altra superficie a contatto col liquido. 
+        Nel torchio idraulico:
+        $$\frac{F_1}{S_1} = \frac{F_2}{S_2} \implies \mathbf{F_2 = F_1 \left(\frac{S_2}{S_1}\right)}$$
+        Il lavoro compiuto si conserva rigorosamente: $W_2 = F_2 \Delta l_2 = F_1 \Delta l_1 = W_1$.
+      </p>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">Principio di Archimede e Galleggiamento</div>
+      <p>
+        Ogni corpo immerso in un fluido riceve una spinta verticale orientata verso l'alto pari al peso del fluido spostato:
+        $$\mathbf{F_A = \rho_{\text{fluido}} \cdot V_{\text{immerso}} \cdot g}$$
+        Condizione di galleggiamento all'equilibrio statico ($P = F_A$):
+        $$\mathbf{\frac{V_{\text{immerso}}}{V_{\text{totale}}} = \frac{\rho_{\text{corpo}}}{\rho_{\text{fluido}}}} \implies \mathbf{\frac{V_{\text{emerso}}}{V_{\text{totale}}} = 1 - \frac{\rho_{\text{corpo}}}{\rho_{\text{fluido}}}}$$
+      </p>
+    </div>
+
+    <!-- Esercizio 11 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Galleggiamento di un Blocchetto di Legno (Es. 11)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_11_galleggiamento.png" alt="Traccia originale Esercizio 11 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione dal libro di testo (Esercizio 11, "Ora Prova Tu")</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $d_c = 890\,\text{kg/m}^3$, $l = 24{,}3\,\text{cm} = 0{,}243\,\text{m}$, $d_0 = 1000\,\text{kg/m}^3$.<br>
+        <strong>Risoluzione:</strong> All'equilibrio $F_A = F_p \implies d_0 \cdot g \cdot A (l - h) = d_c \cdot g \cdot A \cdot l$.<br>
+        Semplificando $g$ e $A$:
+        $$h = l \left(1 - \frac{d_c}{d_0}\right) = 0{,}243\,\text{m} \cdot \left(1 - \frac{890}{1000}\right) = 0{,}243 \cdot 0{,}11 = \mathbf{0{,}0267\,\text{m} \approx 2{,}67\,\text{cm}}$$
+        Frazione percentuale emersa: $\dfrac{h}{l} = 11\%$.
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 2 -->
+    <!-- ========================================================================= -->
+    <h2 id="cap2">Capitolo 2: Dinamica dei Fluidi Ideali ed Equazione di Continuità</h2>
+    <p>
+      In regime stazionario, per un fluido ideale incompressibile la portata volumetrica $Q$ si conserva identica lungo l'intero condotto:
+    </p>
+    <div class="formula-box">
+      $$\mathbf{Q = A_1 \cdot v_1 = A_2 \cdot v_2 = \text{costante}} \implies \mathbf{v_2 = v_1 \left(\frac{A_1}{A_2}\right)}$$
+    </div>
+
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto: Condotto a Sezione Variabile (Es. 18)</div>
+      <p>
+        <strong>Dati:</strong> $A_1 = 2{,}0\,\text{cm}^2 = 0{,}00020\,\text{m}^2$, $v_1 = 6{,}0 \cdot 10^{-2}\,\text{m/s}$, $A_2 = 0{,}80\,\text{cm}^2 = 0{,}000080\,\text{m}^2$.<br>
+        <strong>Calcolo portata:</strong> $q = A_1 \cdot v_1 = (2{,}0 \cdot 10^{-4}) \cdot (6{,}0 \cdot 10^{-2}) = \mathbf{1{,}2 \cdot 10^{-5}\,\text{m}^3/\text{s}}$.<br>
+        <strong>Velocità nella strozzatura:</strong> $v_2 = \dfrac{q}{A_2} = \dfrac{1{,}2 \cdot 10^{-5}}{8{,}0 \cdot 10^{-5}} = \mathbf{0{,}15\,\text{m/s}}$.
+      </p>
+    </div>
+
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Portata e Velocità nell'Aorta Umana (Es. 21)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_21_aorta.png" alt="Traccia originale Esercizio 21 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 21, Fisica Biomedica)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $r = 1{,}25\,\text{cm} = 1{,}25 \cdot 10^{-2}\,\text{m}$, $q_1 = 5{,}0\,\text{L/min}$, $v_2 = 0{,}75\,\text{m/s}$.<br>
+        1. Portata in unità SI: $q_1 = 5{,}0 \cdot \frac{10^{-3}\,\text{m}^3}{60\,\text{s}} \approx 8{,}33 \cdot 10^{-5}\,\text{m}^3/\text{s}$.<br>
+        Area della sezione: $A = \pi r^2 = \pi (1{,}25 \cdot 10^{-2})^2 \approx 4{,}91 \cdot 10^{-4}\,\text{m}^2$.<br>
+        Velocità a riposo: $v_1 = \dfrac{q_1}{A} = \dfrac{8{,}33 \cdot 10^{-5}}{4{,}91 \cdot 10^{-4}} \approx \mathbf{0{,}17\,\text{m/s}}$.<br>
+        2. Nuova portata durante sforzo aerobico: poich&eacute; la sezione &egrave; costante, $\dfrac{q_2}{v_2} = \dfrac{q_1}{v_1} \implies q_2 = 5{,}0 \cdot \dfrac{0{,}75}{0{,}17} \approx \mathbf{22\,\text{L/min}}$.
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 3 -->
+    <!-- ========================================================================= -->
+    <h2 id="cap3">Capitolo 3: L'Equazione di Bernoulli, l'Effetto Venturi e Torricelli</h2>
+
+    <p>
+      L'Equazione di Bernoulli traduce il principio di conservazione dell'energia meccanica per un fluido ideale:
+    </p>
+    <div class="formula-box">
+      $$\mathbf{p + \frac{1}{2}\,\rho\,v^2 + \rho\,g\,y = \text{costante}}$$
+    </div>
+
+    <div class="card comment">
+      <div class="card-title" style="color: var(--col-amber);">L'Effetto Venturi (Depressione Idrodinamica)</div>
+      <p style="margin: 0;">
+        In un condotto orizzontale a quota costante:
+        $$p_1 + \frac{1}{2}\rho v_1^2 = p_2 + \frac{1}{2}\rho v_2^2 \implies \mathbf{v_2 > v_1 \iff p_2 < p_1}$$
+        Dove il fluido scorre pi&ugrave; velocemente a causa della strozzatura, la pressione statica &egrave; minore.
+      </p>
+    </div>
+
+    <div class="clipping-container" style="background:#FFFFFF; border:1px solid var(--border-doc); border-radius:10px; padding:16px; margin:20px 0;">
+      <video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/IdrostaticaVenturiManim.mp4" type="video/mp4">
+      </video>
+      <div class="clipping-caption">
+        <strong>Animazione Scientifica Manim (Tema Chiaro):</strong> Legge di Stevino con aumento della pressione in profondit&agrave;, tubo di Venturi con accelerazione delle particelle nella strozzatura e abbassamento della colonnina manometrica, e isoterma di Boyle $pV = \text{cost}$.
+      </div>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">Teorema di Torricelli ed Efflusso</div>
+      <p style="margin: 0;">
+        La velocit&agrave; con cui un liquido fuoriesce da un piccolo foro posto a profondit&agrave; $h$ al di sotto del pelo libero di un grande serbatoio aperto all'atmosfera coincide esattamente con la caduta libera di un grave da fermo:
+        $$\mathbf{v = \sqrt{2 \cdot g \cdot h}}$$
+      </p>
+    </div>
+
+    <!-- Esercizio 53 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Abbeveratoio con Getto a 30° e Gittata (Es. 53)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_53_abbeveratoio.png" alt="Traccia originale Esercizio 53 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 53)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $\theta = 30^\circ$, $y_0 = 59\,\text{cm} = 0{,}59\,\text{m}$, $x = 96\,\text{cm} = 0{,}96\,\text{m}$, $h = ?$.<br>
+        <strong>Cinematica del proiettile:</strong> $v_{0x} = v \frac{\sqrt{3}}{2}$, $v_{0y} = \frac{v}{2}$.<br>
+        Dalla traiettoria a quota zero al suolo:
+        $$0 = y_0 + \frac{x}{\sqrt{3}} - \frac{2gx^2}{3v^2} \implies v \approx 2{,}30\,\text{m/s}$$
+        Applicando il Teorema di Torricelli $v = \sqrt{2gh}$:
+        $$h = \frac{v^2}{2g} = \frac{(2{,}30)^2}{2 \cdot 9{,}81} \approx \mathbf{0{,}27\,\text{m} = 27\,\text{cm}}$$
+      </p>
+    </div>
+
+    <!-- Esercizio 4 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Serbatoio Forato con Tappo Circolare (Es. 4)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_04_serbatoio.png" alt="Traccia originale Esercizio 4 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 4)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $H_1 = 1{,}0\,\text{m}$, fondo a quota $3{,}7\,\text{m}$, foro a $0{,}20\,\text{m}$ dal fondo, raggio $r = 4{,}0\,\text{mm}$.<br>
+        1. Forza sul tappo: battente $h = 1{,}0 - 0{,}20 = 0{,}80\,\text{m} \implies p_{\text{idr}} = \rho g h = 7848\,\text{Pa}$. Area $S = \pi (0{,}004)^2 \approx 5{,}03 \cdot 10^{-5}\,\text{m}^2$.
+        $$F = p \cdot S = 7848 \cdot 5{,}03 \cdot 10^{-5} \approx \mathbf{0{,}39\,\text{N}}$$
+        2. Litri erogati in $2{,}0\,\text{s}$: $v = \sqrt{2gh} \approx 3{,}96\,\text{m/s}$, $Q = S v \approx 0{,}199\,\text{L/s} \implies V = 0{,}199 \cdot 2{,}0 \approx \mathbf{0{,}40\,\text{L}}$.<br>
+        3. Gittata dello zampillo al suolo: quota $y_0 = 3{,}7 + 0{,}20 = 3{,}9\,\text{m} \implies t_c = \sqrt{2 y_0 / g} \approx 0{,}89\,\text{s} \implies x = v \cdot t_c \approx \mathbf{3{,}5\,\text{m}}$.<br>
+        4. Tempo svuotamento per abbassare il livello di $1\,\text{cm}$ ($A_1 = 8{,}2\,\text{m}^2$): $v_1 = Q/A_1 = 0{,}24 \cdot 10^{-4}\,\text{m/s} \implies t = 0{,}01 / (0{,}24 \cdot 10^{-4}) \approx \mathbf{4{,}1 \cdot 10^2\,\text{s}}$.
+      </p>
+    </div>
+
+    <!-- Esercizio 45 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Foro di Deflusso in Diga di Irrigazione (Es. 45)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_45_diga.png" alt="Traccia originale Esercizio 45 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 45, "Ora Prova Tu")</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $d = 14\,\text{cm} = 0{,}14\,\text{m}$, $h_A = 6{,}3\,\text{m}$.<br>
+        Velocità di efflusso: $v_B = \sqrt{2 g h_A} = \sqrt{2 \cdot 9{,}81 \cdot 6{,}3} \approx 11{,}1\,\text{m/s}$.<br>
+        Area della sezione: $A = \frac{\pi d^2}{4} = \frac{\pi (0{,}14)^2}{4} \approx 0{,}01539\,\text{m}^2$.<br>
+        Portata volumetrica: $q = A \cdot v_B = 0{,}01539 \cdot 11{,}1 \approx \mathbf{0{,}17\,\text{m}^3/\text{s}}$.
+      </p>
+    </div>
+
+    <!-- Esercizio 79 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Tubo con Pompa ed Erogatore Finale (Es. 79)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_79_pompa.png" alt="Traccia originale Esercizio 79 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 79, Esame La Sapienza Roma)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $D_1 = 3{,}00\,\text{cm} = 0{,}030\,\text{m}$, $v_1 = 0{,}500\,\text{m/s}$, $D_2 = 0{,}600\,\text{cm} = 0{,}0060\,\text{m}$, $p_2 = 1{,}00\,\text{atm} = 1{,}013 \cdot 10^5\,\text{Pa}$.<br>
+        1. Velocità di uscita dall'erogatore:
+        $$v_2 = v_1 \left(\frac{D_1}{D_2}\right)^2 = 0{,}500 \cdot \left(\frac{0{,}030}{0{,}0060}\right)^2 = 0{,}500 \cdot 25 = \mathbf{12{,}5\,\text{m/s}}$$
+        2. Pressione fornita dalla pompa: da Bernoulli orizzontale:
+        $$p_1 = p_2 + \frac{1}{2}\rho(v_2^2 - v_1^2) = 1{,}013 \cdot 10^5 + 500 \cdot (156{,}25 - 0{,}25) = 1{,}013 \cdot 10^5 + 78\,000 \approx \mathbf{1{,}79 \cdot 10^5\,\text{Pa}}$$
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 4 -->
+    <!-- ========================================================================= -->
+    <h2 id="cap4">Capitolo 4: Fluidi Reali e Viscosità: Legge di Poiseuille</h2>
+    <div class="formula-box">
+      $$\mathbf{Q = \frac{\pi \cdot R^4 \cdot \Delta p}{8 \cdot \eta \cdot L}}$$
+    </div>
+    <div class="card comment">
+      <div class="card-title" style="color: var(--col-amber);">Sensibilità Medica Fondamentale ($R^4$)</div>
+      <p style="margin: 0;">
+        La dipendenza dalla quarta potenza del raggio rende il sistema cardiovascolare estremamente sensibile: una riduzione del calibro dell'arteria di appena il $16\%$ ($R' = 0{,}84 R$) dimezza la portata sanguigna ($0{,}84^4 \approx 0{,}50$). 
+        Il cuore deve raddoppiare la pressione motrice $\Delta p$ per compensare, causando grave ipertensione arteriosa cronica.
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 5 -->
+    <!-- ========================================================================= -->
+    <h2 id="cap5">Capitolo 5: Sistemi Termodinamici ed Equilibrio Termico: Il Principio Zero</h2>
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">Temperatura ed Equilibrio Termico</div>
+      <p>
+        Due corpi posti a contatto termico hanno la <strong>stessa temperatura</strong> se e solo se si trovano in <strong>equilibrio termico</strong> (nessun passaggio netto di calore).
+        Un <strong>sistema termodinamico</strong> &egrave; una porzione di materia delimitata da un confine:
+      </p>
+      <ul>
+        <li><strong>Aperto:</strong> scambia materia ed energia;</li>
+        <li><strong>Chiuso:</strong> scambia solo energia (calore e lavoro), ma non materia;</li>
+        <li><strong>Isolato:</strong> non scambia n&eacute; materia n&eacute; energia con l'ambiente esterno.</li>
+      </ul>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">Il Principio Zero della Termodinamica</div>
+      <p style="margin: 0;">
+        Se un sistema $A$ &egrave; in equilibrio termico con $B$, e $B$ &egrave; in equilibrio termico con $C$, allora $A$ e $C$ sono in equilibrio termico tra loro:
+        $$\mathbf{A \sim B \quad \land \quad B \sim C \implies A \sim C}$$
+        Questo principio garantisce la transitivit&agrave; dell'equilibrio e costituisce il fondamento scientifico per la costruzione e l'utilizzo dei <strong>termometri</strong>.
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 6 -->
+    <!-- ========================================================================= -->
+    <h2 id="cap6">Capitolo 6: La Misura della Quantità di Sostanza: Mole e Massa Molare</h2>
+    <p>
+      Ogni sostanza pura &egrave; caratterizzata da una specifica composizione molecolare (es. $\text{H}_2\text{O}$ formata da 2 atomi di H e 1 atomo di O). L'<strong>unit&agrave; di massa atomica unificata</strong> &egrave; definita da:
+      $$\mathbf{1\,\text{u} \approx 1{,}6605 \cdot 10^{-27}\,\text{kg}}$$
+    </p>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">La Mole e la Costante di Avogadro</div>
+      <p>
+        Una <strong>mole</strong> &egrave; la quantit&agrave; di sostanza che contiene un numero di particelle pari alla Costante di Avogadro:
+        $$\mathbf{N_A = 6{,}022 \cdot 10^{23}\,\text{mol}^{-1}} \implies \mathbf{N = n \cdot N_A} \iff \mathbf{n = \frac{N}{N_A}}$$
+        La <strong>massa molare</strong> $M$ &egrave; il rapporto tra la massa in grammi e il numero di moli:
+        $$\mathbf{M = \frac{m}{n}} \quad [\text{g/mol}] \iff \mathbf{m = n \cdot M}$$
+      </p>
+    </div>
+
+    <!-- Esercizio 33 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Moli di Glucosio (Es. 33)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_33_glucosio.png" alt="Traccia originale Esercizio 33 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 33)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $m = 15\,\text{g}$, formula del glucosio $\text{C}_6\text{H}_{12}\text{O}_6$.<br>
+        Massa molare del glucosio:
+        $$M = (6 \cdot 12) + (12 \cdot 1) + (6 \cdot 16) = 72 + 12 + 96 = \mathbf{180\,\text{g/mol}}$$
+        Numero di moli contenute:
+        $$n = \frac{m}{M} = \frac{15\,\text{g}}{180\,\text{g/mol}} \approx \mathbf{0{,}083\,\text{mol}}$$
+      </p>
+    </div>
+
+    <!-- Esercizio 26 e 27 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Atomi e Moli di Neon (Es. 26 e 27)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_26_neon.png" alt="Traccia originale Esercizi 26 e 27 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizi 26 e 27, Allenati sui Fondamentali)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> Massa atomica del neon $M = 20{,}18\,\text{u} \implies M = 20{,}18\,\text{g/mol}$.<br>
+        <strong>Es. 26:</strong> Calcola la massa di $N = 5{,}76 \cdot 10^{25}$ atomi di neon:
+        $$n = \frac{N}{N_A} = \frac{5{,}76 \cdot 10^{25}}{6{,}022 \cdot 10^{23}} \approx 95{,}65\,\text{mol} \implies m = n \cdot M = 95{,}65 \cdot 20{,}18 \approx 1930\,\text{g} = \mathbf{1{,}93\,\text{kg}}$$
+        <strong>Es. 27:</strong> Determina la massa di $n = 2{,}38\,\text{mol}$ di neon:
+        $$m = n \cdot M = 2{,}38\,\text{mol} \cdot 20{,}18\,\frac{\text{g}}{\text{mol}} = 48{,}03\,\text{g} = \mathbf{4{,}80 \cdot 10^{-2}\,\text{kg}}$$
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 7 -->
+    <!-- ========================================================================= -->
+    <h2 id="cap7">Capitolo 7: Le Leggi dei Gas Perfetti nel Piano di Clapeyron</h2>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">1. Legge di Boyle (Isoterma, $T = \text{cost}$)</div>
+      <p>
+        A temperatura costante, pressione e volume sono inversamente proporzionali:
+        $$\mathbf{p \cdot V = \text{costante}} \iff \mathbf{p_1 V_1 = p_2 V_2}$$
+        Nel <strong>Piano di Clapeyron</strong> $(V, p)$, la curva &egrave; un <strong>ramo di iperbole equilatera</strong>.
+      </p>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">2. Prima Legge di Gay-Lussac (Isobara, $p = \text{cost}$)</div>
+      <p>
+        A pressione costante, il volume varia linearmente con la temperatura centigrada:
+        $$\mathbf{V(t) = V_0 (1 + \alpha \cdot t)} \quad \text{con } \alpha = \frac{1}{273{,}15\,^\circ\text{C}} \approx 0{,}00366\,^\circ\text{C}^{-1}$$
+        Nel piano di Clapeyron &egrave; un <strong>segmento orizzontale</strong>. L'intercetta sull'asse $t$ individua lo <strong>Zero Assoluto ($-273{,}15\,^\circ\text{C}$)</strong>.
+      </p>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">3. Seconda Legge di Gay-Lussac (Isocora, $V = \text{cost}$)</div>
+      <p>
+        A volume costante (recipiente rigido ermetico), la pressione cresce linearmente con la temperatura:
+        $$\mathbf{p(t) = p_0 (1 + \alpha \cdot t)}$$
+        Nel piano di Clapeyron &egrave; un <strong>segmento verticale</strong>.
+      </p>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">Formulazione Kelvin Assoluta ($T = t + 273{,}15\,\text{K}$)</div>
+      <p>
+        Nella scala assoluta Kelvin, le leggi di Gay-Lussac diventano di proporzionalit&agrave; diretta pura:
+        $$\mathbf{\text{Isobara: } \frac{V}{T} = \text{costante} \iff \frac{V_1}{T_1} = \frac{V_2}{T_2}}, \qquad \mathbf{\text{Isocora: } \frac{p}{T} = \text{costante} \iff \frac{p_1}{T_1} = \frac{p_2}{T_2}}$$
+      </p>
+    </div>
+
+    <!-- Esercizio 49 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Espansione Isobara e Temperatura Assoluta (Es. 49)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_49_espansione_isobara.png" alt="Traccia originale Esercizio 49 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 49)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $p = \text{costante}$, $V_2 = 2 V_1 \implies \dfrac{V_1}{V_2} = \dfrac{1}{2}$, temperatura termodinamica finale $T_2 = 800\,\text{K}$.<br>
+        <strong>Risoluzione con la Prima Legge di Gay-Lussac:</strong><br>
+        Durante un'isobara il volume di un gas ideale &egrave; direttamente proporzionale alla temperatura assoluta:
+        $$\frac{V_1}{T_1} = \frac{V_2}{T_2} \implies T_1 = T_2 \cdot \frac{V_1}{V_2} = \frac{T_2}{2}$$
+        Sostituendo il valore numerico:
+        $$T_1 = \frac{800\,\text{K}}{2} = \mathbf{400\,\text{K}} \quad (t_1 = 400 - 273{,}15 = 126{,}85\,^\circ\text{C} \approx 127\,^\circ\text{C})$$
+        <strong>Interpretazione Cinetico-Molecolare:</strong> A pressione costante, il raddoppio del volume dimezza la densit&agrave; molecolare ($N/V$). Affinch&eacute; la frequenza degli urti e l'impulso trasmesso alle pareti mantengano costante la pressione macroscopica ($p = \frac{1}{3}\rho \langle v^2 \rangle$), l'energia cinetica media molecolare $\langle E_c \rangle = \frac{3}{2}k_B T$ deve obbligatoriamente raddoppiare, da cui $T_2 = 2T_1$.
+      </p>
+    </div>
+
+    <!-- Esercizio 51 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Cilindro con Pistone Libero e Dilatazione Isobara (Es. 51)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_51_pistone_cilindrico.png" alt="Traccia originale Esercizio 51 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 51)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> Recipiente cilindrico con pistone mobile privo di attrito ($p = p_{\text{atm}} = \text{costante}$), volume iniziale $V_1 = 2{,}50\,\text{L}$ a $t_1 = 20{,}0\,^\circ\text{C}$, temperatura riscaldata $t_2 = 100{,}0\,^\circ\text{C}$.<br>
+        <strong>Metodo 1: Temperatura Assoluta Kelvin (Diretto):</strong><br>
+        $$T_1 = 20{,}0 + 273{,}15 = 293{,}15\,\text{K}, \qquad T_2 = 100{,}0 + 273{,}15 = 373{,}15\,\text{K}$$
+        $$V_2 = V_1 \cdot \frac{T_2}{T_1} = 2{,}50\,\text{L} \cdot \frac{373{,}15\,\text{K}}{293{,}15\,\text{K}} \approx \mathbf{3{,}182\,\text{L}} \approx \mathbf{3{,}18\,\text{L}}$$
+        <strong>Metodo 2: Formulazione Centigrada Storica con $V_0$:</strong><br>
+        $$V_0 = \frac{V_1}{1 + \alpha t_1} = \frac{2{,}50\,\text{L}}{1 + 20{,}0 / 273{,}15} \approx 2{,}3294\,\text{L}$$
+        $$V_2 = V_0(1 + \alpha t_2) = 2{,}3294\,\text{L} \cdot \left(1 + \frac{100{,}0}{273{,}15}\right) \approx \mathbf{3{,}182\,\text{L}} \approx \mathbf{3{,}18\,\text{L}}$$
+      </p>
+    </div>
+
+    <!-- Esercizio 52 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Determinazione Sperimentale del Coefficiente $\alpha$ (Es. 52)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_52_dilatazione_volumica.png" alt="Traccia originale Esercizio 52 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 52)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $p = \text{costante}$, $t_0 = 0\,^\circ\text{C} \implies V_0 = 2{,}5\,\text{L}$, $t_1 = 251\,^\circ\text{C} \implies V_1 = 4{,}8\,\text{L}$.<br>
+        <strong>1. Isolamento Algebrico:</strong>
+        $$V_1 = V_0(1 + \alpha t_1) \implies 1 + \alpha t_1 = \frac{V_1}{V_0} \implies \alpha = \frac{1}{t_1}\left(\frac{V_1}{V_0} - 1\right) = \frac{V_1 - V_0}{V_0 \cdot t_1}$$
+        <strong>2. Calcolo Numerico e Reciproco:</strong>
+        $$\alpha = \frac{1}{251\,^\circ\text{C}}\left(\frac{4{,}8}{2{,}5} - 1\right) = \frac{0{,}92}{251\,^\circ\text{C}} \approx 0{,}0036653\,^\circ\text{C}^{-1} = \frac{1}{272{,}8\,^\circ\text{C}}$$
+        <strong>3. Verifica con 2 Cifre Significative:</strong> Con due cifre significative (dati $2{,}5\,\text{L}$ e $4{,}8\,\text{L}$), $\alpha \approx \mathbf{3{,}7 \cdot 10^{-3}\,^\circ\text{C}^{-1}}$, che coincide con il valore teorico universale $\dfrac{1}{273} \approx 3{,}7 \cdot 10^{-3}\,^\circ\text{C}^{-1}$.
+      </p>
+    </div>
+
+    <!-- Esercizio 65 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Espansione Isobara Percentuale (Es. 65)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_65_espansione_isobara.png" alt="Traccia originale Esercizio 65 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 65)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $p = \text{cost}$, aumento percentuale di volume $\dfrac{\Delta V}{V_1} = 2{,}0\% \implies V_2 = 1{,}020 V_1 = \dfrac{51}{50}V_1$, temperatura iniziale $t_1 = 14\,^\circ\text{C}$.<br>
+        <strong>Risoluzione con Scala Assoluta Kelvin:</strong><br>
+        $$T_1 = 14 + 273{,}15 = 287{,}15\,\text{K}$$
+        $$T_2 = T_1 \cdot \frac{V_2}{V_1} = 287{,}15\,\text{K} \cdot 1{,}020 \approx 292{,}89\,\text{K}$$
+        $$t_2 = T_2 - 273{,}15 = 292{,}89 - 273{,}15 \approx \mathbf{19{,}74\,^\circ\text{C}} \approx \mathbf{20\,^\circ\text{C}}$$
+        <em>(La risoluzione analitica con la formula centigrada $V = V_0(1+\alpha t)$ conferma identicamente il medesimo valore).</em>
+      </p>
+    </div>
+
+    <!-- Esercizio 66 con Ritaglio -->
+    <div class="card exercise">
+      <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Variazione Percentuale di Pressione in Isocora (Es. 66)</div>
+      <div class="clipping-container">
+        <img src="immagini/es_66_variazione_pressione_isocora.png" alt="Traccia originale Esercizio 66 dal libro di testo">
+        <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 66)</div>
+      </div>
+      <p>
+        <strong>Dati:</strong> $V = \text{costante}$, $t_1 = 42\,^\circ\text{C}$, $t_2 = 68\,^\circ\text{C}$.<br>
+        <strong>Risoluzione con Temperatura Assoluta Kelvin:</strong><br>
+        $$T_1 = 42 + 273{,}15 = 315{,}15\,\text{K}, \qquad T_2 = 68 + 273{,}15 = 341{,}15\,\text{K}$$
+        $$\frac{\Delta p}{p_1} \cdot 100\% = \frac{T_2 - T_1}{T_1} \cdot 100\% = \frac{341{,}15 - 315{,}15}{315{,}15} \cdot 100\% = \frac{26\,\text{K}}{315{,}15\,\text{K}} \cdot 100\% \approx \mathbf{8{,}25\%} \approx \mathbf{8{,}3\%}$$
+        <div class="card alert" style="margin-top: 15px; border-left: 4px solid var(--col-amber); background: #FFFBEB; padding: 12px 16px; border-radius: 8px;">
+          <strong style="color: var(--col-amber);">Attenzione Didattica: Tranello degli Arrotondamenti Intermedi Precoci</strong><br>
+          Se si calcolano separatamente i binomi centigradi approssimandoli a 3 cifre:
+          $$1 + \alpha t_2 \approx 1{,}24 \quad \text{e} \quad 1 + \alpha t_1 \approx 1{,}15 \implies \left(\frac{1{,}24}{1{,}15} - 1\right) \cdot 100\% \approx 7{,}8\%$$
+          L'errore assoluto si amplifica per <em>cancellazione numerica</em> sottraendo l'unit&agrave;. Mantenendo i termini esatti o impiegando direttamente le temperature assolute Kelvin si ottiene rigorosamente il valore corretto di <strong>8,3%</strong>.
+        </div>
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SIMULATORE INTERATTIVO -->
+    <!-- ========================================================================= -->
+    <h2 id="simulatore">Simulatore Interattivo: Strozzatura Dinamica del Tubo di Venturi</h2>
+    <div class="interactive-panel">
+      <div class="slider-container">
+        <label for="ratioSlider">Rapporto di Strozzatura ($A_1 / A_2$):</label>
+        <input type="range" id="ratioSlider" min="1.0" max="4.0" step="0.1" value="2.0">
+        <span class="val-display" id="ratioVal">A1 / A2 = 2.0</span>
+      </div>
+      <canvas id="venturiCanvas" width="720" height="320"></canvas>
+      <div style="font-size: 14px; color: var(--col-text-muted); text-align: center;">
+        Trascina lo slider o interagisci a tocco direttamente sul canvas: la strozzatura centrale del condotto si restringe in tempo reale, mostrando la caduta piezometrica manometrica $\Delta h \propto (v_2^2 - v_1^2)$.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const canvas = document.getElementById('venturiCanvas');
+    const ctx = canvas.getContext('2d');
+    const slider = document.getElementById('ratioSlider');
+    const display = document.getElementById('ratioVal');
+
+    // Assicura supporto video mobile playsinline su tutti i media
+    document.querySelectorAll('video').forEach(video => {
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      if (!video.hasAttribute('controls')) {
+        video.setAttribute('controls', '');
+      }
+    });
+
+    function draw() {
+      const ratio = parseFloat(slider.value);
+      display.textContent = 'A1 / A2 = ' + ratio.toFixed(1);
+
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      const midY = 190;
+      const H1 = 65;
+      const H2 = H1 / ratio;
+
+      // Tubo con strozzatura geometrica
+      ctx.fillStyle = '#BAE6FD';
+      ctx.beginPath();
+      ctx.moveTo(50, midY - H1);
+      ctx.lineTo(220, midY - H1);
+      ctx.lineTo(320, midY - H2);
+      ctx.lineTo(420, midY - H2);
+      ctx.lineTo(520, midY - H1);
+      ctx.lineTo(670, midY - H1);
+      ctx.lineTo(670, midY + H1);
+      ctx.lineTo(520, midY + H1);
+      ctx.lineTo(420, midY + H2);
+      ctx.lineTo(320, midY + H2);
+      ctx.lineTo(220, midY + H1);
+      ctx.lineTo(50, midY + H1);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.strokeStyle = '#184C78';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Linee di corrente tratteggiate
+      ctx.strokeStyle = 'rgba(24, 76, 120, 0.4)';
+      ctx.lineWidth = 1.5;
+      [-0.5, 0, 0.5].forEach(f => {
+        ctx.beginPath();
+        ctx.moveTo(50, midY + f * H1);
+        ctx.lineTo(220, midY + f * H1);
+        ctx.lineTo(320, midY + f * H2);
+        ctx.lineTo(420, midY + f * H2);
+        ctx.lineTo(520, midY + f * H1);
+        ctx.lineTo(670, midY + f * H1);
+        ctx.stroke();
+      });
+
+      // Manometro 1 (a monte)
+      const h1 = 110;
+      ctx.fillStyle = '#38BDF8';
+      ctx.fillRect(135, midY - H1 - h1, 30, h1);
+      ctx.strokeStyle = '#184C78';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(135, 20, 30, midY - H1 - 20);
+
+      // Manometro 2 (strozzatura, dislivello proporzionale a v^2)
+      const deltaH = Math.min(85, (ratio * ratio - 1) * 8);
+      const h2 = h1 - deltaH;
+      ctx.fillStyle = '#38BDF8';
+      ctx.fillRect(355, midY - H2 - h2, 30, h2);
+      ctx.strokeRect(355, 20, 30, midY - H2 - 20);
+
+      // Dislivello tratteggiato
+      ctx.strokeStyle = '#DC2626';
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(165, midY - H1 - h1);
+      ctx.lineTo(385, midY - H1 - h1);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Testi e quote
+      ctx.fillStyle = '#0F172A';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText('v1 = 1.0 m/s', 90, midY + 5);
+      ctx.fillText('v2 = ' + ratio.toFixed(1) + ' m/s', 340, midY + 5);
+
+      ctx.fillStyle = '#DC2626';
+      ctx.fillText('Δh = ' + deltaH.toFixed(0) + ' mm', 240, midY - H1 - h1 + 15);
+    }
+
+    slider.addEventListener('input', draw);
+    window.addEventListener('load', draw);
+
+    // Supporto Touch & Pointer Events per il Simulatore Canvas
+    let isDraggingVenturi = false;
+
+    function getVenturiCoords(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : (e.changedTouches && e.changedTouches.length > 0 ? e.changedTouches[0].clientX : e.clientX);
+      const clientY = e.touches && e.touches.length > 0 ? e.touches[0].clientY : (e.changedTouches && e.changedTouches.length > 0 ? e.changedTouches[0].clientY : e.clientY);
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      return {
+        x: (clientX - rect.left) * scaleX,
+        y: (clientY - rect.top) * scaleY
+      };
+    }
+
+    function updateVenturiFromPos(coords) {
+      // Mappatura trascinamento orizzontale o interazione diretta con la strozzatura (x da 80 a 640)
+      const norm = Math.max(0, Math.min(1, (coords.x - 80) / 560));
+      const newRatio = 1.0 + norm * 3.0; // da 1.0 a 4.0
+      slider.value = newRatio.toFixed(1);
+      draw();
+    }
+
+    function handleStart(e) {
+      isDraggingVenturi = true;
+      const coords = getVenturiCoords(e);
+      updateVenturiFromPos(coords);
+      if (e.cancelable) e.preventDefault();
+    }
+
+    function handleMove(e) {
+      if (!isDraggingVenturi) return;
+      const coords = getVenturiCoords(e);
+      updateVenturiFromPos(coords);
+      if (e.cancelable) e.preventDefault();
+    }
+
+    function handleEnd(e) {
+      isDraggingVenturi = false;
+    }
+
+    // Pointer events (desktop e mobile moderni Android / iOS)
+    canvas.addEventListener('pointerdown', (e) => {
+      canvas.setPointerCapture?.(e.pointerId);
+      handleStart(e);
+    });
+    canvas.addEventListener('pointermove', handleMove);
+    canvas.addEventListener('pointerup', (e) => {
+      canvas.releasePointerCapture?.(e.pointerId);
+      handleEnd(e);
+    });
+    canvas.addEventListener('pointercancel', handleEnd);
+
+    // Fallback touch events
+    canvas.addEventListener('touchstart', handleStart, { passive: false });
+    canvas.addEventListener('touchmove', handleMove, { passive: false });
+    canvas.addEventListener('touchend', handleEnd, { passive: false });
+    canvas.addEventListener('touchcancel', handleEnd, { passive: false });
+  </script>
+
+  <script>
+    // Global Touch-to-Mouse Adapter for Interactive Canvas on Mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      const canvases = document.querySelectorAll('canvas');
+      canvases.forEach(function(canvas) {
+        function getTouchPos(e) {
+          const rect = canvas.getBoundingClientRect();
+          const touch = e.touches[0] || e.changedTouches[0];
+          return {
+            clientX: touch.clientX,
+            clientY: touch.clientY,
+            x: touch.clientX - rect.left,
+            y: touch.clientY - rect.top
+          };
+        }
+        function dispatchMouseEvent(type, touchInfo) {
+          const simEvent = new MouseEvent(type, {
+            bubbles: true,
+            cancelable: true,
+            view: window,
+            clientX: touchInfo.clientX,
+            clientY: touchInfo.clientY
+          });
+          canvas.dispatchEvent(simEvent);
+        }
+        canvas.addEventListener('touchstart', function(e) {
+          if (e.target === canvas) {
+            e.preventDefault();
+            const pos = getTouchPos(e);
+            dispatchMouseEvent('mousedown', pos);
+          }
+        }, { passive: false });
+        canvas.addEventListener('touchmove', function(e) {
+          if (e.target === canvas) {
+            e.preventDefault();
+            const pos = getTouchPos(e);
+            dispatchMouseEvent('mousemove', pos);
+          }
+        }, { passive: false });
+        canvas.addEventListener('touchend', function(e) {
+          if (e.target === canvas) {
+            e.preventDefault();
+            const pos = getTouchPos(e);
+            dispatchMouseEvent('mouseup', pos);
+            dispatchMouseEvent('click', pos);
+          }
+        }, { passive: false });
+      });
+    });
+  </script>
+
+</body>
+</html>

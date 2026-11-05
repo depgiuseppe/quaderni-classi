@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Laboratorio Matematico – Classe 1B</title>
+  
+  <!-- KaTeX CSS Locale -->
+  <link rel="stylesheet" href="reveal/katex/dist/katex.min.css">
+  <script defer src="reveal/katex/dist/katex.min.js"></script>
+  <script defer src="reveal/katex/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-doc: #FFFFFF;
+      --border-doc: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --col-text: #0F172A;
+      --col-text-muted: #475569;
+      --col-primary: #184C78;
+      --col-primary-light: #2563EB;
+      --col-green: #16A34A;
+      --col-red: #DC2626;
+      --col-amber: #D97706;
+      --col-purple: #7C3AED;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-page);
+      color: var(--col-text);
+      font-family: "KaTeX_Main", "Latin Modern Roman", "Computer Modern", Georgia, serif;
+      font-size: clamp(16px, 1.05vw + 12px, 18px);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+
+    /* ==========================================================================
+       ANTI-OVERFLOW SHIELD RIGOROSO PER DISPLAY MOBILI & KATEX
+       ========================================================================== */
+    .math-inline {
+      white-space: nowrap;
+      display: inline-block;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      vertical-align: middle;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .math-inline::-webkit-scrollbar {
+      display: none;
+    }
+
+    .katex {
+      max-width: 100%;
+    }
+
+    .katex-html {
+      max-width: 100%;
+    }
+
+    .katex-display {
+      max-width: 100%;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      padding: 10px 8px !important;
+      margin: 14px 0 !important;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-strong) transparent;
+      -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior-x: contain;
+      touch-action: pan-x pan-y;
+    }
+    .katex-display::-webkit-scrollbar {
+      height: 5px;
+    }
+    .katex-display::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .katex-display::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+
+    /* Barra di Navigazione Sticky con Supporto Gestuale & Touch Fluido */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border-doc);
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      gap: 8px;
+      padding: 8px 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-strong) transparent;
+      scroll-snap-type: x proximity;
+      overscroll-behavior-x: contain;
+      width: 100%;
+    }
+    .sticky-nav::-webkit-scrollbar {
+      height: 4px;
+    }
+    .sticky-nav::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .sticky-nav::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    .sticky-nav a {
+      color: var(--col-primary);
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 600;
+      font-size: 0.84em;
+      padding: 7px 14px;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 20px;
+      border: 1px solid var(--border-strong);
+      background: #F1F5F9;
+      white-space: nowrap;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .sticky-nav a:hover {
+      background: var(--col-primary);
+      color: #FFFFFF;
+      border-color: var(--col-primary-light);
+    }
+    .sticky-nav a:active {
+      transform: scale(0.96);
+    }
+
+    .doc-container {
+      width: min(100% - 16px, 980px);
+      margin: 24px auto 50px auto;
+      background: var(--bg-doc);
+      border: 1px solid var(--border-doc);
+      border-radius: clamp(10px, 2.5vw, 14px);
+      padding: clamp(20px, 4.5vw, 48px) clamp(14px, 4vw, 56px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      box-sizing: border-box;
+    }
+
+    .header-block {
+      border-bottom: 2px solid var(--col-primary);
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+      text-align: center;
+    }
+    .school-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--col-text-muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .doc-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(1.45rem, 4.5vw, 2rem);
+      font-weight: 800;
+      color: var(--col-primary);
+      margin: 8px 0;
+      line-height: 1.28;
+    }
+    .doc-subtitle {
+      font-size: clamp(0.92rem, 2.3vw, 1.1rem);
+      color: var(--col-text-muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--col-primary);
+      font-size: clamp(1.2rem, 3.6vw, 1.48rem);
+      border-bottom: 1.5px solid var(--border-doc);
+      padding-bottom: 8px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      line-height: 1.35;
+    }
+    h3 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--col-primary);
+      font-size: clamp(1.05rem, 3vw, 1.22rem);
+      margin-top: 26px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-doc);
+      border-left: 4.5px solid var(--col-primary);
+      border-radius: 8px;
+      padding: clamp(16px, 3.5vw, 22px) clamp(14px, 3.5vw, 24px);
+      margin: 22px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      min-width: 0;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      overscroll-behavior-x: contain;
+    }
+    .card.blue { border-left-color: var(--col-primary); background: #F8FAFC; }
+    .card.green { border-left-color: var(--col-green); background: #F0FDF4; }
+    .card.amber { border-left-color: var(--col-amber); background: #FFFBEB; }
+    .card.purple { border-left-color: var(--col-purple); background: #FAF5FF; }
+
+    .card-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+      font-size: clamp(0.95rem, 2.5vw, 1.08rem);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .image-box {
+      text-align: center;
+      margin: 28px 0;
+      background: #FAFAFA;
+      border: 1px solid var(--border-doc);
+      border-radius: 8px;
+      padding: 16px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .image-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    .image-caption {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(0.82rem, 2vw, 0.9rem);
+      color: var(--col-text-muted);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .table-container {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-strong) transparent;
+      overscroll-behavior-x: contain;
+      margin: 20px 0;
+    }
+    .table-container::-webkit-scrollbar {
+      height: 5px;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+
+    table.data-table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      font-size: clamp(0.84rem, 2.2vw, 0.95rem);
+      background: #FFFFFF;
+    }
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border-doc);
+      padding: clamp(8px, 1.8vw, 12px) clamp(10px, 2.2vw, 16px);
+      text-align: left;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+    table.data-table th {
+      background: #F1F5F9;
+      color: var(--col-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+    }
+    table.data-table tr:nth-child(even) {
+      background: #F8FAFC;
+    }
+
+    /* Simulator styling */
+    .interactive-panel {
+      background: #FFFFFF;
+      border: 1.5px solid var(--col-primary-light);
+      border-radius: 10px;
+      padding: clamp(16px, 3.5vw, 24px);
+      margin: 28px 0;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .btn-mode {
+      background: #F1F5F9;
+      border: 1px solid var(--border-strong);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--col-text);
+      cursor: pointer;
+      transition: all 0.2s;
+      touch-action: manipulation;
+    }
+    .btn-mode.active {
+      background: var(--col-primary);
+      color: #FFFFFF;
+      border-color: var(--col-primary);
+    }
+    .btn-mode:active {
+      transform: scale(0.96);
+    }
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .slider-row input[type="range"] {
+      flex: 1;
+      height: 6px;
+      accent-color: var(--col-primary);
+    }
+    .val-badge {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      background: #E2E8F0;
+      padding: 4px 12px;
+      border-radius: 6px;
+      min-width: 60px;
+      text-align: center;
+    }
+    canvas#simCanvas {
+      background: #FAFAFA;
+      border: 1px solid var(--border-doc);
+      border-radius: 8px;
+      display: block;
+      margin: 16px auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Media Queries Responsive per Schermi Medi, Tablet e Smartphone (360px-480px) */
+    @media (max-width: 768px) {
+      .doc-container {
+        padding: 20px 14px;
+        margin: 14px auto 30px auto;
+        width: min(100% - 12px, 980px);
+        border-radius: 10px;
+      }
+      .sticky-nav {
+        padding: 8px 12px;
+      }
+      .interactive-panel {
+        padding: 16px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 16px;
+      }
+      .doc-container {
+        padding: 16px 10px;
+        margin: 10px auto 24px auto;
+        width: min(100% - 8px, 980px);
+        border-radius: 8px;
+      }
+      .sticky-nav {
+        padding: 6px 10px;
+        gap: 6px;
+      }
+      .sticky-nav a {
+        font-size: 0.78em;
+        padding: 6px 11px;
+        min-height: 36px;
+      }
+      .card {
+        padding: 14px 12px;
+      }
+      .interactive-panel {
+        padding: 14px 10px;
+      }
+      .slider-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .slider-row input[type="range"] {
+        width: 100%;
+      }
+      .btn-group {
+        gap: 6px;
+      }
+      .btn-mode {
+        padding: 6px 11px;
+        font-size: 13px;
+      }
+    }
+  </style>
+<style>
+    /* Mobile-First Hardening & Touch Shields */
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    .top-navbar {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      display: flex;
+      flex-wrap: nowrap !important;
+      gap: 8px;
+    }
+    .top-navbar .nav-link {
+      flex-shrink: 0;
+    }
+    .katex-display {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+      padding: 6px 0;
+    }
+    table {
+      max-width: 100%;
+      overflow-x: auto !important;
+      display: block;
+      -webkit-overflow-scrolling: touch;
+    }
+    canvas {
+      touch-action: none !important;
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    video {
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+
+  <!-- Barra di Navigazione -->
+  <nav class="sticky-nav">
+    <a href="#insiemi">1. Insiemi & Aritmetica</a>
+    <a href="#triangolari">2. Triangolari & Gauss</a>
+    <a href="#quadrati">3. Quadrati & Gnomoni</a>
+    <a href="#pentagonali">4. Numeri Pentagonali</a>
+    <a href="#simulatore">5. Simulatore Dinamico</a>
+    <a href="#divisibilita">6. Criteri di Divisibilità</a>
+    <a href="#mcm-mcd">7. mcm & MCD</a>
+    <a href="#pi-greco">8. Approssimazione di $\pi$</a>
+  </nav>
+
+  <div class="doc-container">
+    <div class="header-block">
+      <div class="school-title">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie</div>
+      <div class="doc-title">Laboratorio Matematico: Aritmetica Teorica e Geometria dei Numeri Figurati</div>
+      <div class="doc-subtitle">Compendio Completo e Interattivo – Conforme agli Appunti Originali di Classe 1B</div>
+    </div>
+
+    <!-- SEZIONE 1 -->
+    <h2 id="insiemi">1. Insiemi Numerici, Aritmetica Fondamentale e Strutture Algebriche</h2>
+    <p>
+      La costruzione dei sistemi numerici poggia sull'estensione progressiva degli insiemi algebrici per garantire la chiusura rispetto alle operazioni:
+      $$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$$
+    </p>
+
+    <div class="card blue">
+      <div class="card-title" style="color: var(--col-primary);">Assiomatica e Teorema Fondamentale dell'Aritmetica</div>
+      <p>
+        Ogni numero intero $n > 1$ si scompone in modo unico come prodotto di potenze di numeri primi distinti:
+        $$n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$$
+      </p>
+      <p>
+        <strong>Somma di interi consecutivi (Tavola 1 del manoscritto):</strong>
+      </p>
+      <ul>
+        <li><strong>Somma di 3 interi consecutivi:</strong> $S(n, 3) = n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$. È <em>sempre divisibile per 3</em>. È divisibile per 7 se $n \equiv 6 \pmod 7$ (es. $6+7+8 = 21 = 7 \cdot 3$).</li>
+        <li><strong>Somma di 4 consecutivi:</strong> $S(n, 4) = 4n + 6 = 2(2n+3)$, pari ma mai multiplo di 4; per $n=2$ dà $2+3+4+5=14$.</li>
+        <li><strong>Somma di 7 consecutivi:</strong> $S(n, 7) = 7n + 21 = 7(n+3)$, <em>sempre divisibile per 7</em> per qualsiasi $n \in \mathbb{N}$.</li>
+      </ul>
+    </div>
+
+    <!-- SEZIONE 2 -->
+    <h2 id="triangolari">2. Numeri Triangolari ($T_n$) e Somma di Gauss</h2>
+    <p>
+      Un numero naturale $T_n$ è triangolare se può essere disposto sotto forma di triangolo equilatero a reticolo discreto.
+      La legge di ricorrenza fondamentale e la formula chiusa sono:
+      $$T_{n+1} = T_n + (n+1), \quad T_1 = 1 \implies T_n = \sum_{k=1}^n k = \frac{n(n+1)}{2}$$
+      I primi termini calcolati sono: $T_1 = 1$, $T_2 = 3$, $T_3 = 6$, $T_4 = 10$, $T_5 = 15$, $T_6 = 21$, $T_7 = 28$.
+    </p>
+
+    <div class="image-box">
+      <img src="immagini/appunti_triangolari_gauss.png" alt="Appunti originali Tavola 2 - Numeri triangolari e Gauss">
+      <div class="image-caption">
+        <strong>Tavola 2 del Manoscritto Originale:</strong> rappresentazione a strati orizzontali $T_1=1, T_2=3, T_3=6, T_4=10$, formula ricorsiva $T_{n+1} = T_n + n + 1$ e dimostrazione di Gauss per coppie da 101 ($50 \times 101 = 5050$).
+      </div>
+    </div>
+
+    <div class="image-box" style="background:#FFFFFF;">
+      <video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/NumeriFiguratiGauss.mp4" type="video/mp4">
+      </video>
+      <div class="image-caption">
+        <strong>Animazione Scientifica Manim (Tema Chiaro):</strong> costruzione dinamica dei numeri triangolari $T_1, T_2, T_3, T_4$, raddoppio e accoppiamento a rettangolo $n(n+1)$ per la formula di Gauss $T_n = \frac{n(n+1)}{2}$, e decomposizione pitagorica del quadrato $Q_n = T_{n-1} + T_n$.
+      </div>
+    </div>
+
+    <!-- SEZIONE 3 -->
+    <h2 id="quadrati">3. Numeri Quadrati ($Q_n$), Gnomoni e Decomposizione $Q_n = T_n + T_{n-1}$</h2>
+    <p>
+      Un numero $Q_n = n^2$ corrisponde a una matrice quadrata $n \times n$. Per il <strong>Teorema dello Gnomone Pitagorico</strong>, la crescita tra due quadrati successivi avviene aggiungendo una squadra angolare dispari di $2n-1$ elementi:
+      $$Q_n = Q_{n-1} + (2n - 1) \implies Q_n = \sum_{k=1}^n (2k - 1) = 1 + 3 + 5 + \dots + (2n - 1) = n^2$$
+    </p>
+
+    <div class="image-box">
+      <img src="immagini/appunti_quadrati_gnomone.png" alt="Appunti originali Tavola 2 - Quadrati e gnomoni">
+      <div class="image-caption">
+        <strong>Tavola 2 del Manoscritto Originale:</strong> numeri quadrati $Q_1, Q_2, Q_3, Q_4$ con gnomoni e somma dei primi $n$ numeri dispari.
+      </div>
+    </div>
+
+    <div class="card green">
+      <div class="card-title" style="color: var(--col-green);">Decomposizione Pitagorica del Manoscritto (Tavola 3)</div>
+      <p>
+        Ogni quadrato $Q_n$ si scompone naturalmente, lungo la diagonale principale del reticolo, nella somma di due numeri triangolari consecutivi:
+        $$Q_n = T_n + T_{n-1} = \frac{n(n+1)}{2} + \frac{(n-1)n}{2} = \frac{n(n+1+n-1)}{2} = \frac{n(2n)}{2} = n^2$$
+        Nel manoscritto, il docente e gli studenti hanno analizzato graficamente il caso per $n = 7$:
+        $$Q_7 = 7^2 = 49 = T_7 + T_6 = 28 + 21$$
+      </p>
+    </div>
+
+    <div class="image-box">
+      <img src="immagini/appunti_q7_decomposizione.png" alt="Appunti originali Tavola 3 - Decomposizione Q_7">
+      <div class="image-caption">
+        <strong>Tavola 3 del Manoscritto Originale:</strong> reticolo $7 \times 7$ con 28 punti verdi ($T_7$, diagonale e triangolo inferiore) e 21 punti arancioni ($T_6$, triangolo superiore complementare), con verifica algebrica $Q_n = T_n + T_{n-1} = n^2$.
+      </div>
+    </div>
+
+    <!-- SEZIONE 4 -->
+    <h2 id="pentagonali">4. Numeri Pentagonali ($P_n$): Costruzione Concentrica e Dimostrazione del Docente</h2>
+    <p>
+      Un numero naturale $P_n$ rappresenta la quantità di elementi necessari a formare una sequenza di pentagoni regolari concentrici che condividono un vertice fisso comune.
+      I primi termini calcolati sono:
+      $$P_1 = 1, \quad P_2 = 5, \quad P_3 = 12, \quad P_4 = 22, \quad P_5 = 35$$
+    </p>
+
+    <div class="image-box">
+      <img src="immagini/traccia_numeri_pentagonali_libro.png" alt="Diapositiva del libro sui numeri pentagonali">
+      <div class="image-caption">
+        <strong>Diapositiva del Libro di Testo:</strong> configurazione dei primi cinque numeri pentagonali ($1, 5, 12, 22, 35$) con punti interni grigi e perimetro esterno in rosso.
+      </div>
+    </div>
+
+    <div class="image-box">
+      <img src="immagini/traccia_numeri_pentagonali_annotata.png" alt="Appunti originali Tavola 3 - Annotazioni sui numeri pentagonali">
+      <div class="image-caption">
+        <strong>Tavola 3 del Manoscritto Originale:</strong> annotazioni del docente sugli incrementi per strati $+5-1$, $+10-3$, $+15-5$, legge ricorsiva $P_n = P_{n-1} + 3n - 2$ e formula chiusa.
+      </div>
+    </div>
+
+    <div class="card purple">
+      <div class="card-title" style="color: var(--col-purple);">Dimostrazione Analitica Rigorosa del Docente (Tavola 4)</div>
+      <p>
+        <strong>1. Legge di ricorrenza:</strong>
+        $$P_1 = 1, \quad P_2 = P_1 + 4 = 5, \quad P_3 = P_2 + 4 + 3 = 12, \quad P_4 = P_3 + 4 + 3 + 3 = 22$$
+        $$P_n = P_{n-1} + 3n - 2$$
+      </p>
+      <p>
+        <strong>2. Dimostrazione chiusa per sottrazione dei vertici condivisi (Tavola 4):</strong><br>
+        Esprimendo la crescita come somma degli strati concentrici:
+        $$1 + \underbrace{(5 - 1)}_{n=2} + \underbrace{(10 - 3)}_{n=3} + \underbrace{(15 - 5)}_{n=4} + \dots$$
+        $$P_n = 1 + 5 \sum_{k=1}^{n-1} k - (n-1)^2 = 1 + \frac{5n(n-1)}{2} - (n^2 - 2n + 1)$$
+        $$P_n = \frac{5n^2 - 5n - 2(n^2 - 2n + 1) + 2}{2} = \frac{5n^2 - 5n - 2n^2 + 4n - 2 + 2}{2} = \frac{3n^2 - n}{2} = \frac{n(3n - 1)}{2}$$
+      </p>
+      <p>
+        <strong>3. Verifica numerica:</strong>
+        $$P_1 = \frac{1(2)}{2} = 1, \quad P_2 = \frac{2(5)}{2} = 5, \quad P_3 = \frac{3(8)}{2} = 12, \quad P_4 = \frac{4(11)}{2} = 22, \quad P_5 = \frac{5(14)}{2} = 35$$
+      </p>
+    </div>
+
+    <!-- SEZIONE 5: SIMULATORE DINAMICO -->
+    <h2 id="simulatore">5. Simulatore Dinamico dei Numeri Figurati</h2>
+    <div class="interactive-panel">
+      <div class="btn-group">
+        <button class="btn-mode active" id="btnTri" onclick="setMode('tri')">Numeri Triangolari ($T_n$)</button>
+        <button class="btn-mode" id="btnQuad" onclick="setMode('quad')">Decomposizione Quadrati ($Q_n = T_n + T_{n-1}$)</button>
+        <button class="btn-mode" id="btnPent" onclick="setMode('pent')">Numeri Pentagonali ($P_n$)</button>
+      </div>
+
+      <div class="slider-row">
+        <label for="sliderParam" style="font-weight: 600;">Indice $n$:</label>
+        <input type="range" id="sliderParam" min="1" max="10" step="1" value="4">
+        <span class="val-badge" id="valParam">n = 4</span>
+      </div>
+
+      <div style="background: #F8FAFC; border: 1px solid var(--border-doc); border-radius: 8px; padding: 14px 18px; margin: 12px 0;">
+        <div id="infoFormula" style="font-size: 16px; font-weight: 600; color: var(--col-primary);"></div>
+        <div id="infoValues" style="margin-top: 6px; font-size: 15px; color: var(--col-text-muted);"></div>
+      </div>
+
+      <canvas id="simCanvas" width="600" height="340"></canvas>
+    </div>
+
+    <!-- SEZIONE 6 -->
+    <h2 id="divisibilita">6. Criteri di Divisibilità Universale per Troncamento (Moltiplicatore $K$)</h2>
+    <p>
+      Isolando in $N = 10a + u$ l'unità $u$ dalla decina troncata $a$, definiamo $N' = a + Ku$. Se $10K \equiv 1 \pmod p$, allora $p \mid N \iff p \mid (a + Ku)$.
+    </p>
+
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Divisore $p$</th>
+            <th>Moltiplicatore $K$</th>
+            <th>Relazione Modulare</th>
+            <th>Formula Operativa</th>
+            <th>Esempio dal Manoscritto (Tavola 1)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>7</strong></td>
+            <td>$-2$ ($+5$)</td>
+            <td>$10(-2) = -20 \equiv 1 \pmod 7$</td>
+            <td>$a - 2u$</td>
+            <td>$91 \to 9 - 2(1) = 7$ (divisibile)</td>
+          </tr>
+          <tr>
+            <td><strong>13</strong></td>
+            <td>$+4$</td>
+            <td>$10(+4) = 40 \equiv 1 \pmod{13}$</td>
+            <td>$a + 4u$</td>
+            <td>$91 \to 9 + 4(1) = 13$ (divisibile)</td>
+          </tr>
+          <tr>
+            <td><strong>17</strong></td>
+            <td>$-5$ ($+12$)</td>
+            <td>$10(-5) = -50 \equiv 1 \pmod{17}$</td>
+            <td>$a - 5u$</td>
+            <td>$221 \to 22 - 5(1) = 17$ (divisibile)</td>
+          </tr>
+          <tr>
+            <td><strong>19</strong></td>
+            <td>$+2$</td>
+            <td>$10(+2) = 20 \equiv 1 \pmod{19}$</td>
+            <td>$a + 2u$</td>
+            <td>$57 \to 5 + 2(7) = 19$ (divisibile)</td>
+          </tr>
+          <tr>
+            <td><strong>23</strong></td>
+            <td>$+7$</td>
+            <td>$10(+7) = 70 \equiv 1 \pmod{23}$</td>
+            <td>$a + 7u$</td>
+            <td>$69 \to 6 + 7(9) = 69 = 3 \cdot 23$</td>
+          </tr>
+          <tr>
+            <td><strong>29</strong></td>
+            <td>$+3$</td>
+            <td>$10(+3) = 30 \equiv 1 \pmod{29}$</td>
+            <td>$a + 3u$</td>
+            <td>$87 \to 8 + 3(7) = 29$ (divisibile)</td>
+          </tr>
+          <tr>
+            <td><strong>31</strong></td>
+            <td>$-3$</td>
+            <td>$10(-3) = -30 \equiv 1 \pmod{31}$</td>
+            <td>$a - 3u$</td>
+            <td>$93 \to 9 - 3(3) = 0$ (divisibile)</td>
+          </tr>
+          <tr>
+            <td><strong>41</strong></td>
+            <td>$-4$</td>
+            <td>$10(-4) = -40 \equiv 1 \pmod{41}$</td>
+            <td>$a - 4u$</td>
+            <td>$123 \to 12 - 4(3) = 0$ (divisibile)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEZIONE 7 -->
+    <h2 id="mcm-mcd">7. Minimo Comune Multiplo ($\mathrm{mcm}$) e Massimo Comune Divisore ($\mathrm{MCD}$)</h2>
+    <p>
+      Dalla Tavola 6 del manoscritto, indagine a due metodi: enumerazione insiemistica tabulare vs scomposizione analitica in fattori primi.
+    </p>
+
+    <div class="image-box">
+      <img src="immagini/appunti_tavola6_mcm.png" alt="Appunti Tavola 6 - Calcolo mcm per enumerazione">
+      <div class="image-caption">
+        <strong>Tavola 6 (Parte 1):</strong> determinazione di $\mathrm{mcm}(4, 12, 5) = 60$ tramite tabulazione ordinata dei multipli e fattori primi $2^2 \cdot 3 \cdot 5 = 60$.
+      </div>
+    </div>
+
+    <div class="image-box">
+      <img src="immagini/appunti_tavola6_mcd.png" alt="Appunti Tavola 6 - Calcolo MCD per divisori">
+      <div class="image-caption">
+        <strong>Tavola 6 (Parte 2):</strong> determinazione di $\mathrm{MCD}(4, 12, 20) = 4$ tramite enumerazione dei divisori e fattori primi $2^2 = 4$.
+      </div>
+    </div>
+
+    <!-- SEZIONE 8 -->
+    <h2 id="pi-greco">8. L'Approssimazione Razionale del Numero $\pi$</h2>
+    <p>
+      Il rapporto euclideo tra circonferenza e diametro $\pi = C/d \approx 3{,}14159265\dots$ è un numero irrazionale: circonferenza e diametro sono grandezze tra loro incommensurabili.
+    </p>
+
+    <div class="card amber">
+      <div class="card-title" style="color: var(--col-amber);">Mnemonica Letteraria Italiana a 19 Cifre Esatte (Tavola 5)</div>
+      <p style="font-size: 18px; font-weight: 600; text-align: center; margin: 12px 0;">
+        «Ave o Roma o madre gagliarda di latine virtù,<br>che tanto luminoso splendore prodiga spargesti con la tua saggezza.»
+      </p>
+      <div style="font-size: 14.5px; text-align: center; color: var(--col-text-muted);">
+        Corrispondenza lettere: <strong>3, 1 4 1 5 9 2 6 5 3 5 8 9 7 9 3 2 3 8</strong>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Fonte Storica</th>
+            <th>Frazione $\frac{p}{q}$</th>
+            <th>Decimale</th>
+            <th>Errore Assoluto</th>
+            <th>Errore %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Babilonia antica (XVIII a.C.)</td>
+            <td>$\frac{25}{8}$</td>
+            <td>$3{,}125000\dots$</td>
+            <td>$-1{,}66 \cdot 10^{-2}$</td>
+            <td>$-0{,}53\%$</td>
+          </tr>
+          <tr>
+            <td>Antico Egitto (Papiro Rhind)</td>
+            <td>$\frac{256}{81}$</td>
+            <td>$3{,}160494\dots$</td>
+            <td>$+1{,}89 \cdot 10^{-2}$</td>
+            <td>$+0{,}60\%$</td>
+          </tr>
+          <tr>
+            <td>Archimede (III a.C.)</td>
+            <td>$\frac{22}{7}$</td>
+            <td>$3{,}142857\dots$</td>
+            <td>$+1{,}26 \cdot 10^{-3}$</td>
+            <td>$+0{,}04\%$</td>
+          </tr>
+          <tr>
+            <td>Zu Chongzhi (V d.C.)</td>
+            <td>$\frac{355}{113}$</td>
+            <td>$3{,}14159292\dots$</td>
+            <td>$+2{,}67 \cdot 10^{-7}$</td>
+            <td>$+0{,}0000085\%$</td>
+          </tr>
+          <tr style="background: #F1F5F9; font-weight: 700;">
+            <td>Valore Reale Esatto</td>
+            <td>$\pi$</td>
+            <td>$3{,}14159265\dots$</td>
+            <td>$0$</td>
+            <td>0%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    let currentMode = 'tri';
+    const slider = document.getElementById('sliderParam');
+    const valParam = document.getElementById('valParam');
+    const infoFormula = document.getElementById('infoFormula');
+    const infoValues = document.getElementById('infoValues');
+    const canvas = document.getElementById('simCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
+      if (mode === 'tri') document.getElementById('btnTri').classList.add('active');
+      if (mode === 'quad') document.getElementById('btnQuad').classList.add('active');
+      if (mode === 'pent') document.getElementById('btnPent').classList.add('active');
+      update();
+    }
+
+    function update() {
+      const n = parseInt(slider.value);
+      valParam.textContent = 'n = ' + n;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (currentMode === 'tri') {
+        const tn = (n * (n + 1)) / 2;
+        infoFormula.textContent = `Numero Triangolare: T_{${n}} = \\frac{${n}(${n}+1)}{2} = ${tn}`;
+        infoValues.textContent = `Generazione ricorsiva: aggiunta riga di base con ${n} elementi.`;
+        if (window.renderMathInElement) renderMathInElement(infoFormula);
+
+        const r = Math.max(4, Math.min(10, 150 / n));
+        const spacingX = r * 2.8;
+        const spacingY = r * 2.4;
+        const startY = (canvas.height - (n * spacingY)) / 2 + 20;
+
+        for (let row = 1; row <= n; row++) {
+          const count = row;
+          const startX = (canvas.width - (count - 1) * spacingX) / 2;
+          for (let col = 0; col < count; col++) {
+            const x = startX + col * spacingX;
+            const y = startY + (row - 1) * spacingY;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2 * Math.PI);
+            ctx.fillStyle = '#184C78';
+            ctx.fill();
+            ctx.strokeStyle = '#0F2C46';
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          }
+        }
+      } else if (currentMode === 'quad') {
+        const qn = n * n;
+        const tn = (n * (n + 1)) / 2;
+        const tn_prev = ((n - 1) * n) / 2;
+        infoFormula.textContent = `Decomposizione Pitagorica: Q_{${n}} = T_{${n}} + T_{${n-1}} = ${tn} + ${tn_prev} = ${qn}`;
+        infoValues.textContent = `Matrice ${n}x${n}: punti blu per T_{${n}} (diagonale e sotto), punti ambra per T_{${n-1}} (sopra).`;
+        if (window.renderMathInElement) renderMathInElement(infoFormula);
+
+        const r = Math.max(4, Math.min(11, 140 / n));
+        const spacing = r * 2.6;
+        const startX = (canvas.width - (n - 1) * spacing) / 2;
+        const startY = (canvas.height - (n - 1) * spacing) / 2;
+
+        for (let row = 0; row < n; row++) {
+          for (let col = 0; col < n; col++) {
+            const x = startX + col * spacing;
+            const y = startY + row * spacing;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2 * Math.PI);
+            if (col <= row) {
+              ctx.fillStyle = '#184C78'; // T_n (blu)
+            } else {
+              ctx.fillStyle = '#D97706'; // T_{n-1} (ambra)
+            }
+            ctx.fill();
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+
+        // Linea divisoria diagonale
+        ctx.beginPath();
+        ctx.setLineDash([4, 4]);
+        ctx.strokeStyle = '#94A3B8';
+        ctx.lineWidth = 2;
+        ctx.moveTo(startX - r, startY - r);
+        ctx.lineTo(startX + (n - 1) * spacing + r, startY + (n - 1) * spacing + r);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      } else if (currentMode === 'pent') {
+        const pn = (n * (3 * n - 1)) / 2;
+        infoFormula.textContent = `Numero Pentagonale: P_{${n}} = \\frac{${n}(3\\cdot${n}-1)}{2} = ${pn}`;
+        infoValues.textContent = `Costruzione a gusci concentrici con vertice comune fisso: grigio interno, rosso perimetro esterno.`;
+        if (window.renderMathInElement) renderMathInElement(infoFormula);
+
+        // Disegno pentagoni concentrici con vertice fisso comune in basso a sinistra
+        const originX = canvas.width / 2 - 120;
+        const originY = canvas.height / 2 + 100;
+        const step = Math.min(32, 220 / n);
+
+        // Angoli pentagono regolare standard
+        // vertice 0 a (0,0), poi lati inclinati
+        for (let k = 1; k <= n; k++) {
+          const isOuter = (k === n);
+          const color = isOuter ? '#DC2626' : '#94A3B8';
+          const r = isOuter ? 5.5 : 4.5;
+
+          if (k === 1) {
+            ctx.beginPath();
+            ctx.arc(originX, originY, r, 0, 2 * Math.PI);
+            ctx.fillStyle = isOuter ? '#DC2626' : '#184C78';
+            ctx.fill();
+            ctx.stroke();
+            continue;
+          }
+
+          // Vertici del k-esimo pentagono che condividono originX, originY
+          const side = (k - 1) * step;
+          // Vertici v0, v1, v2, v3, v4
+          // v0 = (0,0)
+          // v1 = (side, 0)
+          // v2 = (side + side*cos(72°), -side*sin(72°))
+          // v3 = (side/2 + side*cos(72°), -side*sin(72°) - side*sin(36°)) -> simmetrico
+          // Calcoliamo le 5 direzioni con coordinate esatte
+          const rad = (deg) => (deg * Math.PI) / 180;
+          const v0 = { x: originX, y: originY };
+          const v1 = { x: originX + side, y: originY };
+          const v2 = { x: originX + side + side * Math.cos(rad(72)), y: originY - side * Math.sin(rad(72)) };
+          const v3 = { x: originX + side / 2 + side * Math.cos(rad(72)), y: originY - side * Math.sin(rad(72)) - side * Math.sin(rad(36)) };
+          const v4 = { x: originX - side * Math.cos(rad(72)), y: originY - side * Math.sin(rad(72)) };
+
+          // Disegna contorno guscio
+          ctx.beginPath();
+          ctx.strokeStyle = isOuter ? '#DC262640' : '#E2E8F0';
+          ctx.lineWidth = 1.5;
+          ctx.moveTo(v0.x, v0.y);
+          ctx.lineTo(v1.x, v1.y);
+          ctx.lineTo(v2.x, v2.y);
+          ctx.lineTo(v3.x, v3.y);
+          ctx.lineTo(v4.x, v4.y);
+          ctx.closePath();
+          ctx.stroke();
+
+          // Punti sui 3 lati che crescono (v1-v2, v2-v3, v3-v4 e v4-v0)
+          // Campionamento k punti per lato
+          const drawEdge = (va, vb) => {
+            for (let p = 1; p <= k - 1; p++) {
+              const frac = p / (k - 1);
+              const px = va.x + (vb.x - va.x) * frac;
+              const py = va.y + (vb.y - va.y) * frac;
+              ctx.beginPath();
+              ctx.arc(px, py, r, 0, 2 * Math.PI);
+              ctx.fillStyle = color;
+              ctx.fill();
+              ctx.strokeStyle = '#334155';
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          };
+          drawEdge(v0, v1);
+          drawEdge(v1, v2);
+          drawEdge(v2, v3);
+          drawEdge(v3, v4);
+          drawEdge(v4, v0);
+        }
+      }
+    }
+
+    slider.addEventListener('input', update);
+    window.addEventListener('load', update);
+  </script>
+
+  <script>
+    // Global Touch-to-Mouse Adapter for Interactive Canvas on Mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      const canvases = document.querySelectorAll('canvas');
+      canvases.forEach(function(canvas) {
+        function getTouchPos(e) {
+          const rect = canvas.getBoundingClientRect();
+          const touch = e.touches[0] || e.changedTouches[0];
+          return {
+            clientX: touch.clientX,
+            clientY: touch.clientY,
+            x: touch.clientX - rect.left,
+            y: touch.clientY - rect.top
+          };
+        }
+        function dispatchMouseEvent(type, touchInfo) {
+          const simEvent = new MouseEvent(type, {
+            bubbles: true,
+            cancelable: true,
+            view: window,
+            clientX: touchInfo.clientX,
+            clientY: touchInfo.clientY
+          });
+          canvas.dispatchEvent(simEvent);
+        }
+        canvas.addEventListener('touchstart', function(e) {
+          if (e.target === canvas) {
+            e.preventDefault();
+            const pos = getTouchPos(e);
+            dispatchMouseEvent('mousedown', pos);
+          }
+        }, { passive: false });
+        canvas.addEventListener('touchmove', function(e) {
+          if (e.target === canvas) {
+            e.preventDefault();
+            const pos = getTouchPos(e);
+            dispatchMouseEvent('mousemove', pos);
+          }
+        }, { passive: false });
+        canvas.addEventListener('touchend', function(e) {
+          if (e.target === canvas) {
+            e.preventDefault();
+            const pos = getTouchPos(e);
+            dispatchMouseEvent('mouseup', pos);
+            dispatchMouseEvent('click', pos);
+          }
+        }, { passive: false });
+      });
+    });
+  </script>
+
+</body>
+</html>
