@@ -1,0 +1,24 @@
+**Liceo Scientifico Statale "Leonardo da Vinci" – Maglie (LE)**  
+**Dipartimento di Matematica e Fisica – Classe 4F**  
+**Scheda di Sintesi Didattica: Genesi Finanziaria del Numero di Nepero ($e$) e Capitalizzazione Composta**
+
+L'elaborato illustra il percorso euristico classico, storicamente attribuito a Jacob Bernoulli, che conduce alla definizione della costante matematica $e$ (numero di Nepero, $e \approx 2,7182818...$) attraverso lo studio del limite del montante bancario in regime di capitalizzazione composta frazionata.
+
+*   **La Funzione Esponenziale e la Base Naturale:**  
+     Data la funzione esponenziale canonica $y = a^x$ (definita per $a > 0$ e $a \neq 1$), si introduce il caso fondamentale della funzione esponenziale naturale $y = e^x$. Per comprendere il significato analitico e applicativo della base $e$, si modella un problema di matematica finanziaria in cui un capitale iniziale $C$ (posto a titolo esemplificativo pari a $1000$) viene investito per un anno a un tasso di interesse nominale annuo $r = 100\%$ (ovvero $r = 1$ in forma decimale).
+
+*   **Capitalizzazione Annua e Frazionamento Semestrale:**  
+    Se gli interessi vengono liquidati in un'unica soluzione alla fine dell'anno, il montante finale $M$ raddoppia il capitale iniziale secondo la legge:
+    $$M = C(1 + r) = 1000(1 + 1) = 2000$$
+    Se invece la capitalizzazione avviene semestralmente ($n = 2$ periodi all'anno), il tasso applicato a ciascun semestre si dimezza ($\frac{r}{2} = 50\% = 0,5$), ma gli interessi maturati nel primo semestre diventano a loro volta fruttiferi nel secondo. Raccogliendo a fattor comune, il montante al termine dell'anno assume la forma quadratica:
+    $$M = C\left(1 + \frac{r}{2}\right)^2 = 1000\left(1 + 0,5\right)^2 = 2250$$
+
+*   **Generalizzazione a $n$ Periodi (Frazionamento Quadrimestrale e Giornaliero):**  
+    Aumentando la frequenza di capitalizzazione durante l'anno, il montante cresce ma con incrementi via via più contenuti. Suddividendo l'anno in $n = 3$ quadrimestri, la legge generale $M = C\left(1 + \frac{r}{n}\right)^n$ restituisce:
+    $$M = C\left(1 + \frac{r}{3}\right)^3 = 1000\left(1 + \frac{1}{3}\right)^3 \approx 2370$$
+    Estendendo il frazionamento su base giornaliera ($n = 365$ periodi), l'espressione del montante diventa:
+    $$M = 1000\left(1 + \frac{1}{365}\right)^{365} \approx 2714$$
+
+*   **Capitalizzazione Continua e Definizione di $e$:**  
+    L'osservazione cruciale risiede nel fattore di capitalizzazione $\left(1 + \frac{1}{365}\right)^{365} \approx 2,714$. Al tendere del numero di frazionamenti annui all'infinito ($n \to +\infty$, ovvero passando a una *capitalizzazione istantanea o continua*), il fattore moltiplicativo non diverge all'infinito, ma converge monotònicamente a un limite finito, che definisce esattamente il numero irrazionale trascendente di Nepero:
+    $$e = \lim_{n \to +\infty} \left(1 + \frac{1}{n}\right)^n \approx 2,718281828...$$

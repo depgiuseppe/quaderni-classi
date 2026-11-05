@@ -1,0 +1,6 @@
+Classe 1B – Fisica
+Argomenti trattati negli appunti:
+• Metodo sperimentale e grandezze fisiche fondamentali (S.I.)
+• Teoria delle misure e calcolo delle incertezze (assoluta, relativa e percentuale)
+• Relazioni di proporzionalità diretta e inversa ($y = kx$ e $y = k/x$)
+• Esercizi guidati su bilancia a bracci, densità e propagazione degli errori

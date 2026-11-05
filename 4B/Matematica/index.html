@@ -5,8 +5,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>Quaderno del Prof – Matematica 4B</title>
-<!-- KaTeX CSS Locale per Font e Formule LaTeX -->
+<!-- KaTeX CSS Locale e CDN per Font e Formule LaTeX -->
 <link href="reveal/katex/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
 <style>
     /* ==========================================================================
        TIPOGRAFIA ACCADEMICA LATEX & TEMA CHIARO (LIGHT THEME)
@@ -1002,8 +1003,8 @@
 </div>
 <!-- Video Animazione Incorporato -->
 <div class="media-card">
-<video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-<source src="media/GenesiNumeroNepero.mp4" type="video/mp4"/>
+<video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+<source src="media/GenesiNumeroNepero.mp4#t=0.001" type="video/mp4"/>
 <img alt="Convergenza asintotica a e" src="frames/GenesiNumeroNepero.png"/>
 </video>
 <div class="media-footer">
@@ -1102,8 +1103,8 @@
         </div>
 </div>
 <div class="media-card">
-<video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-<source src="media/ConfrontoFunzioniEsponenziali.mp4" type="video/mp4"/>
+<video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+<source src="media/ConfrontoFunzioniEsponenziali.mp4#t=0.001" type="video/mp4"/>
 <img alt="Confronto esponenziali" src="frames/ConfrontoFunzioniEsponenziali.png"/>
 </video>
 <div class="media-footer">
@@ -1178,7 +1179,7 @@
 <div class="box-body">
 <p>Quando l'incognita compare sia ad esponente che in un polinomio algebrico, l'equazione è detta <strong>trascendente mista</strong> e non può essere risolta isolando algebricamente la <span class="math-inline">\(x\)</span>.</p>
 <p>Si decompone l'equazione nell'intersezione di due curve note nel piano cartesiano:</p>
-          \[ \begin{cases} y = 2^x &amp; \text{(Esponenziale strettamente crescente)} \\[14pt] y = 1 - x^2 &amp; \text{(Parabola concava con vertice in } V(0, 1)\text{)} \end{cases} \]
+          \[ \begin{cases} y = 2^x &amp; \text{(Esponenziale strettamente crescente)} \\ y = 1 - x^2 &amp; \text{(Parabola concava con vertice in } V(0, 1)\text{)} \end{cases} \]
         </div>
 </div>
 <div class="grid-2col">
@@ -1196,8 +1197,8 @@
 </div>
 <div>
 <div class="media-card">
-<video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-<source src="media/RisoluzioneGraficaTrascendente.mp4" type="video/mp4"/>
+<video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+<source src="media/RisoluzioneGraficaTrascendente.mp4#t=0.001" type="video/mp4"/>
 <img alt="Risoluzione grafica trascendente" src="frames/RisoluzioneGraficaTrascendente.png"/>
 </video>
 <div class="media-footer">
@@ -1339,8 +1340,8 @@
 </div>
 <div>
 <div class="media-card">
-<video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-<source src="media/SimmetriaEsponenzialeLogaritmo.mp4" type="video/mp4"/>
+<video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+<source src="media/SimmetriaEsponenzialeLogaritmo.mp4#t=0.001" type="video/mp4"/>
 <img alt="Simmetria speculare" src="frames/SimmetriaEsponenzialeLogaritmo.png"/>
 </video>
 <div class="media-footer">
@@ -1372,7 +1373,7 @@
 <div style="background:#F0FDF4; padding:16px; border-radius:8px; border:1px solid #86EFAC; margin:14px 0;">
 <strong style="color:#15803D; font-size:1.05rem;">Fase 1: Condizioni di Esistenza Preliminari Tassative</strong><br/>
 Si impone la positività rigorosa degli argomenti sul testo originario:
-\[\begin{cases} x - 1 &gt; 0 \implies x &gt; 1 \\[6pt] x - 3 &gt; 0 \implies x &gt; 3 \end{cases} \implies \mathbf{C.E.:\; x &gt; 3}\]
+\[\begin{cases} x - 1 &gt; 0 \implies x &gt; 1 \\ x - 3 &gt; 0 \implies x &gt; 3 \end{cases} \implies \mathbf{C.E.:\; x &gt; 3}\]
 </div>
 <div style="background:#F8FAFC; padding:16px; border-radius:8px; border:1px solid #E2E8F0; margin:14px 0;">
 <strong style="color:#184C78; font-size:1.05rem;">Fase 2: Applicazione del Teorema del Prodotto ed Esponenziazione</strong><br/>
@@ -1455,8 +1456,8 @@ Nel dominio \(x &gt; 3\), accorpando i logaritmi ed esponenziando in base \(2 &g
 </div>
 </div>
 <div class="media-card">
-<video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-<source src="media/StudioSegnoFrattaEsponenziale.mp4" type="video/mp4"/>
+<video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+<source src="media/StudioSegnoFrattaEsponenziale.mp4#t=0.001" type="video/mp4"/>
 <img alt="Studio del segno fratta esponenziale" src="frames/StudioSegnoFrattaEsponenziale.png"/>
 </video>
 <div class="media-footer">
@@ -1468,24 +1469,35 @@ Nel dominio \(x &gt; 3\), accorpando i logaritmi ed esponenziando in base \(2 &g
 
 </div>
 <!-- =========================================================================
-       SCRIPT KATEX LOCALE PER RENDERING FORMULE
+       SCRIPT KATEX LOCALE E CDN PER RENDERING FORMULE
        ========================================================================= -->
 <script src="reveal/katex/dist/katex.min.js"></script>
 <script src="reveal/katex/dist/contrib/auto-render.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script>
+    function invokeKaTeXRender4B() {
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "$", right: "$", display: false}
+          ],
+          ignoredClasses: ["katex", "katex-display"],
+          throwOnError: false
+        });
+      }
+    }
     document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: "$$", right: "$$", display: true},
-          {left: "\\[", right: "\\]", display: true},
-          {left: "\\(", right: "\\)", display: false},
-          {left: "$", right: "$", display: false}
-        ],
-        throwOnError: false
-      });
+      invokeKaTeXRender4B();
       // Inizializza i simulatori interattivi
       runBernoulliSim();
       runExpSim();
+    });
+    window.addEventListener("load", function() {
+      invokeKaTeXRender4B();
     });
 
     // =========================================================================

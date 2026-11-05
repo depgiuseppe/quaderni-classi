@@ -1,0 +1,6 @@
+Classe 4B – Fisica
+Argomenti trattati negli appunti:
+• Modello microscopico del gas ideale e teoria cinetica della pressione: $p = \frac{2}{3} \frac{N}{V} \langle E_c \rangle$
+• Interpretazione microscopica della temperatura assoluta: $\langle E_c \rangle = \frac{3}{2} k_B T$
+• Equazione di stato di Clapeyron: $pV = nRT$
+• Risoluzione a 9 fasi degli 8 problemi autentici del quaderno (isocore, isobare, isoterme)

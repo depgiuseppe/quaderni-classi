@@ -1,0 +1,6 @@
+Classe 4F – Fisica
+Argomenti trattati negli appunti:
+• Statica dei fluidi: Legge di Stevino, Principio di Pascal e Spinta di Archimede
+• Fluidodinamica: Equazione di continuità, Teorema di Bernoulli, Tubo di Venturi e Formula di Torricelli
+• Leggi sperimentali dei gas perfetti: Boyle, Prima e Seconda Legge di Gay-Lussac
+• Dilatazione volumica del cilindro a pistone mobile e determinazione di $\alpha \approx 1/273\,^\circ\text{C}^{-1}$

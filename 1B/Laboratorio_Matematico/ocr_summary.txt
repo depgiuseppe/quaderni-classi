@@ -1,0 +1,6 @@
+Classe 1B – Laboratorio Matematico
+Argomenti trattati negli appunti:
+• Formula di Gauss per la somma dei primi $n$ numeri naturali: $S_n = \frac{n(n+1)}{2}$
+• Studio geometrico dei numeri figurati (numeri triangolari, quadrati e pentagonali)
+• Criteri di divisibilità notevoli e scomposizione in fattori primi
+• Approssimazione geometrica e razionale del numero $\pi$

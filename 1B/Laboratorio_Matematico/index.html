@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Laboratorio Matematico – Classe 1B</title>
   
-  <!-- KaTeX CSS Locale -->
+  <!-- KaTeX CSS e JS Locale + CDN -->
   <link rel="stylesheet" href="reveal/katex/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="reveal/katex/dist/katex.min.js"></script>
-  <script defer src="reveal/katex/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+  <script defer src="reveal/katex/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
   <style>
     :root {
@@ -541,8 +544,8 @@
     </div>
 
     <div class="image-box" style="background:#FFFFFF;">
-      <video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-        <source src="media/NumeriFiguratiGauss.mp4" type="video/mp4">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/NumeriFiguratiGauss.mp4#t=0.001" type="video/mp4">
       </video>
       <div class="image-caption">
         <strong>Animazione Scientifica Manim (Tema Chiaro):</strong> costruzione dinamica dei numeri triangolari $T_1, T_2, T_3, T_4$, raddoppio e accoppiamento a rettangolo $n(n+1)$ per la formula di Gauss $T_n = \frac{n(n+1)}{2}$, e decomposizione pitagorica del quadrato $Q_n = T_{n-1} + T_n$.
@@ -1033,6 +1036,29 @@
         }, { passive: false });
       });
     });
+  </script>
+
+  <script src="reveal/katex/dist/katex.min.js"></script>
+  <script src="reveal/katex/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    function invokeKaTeXRender1BLab() {
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "$", right: "$", display: false}
+          ],
+          ignoredClasses: ["katex", "katex-display"],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", invokeKaTeXRender1BLab);
+    window.addEventListener("load", invokeKaTeXRender1BLab);
   </script>
 
 </body>

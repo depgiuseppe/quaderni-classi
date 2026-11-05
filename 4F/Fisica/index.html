@@ -6,6 +6,7 @@
   <title>Meccanica dei Fluidi e Termodinamica dei Gas – Classe 4F</title>
   
   <link rel="stylesheet" href="reveal/katex/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
   <style>
     :root {
@@ -306,8 +307,9 @@
   </style>
 
   <script defer src="reveal/katex/dist/katex.min.js"></script>
-  <script defer src="reveal/katex/dist/contrib/auto-render.min.js"
-          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+  <script defer src="reveal/katex/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>
     /* Mobile-First Hardening & Touch Shields */
     html, body {
@@ -497,8 +499,8 @@
     </div>
 
     <div class="clipping-container" style="background:#FFFFFF; border:1px solid var(--border-doc); border-radius:10px; padding:16px; margin:20px 0;">
-      <video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-        <source src="media/IdrostaticaVenturiManim.mp4" type="video/mp4">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/IdrostaticaVenturiManim.mp4#t=0.001" type="video/mp4">
       </video>
       <div class="clipping-caption">
         <strong>Animazione Scientifica Manim (Tema Chiaro):</strong> Legge di Stevino con aumento della pressione in profondit&agrave;, tubo di Venturi con accelerazione delle particelle nella strozzatura e abbassamento della colonnina manometrica, e isoterma di Boyle $pV = \text{cost}$.
@@ -1028,6 +1030,29 @@
         }, { passive: false });
       });
     });
+  </script>
+
+  <script src="reveal/katex/dist/katex.min.js"></script>
+  <script src="reveal/katex/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    function invokeKaTeXRender4FFis() {
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "$", right: "$", display: false}
+          ],
+          ignoredClasses: ["katex", "katex-display"],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", invokeKaTeXRender4FFis);
+    window.addEventListener("load", invokeKaTeXRender4FFis);
   </script>
 
 </body>

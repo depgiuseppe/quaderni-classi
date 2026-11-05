@@ -5,17 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
   <title>Termodinamica dei Gas Perfetti — Classe 4B | Liceo Scientifico «L. da Vinci» Maglie</title>
   
-  <!-- KaTeX CSS e JS per rendering offline/online con priorità locale -->
-  <link rel="stylesheet" href="reveal/katex/dist/katex.min.css" onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css';">
-  <script defer src="reveal/katex/dist/katex.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js';"></script>
-  <script defer src="reveal/katex/dist/contrib/auto-render.min.js"
-          onload="renderMathInElement(document.body, {delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '\\[', right: '\\]', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false}
-          ]});"
-          onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js';"></script>
+  <!-- KaTeX CSS e JS per rendering offline/online (Locale + CDN 0.16.9) -->
+  <link rel="stylesheet" href="reveal/katex/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="reveal/katex/dist/katex.min.js"></script>
+  <script defer src="reveal/katex/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
   <style>
     :root {
@@ -532,8 +528,8 @@
       </div>
 
       <div class="screenshot-container" style="border-style:solid;">
-        <video autoplay loop muted playsinline webkit-playsinline controls style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-          <source src="media/GasPerfettiClapeyronManim.mp4" type="video/mp4">
+        <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+          <source src="media/GasPerfettiClapeyronManim.mp4#t=0.001" type="video/mp4">
         </video>
         <div class="screenshot-caption">Animazione Scientifica Manim (Tema Chiaro): agitazione termica molecolare in cilindro con pistone e tracciamento simultaneo di isoterma, isobara e isocora nel piano di Clapeyron $(V, p)$.</div>
       </div>
@@ -1742,6 +1738,29 @@
         }, { passive: false });
       });
     });
+  </script>
+
+  <script src="reveal/katex/dist/katex.min.js"></script>
+  <script src="reveal/katex/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    function invokeKaTeXRender4BFis() {
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "$", right: "$", display: false}
+          ],
+          ignoredClasses: ["katex", "katex-display"],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", invokeKaTeXRender4BFis);
+    window.addEventListener("load", invokeKaTeXRender4BFis);
   </script>
 
 </body>

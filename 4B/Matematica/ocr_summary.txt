@@ -1,0 +1,6 @@
+Classe 4B – Matematica
+Argomenti trattati negli appunti:
+• Definizione della funzione esponenziale e costante di Nepero ($e \approx 2.718...$)
+• Risoluzione sistematica di equazioni e disequazioni esponenziali (regola della base)
+• Teoria dei logaritmi e proprietà fondamentali
+• Protocollo a 4 fasi per i campi di esistenza (C.E.) e studio parametrico (Esercizio 4.2)
