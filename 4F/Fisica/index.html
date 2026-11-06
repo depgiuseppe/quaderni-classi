@@ -356,7 +356,7 @@
 </head>
 <body>
 
-  <!-- Sticky Navbar (Tutti i 7 Capitoli + Simulatore) -->
+  <!-- Sticky Navbar (Tutti gli 8 Capitoli + Simulatore) -->
   <nav class="sticky-nav">
     <a href="#cap1">1. Statica & Archimede</a>
     <a href="#cap2">2. Continuità</a>
@@ -365,6 +365,7 @@
     <a href="#cap5">5. Principio Zero</a>
     <a href="#cap6">6. Mole & Avogadro</a>
     <a href="#cap7">7. Leggi dei Gas</a>
+    <a href="#cap8">8. Equazione di Stato</a>
     <a href="#simulatore">Simulatore Venturi</a>
   </nav>
 
@@ -374,7 +375,7 @@
     <div class="header-box">
       <div class="school-title">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie</div>
       <h1 class="main-title">Fisica – Classe 4F<br>Meccanica dei Fluidi e Termodinamica dei Gas</h1>
-      <div class="subtitle">Statica, Idrodinamica dei Fluidi Ideali, Principio Zero, Mole e Leggi Sperimentali dei Gas Perfetti</div>
+      <div class="subtitle">Statica, Idrodinamica dei Fluidi Ideali, Principio Zero, Mole, Leggi dei Gas ed Equazione di Stato ($pV = nRT$)</div>
       <div style="font-size: 14px; color: var(--col-text-muted);">Docente: Prof. Giuseppe De Pascali | Anno Scolastico 2026/2027 | Conforme a PROMPT MASTER 4.0</div>
       
       <!-- Pulsanti Navigazione Risorse e Download -->
@@ -885,6 +886,165 @@
           L'errore assoluto si amplifica per <em>cancellazione numerica</em> sottraendo l'unit&agrave;. Mantenendo i termini esatti o impiegando direttamente le temperature assolute Kelvin si ottiene rigorosamente il valore corretto di <strong>8,3%</strong>.
         </div>
       </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 8: L'EQUAZIONE DI STATO DEL GAS PERFETTO -->
+    <!-- ========================================================================= -->
+    <h2 id="cap8">Capitolo 8: L'Equazione di Stato del Gas Perfetto e la Costante Universale $R$</h2>
+
+    <!-- Modello del Gas Perfetto -->
+    <div class="card definition">
+      <div class="card-title">Il Modello Fisico del Gas Perfetto (o Ideale)</div>
+      <p>
+        Un gas reale rispetta con elevatissima accuratezza il modello teorico di <strong>gas perfetto</strong> quando sussistono contemporaneamente tre condizioni fisiche microscopiche e macroscopiche:
+      </p>
+      <ol style="margin-left: 20px; margin-bottom: 12px; line-height: 1.6;">
+        <li><strong>Bassa densit&agrave; e rarefazione:</strong> La pressione del gas &egrave; sufficientemente bassa, tale che la distanza intermolecolare media sia enorme rispetto alle dimensioni geometriche delle molecole stesse.</li>
+        <li><strong>Temperatura nettamente superiore alla liquefazione:</strong> La temperatura termodinamica $T$ &egrave; elevata rispetto al punto di condensazione ($T \gg T_{\text{liq}}$), garantendo l'assenza di cambiamenti di fase.</li>
+        <li><strong>Volume proprio trascurabile e urti perfettamente elastici:</strong> Le particelle (atomi o molecole) possono considerarsi masse puntiformi con volume proprio trascurabile rispetto al volume totale del contenitore ($V_{\text{molecole}} \ll V_{\text{recipiente}}$). Le interazioni molecolari a distanza (forze attrattive o repulsive di Van der Waals) sono nulle: l'unica interazione consiste in urti perfettamente elastici tra molecole e contro le pareti.</li>
+      </ol>
+      <p style="margin: 0; font-size: 0.94rem; color: var(--col-text-muted);">
+        Nelle condizioni ordinarie di temperatura ($20\,^\circ\text{C}$) e pressione ($1\,\text{atm}$), i gas atmosferici comuni ($\text{N}_2$, $\text{O}_2$, $\text{He}$, $\text{H}_2$) deviano meno dello $0{,}1\%$ da questo modello ideale.
+      </p>
+    </div>
+
+    <!-- Principio di Avogadro -->
+    <div class="card law">
+      <div class="card-title">Il Principio di Avogadro (1811)</div>
+      <p>
+        <strong>Enunciato Fondamentale:</strong> <em>Volumi uguali di gas diversi, mantenuti nelle medesime condizioni di temperatura assoluta $T$ e di pressione $p$, contengono esattamente lo stesso numero di molecole $N$ e, conseguentemente, lo stesso numero di moli $n$.</em>
+      </p>
+      <p style="text-align: center; margin: 10px 0;">
+        $$V \propto n \quad (\text{a } p = \text{costante}, \quad T = \text{costante})$$
+      </p>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Questo principio dimostra che il comportamento termodinamico di un gas ideale non dipende dalla specie chimica o dalla massa molecolare del gas, ma unicamente dal numero totale di particelle presenti nel volume.
+      </p>
+    </div>
+
+    <!-- Equazione di Stato -->
+    <div class="card law">
+      <div class="card-title">L'Equazione di Stato dei Gas Perfetti (Legge di Clapeyron)</div>
+      <p>
+        Unificando la legge di Avogadro con le leggi empiriche di Boyle e Gay-Lussac, lo stato termodinamico di equilibrio di $n$ moli di gas perfetto &egrave; descritto in modo universale da:
+      </p>
+      <div style="background: #EFF6FF; border: 2px solid var(--col-blue); border-radius: 8px; padding: 14px; text-align: center; margin: 14px 0;">
+        <span style="font-size: 1.35rem; font-weight: 700; color: var(--col-blue);">
+          $$p \cdot V = n \cdot R \cdot T$$
+        </span>
+      </div>
+      <ul style="margin-left: 20px; line-height: 1.6; font-size: 0.95rem;">
+        <li>$p$ &egrave; la pressione assoluta del gas, in <strong>Pascal</strong> ($\text{Pa} = \text{N}/\text{m}^2$).</li>
+        <li>$V$ &egrave; il volume occupato dal gas, in <strong>metri cubi</strong> ($\text{m}^3$).</li>
+        <li>$n$ &egrave; la quantit&agrave; di sostanza, in <strong>moli</strong> ($\text{mol}$).</li>
+        <li>$T$ &egrave; la temperatura assoluta, rigorosamente in <strong>Kelvin</strong> ($\text{K}$).</li>
+        <li>$R$ &egrave; la <strong>costante universale dei gas perfetti</strong>.</li>
+      </ul>
+
+      <!-- Analisi dimensionale -->
+      <div style="background: #F8FAFC; border: 1px solid var(--col-border); border-radius: 8px; padding: 12px 16px; margin-top: 15px;">
+        <h4 style="color: var(--col-blue); margin-bottom: 6px; font-size: 0.95rem; font-weight: 700;">Analisi Dimensionale del Prodotto $p \cdot V$</h4>
+        <p style="margin: 0; font-size: 0.93rem;">
+          $$[p \cdot V] = [\text{Pa}] \cdot [\text{m}^3] = \left[\frac{\text{N}}{\text{m}^2}\right] \cdot [\text{m}^3] = [\text{N} \cdot \text{m}] = [\text{Joule}]$$
+          Il prodotto $p \cdot V$ possiede la dimensione fisica di un'<strong>energia</strong> o di un <strong>lavoro meccanico</strong> ($\text{J}$). Infatti, durante un'espansione isobarica a pressione $p$, il lavoro meccanico compiuto dal gas sul pistone &egrave; esattamente $W = p \cdot \Delta V$. Il termine $nRT$ quantifica l'energia termica associata al moto cinetico delle particelle.
+        </p>
+      </div>
+    </div>
+
+    <!-- La Costante Universale R -->
+    <div class="card">
+      <div class="card-title">La Costante Universale $R$ e le Unit&agrave; di Misura della Chimica</div>
+      <p>
+        Dall'equazione di stato si ricava l'espressione per la costante universale:
+        $$R = \frac{p \cdot V}{n \cdot T}$$
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 14px 0;">
+        <div style="background: #F8FAFC; border: 1px solid var(--col-border); border-radius: 8px; padding: 14px;">
+          <h4 style="color: var(--col-blue); margin-bottom: 6px; font-size: 0.95rem;">Nel Sistema Internazionale (SI)</h4>
+          <p style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #0F172A;">
+            $$R \approx 8{,}314\,\frac{\text{J}}{\text{mol} \cdot \text{K}} \quad (8{,}31)$$
+          </p>
+          <p style="margin-top: 6px; font-size: 0.88rem; color: var(--col-text-muted);">
+            Con $p$ in $\text{Pa}$, $V$ in $\text{m}^3$, $n$ in $\text{mol}$, $T$ in $\text{K}$.
+          </p>
+        </div>
+        <div style="background: #F8FAFC; border: 1px solid var(--col-border); border-radius: 8px; padding: 14px;">
+          <h4 style="color: var(--col-blue); margin-bottom: 6px; font-size: 0.95rem;">Nelle Unit&agrave; Pratiche della Chimica</h4>
+          <p style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #0F172A;">
+            $$R \approx 0{,}0821\,\frac{\text{L} \cdot \text{atm}}{\text{mol} \cdot \text{K}}$$
+          </p>
+          <p style="margin-top: 6px; font-size: 0.88rem; color: var(--col-text-muted);">
+            Con $p$ in $\text{atm}$, $V$ in $\text{L}$ ($\text{dm}^3$), $n$ in $\text{mol}$, $T$ in $\text{K}$.
+          </p>
+        </div>
+      </div>
+
+      <div style="background: #F1F5F9; border-radius: 8px; padding: 12px 16px; margin: 12px 0;">
+        <strong style="color: #0F172A;">Dimostrazione della Conversione di $R$:</strong><br>
+        Poich&eacute; $1\,\text{atm} = 101\,325\,\text{Pa}$ e $1\,\text{L} = 10^{-3}\,\text{m}^3$:
+        $$1\,\text{L} \cdot \text{atm} = 10^{-3}\,\text{m}^3 \times 101\,325\,\text{Pa} = 101{,}325\,\text{J}$$
+        Sostituendo nel rapporto:
+        $$R = \frac{8{,}31446\,\frac{\text{J}}{\text{mol}\cdot\text{K}}}{101{,}325\,\frac{\text{J}}{\text{L}\cdot\text{atm}}} = \mathbf{0{,}082057\,\frac{\text{L} \cdot \text{atm}}{\text{mol} \cdot \text{K}} \approx 0{,}0821\,\frac{\text{L} \cdot \text{atm}}{\text{mol} \cdot \text{K}}}$$
+      </div>
+
+      <!-- Volume Molare Standard -->
+      <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 12px 16px; margin-top: 14px;">
+        <strong style="color: #065F46;">Volume Molare Standard a STP ($T = 0\,^\circ\text{C} = 273{,}15\,\text{K}$, $p = 1\,\text{atm}$):</strong><br>
+        Il volume occupato da una mole ($n = 1\,\text{mol}$) di un qualsiasi gas perfetto vale:
+        $$V_0 = \frac{n \cdot R \cdot T}{p} = \frac{1\,\text{mol} \cdot 0{,}0821\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}} \cdot 273{,}15\,\text{K}}{1\,\text{atm}} \approx \mathbf{22{,}414\,\text{L} \approx 22{,}4\,\text{L}}$$
+      </div>
+
+      <div class="card alert" style="margin-top: 14px; border-left: 4px solid var(--col-red); background: #FEF2F2; padding: 12px 16px; border-radius: 8px;">
+        <strong style="color: var(--col-red);">Tranello Comune nelle Verifiche Scritte:</strong><br>
+        Non mischiare mai le unit&agrave; di misura! Se utilizzi $R = 8{,}31$, la pressione DEVE essere in Pascal e il volume in $\text{m}^3$. Se utilizzi $R = 0{,}0821$, la pressione deve essere in atmosfere e il volume in litri. In entrambi i casi, <strong>la temperatura deve essere SEMPRE espressa in Kelvin</strong>!
+      </div>
+    </div>
+
+    <!-- Deduzione delle Leggi Storiche -->
+    <div class="card">
+      <div class="card-title">Deduzione delle Tre Leggi Sperimentali dall'Equazione di Stato</div>
+      <p>
+        Dall'equazione generale $p \cdot V = n \cdot R \cdot T$, ponendo di volta in volta costante una delle grandezze termodinamiche per una quantit&agrave; fissata di gas ($n = \text{costante}$), si deducono matematicamente le leggi storiche:
+      </p>
+      <div class="table-container" style="margin-top: 12px;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: #FFFFFF;">
+          <thead>
+            <tr style="background: #F1F5F9; border-bottom: 2px solid var(--col-border); text-align: left;">
+              <th style="padding: 10px 12px;">Trasformazione</th>
+              <th style="padding: 10px 12px;">Condizione</th>
+              <th style="padding: 10px 12px;">Deduzione Algebrica</th>
+              <th style="padding: 10px 12px;">Legge Storica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--col-border);">
+              <td style="padding: 10px 12px; font-weight: 600;">Isoterma</td>
+              <td style="padding: 10px 12px;">$T = \text{cost}$</td>
+              <td style="padding: 10px 12px;">$p \cdot V = nRT = \text{cost} \implies \bm{p_1 V_1 = p_2 V_2}$</td>
+              <td style="padding: 10px 12px; color: var(--col-blue);">Boyle (1662)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--col-border);">
+              <td style="padding: 10px 12px; font-weight: 600;">Isobara</td>
+              <td style="padding: 10px 12px;">$p = \text{cost}$</td>
+              <td style="padding: 10px 12px;">$\dfrac{V}{T} = \dfrac{nR}{p} = \text{cost} \implies \bm{\dfrac{V_1}{T_1} = \dfrac{V_2}{T_2}}$</td>
+              <td style="padding: 10px 12px; color: var(--col-blue);">1&ordf; Gay-Lussac (1802)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--col-border);">
+              <td style="padding: 10px 12px; font-weight: 600;">Isocora</td>
+              <td style="padding: 10px 12px;">$V = \text{cost}$</td>
+              <td style="padding: 10px 12px;">$\dfrac{p}{T} = \dfrac{nR}{V} = \text{cost} \implies \bm{\dfrac{p_1}{T_1} = \dfrac{p_2}{T_2}}$</td>
+              <td style="padding: 10px 12px; color: var(--col-blue);">2&ordf; Gay-Lussac (1802)</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 12px; font-weight: 600;">Generale</td>
+              <td style="padding: 10px 12px;">$n = \text{cost}$</td>
+              <td style="padding: 10px 12px;">$\dfrac{p \cdot V}{T} = nR = \text{cost} \implies \bm{\dfrac{p_1 V_1}{T_1} = \dfrac{p_2 V_2}{T_2}}$</td>
+              <td style="padding: 10px 12px; color: var(--col-blue);">Clapeyron (1834)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- ========================================================================= -->
