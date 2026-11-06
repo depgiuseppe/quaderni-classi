@@ -3,33 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>Quaderni del Prof – Liceo Scientifico «Leonardo da Vinci» Maglie</title>
+  <title>Portale Didattico Riservato – Liceo Scientifico «Leonardo da Vinci» Maglie</title>
   <style>
     :root {
       --bg-page: #F8FAFC;
       --bg-card: #FFFFFF;
       --border-doc: #E2E8F0;
-      --border-strong: #CBD5E1;
       --col-text: #0F172A;
       --col-text-muted: #475569;
       --col-primary: #184C78;
-      --col-primary-light: #2563EB;
     }
     *, *::before, *::after { box-sizing: border-box; }
     body {
       background-color: var(--bg-page);
       color: var(--col-text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Georgia, serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.65;
       margin: 0;
       padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .container {
-      max-width: 980px;
-      margin: 40px auto;
-      padding: 0 20px 60px;
+      max-width: 680px;
+      margin: 20px auto;
+      padding: 20px;
+      width: 100%;
     }
-    .hero {
+    .card {
       background: var(--bg-card);
       border: 1px solid var(--border-doc);
       border-top: 4px solid var(--col-primary);
@@ -37,9 +40,8 @@
       padding: 40px 32px;
       text-align: center;
       box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-      margin-bottom: 36px;
     }
-    .school-badge {
+    .badge {
       display: inline-block;
       font-size: 12px;
       font-weight: 700;
@@ -51,111 +53,50 @@
       border-radius: 999px;
       margin-bottom: 12px;
     }
-    .hero h1 {
-      font-size: 34px;
-      color: var(--col-primary);
-      margin: 8px 0 12px;
-      font-weight: 800;
-    }
-    .hero p {
-      color: var(--col-text-muted);
-      font-size: 17px;
-      max-width: 680px;
-      margin: 0 auto 10px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .class-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-doc);
-      border-radius: 12px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .class-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-    }
-    .class-card h2 {
+    h1 {
       font-size: 26px;
       color: var(--col-primary);
-      margin: 0 0 8px;
+      margin: 8px 0 14px;
+      font-weight: 800;
     }
-    .class-card p {
+    p {
       color: var(--col-text-muted);
-      font-size: 15px;
-      margin: 0 0 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 16px;
     }
-    .btn {
-      display: block;
-      padding: 12px 18px;
+    .info-box {
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
       border-radius: 8px;
-      font-weight: 600;
-      font-size: 15px;
-      text-decoration: none;
-      text-align: center;
-      background: var(--col-primary);
-      color: #FFFFFF;
-      transition: background 0.2s;
-    }
-    .btn:hover {
-      background: var(--col-primary-light);
+      padding: 16px;
+      margin-top: 20px;
+      font-size: 14.5px;
+      color: #334155;
+      text-align: left;
     }
     footer {
       text-align: center;
-      font-size: 13.5px;
+      font-size: 13px;
       color: var(--col-text-muted);
-      margin-top: 48px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-doc);
+      margin-top: 24px;
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <section class="hero">
-      <span class="school-badge">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie</span>
-      <h1>Portali Didattici delle Classi</h1>
-      <p>Seleziona la tua classe per accedere ai compendi interattivi HTML5, ai simulatori di laboratorio e alle dispense PDF.</p>
-      <div style="font-size: 14px; color: var(--col-text-muted); margin-top: 8px;">Docente: Prof. Giuseppe De Pascali | A.S. 2026/2027</div>
-    </section>
-
-    <div class="grid">
-      <article class="class-card">
-        <div>
-          <h2>Classe 1B</h2>
-          <p><strong>Fisica</strong> (Metodo sperimentale, Incertezze, Bilancia, Relazioni lineari) e <strong>Laboratorio Matematico</strong> (Somma di Gauss, Numeri figurati, &pi;).</p>
-        </div>
-        <a href="1B/index.html" class="btn">Entra nel Portale 1B &rarr;</a>
-      </article>
-
-      <article class="class-card">
-        <div>
-          <h2>Classe 4B</h2>
-          <p><strong>Matematica</strong> (Esponenziali, Logaritmi, Costante di Nepero) e <strong>Fisica</strong> (Leggi dei Gas, Piano di Clapeyron, Teoria Cinetica, Calorimetria).</p>
-        </div>
-        <a href="4B/index.html" class="btn">Entra nel Portale 4B &rarr;</a>
-      </article>
-
-      <article class="class-card">
-        <div>
-          <h2>Classe 4F</h2>
-          <p><strong>Matematica</strong> (Esponenziali, Logaritmi, Goniometria e Trigonometria) e <strong>Fisica</strong> (Statica e Dinamica dei Fluidi, Venturi, Gas Perfetti).</p>
-        </div>
-        <a href="4F/index.html" class="btn">Entra nel Portale 4F &rarr;</a>
-      </article>
+  <div class="container">
+    <div class="card">
+      <span class="badge">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie</span>
+      <h1>Portale Didattico Riservato</h1>
+      <p>L'accesso ai compendi interattivi, ai laboratori multimediali e alle dispense per ciascuna classe è riservato e circoscritto.</p>
+      <div class="info-box">
+        🔒 <strong>Accesso Riservato agli Studenti:</strong><br>
+        Per accedere ai materiali didattici della tua classe, utilizza <em>esclusivamente il link diretto personale</em> pubblicato all'interno del rispettivo stream di <strong>Google Classroom</strong>. Non sono presenti elenchi o collegamenti pubblici ad altre classi.
+      </div>
+      <footer>
+        Prof. Giuseppe De Pascali • Anno Scolastico 2026/2027
+      </footer>
     </div>
-
-    <footer>
-      Liceo Scientifico Statale «Leonardo da Vinci» – Maglie (LE) &bull; Quaderni Digitali StarNote
-    </footer>
-  </main>
+  </div>
 </body>
 </html>

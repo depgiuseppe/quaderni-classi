@@ -712,6 +712,90 @@
       </p>
     </div>
 
+    <!-- Specchietto di Approfondimento Critico: Scale Termometriche ed Esercizi -->
+    <div class="card" style="border-left: 4px solid #184C78; background: #F8FAFC; margin: 24px 0; padding: 22px 24px;">
+      <div class="card-title" style="color: #184C78; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+        <span>🔍 Approfondimento Critico &amp; Attenzione agli Esercizi</span>
+        <span style="font-size: 11px; background: #EFF6FF; color: #184C78; border: 1px solid #BFDBFE; padding: 3px 8px; border-radius: 999px; font-weight: 700; text-transform: uppercase;">Scale di Misura &amp; Termodinamica</span>
+      </div>
+      <h3 style="color: #0F172A; font-size: 1.18rem; margin: 8px 0 14px 0; font-weight: 800;">
+        Ha senso raddoppiare la temperatura in gradi Celsius?
+      </h3>
+      
+      <p style="margin-bottom: 12px;">
+        <strong>Risposta sintetica:</strong> Dal punto di vista fisico e termodinamico, <strong>no, non ha alcun senso</strong>.
+      </p>
+      <p style="margin-bottom: 14px;">
+        La scala Celsius &egrave; una <strong>scala a intervalli</strong> (o affinemente traslata) e non una <strong>scala di rapporti</strong>. Il suo valore zero ($0\,^\circ\text{C}$) &egrave; un riferimento puramente convenzionale (il punto di fusione del ghiaccio a pressione atmosferica standard) e non corrisponde affatto all'assenza di moto o agitazione termica a livello microscopico.
+      </p>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;">
+        <h4 style="color: #B91C1C; font-size: 0.96rem; margin-bottom: 8px; font-weight: 700;">⚠️ Le Contraddizioni Logiche e i Paradossi Fisici</h4>
+        <ul style="margin: 0; padding-left: 20px; line-height: 1.6; font-size: 0.94rem;">
+          <li style="margin-bottom: 8px;">
+            <strong>Il paradosso dello zero:</strong> Moltiplicare per due una temperatura di $0\,^\circ\text{C}$ darebbe ancora $0\,^\circ\text{C}$ ($2 \times 0\,^\circ\text{C} = 0\,^\circ\text{C}$). Ci&ograve; implicherebbe che l'energia interna del sistema rimanga invariata, rendendo il "raddoppio" nullo.
+          </li>
+          <li style="margin-bottom: 8px;">
+            <strong>Il paradosso dei valori negativi:</strong> Raddoppiare una temperatura negativa come $-10\,^\circ\text{C}$ porterebbe algebricamente a $-20\,^\circ\text{C}$. Tuttavia, uno stato a $-20\,^\circ\text{C}$ descrive un livello energetico inferiore (pi&ugrave; freddo) rispetto a $-10\,^\circ\text{C}$, ribaltando completamente il significato dell'operazione!
+          </li>
+          <li>
+            <strong>Inconsistenza energetica reale:</strong> Passare da $10\,^\circ\text{C}$ a $20\,^\circ\text{C}$ non raddoppia affatto l'energia cinetica media. In unit&agrave; assolute: $10\,^\circ\text{C} = 283{,}15\,\text{K}$ e $20\,^\circ\text{C} = 293{,}15\,\text{K}$. Il rapporto reale &egrave;:
+            $$\frac{293{,}15\,\text{K}}{283{,}15\,\text{K}} \approx 1{,}0353 \implies +3{,}53\%$$
+            L'incremento energetico reale &egrave; di appena il $3{,}5\%$, ben lontano dal $+100\%$ atteso da un vero raddoppio.
+          </li>
+        </ul>
+      </div>
+
+      <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;">
+        <h4 style="color: #15803D; font-size: 0.96rem; margin-bottom: 8px; font-weight: 700;">🔬 La Prospettiva Termodinamica Corretta</h4>
+        <p style="margin-bottom: 8px; font-size: 0.94rem;">
+          La temperatura termodinamica rigorosa &egrave; legata direttamente all'energia cinetica traslazionale media delle particelle:
+        </p>
+        <p style="text-align: center; margin: 10px 0;">
+          $$\mathbf{\langle E_k \rangle = \frac{3}{2} \, k_B \, T}$$
+        </p>
+        <p style="margin: 0; font-size: 0.94rem;">
+          dove $k_B \approx 1{,}38 \times 10^{-23}\,\text{J/K}$ &egrave; la costante di Boltzmann e $T$ &egrave; la temperatura assoluta in <strong>Kelvin ($\text{K}$)</strong>, il cui zero ($0\,\text{K} = -273{,}15\,^\circ\text{C}$) corrisponde al limite asintotico di minima agitazione termica possibile.
+        </p>
+      </div>
+
+      <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;">
+        <h4 style="color: #B45309; font-size: 0.96rem; margin-bottom: 8px; font-weight: 700;">⚡ Attenzione Fondamentale negli Esercizi: Il Tranello del "Raddoppio"</h4>
+        <p style="margin-bottom: 8px; font-size: 0.94rem;">
+          Spesso nei testi dei problemi sui gas perfetti (come nel successivo Esercizio 49) si trovano frasi come:
+          <em>&laquo;la temperatura del gas raddoppia&raquo;</em> oppure <em>&laquo;calcola la temperatura finale sapendo che il volume raddoppia&raquo;</em>.
+        </p>
+        <p style="margin-bottom: 10px; font-size: 0.94rem; font-weight: 700; color: #92400E;">
+          ⚠️ Regola aurea: dobbiamo stare attentissimi all'unit&agrave; di misura! L'operazione di raddoppio ($T_2 = 2 T_1$) va applicata TASSATIVAMENTE alla temperatura assoluta in Kelvin ($T$), MAI ai gradi Celsius ($t$)!
+        </p>
+        <div style="background: #FFFFFF; border-left: 3px solid #D97706; padding: 10px 14px; font-size: 0.92rem; border-radius: 4px;">
+          <strong>Esempio Pratico:</strong> Se un gas si trova inizialmente a $t_1 = 20\,^\circ\text{C}$:
+          <ol style="margin: 6px 0 0 18px; line-height: 1.5;">
+            <li>Si converte la temperatura iniziale in Kelvin: $T_1 = 20 + 273{,}15 = 293{,}15\,\text{K}$;</li>
+            <li>Si raddoppia in scala assoluta: $T_2 = 2 \times T_1 = 2 \times 293{,}15\,\text{K} = 586{,}30\,\text{K}$;</li>
+            <li>Si riconverte la temperatura finale in gradi Celsius:
+              $$t_2 = 586{,}30 - 273{,}15 = \mathbf{313{,}15\,^\circ\text{C}}$$
+            </li>
+          </ol>
+          Scaldare il gas da $20\,^\circ\text{C}$ a $40\,^\circ\text{C}$ &egrave; un incremento termodinamico di appena il $6{,}8\%$; per raddoppiare davvero l'energia termica, il gas deve raggiungere oltre <strong>$313\,^\circ\text{C}$</strong>!
+        </div>
+      </div>
+
+      <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <h4 style="color: #1D4ED8; font-size: 0.96rem; margin-bottom: 6px; font-weight: 700;">✅ L'Unico Caso Ammissibile: L'Intervallo Termico $\Delta T$</h4>
+        <p style="margin-bottom: 8px; font-size: 0.94rem;">
+          L'operazione di moltiplicazione sui gradi Celsius ha pieno significato matematico e fisico unicamente quando applicata a una <strong>variazione</strong> o <strong>intervallo</strong> di temperatura ($\Delta T$), poich&eacute; la differenza tra due temperature &egrave; invariante rispetto alla traslazione dell'origine:
+        </p>
+        <p style="text-align: center; margin: 8px 0;">
+          $$\Delta T = T_b - T_a = (t_b + 273{,}15) - (t_a + 273{,}15) = t_b - t_a = \Delta t$$
+        </p>
+        <p style="margin: 0; font-size: 0.92rem;">
+          Di conseguenza: $\Delta t = 5\,^\circ\text{C} \implies 2 \times \Delta t = 10\,^\circ\text{C} \equiv 10\,\text{K}$.<br>
+          <strong>In sintesi:</strong> ha senso moltiplicare un <em>intervallo termico</em> ($\Delta t$), ma <strong>non</strong> ha senso moltiplicare il <em>valore puntuale</em> di temperatura espresso in scala Celsius ($t$).
+        </p>
+      </div>
+    </div>
+
     <!-- Esercizio 49 con Ritaglio -->
     <div class="card exercise">
       <div class="card-title" style="color: var(--col-green);">Esercizio Risolto dal Libro: Espansione Isobara e Temperatura Assoluta (Es. 49)</div>
