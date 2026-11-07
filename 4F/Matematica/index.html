@@ -37,17 +37,21 @@
       scroll-behavior: smooth;
     }
 
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
       background-color: var(--bg-page);
       color: var(--col-text);
       /* Font LaTeX autentico Computer Modern / Latin Modern */
       font-family: "KaTeX_Main", "Latin Modern Roman", "Computer Modern", "TeX Gyre Termes", Georgia, serif;
-      font-size: 19px;
-      line-height: 1.7;
+      font-size: clamp(16px, 1.1vw + 12px, 19px);
+      line-height: 1.68;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
-      max-width: 100vw;
     }
 
     h1, h2, h3, h4, h5 {
@@ -59,7 +63,9 @@
       word-break: break-word;
     }
 
-    /* Protezione e gestione rigorosa anti-overflow formule matematiche */
+    /* ==========================================================================
+       1. ANTI-OVERFLOW SHIELD RIGOROSO PER DISPLAY MOBILI & KATEX
+       ========================================================================== */
     .math-inline {
       white-space: nowrap;
       display: inline-block;
@@ -69,6 +75,7 @@
       vertical-align: middle;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
+      padding: 1px 3px;
     }
     .math-inline::-webkit-scrollbar {
       display: none;
@@ -87,14 +94,14 @@
     }
 
     .katex-display {
-      max-width: 100%;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding: 10px 8px;
+      max-width: 100% !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      padding: 10px 14px !important;
       margin: 14px 0 !important;
       scrollbar-width: thin;
       scrollbar-color: var(--border-strong) transparent;
-      -webkit-overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch !important;
       overscroll-behavior-x: contain;
       touch-action: pan-x pan-y;
     }
@@ -108,33 +115,118 @@
       background: #CBD5E1;
       border-radius: 4px;
     }
+    .katex-display::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
 
-    /* Barra di Navigazione Sticky Superiore con Supporto Gestuale & Touch */
+    /* Ottimizzazione Grafica e Altezza Graffe Sistemi KaTeX */
+    .katex .mopen.delimcenter .delimsizing {
+      display: inline-block;
+      transform: scaleY(1.06);
+      transform-origin: center;
+    }
+
+    /* ==========================================================================
+       4. BARRA DEI CAPITOLI STICKY CON SUPPORTO GESTUALE & TOUCH FLUIDO
+       ========================================================================== */
     .top-navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 2px solid var(--border-doc);
-      padding: 8px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-      gap: 12px;
       width: 100%;
+      box-sizing: border-box;
     }
 
-    .navbar-title {
-      font-size: 1.02em;
-      font-weight: 700;
-      color: #1E293B;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
+    @media (min-width: 1025px) {
+      .top-navbar {
+        padding: 8px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+      .navbar-title {
+        font-size: 1.02em;
+        font-weight: 700;
+        color: #1E293B;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .navbar-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4px 2px;
+        max-width: 76%;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        touch-action: pan-x;
+        scroll-snap-type: x proximity;
+        overscroll-behavior-x: contain;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .top-navbar {
+        padding: 6px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+      }
+      .navbar-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-size: clamp(0.82rem, 2.5vw, 0.94rem);
+        font-weight: 700;
+        color: #1E293B;
+        flex-shrink: 0;
+      }
+      .navbar-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 6px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4px 2px 6px 2px;
+        width: 100%;
+        max-width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        touch-action: pan-x;
+        scroll-snap-type: x proximity;
+        overscroll-behavior-x: contain;
+      }
+    }
+
+    .navbar-menu {
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-strong) transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .navbar-menu::-webkit-scrollbar {
+      height: 4px;
+    }
+    .navbar-menu::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .navbar-menu::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
     }
 
     .navbar-badge {
@@ -148,42 +240,18 @@
       white-space: nowrap;
     }
 
-    .navbar-menu {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding: 4px 2px;
-      max-width: 78%;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-x;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border-strong) transparent;
-      scroll-snap-type: x proximity;
-      overscroll-behavior-x: contain;
-    }
-    .navbar-menu::-webkit-scrollbar {
-      height: 4px;
-    }
-    .navbar-menu::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .navbar-menu::-webkit-scrollbar-thumb {
-      background: #CBD5E1;
-      border-radius: 4px;
-    }
-
     .nav-link {
       background: #F1F5F9;
       color: #334155;
       text-decoration: none;
-      font-size: 0.82em;
+      font-size: clamp(0.74rem, 2.2vw, 0.82rem);
       font-weight: 600;
-      padding: 7px 14px;
-      min-height: 38px;
+      padding: 6px 13px;
+      min-height: 36px;
       display: inline-flex;
       align-items: center;
-      border-radius: 20px;
+      justify-content: center;
+      border-radius: 999px;
       border: 1px solid var(--border-strong);
       white-space: nowrap;
       flex-shrink: 0;
@@ -195,21 +263,36 @@
       -webkit-user-select: none;
     }
 
-    .nav-link:hover {
+    .nav-link:hover, .nav-link.active {
       background: var(--col-primary);
       color: #FFFFFF;
       border-color: var(--col-primary-dark);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
     }
     .nav-link:active {
-      transform: scale(0.96);
+      transform: scale(0.95);
     }
 
+    /* ==========================================================================
+       3. CONTENITORE PRINCIPALE & LAYOUT CLAMPING (360px-480px & TABLET)
+       ========================================================================== */
+    .document-container {
+      width: min(100% - 16px, 1240px);
+      margin: clamp(14px, 3vw, 36px) auto;
+      padding: clamp(16px, 3.8vw, 48px);
+      background: var(--bg-doc);
+      border: 1px solid var(--border-doc);
+      border-radius: clamp(8px, 2vw, 14px);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+      min-width: 0;
+    }
 
     /* Header Ufficiale del Documento */
     .document-master-header {
       text-align: center;
-      margin-bottom: 45px;
-      padding-bottom: 30px;
+      margin-bottom: clamp(24px, 4vw, 45px);
+      padding-bottom: clamp(16px, 3vw, 30px);
       border-bottom: 3px double var(--border-strong);
     }
 
@@ -218,7 +301,7 @@
       background: #EEF2FF;
       color: #3730A3;
       font-weight: 700;
-      font-size: 0.85em;
+      font-size: clamp(0.75em, 2vw, 0.85em);
       padding: 4px 14px;
       border-radius: 20px;
       border: 1px solid #C7D2FE;
@@ -227,44 +310,25 @@
     }
 
     .doc-header-title {
-      font-size: 2.35em;
+      font-size: clamp(1.45rem, 5vw, 2.35rem);
       margin: 0 0 10px 0;
       color: #0F172A;
       letter-spacing: -0.02em;
+      line-height: 1.25;
     }
 
     .doc-header-subtitle {
-      font-size: 1.15em;
+      font-size: clamp(0.92rem, 2.4vw, 1.15rem);
       color: var(--col-text-muted);
       margin: 0 auto;
       max-width: 800px;
       line-height: 1.6;
     }
 
-    /* Ottimizzazione Grafica e Altezza Graffe Sistemi KaTeX */
-    .katex .mopen.delimcenter .delimsizing {
-      display: inline-block;
-      transform: scaleY(1.06);
-      transform-origin: center;
-    }
-
-    /* Contenitore Principale del Documento */
-    .document-container {
-      max-width: 1240px;
-      margin: 30px auto 60px auto;
-      background: var(--bg-doc);
-      border: 1px solid var(--border-doc);
-      border-radius: 14px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
-      padding: 45px 55px;
-      min-width: 0;
-      box-sizing: border-box;
-    }
-
     /* Capitoli e Sezioni */
     .lesson-section {
-      margin-bottom: 75px;
-      padding-bottom: 45px;
+      margin-bottom: clamp(36px, 6vw, 75px);
+      padding-bottom: clamp(24px, 4vw, 45px);
       border-bottom: 2px dashed #E2E8F0;
       min-width: 0;
       max-width: 100%;
@@ -276,7 +340,7 @@
     }
 
     .section-header {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       border-bottom: 2px solid var(--border-doc);
       padding-bottom: 12px;
       display: flex;
@@ -288,7 +352,7 @@
     }
 
     .section-header h2 {
-      font-size: 1.55em;
+      font-size: clamp(1.18rem, 3.8vw, 1.55rem);
       margin: 0;
       color: #1E293B;
       display: flex;
@@ -309,24 +373,27 @@
       white-space: nowrap;
     }
 
-    /* Box Didattici LaTeX (tcolorbox styling) con protezione anti-overflow rigorosa */
+    /* ==========================================================================
+       2. TABELLE E BOX DIMOSTRAZIONI RESPONSIVE CON SCORRIMENTO ORIZZONTALE
+       ========================================================================== */
     .box-latex {
       border-radius: 8px;
-      margin: 22px 0;
+      margin: 20px 0;
       overflow: hidden;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
       border: 1px solid var(--border-doc);
       min-width: 0;
       max-width: 100%;
+      box-sizing: border-box;
       overflow-wrap: break-word;
       word-break: break-word;
       hyphens: auto;
     }
 
     .box-header {
-      padding: 10px 18px;
+      padding: clamp(8px, 2vw, 10px) clamp(12px, 2.5vw, 18px);
       font-weight: 700;
-      font-size: 1.05em;
+      font-size: clamp(0.92em, 2.5vw, 1.05em);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -336,7 +403,7 @@
     }
 
     .box-body {
-      padding: 18px 24px;
+      padding: clamp(12px, 3vw, 24px);
       background: #FFFFFF;
       min-width: 0;
       max-width: 100%;
@@ -345,11 +412,20 @@
       hyphens: auto;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
       scrollbar-width: thin;
+      scrollbar-color: var(--border-strong) transparent;
+    }
+    .box-body::-webkit-scrollbar {
+      height: 5px;
+    }
+    .box-body::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
     }
 
     .box-body ul, .box-body ol {
-      padding-left: 22px;
+      padding-left: clamp(16px, 3.5vw, 22px);
       margin: 8px 0;
       max-width: 100%;
     }
@@ -386,7 +462,7 @@
     .grid-2col {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      gap: 28px;
+      gap: 24px;
       align-items: start;
       width: 100%;
       min-width: 0;
@@ -395,7 +471,7 @@
     .grid-2col-even {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 24px;
+      gap: 22px;
       align-items: start;
       width: 100%;
       min-width: 0;
@@ -406,51 +482,17 @@
       max-width: 100%;
     }
 
-    /* Regole Specifiche Anti-Overflow per Sezioni 15 e 16 */
     #sec-15 .grid-2col-even,
-    #sec-16 .grid-2col-even,
-     {
+    #sec-16 .grid-2col-even {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 22px;
     }
 
-    #sec-15 .box-latex,
-    #sec-16 .box-latex,
-     {
-      overflow-wrap: break-word;
-      word-break: break-word;
-      hyphens: auto;
-    }
-
     #sec-15 .box-body,
-    #sec-16 .box-body,
-     {
-      padding: 16px 20px;
-      overflow-wrap: break-word;
-      word-break: break-word;
-      hyphens: auto;
+    #sec-16 .box-body {
+      padding: clamp(12px, 2.5vw, 18px);
       font-size: 0.94em;
-    }
-
-    #sec-15 .box-body ul,
-    #sec-16 .box-body ul,
-     ul {
-      padding-left: 18px;
-      margin: 6px 0;
-    }
-
-    #sec-15 .box-body li,
-    #sec-16 .box-body li,
-     li {
-      margin-bottom: 9px;
-      line-height: 1.65;
-    }
-
-    #sec-15 .math-inline,
-    #sec-16 .math-inline,
-     {
-      font-size: 0.93em;
     }
 
     /* Contenitori Multimediali e Video Animazioni */
@@ -468,7 +510,7 @@
     .media-card video {
       width: 100%;
       max-width: 100%;
-      max-height: 460px;
+      max-height: clamp(240px, 50vw, 460px);
       display: block;
       background: #FFFFFF;
     }
@@ -476,7 +518,7 @@
     .media-card img {
       width: 100%;
       max-width: 100%;
-      max-height: 460px;
+      max-height: clamp(240px, 50vw, 460px);
       display: block;
       object-fit: contain;
       background: #FFFFFF;
@@ -486,7 +528,7 @@
       padding: 10px 16px;
       background: #F8FAFC;
       border-top: 1px solid var(--border-doc);
-      font-size: 0.88em;
+      font-size: clamp(0.78em, 2vw, 0.88em);
       color: var(--col-text-muted);
       display: flex;
       align-items: center;
@@ -500,12 +542,13 @@
     .table-container, .table-responsive {
       width: 100%;
       max-width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border-strong) transparent;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
       overscroll-behavior-x: contain;
       margin: 16px 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-strong) transparent;
+      touch-action: pan-x pan-y;
     }
     .table-container::-webkit-scrollbar, .table-responsive::-webkit-scrollbar {
       height: 5px;
@@ -515,33 +558,32 @@
       border-radius: 4px;
     }
 
-    table.latex-table {
+    table.latex-table, table.data-table, .box-body table {
       width: 100%;
-      min-width: 520px;
+      min-width: 480px;
       border-collapse: collapse;
-      font-size: clamp(0.85em, 2.2vw, 0.95em);
-      margin: 16px 0;
+      font-size: clamp(0.80em, 2.2vw, 0.95em);
+      margin: 10px 0;
       background: #FFFFFF;
+    }
+
+    table.latex-table th, table.latex-table td,
+    table.data-table th, table.data-table td,
+    .box-body table th, .box-body table td {
+      border: 1px solid var(--border-doc);
+      padding: clamp(8px, 1.8vw, 12px) clamp(8px, 2vw, 14px);
+      text-align: left;
       overflow-wrap: break-word;
       word-break: normal;
     }
 
-    table.latex-table th, table.latex-table td {
-      border: 1px solid var(--border-doc);
-      padding: 10px 14px;
-      text-align: left;
-      overflow-wrap: break-word;
-      word-break: break-word;
-      hyphens: auto;
-    }
-
-    table.latex-table th {
+    table.latex-table th, table.data-table th, .box-body table th {
       background: #F1F5F9;
       color: var(--col-text);
       font-weight: 700;
     }
 
-    table.latex-table tr:nth-child(even) {
+    table.latex-table tr:nth-child(even), table.data-table tr:nth-child(even), .box-body table tr:nth-child(even) {
       background: #F8FAFC;
     }
 
@@ -550,8 +592,8 @@
       background: #FFFFFF;
       border: 1.5px solid var(--border-strong);
       border-radius: 12px;
-      padding: 22px;
-      margin: 28px 0;
+      padding: clamp(14px, 3.2vw, 22px);
+      margin: 24px 0;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
       min-width: 0;
       max-width: 100%;
@@ -563,7 +605,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       border-bottom: 1.5px solid var(--border-doc);
       padding-bottom: 10px;
       min-width: 0;
@@ -572,7 +614,7 @@
     }
 
     .sim-title {
-      font-size: 1.25em;
+      font-size: clamp(1.05em, 2.8vw, 1.25em);
       font-weight: 700;
       color: #1E293B;
       display: flex;
@@ -586,19 +628,19 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 18px;
+      gap: 14px;
       background: #F8FAFC;
       border: 1px solid var(--border-doc);
       border-radius: 8px;
-      padding: 12px 18px;
-      margin-bottom: 16px;
+      padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 18px);
+      margin-bottom: 14px;
       min-width: 0;
     }
 
     .sim-ctrl {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       min-width: 0;
     }
 
@@ -624,6 +666,7 @@
       cursor: pointer;
       transition: background 0.15s ease;
       font-family: -apple-system, sans-serif;
+      touch-action: manipulation;
     }
 
     .sim-btn:hover {
@@ -645,9 +688,9 @@
       background: #F1F5F9;
       border: 1px solid var(--border-strong);
       border-radius: 6px;
-      padding: 10px 16px;
+      padding: 10px 14px;
       font-family: "KaTeX_Typewriter", SFMono-Regular, Consolas, monospace;
-      font-size: 0.95em;
+      font-size: clamp(0.82em, 2.2vw, 0.95em);
       color: #0F172A;
       line-height: 1.5;
       overflow-wrap: break-word;
@@ -675,6 +718,7 @@
       cursor: pointer;
       transition: all 0.15s ease;
       font-family: -apple-system, sans-serif;
+      touch-action: manipulation;
     }
 
     .stage-btn:hover {
@@ -687,62 +731,51 @@
       border-color: var(--col-primary-dark);
     }
 
-    /* Media Queries Responsive per Schermi Medi, Tablet e Smartphone (360px-480px) */
-    @media (max-width: 1100px) {
-      .grid-2col, .grid-2col-even, #sec-15 .grid-2col-even, #sec-16 .grid-2col-even,  {
+    canvas {
+      touch-action: none !important;
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    video {
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES RESPONSIVE (TABLET E SMARTPHONE 360px-480px)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .grid-2col, .grid-2col-even, #sec-15 .grid-2col-even, #sec-16 .grid-2col-even {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
       }
       .document-container {
-        padding: clamp(24px, 4vw, 36px) clamp(16px, 3.5vw, 28px);
-        margin: 20px auto;
-        width: min(100% - 20px, 1240px);
-      }
-      .top-navbar {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        padding: 8px 14px;
-      }
-      .navbar-title {
-        justify-content: space-between;
-        width: 100%;
-      }
-      .navbar-menu {
-        max-width: 100%;
-        width: 100%;
-        padding-bottom: 6px;
+        padding: clamp(20px, 3.8vw, 32px) clamp(14px, 3.2vw, 24px);
+        margin: 16px auto;
+        width: min(100% - 16px, 1240px);
       }
       .box-body {
-        padding: 14px 18px;
+        padding: 14px 16px;
       }
     }
 
     @media (max-width: 768px) {
-      body {
-        font-size: 17px;
-      }
       .document-container {
-        padding: 20px 14px;
-        margin: 14px auto 30px auto;
+        padding: 16px 12px;
+        margin: 12px auto 28px auto;
         width: min(100% - 12px, 1240px);
         border-radius: 10px;
       }
-      .doc-header-title {
-        font-size: clamp(1.65em, 5vw, 2em);
-      }
-      .doc-header-subtitle {
-        font-size: 1.02em;
-      }
-      .section-header h2 {
-        font-size: 1.35em;
-      }
       .sim-panel {
-        padding: 16px 12px;
+        padding: 14px 10px;
       }
       .sim-controls-bar {
         padding: 10px 12px;
-        gap: 12px;
+        gap: 10px;
       }
     }
 
@@ -751,41 +784,21 @@
         font-size: 16px;
       }
       .document-container {
-        padding: 16px 10px;
-        margin: 10px auto 24px auto;
+        padding: 14px 10px;
+        margin: 8px auto 20px auto;
         width: min(100% - 8px, 1240px);
         border-radius: 8px;
       }
-      .top-navbar {
-        padding: 6px 10px;
-      }
-      .navbar-title {
-        font-size: 0.9em;
-      }
-      .navbar-badge {
-        font-size: 0.6em;
-        padding: 2px 8px;
-      }
-      .nav-link {
-        font-size: 0.76em;
-        padding: 6px 11px;
-        min-height: 36px;
-      }
-      .doc-header-title {
-        font-size: 1.45em;
-      }
-      .doc-header-subtitle {
-        font-size: 0.9em;
-      }
-      .section-header h2 {
-        font-size: 1.22em;
-      }
       .box-header {
-        padding: 8px 12px;
-        font-size: 0.95em;
+        padding: 8px 10px;
       }
       .box-body {
         padding: 12px 10px;
+      }
+      .katex-display {
+        padding: 8px 10px !important;
+        margin: 10px 0 !important;
+        font-size: clamp(0.85em, 3.8vw, 0.98em);
       }
       .sim-controls-bar {
         flex-direction: column;
@@ -806,49 +819,6 @@
       }
     }
   </style>
-<style>
-    /* Mobile-First Hardening & Touch Shields */
-    html, body {
-      max-width: 100vw;
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-    }
-    .top-navbar {
-      overflow-x: auto !important;
-      -webkit-overflow-scrolling: touch;
-      white-space: nowrap;
-      display: flex;
-      flex-wrap: nowrap !important;
-      gap: 8px;
-    }
-    .top-navbar .nav-link {
-      flex-shrink: 0;
-    }
-    .katex-display {
-      overflow-x: auto !important;
-      -webkit-overflow-scrolling: touch;
-      max-width: 100%;
-      padding: 6px 0;
-    }
-    table {
-      max-width: 100%;
-      overflow-x: auto !important;
-      display: block;
-      -webkit-overflow-scrolling: touch;
-    }
-    canvas {
-      touch-action: none !important;
-      max-width: 100% !important;
-      height: auto !important;
-    }
-    video {
-      max-width: 100% !important;
-      height: auto !important;
-      border-radius: 8px;
-      display: block;
-      margin: 0 auto;
-    }
-</style>
 </head>
 <body>
 
@@ -1070,6 +1040,7 @@
       <div class="box-latex box-teo">
         <div class="box-header">⚖️ Teorema della Monotonia e Asintoti Orizzontali</div>
         <div class="box-body">
+          <div class="table-container">
           <table class="latex-table">
             <thead>
               <tr>
@@ -1097,6 +1068,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
 
@@ -1270,6 +1242,7 @@
         <div class="box-header">📜 Teorema Fondamentale della Monotonia nelle Disequazioni</div>
         <div class="box-body">
           <p>Nel passaggio dal confronto tra potenze <span class="math-inline">\(a^{f(x)} > a^{g(x)}\)</span> al confronto tra gli esponenti:</p>
+          <div class="table-container">
           <table class="latex-table">
             <thead>
               <tr>
@@ -1294,6 +1267,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
 
@@ -1950,6 +1924,7 @@
           <div class="box-latex box-teo" style="margin-top:16px;">
             <div class="box-header">📋 Prospetto Generale delle Riduzioni al Primo Quadrante</div>
             <div class="box-body" style="padding:10px 14px;">
+              <div class="table-container">
               <table style="width:100%; border-collapse:collapse; font-size:0.92em; text-align:center;">
                 <thead>
                   <tr style="border-bottom:2px solid #CBD5E1; color:#184C78;">
@@ -1986,6 +1961,7 @@
                   </tr>
                 </tbody>
               </table>
+              </div>
             </div>
           </div>
         </div>
@@ -2895,6 +2871,99 @@
         }, { passive: false });
       });
     });
+  </script>
+
+
+  <!-- Supporto Gestuale, Trascinamento Touch/Mouse & Active Spy per Barra Capitoli -->
+  <script>
+    (function() {
+      function initChapterNav() {
+        const navTrack = document.querySelector('.navbar-menu, .sticky-nav');
+        if (!navTrack) return;
+
+        // Trascinamento fluido Mouse su Desktop
+        let isDown = false;
+        let startX, scrollLeftVal;
+        navTrack.addEventListener('mousedown', function(e) {
+          isDown = true;
+          navTrack.style.cursor = 'grabbing';
+          startX = e.pageX - navTrack.offsetLeft;
+          scrollLeftVal = navTrack.scrollLeft;
+        });
+        window.addEventListener('mouseup', function() {
+          if (isDown) {
+            isDown = false;
+            navTrack.style.cursor = '';
+          }
+        });
+        navTrack.addEventListener('mousemove', function(e) {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - navTrack.offsetLeft;
+          const walk = (x - startX) * 1.6;
+          navTrack.scrollLeft = scrollLeftVal - walk;
+        });
+
+        // Spy Sezioni con Auto-Center del capitolo attivo nella barra
+        const links = navTrack.querySelectorAll('a');
+        const sections = [];
+        links.forEach(function(link) {
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) sections.push({ link: link, target: target });
+          }
+        });
+
+        let scrollTimeout = null;
+        function updateActiveSection() {
+          const scrollY = window.scrollY + 130;
+          let current = null;
+          for (let i = 0; i < sections.length; i++) {
+            if (scrollY >= sections[i].target.offsetTop) {
+              current = sections[i];
+            }
+          }
+          if (current) {
+            links.forEach(function(l) { l.classList.remove('active'); });
+            current.link.classList.add('active');
+
+            // Centra il pill del capitolo attivo con scorrimento fluido
+            const trackRect = navTrack.getBoundingClientRect();
+            const linkRect = current.link.getBoundingClientRect();
+            const offset = (linkRect.left + linkRect.width / 2) - (trackRect.left + trackRect.width / 2);
+            if (Math.abs(offset) > 35) {
+              navTrack.scrollBy({ left: offset, behavior: 'smooth' });
+            }
+          }
+        }
+
+        window.addEventListener('scroll', function() {
+          if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+          scrollTimeout = requestAnimationFrame(updateActiveSection);
+        }, { passive: true });
+
+        // Clic su capitolo: scroll smooth e centratura immediata
+        links.forEach(function(link) {
+          link.addEventListener('click', function() {
+            links.forEach(function(l) { l.classList.remove('active'); });
+            link.classList.add('active');
+            const trackRect = navTrack.getBoundingClientRect();
+            const linkRect = link.getBoundingClientRect();
+            const offset = (linkRect.left + linkRect.width / 2) - (trackRect.left + trackRect.width / 2);
+            navTrack.scrollBy({ left: offset, behavior: 'smooth' });
+          });
+        });
+
+        updateActiveSection();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initChapterNav);
+      } else {
+        initChapterNav();
+      }
+    })();
   </script>
 
 </body>

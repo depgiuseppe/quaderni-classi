@@ -31,21 +31,24 @@
 
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
     body {
       background-color: var(--bg-page);
       color: var(--col-text);
       font-family: "KaTeX_Main", "Latin Modern Roman", "Computer Modern", Georgia, serif;
       font-size: clamp(16px, 1.05vw + 12px, 18px);
-      line-height: 1.7;
+      line-height: 1.68;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
       width: 100%;
-      max-width: 100vw;
     }
 
     /* ==========================================================================
-       ANTI-OVERFLOW SHIELD RIGOROSO PER DISPLAY MOBILI & KATEX
+       1. ANTI-OVERFLOW SHIELD RIGOROSO PER DISPLAY MOBILI & KATEX
        ========================================================================== */
     .math-inline {
       white-space: nowrap;
@@ -56,6 +59,7 @@
       vertical-align: middle;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
+      padding: 1px 3px;
     }
     .math-inline::-webkit-scrollbar {
       display: none;
@@ -70,10 +74,10 @@
     }
 
     .katex-display {
-      max-width: 100%;
+      max-width: 100% !important;
       overflow-x: auto !important;
       overflow-y: hidden !important;
-      padding: 10px 8px !important;
+      padding: 10px 14px !important;
       margin: 14px 0 !important;
       scrollbar-width: thin;
       scrollbar-color: var(--border-strong) transparent;
@@ -91,30 +95,41 @@
       background: #CBD5E1;
       border-radius: 4px;
     }
+    .katex-display::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
 
-    /* Barra di Navigazione Sticky con Supporto Gestuale & Touch Fluido */
+    /* ==========================================================================
+       4. BARRA DI NAVIGAZIONE STICKY CON SUPPORTO GESTUALE & TOUCH FLUIDO
+       ========================================================================== */
     .sticky-nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 2px solid var(--border-doc);
       display: flex;
+      flex-direction: row;
       flex-wrap: nowrap;
       overflow-x: auto;
       overflow-y: hidden;
       gap: 8px;
-      padding: 8px 16px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      padding: 8px 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
       touch-action: pan-x;
       scrollbar-width: thin;
       scrollbar-color: var(--border-strong) transparent;
       scroll-snap-type: x proximity;
       overscroll-behavior-x: contain;
       width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
     }
     .sticky-nav::-webkit-scrollbar {
       height: 4px;
@@ -131,12 +146,13 @@
       text-decoration: none;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 600;
-      font-size: 0.84em;
-      padding: 7px 14px;
-      min-height: 38px;
+      font-size: clamp(0.75rem, 2.2vw, 0.84rem);
+      padding: 6px 13px;
+      min-height: 36px;
       display: inline-flex;
       align-items: center;
-      border-radius: 20px;
+      justify-content: center;
+      border-radius: 999px;
       border: 1px solid var(--border-strong);
       background: #F1F5F9;
       white-space: nowrap;
@@ -147,35 +163,40 @@
       user-select: none;
       -webkit-user-select: none;
     }
-    .sticky-nav a:hover {
+    .sticky-nav a:hover, .sticky-nav a.active {
       background: var(--col-primary);
       color: #FFFFFF;
       border-color: var(--col-primary-light);
+      box-shadow: 0 2px 8px rgba(24, 76, 120, 0.25);
     }
     .sticky-nav a:active {
-      transform: scale(0.96);
+      transform: scale(0.95);
     }
 
+    /* ==========================================================================
+       3. CONTENITORE PRINCIPALE & LAYOUT CLAMPING (360px-480px & TABLET)
+       ========================================================================== */
     .doc-container {
       width: min(100% - 16px, 980px);
-      margin: 24px auto 50px auto;
+      margin: clamp(14px, 3vw, 36px) auto 50px auto;
       background: var(--bg-doc);
       border: 1px solid var(--border-doc);
-      border-radius: clamp(10px, 2.5vw, 14px);
-      padding: clamp(20px, 4.5vw, 48px) clamp(14px, 4vw, 56px);
+      border-radius: clamp(8px, 2.5vw, 14px);
+      padding: clamp(16px, 4vw, 48px) clamp(12px, 3.8vw, 56px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
       box-sizing: border-box;
+      min-width: 0;
     }
 
     .header-block {
       border-bottom: 2px solid var(--col-primary);
-      padding-bottom: 24px;
-      margin-bottom: 36px;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
       text-align: center;
     }
     .school-title {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 13.5px;
+      font-size: clamp(11.5px, 2.2vw, 13.5px);
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--col-text-muted);
@@ -184,14 +205,14 @@
     }
     .doc-title {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: clamp(1.45rem, 4.5vw, 2rem);
+      font-size: clamp(1.4rem, 4.5vw, 2rem);
       font-weight: 800;
       color: var(--col-primary);
       margin: 8px 0;
       line-height: 1.28;
     }
     .doc-subtitle {
-      font-size: clamp(0.92rem, 2.3vw, 1.1rem);
+      font-size: clamp(0.9rem, 2.3vw, 1.1rem);
       color: var(--col-text-muted);
       margin-top: 4px;
       line-height: 1.5;
@@ -200,37 +221,50 @@
     h2 {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--col-primary);
-      font-size: clamp(1.2rem, 3.6vw, 1.48rem);
+      font-size: clamp(1.18rem, 3.6vw, 1.48rem);
       border-bottom: 1.5px solid var(--border-doc);
       padding-bottom: 8px;
-      margin-top: 40px;
-      margin-bottom: 20px;
+      margin-top: 36px;
+      margin-bottom: 18px;
       line-height: 1.35;
     }
     h3 {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--col-primary);
-      font-size: clamp(1.05rem, 3vw, 1.22rem);
-      margin-top: 26px;
+      font-size: clamp(1.02rem, 3vw, 1.22rem);
+      margin-top: 24px;
       margin-bottom: 12px;
       line-height: 1.4;
     }
 
+    /* ==========================================================================
+       2. TABELLE E BOX DIMOSTRAZIONI RESPONSIVE CON SCORRIMENTO ORIZZONTALE
+       ========================================================================== */
     .card {
       background: #FFFFFF;
       border: 1px solid var(--border-doc);
-      border-left: 4.5px solid var(--col-primary);
+      border-left: 5px solid var(--col-primary);
       border-radius: 8px;
-      padding: clamp(16px, 3.5vw, 22px) clamp(14px, 3.5vw, 24px);
-      margin: 22px 0;
+      padding: clamp(14px, 3.2vw, 22px);
+      margin: 20px 0;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
       min-width: 0;
       max-width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: thin;
+      scrollbar-color: var(--border-strong) transparent;
       overscroll-behavior-x: contain;
+      box-sizing: border-box;
     }
+    .card::-webkit-scrollbar {
+      height: 5px;
+    }
+    .card::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+
     .card.blue { border-left-color: var(--col-primary); background: #F8FAFC; }
     .card.green { border-left-color: var(--col-green); background: #F0FDF4; }
     .card.amber { border-left-color: var(--col-amber); background: #FFFBEB; }
@@ -248,11 +282,11 @@
 
     .image-box {
       text-align: center;
-      margin: 28px 0;
+      margin: 24px 0;
       background: #FAFAFA;
       border: 1px solid var(--border-doc);
       border-radius: 8px;
-      padding: 16px;
+      padding: 14px;
       max-width: 100%;
       overflow: hidden;
     }
@@ -264,21 +298,23 @@
     }
     .image-caption {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: clamp(0.82rem, 2vw, 0.9rem);
+      font-size: clamp(0.80rem, 2vw, 0.90rem);
       color: var(--col-text-muted);
       margin-top: 10px;
       line-height: 1.5;
     }
 
+    /* Tabelle Dati Responsive Anti-Overflow */
     .table-container {
       width: 100%;
       max-width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
       scrollbar-width: thin;
       scrollbar-color: var(--border-strong) transparent;
       overscroll-behavior-x: contain;
-      margin: 20px 0;
+      margin: 18px 0;
+      touch-action: pan-x pan-y;
     }
     .table-container::-webkit-scrollbar {
       height: 5px;
@@ -290,14 +326,14 @@
 
     table.data-table {
       width: 100%;
-      min-width: 520px;
+      min-width: 500px;
       border-collapse: collapse;
-      font-size: clamp(0.84rem, 2.2vw, 0.95rem);
+      font-size: clamp(0.80rem, 2.2vw, 0.95rem);
       background: #FFFFFF;
     }
     table.data-table th, table.data-table td {
       border: 1px solid var(--border-doc);
-      padding: clamp(8px, 1.8vw, 12px) clamp(10px, 2.2vw, 16px);
+      padding: clamp(8px, 1.8vw, 12px) clamp(8px, 2vw, 14px);
       text-align: left;
       overflow-wrap: break-word;
       word-break: normal;
@@ -317,26 +353,27 @@
       background: #FFFFFF;
       border: 1.5px solid var(--col-primary-light);
       border-radius: 10px;
-      padding: clamp(16px, 3.5vw, 24px);
-      margin: 28px 0;
+      padding: clamp(14px, 3.2vw, 22px);
+      margin: 24px 0;
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
       max-width: 100%;
       overflow: hidden;
+      box-sizing: border-box;
     }
     .btn-group {
       display: flex;
-      gap: 10px;
-      margin-bottom: 18px;
+      gap: 8px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
     }
     .btn-mode {
       background: #F1F5F9;
       border: 1px solid var(--border-strong);
-      padding: 8px 16px;
+      padding: 7px 15px;
       border-radius: 6px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13.5px;
       color: var(--col-text);
       cursor: pointer;
       transition: all 0.2s;
@@ -353,126 +390,34 @@
     .slider-row {
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin: 16px 0;
+      gap: 14px;
+      margin: 14px 0;
     }
     .slider-row input[type="range"] {
       flex: 1;
       height: 6px;
       accent-color: var(--col-primary);
+      cursor: pointer;
     }
     .val-badge {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 15px;
       background: #E2E8F0;
       padding: 4px 12px;
       border-radius: 6px;
-      min-width: 60px;
+      min-width: 55px;
       text-align: center;
     }
-    canvas#simCanvas {
+    canvas#simCanvas, canvas {
       background: #FAFAFA;
       border: 1px solid var(--border-doc);
       border-radius: 8px;
       display: block;
       margin: 16px auto;
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* Media Queries Responsive per Schermi Medi, Tablet e Smartphone (360px-480px) */
-    @media (max-width: 768px) {
-      .doc-container {
-        padding: 20px 14px;
-        margin: 14px auto 30px auto;
-        width: min(100% - 12px, 980px);
-        border-radius: 10px;
-      }
-      .sticky-nav {
-        padding: 8px 12px;
-      }
-      .interactive-panel {
-        padding: 16px 12px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        font-size: 16px;
-      }
-      .doc-container {
-        padding: 16px 10px;
-        margin: 10px auto 24px auto;
-        width: min(100% - 8px, 980px);
-        border-radius: 8px;
-      }
-      .sticky-nav {
-        padding: 6px 10px;
-        gap: 6px;
-      }
-      .sticky-nav a {
-        font-size: 0.78em;
-        padding: 6px 11px;
-        min-height: 36px;
-      }
-      .card {
-        padding: 14px 12px;
-      }
-      .interactive-panel {
-        padding: 14px 10px;
-      }
-      .slider-row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-      }
-      .slider-row input[type="range"] {
-        width: 100%;
-      }
-      .btn-group {
-        gap: 6px;
-      }
-      .btn-mode {
-        padding: 6px 11px;
-        font-size: 13px;
-      }
-    }
-  </style>
-<style>
-    /* Mobile-First Hardening & Touch Shields */
-    html, body {
-      max-width: 100vw;
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-    }
-    .top-navbar {
-      overflow-x: auto !important;
-      -webkit-overflow-scrolling: touch;
-      white-space: nowrap;
-      display: flex;
-      flex-wrap: nowrap !important;
-      gap: 8px;
-    }
-    .top-navbar .nav-link {
-      flex-shrink: 0;
-    }
-    .katex-display {
-      overflow-x: auto !important;
-      -webkit-overflow-scrolling: touch;
-      max-width: 100%;
-      padding: 6px 0;
-    }
-    table {
-      max-width: 100%;
-      overflow-x: auto !important;
-      display: block;
-      -webkit-overflow-scrolling: touch;
-    }
-    canvas {
-      touch-action: none !important;
       max-width: 100% !important;
       height: auto !important;
+      touch-action: none !important;
     }
     video {
       max-width: 100% !important;
@@ -481,7 +426,70 @@
       display: block;
       margin: 0 auto;
     }
-</style>
+
+    /* Media Queries Responsive per Tablet e Smartphone (360px-480px) */
+    @media (max-width: 768px) {
+      .doc-container {
+        padding: 16px 12px;
+        margin: 12px auto 28px auto;
+        width: min(100% - 12px, 980px);
+        border-radius: 10px;
+      }
+      .sticky-nav {
+        padding: 6px 10px;
+      }
+      .interactive-panel {
+        padding: 14px 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 16px;
+      }
+      .doc-container {
+        padding: 14px 10px;
+        margin: 8px auto 20px auto;
+        width: min(100% - 8px, 980px);
+        border-radius: 8px;
+      }
+      .sticky-nav {
+        padding: 6px 8px;
+        gap: 6px;
+      }
+      .sticky-nav a {
+        font-size: 0.76em;
+        padding: 5px 11px;
+        min-height: 34px;
+      }
+      .card {
+        padding: 12px 10px;
+      }
+      .katex-display {
+        padding: 8px 10px !important;
+        margin: 10px 0 !important;
+        font-size: clamp(0.85em, 3.8vw, 0.98em);
+      }
+      .interactive-panel {
+        padding: 12px 10px;
+      }
+      .slider-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+      }
+      .slider-row input[type="range"] {
+        width: 100%;
+      }
+      .btn-group {
+        gap: 6px;
+      }
+      .btn-mode {
+        padding: 6px 10px;
+        font-size: 12.5px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -1059,6 +1067,99 @@
     }
     document.addEventListener("DOMContentLoaded", invokeKaTeXRender1BLab);
     window.addEventListener("load", invokeKaTeXRender1BLab);
+  </script>
+
+
+  <!-- Supporto Gestuale, Trascinamento Touch/Mouse & Active Spy per Barra Capitoli -->
+  <script>
+    (function() {
+      function initChapterNav() {
+        const navTrack = document.querySelector('.navbar-menu, .sticky-nav');
+        if (!navTrack) return;
+
+        // Trascinamento fluido Mouse su Desktop
+        let isDown = false;
+        let startX, scrollLeftVal;
+        navTrack.addEventListener('mousedown', function(e) {
+          isDown = true;
+          navTrack.style.cursor = 'grabbing';
+          startX = e.pageX - navTrack.offsetLeft;
+          scrollLeftVal = navTrack.scrollLeft;
+        });
+        window.addEventListener('mouseup', function() {
+          if (isDown) {
+            isDown = false;
+            navTrack.style.cursor = '';
+          }
+        });
+        navTrack.addEventListener('mousemove', function(e) {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - navTrack.offsetLeft;
+          const walk = (x - startX) * 1.6;
+          navTrack.scrollLeft = scrollLeftVal - walk;
+        });
+
+        // Spy Sezioni con Auto-Center del capitolo attivo nella barra
+        const links = navTrack.querySelectorAll('a');
+        const sections = [];
+        links.forEach(function(link) {
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) sections.push({ link: link, target: target });
+          }
+        });
+
+        let scrollTimeout = null;
+        function updateActiveSection() {
+          const scrollY = window.scrollY + 130;
+          let current = null;
+          for (let i = 0; i < sections.length; i++) {
+            if (scrollY >= sections[i].target.offsetTop) {
+              current = sections[i];
+            }
+          }
+          if (current) {
+            links.forEach(function(l) { l.classList.remove('active'); });
+            current.link.classList.add('active');
+
+            // Centra il pill del capitolo attivo con scorrimento fluido
+            const trackRect = navTrack.getBoundingClientRect();
+            const linkRect = current.link.getBoundingClientRect();
+            const offset = (linkRect.left + linkRect.width / 2) - (trackRect.left + trackRect.width / 2);
+            if (Math.abs(offset) > 35) {
+              navTrack.scrollBy({ left: offset, behavior: 'smooth' });
+            }
+          }
+        }
+
+        window.addEventListener('scroll', function() {
+          if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+          scrollTimeout = requestAnimationFrame(updateActiveSection);
+        }, { passive: true });
+
+        // Clic su capitolo: scroll smooth e centratura immediata
+        links.forEach(function(link) {
+          link.addEventListener('click', function() {
+            links.forEach(function(l) { l.classList.remove('active'); });
+            link.classList.add('active');
+            const trackRect = navTrack.getBoundingClientRect();
+            const linkRect = link.getBoundingClientRect();
+            const offset = (linkRect.left + linkRect.width / 2) - (trackRect.left + trackRect.width / 2);
+            navTrack.scrollBy({ left: offset, behavior: 'smooth' });
+          });
+        });
+
+        updateActiveSection();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initChapterNav);
+      } else {
+        initChapterNav();
+      }
+    })();
   </script>
 
 </body>

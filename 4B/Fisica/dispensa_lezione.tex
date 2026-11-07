@@ -61,6 +61,12 @@
   arc=2mm, boxrule=0.6pt, top=3mm, bottom=3mm, left=3.5mm, right=3.5mm
 }
 
+\newtcolorbox{approfondimento}[1][]{
+  enhanced, breakable, colback=primaryBlue!4!white, colframe=primaryBlue,
+  fonttitle=\bfseries\sffamily, title={Approfondimento Critico ed Errori Frequenti: #1},
+  arc=3mm, boxrule=1pt, top=3.5mm, bottom=3.5mm, left=4mm, right=4mm
+}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small\sffamily Liceo Scientifico Statale «Leonardo da Vinci» – Maglie}
@@ -217,6 +223,69 @@ Riscrivendo le leggi di Gay-Lussac mediante la temperatura assoluta $T$ si ottie
 V(T) &= V_0 \left(1 + \frac{t}{273{,}15}\right) = V_0 \, \frac{273{,}15 + t}{273{,}15} = \mathbf{V_0 \, \frac{T}{T_0} \iff \frac{V_1}{T_1} = \frac{V_2}{T_2}} \quad (p = \text{cost}) \\[2mm]
 p(T) &= p_0 \left(1 + \frac{t}{273{,}15}\right) = p_0 \, \frac{273{,}15 + t}{273{,}15} = \mathbf{p_0 \, \frac{T}{T_0} \iff \frac{p_1}{T_1} = \frac{p_2}{T_2}} \quad (V = \text{cost})
 \end{align*}
+
+\begin{approfondimento}[Ha senso raddoppiare la temperatura in gradi Celsius? Considerazioni fisiche e scale di misura]
+\textbf{Risposta sintetica:} Dal punto di vista fisico e termodinamico, \textbf{no, non ha alcun senso}.
+
+La scala Celsius \`e una \textbf{scala a intervalli} (o affinemente traslata) e non una \textbf{scala di rapporti}. Il suo valore zero ($0\,{^\circ}\text{C}$) \`e un riferimento puramente convenzionale (il punto di fusione del ghiaccio a pressione atmosferica standard) e non corrisponde affatto all'assenza di agitazione termica o moto molecolare a livello microscopico.
+
+\subsection*{Le contraddizioni logiche e i paradossi fisici}
+L'applicazione di operazioni moltiplicative a grandezze definite su scale prive di uno zero assoluto conduce immediatamente a insanabili paradossi logico-fisici:
+\begin{itemize}[leftmargin=*, nosep]
+  \item \textbf{Il paradosso dello zero:} Moltiplicare per due una temperatura di $0\,{^\circ}\text{C}$ restituirebbe ancora $0\,{^\circ}\text{C}$:
+  \[
+  2 \times 0\,{^\circ}\text{C} = 0\,{^\circ}\text{C}
+  \]
+  Ci\`o implicherebbe che l'energia cinetica interna del sistema resti perfettamente invariata, rendendo il ``raddoppio'' del tutto fittizio e nullo.
+  \item \textbf{Il paradosso dei valori negativi:} Raddoppiare una temperatura negativa come $-10\,{^\circ}\text{C}$ porterebbe algebricamente a $-20\,{^\circ}\text{C}$. Tuttavia, uno stato a $-20\,{^\circ}\text{C}$ descrive un livello energetico inferiore (pi\`u freddo) rispetto a $-10\,{^\circ}\text{C}$, ribaltando e snaturando il significato fisico dell'operazione.
+  \item \textbf{Inconsistenza energetica reale:} Passare da $10\,{^\circ}\text{C}$ a $20\,{^\circ}\text{C}$ non raddoppia affatto l'energia cinetica media molecolare. In unit\`a termodinamiche assolute:
+  \[
+  10\,{^\circ}\text{C} = 283{,}15\text{ K}, \quad 20\,{^\circ}\text{C} = 293{,}15\text{ K}
+  \]
+  Il rapporto effettivo tra le temperature assolute \`e:
+  \[
+  \frac{293{,}15}{283{,}15} \approx 1{,}0353 \implies +3{,}53\%
+  \]
+  L'incremento energetico reale \`e di appena il $3{,}5\%$, ben lontano dal $+100\%$ atteso da un vero raddoppio.
+\end{itemize}
+
+\subsection*{La prospettiva termodinamica corretta e la costante di Boltzmann}
+La temperatura termodinamica rigorosa \`e una grandezza direttamente legata all'energia cinetica traslazionale media delle particelle che compongono la materia (per un gas ideale monoatomico):
+\[
+\langle E_k \rangle = \frac{3}{2} k_B T
+\]
+dove $k_B \approx 1{,}38 \times 10^{-23}\,\text{J/K}$ \`e la costante di Boltzmann e $T$ \`e la temperatura espressa nella scala assoluta dei \textbf{Kelvin} ($\text{K}$), il cui zero ($0\text{ K} = -273{,}15\,{^\circ}\text{C}$) corrisponde al limite asintotico di minima agitazione termica possibile.
+
+\subsection*{Attenzione fondamentale negli esercizi: il tranello del ``raddoppio''}
+\textbf{Avvertenza metodologica cruciale per compiti e verifiche:} Negli esercizi sui gas perfetti (trasformazioni isobare, isocore o politropiche) si incontra spessissimo la formulazione:
+\begin{center}
+\textit{\textbf{<<La temperatura del gas raddoppia...>>}} \quad oppure \quad \textit{\textbf{<<Calcola a quale temperatura il volume raddoppia>>}}
+\end{center}
+\textbf{Bisogna prestare la massima attenzione all'unit\`a di misura!} Quando il testo di un problema afferma che la temperatura raddoppia, l'operazione moltiplicativa ($T_2 = 2 T_1$) deve essere applicata \textbf{tassativamente e unicamente alla temperatura assoluta in Kelvin ($T$)}, mai e poi mai ai gradi Celsius ($t$).
+
+\textbf{Esempio pratico di calcolo corretto:}\\
+Se un gas si trova inizialmente alla temperatura ambiente di $t_1 = 20\,{^\circ}\text{C}$, per \textbf{raddoppiare termodinamicamente la sua temperatura} occorre:
+\begin{enumerate}[leftmargin=*, nosep]
+  \item Convertire la temperatura iniziale in Kelvin: $T_1 = 20 + 273{,}15 = 293{,}15\text{ K}$;
+  \item Eseguire il raddoppio in scala termodinamica assoluta: $T_2 = 2 \times T_1 = 2 \times 293{,}15\text{ K} = 586{,}30\text{ K}$;
+  \item Riconvertire la temperatura finale in gradi Celsius:
+  \[
+  t_2 = 586{,}30 - 273{,}15 = \mathbf{313{,}15\,{^\circ}\text{C}}
+  \]
+\end{enumerate}
+Dunque, riscaldare il gas da $20\,{^\circ}\text{C}$ a $40\,{^\circ}\text{C}$ comporta un incremento termodinamico di appena il $6{,}8\%$; per un autentico raddoppio energetico, il sistema deve essere portato a oltre \textbf{$313\,{^\circ}\text{C}$}!
+
+\subsection*{L'unico caso ammissibile: l'intervallo termico $\Delta T$}
+L'operazione di moltiplicazione sui gradi Celsius acquisisce pieno significato fisico e matematico unicamente se applicata a una \textbf{variazione} (o differenza) di temperatura ($\Delta T$), poich\'e la differenza tra due punti \`e invariante rispetto alla traslazione dell'origine:
+\[
+\Delta T = T_b - T_a = (t_b + 273{,}15) - (t_a + 273{,}15) = t_b - t_a = \Delta t
+\]
+Di conseguenza:
+\[
+\Delta t = 5\,{^\circ}\text{C} \implies 2 \times \Delta t = 10\,{^\circ}\text{C} \equiv 10\text{ K}
+\]
+In sintesi: \textbf{ha senso moltiplicare un intervallo termico ($\Delta t$), ma non ha alcun senso moltiplicare il valore puntuale di temperatura espresso in scala Celsius ($t$)}.
+\end{approfondimento}
 
 % ==============================================================================
 % CAPITOLO 2
