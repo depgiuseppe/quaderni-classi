@@ -507,9 +507,22 @@
 
   <div class="doc-container">
     <div class="header-block">
-      <div class="school-title">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie</div>
+      <div class="school-title">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie • A.S. 2026/2027</div>
       <div class="doc-title">Laboratorio Matematico: Aritmetica Teorica e Geometria dei Numeri Figurati</div>
       <div class="doc-subtitle">Compendio Completo e Interattivo – Conforme agli Appunti Originali di Classe 1B</div>
+      
+      <!-- Pulsanti Navigazione Risorse e Download -->
+      <div class="resource-links" style="margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+        <a href="../index.html" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #F1F5F9; color: #0F172A; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #CBD5E1;">
+          🏠 Portale Classe 1B
+        </a>
+        <a href="dispensa_lezione.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #184C78; color: #FFFFFF; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; box-shadow: 0 2px 6px rgba(24, 76, 120, 0.25);">
+          📥 Scarica Dispensa PDF
+        </a>
+        <a href="quaderno_prof.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FFFBEB; color: #92400E; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #FCD34D;">
+          📓 Scarica Quaderno del Prof (Note Manoscritte)
+        </a>
+      </div>
     </div>
 
     <!-- SEZIONE 1 -->
@@ -732,6 +745,15 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="image-box" style="background:#FFFFFF; margin:20px 0;">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/CrivelloEratosteneManim.mp4#t=0.001" type="video/mp4">
+      </video>
+      <div class="image-caption">
+        <strong>Animazione Scientifica Manim (Tema Chiaro):</strong> il Crivello di Eratostene, setacciatura dei numeri primi fino a 40 per eliminazione dei multipli di 2, 3 e 5, e teorema di Euclide sull'infinità dei numeri primi.
+      </div>
     </div>
 
     <!-- SEZIONE 7 -->
@@ -1060,7 +1082,7 @@
             {left: "\\(", right: "\\)", display: false},
             {left: "$", right: "$", display: false}
           ],
-          ignoredClasses: ["katex", "katex-display"],
+          ignoredClasses: ["katex"],
           throwOnError: false
         });
       }

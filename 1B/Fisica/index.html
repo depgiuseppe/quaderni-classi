@@ -427,6 +427,9 @@
         <a href="dispensa_lezione.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #184C78; color: #FFFFFF; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; box-shadow: 0 2px 6px rgba(24, 76, 120, 0.25);">
           📥 Scarica Dispensa PDF
         </a>
+        <a href="quaderno_prof.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FFFBEB; color: #92400E; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #FCD34D;">
+          📓 Scarica Quaderno del Prof (Note Manoscritte)
+        </a>
       </div>
     </div>
 
@@ -524,6 +527,13 @@
         <text x="525" y="142" font-size="11" fill="#184C78" font-weight="bold" text-anchor="middle">Campioni m0</text>
       </svg>
       <div class="figure-caption">Figura 1: Modello fisico della bilancia a bracci uguali in equilibrio statico ($m_x = m_0$).</div>
+    </div>
+
+    <div class="figure-container" style="background:#FFFFFF; margin:20px 0;">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/BilanciaBracciUgualiManim.mp4#t=0.001" type="video/mp4">
+      </video>
+      <div class="figure-caption">Animazione Scientifica Manim (Tema Chiaro): equilibrio statico della bilancia a bracci uguali, annullamento dei momenti torcenti ($\tau_1 = \tau_2$) e invarianza fondamentale rispetto all'accelerazione di gravità $g$ ($m_1 = m_2$).</div>
     </div>
 
     <!-- Sezione 3 -->
@@ -720,6 +730,13 @@
           <tr><td>Legge oraria lineare</td><td>$v = v_0 + at$</td><td>$t = (v - v_0)/a, \quad v_0 = v - at$</td><td>$v_0$: vel. iniziale, $a$: accelerazione, $t$: tempo</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="figure-container" style="background:#FFFFFF; margin:20px 0;">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/DensitaAnalisiDimensionaleManim.mp4#t=0.001" type="video/mp4">
+      </video>
+      <div class="figure-caption">Animazione Scientifica Manim (Tema Chiaro): misura della densità per immersione di un solido ($\Delta V = 20\,\text{cm}^3$) e verifica rigorosa dell'analisi dimensionale: $V = m/d$ in $\text{m}^3$ contro l'assurdo dimensionale $m \cdot d$.</div>
     </div>
 
     <!-- Sezione 9: Esercizi del Libro di Testo -->
@@ -1331,7 +1348,7 @@
             {left: "\\(", right: "\\)", display: false},
             {left: "$", right: "$", display: false}
           ],
-          ignoredClasses: ["katex", "katex-display"],
+          ignoredClasses: ["katex"],
           throwOnError: false
         });
       }

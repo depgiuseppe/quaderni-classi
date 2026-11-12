@@ -366,6 +366,7 @@
     <a href="#cap5">5. Principio Zero</a>
     <a href="#cap6">6. Mole & Avogadro</a>
     <a href="#cap7">7. Leggi dei Gas</a>
+    <a href="#cap8">8. Eq. di Stato & R</a>
   </nav>
 
   <div class="main-container">
@@ -385,6 +386,9 @@
         <a href="dispensa_lezione.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #184C78; color: #FFFFFF; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; box-shadow: 0 2px 6px rgba(24, 76, 120, 0.25);">
           📥 Scarica Dispensa PDF
         </a>
+        <a href="quaderno_prof.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FFFBEB; color: #92400E; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #FCD34D;">
+          📓 Scarica Quaderno del Prof (Note Manoscritte)
+        </a>
       </div>
     </div>
 
@@ -402,6 +406,15 @@
       $$\mathbf{p = p_0 + \rho \cdot g \cdot h}$$
     </div>
     <p>dove $p_0 \approx 1{,}013 \cdot 10^5\,\text{Pa}$ &egrave; la pressione atmosferica al livello del mare e $\rho$ &egrave; la densit&agrave; del liquido ($\rho_{\text{acqua}} = 1000\,\text{kg/m}^3$, $\rho_{\text{mercurio}} = 13\,600\,\text{kg/m}^3$).</p>
+
+    <div class="clipping-container" style="background:#FFFFFF; border:1px solid var(--border-doc); border-radius:10px; padding:16px; margin:20px 0;">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/TorricelliBarometroManim.mp4#t=0.001" type="video/mp4">
+      </video>
+      <div class="clipping-caption">
+        <strong>Animazione Scientifica Manim:</strong> Esperimento di Torricelli (1643) e bilancio idrostatico della pressione atmosferica standard ($p_{\text{atm}} = \rho_{\text{Hg}} g h = 101\,325\,\text{Pa} = 760\,\text{mmHg}$).
+      </div>
+    </div>
 
     <div class="card theory">
       <div class="card-title" style="color: var(--col-primary);">Principio di Pascal e Torchio Idraulico</div>
@@ -437,6 +450,15 @@
         $$h = l \left(1 - \frac{d_c}{d_0}\right) = 0{,}243\,\text{m} \cdot \left(1 - \frac{890}{1000}\right) = 0{,}243 \cdot 0{,}11 = \mathbf{0{,}0267\,\text{m} \approx 2{,}67\,\text{cm}}$$
         Frazione percentuale emersa: $\dfrac{h}{l} = 11\%$.
       </p>
+    </div>
+
+    <div class="clipping-container" style="background:#FFFFFF; border:1px solid var(--border-doc); border-radius:10px; padding:16px; margin:20px 0;">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/ArchimedeGalleggiamentoManim.mp4#t=0.001" type="video/mp4">
+      </video>
+      <div class="clipping-caption">
+        <strong>Animazione Scientifica Manim:</strong> Origine microscopica e idrostatica della Spinta di Archimede ($F_A = \rho_{\text{fluido}} g V$) come risultante delle pressioni sulle facce e condizioni di galleggiamento statico.
+      </div>
     </div>
 
     <!-- ========================================================================= -->
@@ -703,9 +725,18 @@
       <div class="card-title" style="color: var(--col-primary);">2. Prima Legge di Gay-Lussac (Isobara, $p = \text{cost}$)</div>
       <p>
         A pressione costante, il volume varia linearmente con la temperatura centigrada:
-        $$\mathbf{V(t) = V_0 (1 + \alpha \cdot t)} \quad \text{con } \alpha = \frac{1}{273{,}15\,^\circ\text{C}} \approx 0{,}00366\,^\circ\text{C}^{-1}$$
-        Nel piano di Clapeyron &egrave; un <strong>segmento orizzontale</strong>. L'intercetta sull'asse $t$ individua lo <strong>Zero Assoluto ($-273{,}15\,^\circ\text{C}$)</strong>.
+        $$\mathbf{V(t) = V_0 (1 + \alpha \cdot t)} \quad \text{con } \alpha = \frac{1}{273{,}15^{\circ}\text{C}} \approx 0{,}00366^{\circ}\text{C}^{-1}$$
+        Nel piano di Clapeyron &egrave; un <strong>segmento orizzontale</strong>. L'intercetta sull'asse $t$ individua lo <strong>Zero Assoluto ($-273{,}15^{\circ}\text{C}$)</strong>.
       </p>
+    </div>
+
+    <div class="clipping-container" style="background:#FFFFFF; border:1px solid var(--border-doc); border-radius:10px; padding:16px; margin:20px 0;">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/GayLussacPistoneTermicoManim.mp4#t=0.001" type="video/mp4">
+      </video>
+      <div class="clipping-caption">
+        <strong>Animazione Scientifica Manim:</strong> Espansione termica isobara di un gas ideale ($V_1/T_1 = V_2/T_2$) in un cilindro a pistone mobile sottoposto a riscaldamento continuo.
+      </div>
     </div>
 
     <div class="card theory">
@@ -739,20 +770,20 @@
         <strong>Risposta sintetica:</strong> Dal punto di vista fisico e termodinamico, <strong>no, non ha alcun senso</strong>.
       </p>
       <p style="margin-bottom: 14px;">
-        La scala Celsius &egrave; una <strong>scala a intervalli</strong> (o affinemente traslata) e non una <strong>scala di rapporti</strong>. Il suo valore zero ($0\,^\circ\text{C}$) &egrave; un riferimento puramente convenzionale (il punto di fusione del ghiaccio a pressione atmosferica standard) e non corrisponde affatto all'assenza di moto o agitazione termica a livello microscopico.
+        La scala Celsius &egrave; una <strong>scala a intervalli</strong> (o affinemente traslata) e non una <strong>scala di rapporti</strong>. Il suo valore zero ($0^{\circ}\text{C}$) &egrave; un riferimento puramente convenzionale (il punto di fusione del ghiaccio a pressione atmosferica standard) e non corrisponde affatto all'assenza di moto o agitazione termica a livello microscopico.
       </p>
 
       <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;">
         <h4 style="color: #B91C1C; font-size: 0.96rem; margin-bottom: 8px; font-weight: 700;">⚠️ Le Contraddizioni Logiche e i Paradossi Fisici</h4>
         <ul style="margin: 0; padding-left: 20px; line-height: 1.6; font-size: 0.94rem;">
           <li style="margin-bottom: 8px;">
-            <strong>Il paradosso dello zero:</strong> Moltiplicare per due una temperatura di $0\,^\circ\text{C}$ darebbe ancora $0\,^\circ\text{C}$ ($2 \times 0\,^\circ\text{C} = 0\,^\circ\text{C}$). Ci&ograve; implicherebbe che l'energia interna del sistema rimanga invariata, rendendo il "raddoppio" nullo.
+            <strong>Il paradosso dello zero:</strong> Moltiplicare per due una temperatura di $0^{\circ}\text{C}$ darebbe ancora $0^{\circ}\text{C}$ ($2 \times 0^{\circ}\text{C} = 0^{\circ}\text{C}$). Ci&ograve; implicherebbe che l'energia interna del sistema rimanga invariata, rendendo il "raddoppio" nullo.
           </li>
           <li style="margin-bottom: 8px;">
-            <strong>Il paradosso dei valori negativi:</strong> Raddoppiare una temperatura negativa come $-10\,^\circ\text{C}$ porterebbe algebricamente a $-20\,^\circ\text{C}$. Tuttavia, uno stato a $-20\,^\circ\text{C}$ descrive un livello energetico inferiore (pi&ugrave; freddo) rispetto a $-10\,^\circ\text{C}$, ribaltando completamente il significato dell'operazione!
+            <strong>Il paradosso dei valori negativi:</strong> Raddoppiare una temperatura negativa come $-10^{\circ}\text{C}$ porterebbe algebricamente a $-20^{\circ}\text{C}$. Tuttavia, uno stato a $-20^{\circ}\text{C}$ descrive un livello energetico inferiore (pi&ugrave; freddo) rispetto a $-10^{\circ}\text{C}$, ribaltando completamente il significato dell'operazione!
           </li>
           <li>
-            <strong>Inconsistenza energetica reale:</strong> Passare da $10\,^\circ\text{C}$ a $20\,^\circ\text{C}$ non raddoppia affatto l'energia cinetica media. In unit&agrave; assolute: $10\,^\circ\text{C} = 283{,}15\,\text{K}$ e $20\,^\circ\text{C} = 293{,}15\,\text{K}$. Il rapporto reale &egrave;:
+            <strong>Inconsistenza energetica reale:</strong> Passare da $10^{\circ}\text{C}$ a $20^{\circ}\text{C}$ non raddoppia affatto l'energia cinetica media. In unit&agrave; assolute: $10^{\circ}\text{C} = 283{,}15\,\text{K}$ e $20^{\circ}\text{C} = 293{,}15\,\text{K}$. Il rapporto reale &egrave;:
             $$\frac{293{,}15\,\text{K}}{283{,}15\,\text{K}} \approx 1{,}0353 \implies +3{,}53\%$$
             L'incremento energetico reale &egrave; di appena il $3{,}5\%$, ben lontano dal $+100\%$ atteso da un vero raddoppio.
           </li>
@@ -768,7 +799,7 @@
           $$\mathbf{\langle E_k \rangle = \frac{3}{2} \, k_B \, T}$$
         </p>
         <p style="margin: 0; font-size: 0.94rem;">
-          dove $k_B \approx 1{,}38 \times 10^{-23}\,\text{J/K}$ &egrave; la costante di Boltzmann e $T$ &egrave; la temperatura assoluta in <strong>Kelvin ($\text{K}$)</strong>, il cui zero ($0\,\text{K} = -273{,}15\,^\circ\text{C}$) corrisponde al limite asintotico di minima agitazione termica possibile.
+          dove $k_B \approx 1{,}38 \times 10^{-23}\,\text{J/K}$ &egrave; la costante di Boltzmann e $T$ &egrave; la temperatura assoluta in <strong>Kelvin ($\text{K}$)</strong>, il cui zero ($0\,\text{K} = -273{,}15^{\circ}\text{C}$) corrisponde al limite asintotico di minima agitazione termica possibile.
         </p>
       </div>
 
@@ -782,15 +813,15 @@
           ⚠️ Regola aurea: dobbiamo stare attentissimi all'unit&agrave; di misura! L'operazione di raddoppio ($T_2 = 2 T_1$) va applicata TASSATIVAMENTE alla temperatura assoluta in Kelvin ($T$), MAI ai gradi Celsius ($t$)!
         </p>
         <div style="background: #FFFFFF; border-left: 3px solid #D97706; padding: 10px 14px; font-size: 0.92rem; border-radius: 4px;">
-          <strong>Esempio Pratico:</strong> Se un gas si trova inizialmente a $t_1 = 20\,^\circ\text{C}$:
+          <strong>Esempio Pratico:</strong> Se un gas si trova inizialmente a $t_1 = 20^{\circ}\text{C}$:
           <ol style="margin: 6px 0 0 18px; line-height: 1.5;">
             <li>Si converte la temperatura iniziale in Kelvin: $T_1 = 20 + 273{,}15 = 293{,}15\,\text{K}$;</li>
             <li>Si raddoppia in scala assoluta: $T_2 = 2 \times T_1 = 2 \times 293{,}15\,\text{K} = 586{,}30\,\text{K}$;</li>
             <li>Si riconverte la temperatura finale in gradi Celsius:
-              $$t_2 = 586{,}30 - 273{,}15 = \mathbf{313{,}15\,^\circ\text{C}}$$
+              $$t_2 = 586{,}30 - 273{,}15 = \mathbf{313{,}15^{\circ}\text{C}}$$
             </li>
           </ol>
-          Scaldare il gas da $20\,^\circ\text{C}$ a $40\,^\circ\text{C}$ &egrave; un incremento termodinamico di appena il $6{,}8\%$; per raddoppiare davvero l'energia termica, il gas deve raggiungere oltre <strong>$313\,^\circ\text{C}$</strong>!
+          Scaldare il gas da $20^{\circ}\text{C}$ a $40^{\circ}\text{C}$ &egrave; un incremento termodinamico di appena il $6{,}8\%$; per raddoppiare davvero l'energia termica, il gas deve raggiungere oltre <strong>$313^{\circ}\text{C}$</strong>!
         </div>
       </div>
 
@@ -803,7 +834,7 @@
           $$\Delta T = T_b - T_a = (t_b + 273{,}15) - (t_a + 273{,}15) = t_b - t_a = \Delta t$$
         </p>
         <p style="margin: 0; font-size: 0.92rem;">
-          Di conseguenza: $\Delta t = 5\,^\circ\text{C} \implies 2 \times \Delta t = 10\,^\circ\text{C} \equiv 10\,\text{K}$.<br>
+          Di conseguenza: $\Delta t = 5^{\circ}\text{C} \implies 2 \times \Delta t = 10^{\circ}\text{C} \equiv 10\,\text{K}$.<br>
           <strong>In sintesi:</strong> ha senso moltiplicare un <em>intervallo termico</em> ($\Delta t$), ma <strong>non</strong> ha senso moltiplicare il <em>valore puntuale</em> di temperatura espresso in scala Celsius ($t$).
         </p>
       </div>
@@ -822,7 +853,7 @@
         Durante un'isobara il volume di un gas ideale &egrave; direttamente proporzionale alla temperatura assoluta:
         $$\frac{V_1}{T_1} = \frac{V_2}{T_2} \implies T_1 = T_2 \cdot \frac{V_1}{V_2} = \frac{T_2}{2}$$
         Sostituendo il valore numerico:
-        $$T_1 = \frac{800\,\text{K}}{2} = \mathbf{400\,\text{K}} \quad (t_1 = 400 - 273{,}15 = 126{,}85\,^\circ\text{C} \approx 127\,^\circ\text{C})$$
+        $$T_1 = \frac{800\,\text{K}}{2} = \mathbf{400\,\text{K}} \quad (t_1 = 400 - 273{,}15 = 126{,}85^{\circ}\text{C} \approx 127^{\circ}\text{C})$$
         <strong>Interpretazione Cinetico-Molecolare:</strong> A pressione costante, il raddoppio del volume dimezza la densit&agrave; molecolare ($N/V$). Affinch&eacute; la frequenza degli urti e l'impulso trasmesso alle pareti mantengano costante la pressione macroscopica ($p = \frac{1}{3}\rho \langle v^2 \rangle$), l'energia cinetica media molecolare $\langle E_c \rangle = \frac{3}{2}k_B T$ deve obbligatoriamente raddoppiare, da cui $T_2 = 2T_1$.
       </p>
     </div>
@@ -835,7 +866,7 @@
         <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 51)</div>
       </div>
       <p>
-        <strong>Dati:</strong> Recipiente cilindrico con pistone mobile privo di attrito ($p = p_{\text{atm}} = \text{costante}$), volume iniziale $V_1 = 2{,}50\,\text{L}$ a $t_1 = 20{,}0\,^\circ\text{C}$, temperatura riscaldata $t_2 = 100{,}0\,^\circ\text{C}$.<br>
+        <strong>Dati:</strong> Recipiente cilindrico con pistone mobile privo di attrito ($p = p_{\text{atm}} = \text{costante}$), volume iniziale $V_1 = 2{,}50\,\text{L}$ a $t_1 = 20{,}0^{\circ}\text{C}$, temperatura riscaldata $t_2 = 100{,}0^{\circ}\text{C}$.<br>
         <strong>Metodo 1: Temperatura Assoluta Kelvin (Diretto):</strong><br>
         $$T_1 = 20{,}0 + 273{,}15 = 293{,}15\,\text{K}, \qquad T_2 = 100{,}0 + 273{,}15 = 373{,}15\,\text{K}$$
         $$V_2 = V_1 \cdot \frac{T_2}{T_1} = 2{,}50\,\text{L} \cdot \frac{373{,}15\,\text{K}}{293{,}15\,\text{K}} \approx \mathbf{3{,}182\,\text{L}} \approx \mathbf{3{,}18\,\text{L}}$$
@@ -853,12 +884,12 @@
         <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 52)</div>
       </div>
       <p>
-        <strong>Dati:</strong> $p = \text{costante}$, $t_0 = 0\,^\circ\text{C} \implies V_0 = 2{,}5\,\text{L}$, $t_1 = 251\,^\circ\text{C} \implies V_1 = 4{,}8\,\text{L}$.<br>
+        <strong>Dati:</strong> $p = \text{costante}$, $t_0 = 0^{\circ}\text{C} \implies V_0 = 2{,}5\,\text{L}$, $t_1 = 251^{\circ}\text{C} \implies V_1 = 4{,}8\,\text{L}$.<br>
         <strong>1. Isolamento Algebrico:</strong>
         $$V_1 = V_0(1 + \alpha t_1) \implies 1 + \alpha t_1 = \frac{V_1}{V_0} \implies \alpha = \frac{1}{t_1}\left(\frac{V_1}{V_0} - 1\right) = \frac{V_1 - V_0}{V_0 \cdot t_1}$$
         <strong>2. Calcolo Numerico e Reciproco:</strong>
-        $$\alpha = \frac{1}{251\,^\circ\text{C}}\left(\frac{4{,}8}{2{,}5} - 1\right) = \frac{0{,}92}{251\,^\circ\text{C}} \approx 0{,}0036653\,^\circ\text{C}^{-1} = \frac{1}{272{,}8\,^\circ\text{C}}$$
-        <strong>3. Verifica con 2 Cifre Significative:</strong> Con due cifre significative (dati $2{,}5\,\text{L}$ e $4{,}8\,\text{L}$), $\alpha \approx \mathbf{3{,}7 \cdot 10^{-3}\,^\circ\text{C}^{-1}}$, che coincide con il valore teorico universale $\dfrac{1}{273} \approx 3{,}7 \cdot 10^{-3}\,^\circ\text{C}^{-1}$.
+        $$\alpha = \frac{1}{251^{\circ}\text{C}}\left(\frac{4{,}8}{2{,}5} - 1\right) = \frac{0{,}92}{251^{\circ}\text{C}} \approx 0{,}0036653^{\circ}\text{C}^{-1} = \frac{1}{272{,}8^{\circ}\text{C}}$$
+        <strong>3. Verifica con 2 Cifre Significative:</strong> Con due cifre significative (dati $2{,}5\,\text{L}$ e $4{,}8\,\text{L}$), $\alpha \approx \mathbf{3{,}7 \cdot 10^{-3}\;{^\circ}\text{C}^{-1}}$, che coincide con il valore teorico universale $\dfrac{1}{273} \approx 3{,}7 \cdot 10^{-3}\;{^\circ}\text{C}^{-1}$.
       </p>
     </div>
 
@@ -870,11 +901,11 @@
         <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 65)</div>
       </div>
       <p>
-        <strong>Dati:</strong> $p = \text{cost}$, aumento percentuale di volume $\dfrac{\Delta V}{V_1} = 2{,}0\% \implies V_2 = 1{,}020 V_1 = \dfrac{51}{50}V_1$, temperatura iniziale $t_1 = 14\,^\circ\text{C}$.<br>
+        <strong>Dati:</strong> $p = \text{cost}$, aumento percentuale di volume $\dfrac{\Delta V}{V_1} = 2{,}0\% \implies V_2 = 1{,}020 V_1 = \dfrac{51}{50}V_1$, temperatura iniziale $t_1 = 14^{\circ}\text{C}$.<br>
         <strong>Risoluzione con Scala Assoluta Kelvin:</strong><br>
         $$T_1 = 14 + 273{,}15 = 287{,}15\,\text{K}$$
         $$T_2 = T_1 \cdot \frac{V_2}{V_1} = 287{,}15\,\text{K} \cdot 1{,}020 \approx 292{,}89\,\text{K}$$
-        $$t_2 = T_2 - 273{,}15 = 292{,}89 - 273{,}15 \approx \mathbf{19{,}74\,^\circ\text{C}} \approx \mathbf{20\,^\circ\text{C}}$$
+        $$t_2 = T_2 - 273{,}15 = 292{,}89 - 273{,}15 \approx \mathbf{19{,}74^{\circ}\text{C}} \approx \mathbf{20^{\circ}\text{C}}$$
         <em>(La risoluzione analitica con la formula centigrada $V = V_0(1+\alpha t)$ conferma identicamente il medesimo valore).</em>
       </p>
     </div>
@@ -887,7 +918,7 @@
         <div class="clipping-caption">Traccia originale ritagliata ad alta risoluzione (Esercizio 66)</div>
       </div>
       <p>
-        <strong>Dati:</strong> $V = \text{costante}$, $t_1 = 42\,^\circ\text{C}$, $t_2 = 68\,^\circ\text{C}$.<br>
+        <strong>Dati:</strong> $V = \text{costante}$, $t_1 = 42^{\circ}\text{C}$, $t_2 = 68^{\circ}\text{C}$.<br>
         <strong>Risoluzione con Temperatura Assoluta Kelvin:</strong><br>
         $$T_1 = 42 + 273{,}15 = 315{,}15\,\text{K}, \qquad T_2 = 68 + 273{,}15 = 341{,}15\,\text{K}$$
         $$\frac{\Delta p}{p_1} \cdot 100\% = \frac{T_2 - T_1}{T_1} \cdot 100\% = \frac{341{,}15 - 315{,}15}{315{,}15} \cdot 100\% = \frac{26\,\text{K}}{315{,}15\,\text{K}} \cdot 100\% \approx \mathbf{8{,}25\%} \approx \mathbf{8{,}3\%}$$
@@ -898,6 +929,139 @@
           L'errore assoluto si amplifica per <em>cancellazione numerica</em> sottraendo l'unit&agrave;. Mantenendo i termini esatti o impiegando direttamente le temperature assolute Kelvin si ottiene rigorosamente il valore corretto di <strong>8,3%</strong>.
         </div>
       </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPITOLO 8 -->
+    <!-- ========================================================================= -->
+    <h2 id="cap8">Capitolo 8: L'Equazione di Stato del Gas Perfetto e la Costante Universale $R$</h2>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">1. Il Modello Microscopico del Gas Perfetto (o Ideale)</div>
+      <p>
+        Un gas reale si comporta con eccellente approssimazione come un <strong>gas perfetto</strong> quando soddisfa simultaneamente tre requisiti fisici fondamentali:
+      </p>
+      <ol style="margin-left: 20px; line-height: 1.6;">
+        <li><strong>Elevata Rarefazione (Bassa Densit&agrave; Numerica):</strong> il numero di particelle per unit&agrave; di volume &egrave; molto contenuto, per cui la distanza media tra molecole &egrave; di gran lunga superiore al loro diametro microscopico;</li>
+        <li><strong>Temperatura Molto Superiore alla Temperatura Critica di Liquefazione ($T \gg T_{\text{liq}}$):</strong> l'energia cinetica associata ai moti termici casuali prevale nettamente sull'energia potenziale delle forze intermolecolari di coesione;</li>
+        <li><strong>Particelle Puntiformi con Urti Elastici:</strong> il volume proprio occupato dalle molecole (<em>covolume</em>) &egrave; trascurabile rispetto al volume macroscopico del contenitore ($V_{\text{molecole}} \ll V_{\text{recipiente}}$). Le particelle interagiscono unicamente mediante collisioni istantanee e perfettamente elastiche senza forze attrattive o repulsive a lungo raggio.</li>
+      </ol>
+    </div>
+
+    <div class="card law">
+      <div class="card-title" style="color: var(--col-primary);">2. Il Principio di Avogadro (1811)</div>
+      <p>
+        <strong>Volumi uguali di gas diversi, mantenuti nelle stesse condizioni di temperatura e di pressione, contengono lo stesso numero di moli (e lo stesso identico numero di molecole $N$).</strong>
+      </p>
+      <p style="text-align: center; margin: 12px 0;">
+        $$V \propto n \qquad (p = \text{costante}, \; T = \text{costante})$$
+      </p>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Ne consegue che il rapporto $\dfrac{V}{n}$ (volume occupato da una mole) &egrave; una costante universale indipendente dalla specie chimica del gas considerato.
+      </p>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">3. L'Equazione di Stato dei Gas Perfetti (Equazione di Clapeyron)</div>
+      <p>
+        Unificando la legge di Boyle ($V \propto \frac{1}{p}$), la prima legge di Gay-Lussac ($V \propto T$) e il principio di Avogadro ($V \propto n$), si perviene alla legge universale che vincola le tre variabili termodinamiche di stato:
+      </p>
+      <div style="background: #EFF6FF; border: 2px solid #2563EB; border-radius: 8px; padding: 16px; text-align: center; margin: 16px 0;">
+        <span style="font-size: 1.4rem; font-weight: 700; color: #1D4ED8;">
+          $$p \cdot V = n \cdot R \cdot T$$
+        </span>
+      </div>
+      <ul style="margin-left: 20px; line-height: 1.6; font-size: 0.95rem;">
+        <li>$p$: pressione assoluta del gas in Pascal ($\text{Pa} = \text{N/m}^2$);</li>
+        <li>$V$: volume occupato dal gas in metri cubi ($\text{m}^3$);</li>
+        <li>$n$: quantit&agrave; di sostanza in moli ($\text{mol}$);</li>
+        <li>$T$: temperatura termodinamica assoluta in Kelvin ($\text{K}$);</li>
+        <li>$R$: costante universale dei gas perfetti.</li>
+      </ul>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">4. Analisi Dimensionale del Prodotto $p \cdot V$ e della Costante $R$</div>
+      <p>
+        Esplicitiamo la costante universale dall'equazione di stato:
+        $$R = \frac{p \cdot V}{n \cdot T}$$
+        Determiniamo la dimensione fisica del prodotto pressione per volume:
+        $$[p \cdot V] = [\text{Pressione}] \cdot [\text{Volume}] = \left(\frac{\text{N}}{\text{m}^2}\right) \cdot \text{m}^3 = \text{N} \cdot \text{m} = \mathbf{\text{Joule (J)}}$$
+      </p>
+      <div style="background: #F8FAFC; border-left: 4px solid #2563EB; padding: 12px 16px; border-radius: 6px; margin: 12px 0;">
+        <strong>Significato Fisico Fondamentale:</strong> Il prodotto $p \cdot V$ possiede le dimensioni di un'<strong>energia</strong> o di un <strong>lavoro meccanico</strong> ($L = F_\perp \cdot \Delta s = (p \cdot S) \cdot \Delta s = p \cdot \Delta V$).<br>
+        Di conseguenza, l'unit&agrave; di misura della costante universale $R$ nel Sistema Internazionale &egrave;:
+        $$[R] = \frac{[p \cdot V]}{[n] \cdot [T]} = \mathbf{\frac{\text{J}}{\text{mol} \cdot \text{K}}}$$
+        Essa rappresenta il lavoro termodinamico compiuto da una mole di gas ideale quando la sua temperatura aumenta di un Kelvin.
+      </div>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">5. Valori di $R$, Equivalenza Litri-Atmosfere e Volume Molare Standard (STP)</div>
+      <p>
+        A seconda delle unit&agrave; impiegate per la pressione e il volume, la costante universale assume due valori di riferimento:
+      </p>
+      <ul>
+        <li><strong>Nel Sistema Internazionale:</strong>
+          $$R = \mathbf{8{,}314\,\frac{\text{J}}{\text{mol}\cdot\text{K}}} \approx 8{,}31\,\frac{\text{J}}{\text{mol}\cdot\text{K}}$$
+        </li>
+        <li><strong>Nelle Unit&agrave; Pratiche della Chimica:</strong>
+          $$R = \mathbf{0{,}0821\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}}}$$
+        </li>
+      </ul>
+
+      <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 12px 16px; margin: 12px 0;">
+        <strong style="color: #166534;">Dimostrazione del Fattore di Conversione:</strong><br>
+        Poich&eacute; $1\,\text{L} = 10^{-3}\,\text{m}^3$ e $1\,\text{atm} = 101\,325\,\text{Pa}$:
+        $$1\,\text{L}\cdot\text{atm} = (10^{-3}\,\text{m}^3) \cdot (101\,325\,\text{Pa}) = \mathbf{101{,}325\,\text{J}}$$
+        Convertendo il valore di $R$:
+        $$0{,}082057\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}} 	imes 101{,}325\,\frac{\text{J}}{\text{L}\cdot\text{atm}} = \mathbf{8{,}3144\,\frac{\text{J}}{\text{mol}\cdot\text{K}}}$$
+      </div>
+
+      <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 12px 16px; margin: 12px 0;">
+        <strong style="color: #1E40AF;">Volume Molare Standard a Condizioni Normali (STP: $T_0 = 273{,}15\,\text{K}, p_0 = 1\,\text{atm}$):</strong><br>
+        Dall'equazione di stato per $n = 1\,\text{mol}$:
+        $$V_0 = \frac{n R T_0}{p_0} = \frac{1\,\text{mol} \cdot 0{,}0821\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}} \cdot 273{,}15\,\text{K}}{1\,\text{atm}} \approx \mathbf{22{,}4\,\text{L}} \quad (0{,}0224\,\text{m}^3)$$
+      </div>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">6. Derivazione Teorica Unificata delle Tre Leggi dei Gas</div>
+      <p>
+        L'equazione di stato $p \cdot V = n R T$ include come casi particolari le tre leggi storiche empiriche:
+      </p>
+      <div class="table-container">
+        <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+          <thead>
+            <tr style="background:#F1F5F9; border-bottom:2px solid #CBD5E1;">
+              <th style="padding:10px; text-align:left;">Trasformazione</th>
+              <th style="padding:10px; text-align:left;">Condizione di Stato</th>
+              <th style="padding:10px; text-align:left;">Legge Dedotta</th>
+              <th style="padding:10px; text-align:left;">Descrizione Geometrica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:10px;"><strong>Isoterma</strong></td>
+              <td style="padding:10px;">$T = \text{cost}$</td>
+              <td style="padding:10px;">$p \cdot V = nRT = \mathbf{\text{cost}}$ (Legge di Boyle)</td>
+              <td style="padding:10px;">Iperbole equilatera nel piano $(V, p)$ ($p \propto 1/V$)</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:10px;"><strong>Isobara</strong></td>
+              <td style="padding:10px;">$p = \text{cost}$</td>
+              <td style="padding:10px;">$\dfrac{V}{T} = \dfrac{nR}{p} = \mathbf{\text{cost}}$ (1ª Gay-Lussac)</td>
+              <td style="padding:10px;">Semiretta uscente dall'origine nel piano $(T, V)$ ($V \propto T$)</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;"><strong>Isocora</strong></td>
+              <td style="padding:10px;">$V = \text{cost}$</td>
+              <td style="padding:10px;">$\dfrac{p}{T} = \dfrac{nR}{V} = \mathbf{\text{cost}}$ (2ª Gay-Lussac)</td>
+              <td style="padding:10px;">Semiretta uscente dall'origine nel piano $(T, p)$ ($p \propto T$)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
@@ -1127,7 +1291,7 @@
             {left: "\\(", right: "\\)", display: false},
             {left: "$", right: "$", display: false}
           ],
-          ignoredClasses: ["katex", "katex-display"],
+          ignoredClasses: ["katex"],
           throwOnError: false
         });
       }

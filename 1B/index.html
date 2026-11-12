@@ -244,6 +244,16 @@
     .btn-pdf:hover {
       background: #DBEAFE;
     }
+    .btn-notes {
+      background: #FFFBEB;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+    }
+    .btn-notes:hover {
+      background: #FEF3C7;
+      border-color: #F59E0B;
+      color: #78350F;
+    }
     footer {
       background: #FFFFFF;
       border-top: 1px solid var(--border-strong);
@@ -315,6 +325,9 @@
           <a href="Laboratorio_Matematico/dispensa_lezione.pdf" class="btn btn-pdf" download>
             📥 Scarica Dispensa PDF
           </a>
+          <a href="#manoscritto-iframe-section" onclick="scrollToIframe('Laboratorio_Matematico/quaderno_prof.pdf', 'tab-lab')" class="btn btn-notes">
+            📓 Manoscritto PDF
+          </a>
         </div>
       </article>
 
@@ -343,9 +356,70 @@
           <a href="Fisica/dispensa_lezione.pdf" class="btn btn-pdf" download>
             📥 Scarica Dispensa PDF
           </a>
+          <a href="#manoscritto-iframe-section" onclick="scrollToIframe('Fisica/quaderno_prof.pdf', 'tab-fis')" class="btn btn-notes">
+            📓 Manoscritto PDF
+          </a>
         </div>
       </article>
     </div>
+
+    <!-- =======================================================================
+         SEZIONE VISUALIZZATORE MANOSCRITTO PDF INTERATTIVO (IFRAME)
+         ======================================================================= -->
+    <section id="manoscritto-iframe-section" style="background: #FFFFFF; border: 1px solid var(--border-strong); border-radius: 14px; padding: 26px; box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04); margin-bottom: 32px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 18px;">
+        <div>
+          <span style="font-size: 0.78rem; font-weight: 700; color: #92400E; background: #FEF3C7; border: 1px solid #FCD34D; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.04em;">Note Autografe del Docente</span>
+          <h2 style="font-size: 1.45rem; color: var(--col-primary); margin: 8px 0 4px; font-weight: 800;">📖 Visualizzatore Manoscritto PDF</h2>
+          <p style="font-size: 0.92rem; color: var(--col-text-muted); margin: 0;">Consulta direttamente online gli appunti originali scritti a mano del docente o aprilo a schermo intero.</p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <button type="button" onclick="setPdf('Laboratorio_Matematico/quaderno_prof.pdf', this)" id="tab-lab" class="btn-pdf-switch" style="padding: 9px 15px; font-weight: 700; font-size: 0.88rem; border-radius: 8px; border: 1px solid var(--col-primary); background: var(--col-primary); color: #FFFFFF; cursor: pointer; transition: all 0.15s ease;">Lab. Matematico</button>
+          <button type="button" onclick="setPdf('Fisica/quaderno_prof.pdf', this)" id="tab-fis" class="btn-pdf-switch" style="padding: 9px 15px; font-weight: 700; font-size: 0.88rem; border-radius: 8px; border: 1px solid #CBD5E1; background: #F1F5F9; color: #0F172A; cursor: pointer; transition: all 0.15s ease;">Fisica 1B</button>
+          <a id="btn-fullscreen" href="Laboratorio_Matematico/quaderno_prof.pdf" target="_blank" class="btn" style="padding: 9px 15px; font-size: 0.88rem; background: #FFFBEB; color: #92400E; border: 1px solid #FCD34D;">↗ Schermo Intero</a>
+          <a id="btn-download" href="Laboratorio_Matematico/quaderno_prof.pdf" download class="btn" style="padding: 9px 15px; font-size: 0.88rem; background: #EFF6FF; color: var(--col-primary); border: 1px solid #BFDBFE;">📥 Scarica</a>
+        </div>
+      </div>
+      
+      <div style="position: relative; width: 100%; height: 780px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border-strong); background: #525659; box-shadow: inset 0 2px 8px rgba(0,0,0,0.18);">
+        <iframe id="pdf-viewer-frame" src="Laboratorio_Matematico/quaderno_prof.pdf#toolbar=1&navpanes=0" width="100%" height="100%" style="border: none; display: block;" title="Manoscritto PDF del Prof">
+          <p style="color: #FFFFFF; padding: 24px; text-align: center; font-size: 1rem;">
+            Il tuo browser non supporta l'incorporamento diretto dei PDF in iframe.<br>
+            <a href="Laboratorio_Matematico/quaderno_prof.pdf" target="_blank" style="color: #FCD34D; font-weight: 700; text-decoration: underline;">Clicca qui per visualizzare il Manoscritto PDF di Laboratorio Matematico 1B</a>.
+          </p>
+        </iframe>
+      </div>
+    </section>
+
+    <script>
+      function setPdf(src, btn) {
+        var frame = document.getElementById('pdf-viewer-frame');
+        var fullBtn = document.getElementById('btn-fullscreen');
+        var downBtn = document.getElementById('btn-download');
+        if (frame) frame.src = src + '#toolbar=1&navpanes=0';
+        if (fullBtn) fullBtn.href = src;
+        if (downBtn) downBtn.href = src;
+        document.querySelectorAll('.btn-pdf-switch').forEach(function(b) {
+          b.style.background = '#F1F5F9';
+          b.style.color = '#0F172A';
+          b.style.borderColor = '#CBD5E1';
+        });
+        if (btn) {
+          btn.style.background = 'var(--col-primary)';
+          btn.style.color = '#FFFFFF';
+          btn.style.borderColor = 'var(--col-primary)';
+        }
+      }
+
+      function scrollToIframe(pdfSrc, btnId) {
+        var btn = document.getElementById(btnId);
+        if (btn) setPdf(pdfSrc, btn);
+        var sec = document.getElementById('manoscritto-iframe-section');
+        if (sec) {
+          sec.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    </script>
   </main>
 
   <footer>

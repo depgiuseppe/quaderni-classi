@@ -469,8 +469,30 @@
         <a href="dispensa_lezione.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #184C78; color: #FFFFFF; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; box-shadow: 0 2px 6px rgba(24, 76, 120, 0.25);">
           📥 Scarica Dispensa PDF
         </a>
+        <a href="quaderno_prof.pdf" target="_blank" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FFFBEB; color: #92400E; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #FCD34D;">
+          📓 Manoscritto PDF
+        </a>
+        <a href="#manoscritto-iframe-box" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FEF3C7; color: #78350F; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #F59E0B;">
+          📖 Sfoglia Manoscritto (Iframe)
+        </a>
       </div>
     </header>
+
+    <!-- SEZIONE MANOSCRITTO PDF INTERATTIVO (IFRAME) -->
+    <div class="card" id="manoscritto-iframe-box" style="margin: 24px 0; border: 2px solid #F59E0B; background: #FFFDF5; border-radius: 12px; padding: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+        <span style="font-weight: 800; font-size: 1.1rem; color: #92400E;">📖 Quaderno Autografo del Prof — Note Manoscritte Originali (20 pagine)</span>
+        <div style="display: flex; gap: 8px;">
+          <a href="quaderno_prof.pdf" target="_blank" class="btn-resource" style="padding: 5px 12px; font-size: 12.5px; background: #92400E; color: #FFF; border-radius: 5px; text-decoration: none; font-weight: 600;">↗ Schermo Intero</a>
+          <a href="quaderno_prof.pdf" download class="btn-resource" style="padding: 5px 12px; font-size: 12.5px; background: #FCD34D; color: #78350F; border-radius: 5px; text-decoration: none; font-weight: 600;">📥 Scarica PDF</a>
+        </div>
+      </div>
+      <div style="position: relative; width: 100%; height: 750px; border-radius: 8px; overflow: hidden; border: 1px solid #CBD5E1; background: #525659;">
+        <iframe src="quaderno_prof.pdf#toolbar=1&navpanes=0" style="width: 100%; height: 100%; border: none;" title="Manoscritto PDF del Prof - Fisica 4B">
+          <p style="color: #fff; padding: 20px; text-align: center;">Il tuo browser non supporta gli iframe PDF. <a href="quaderno_prof.pdf" target="_blank" style="color: #FCD34D;">Clicca qui per visualizzare il Manoscritto PDF</a>.</p>
+        </iframe>
+      </div>
+    </div>
 
     <!-- Sezione 1: Leggi Sperimentali -->
     <section id="sec-leggi">
@@ -516,20 +538,20 @@
           <strong>Risposta sintetica:</strong> Dal punto di vista fisico e termodinamico, <strong>no, non ha alcun senso</strong>.
         </p>
         <p style="margin-bottom: 14px;">
-          La scala Celsius &egrave; una <strong>scala a intervalli</strong> (o affinemente traslata) e non una <strong>scala di rapporti</strong>. Il suo valore zero ($0\,^\circ\text{C}$) &egrave; un riferimento puramente convenzionale (il punto di fusione del ghiaccio a pressione atmosferica standard) e non corrisponde affatto all'assenza di moto o agitazione termica a livello microscopico.
+          La scala Celsius &egrave; una <strong>scala a intervalli</strong> (o affinemente traslata) e non una <strong>scala di rapporti</strong>. Il suo valore zero ($0^{\circ}\text{C}$) &egrave; un riferimento puramente convenzionale (il punto di fusione del ghiaccio a pressione atmosferica standard) e non corrisponde affatto all'assenza di moto o agitazione termica a livello microscopico.
         </p>
 
         <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;">
           <h4 style="color: #B91C1C; font-size: 0.96rem; margin-bottom: 8px; font-weight: 700;">⚠️ Le Contraddizioni Logiche e i Paradossi Fisici</h4>
           <ul style="margin: 0; padding-left: 20px; line-height: 1.6; font-size: 0.94rem;">
             <li style="margin-bottom: 8px;">
-              <strong>Il paradosso dello zero:</strong> Moltiplicare per due una temperatura di $0\,^\circ\text{C}$ darebbe ancora $0\,^\circ\text{C}$ ($2 \times 0\,^\circ\text{C} = 0\,^\circ\text{C}$). Ci&ograve; implicherebbe che l'energia interna del sistema rimanga invariata, rendendo il "raddoppio" nullo.
+              <strong>Il paradosso dello zero:</strong> Moltiplicare per due una temperatura di $0^{\circ}\text{C}$ darebbe ancora $0^{\circ}\text{C}$ ($2 \times 0^{\circ}\text{C} = 0^{\circ}\text{C}$). Ci&ograve; implicherebbe che l'energia interna del sistema rimanga invariata, rendendo il "raddoppio" nullo.
             </li>
             <li style="margin-bottom: 8px;">
-              <strong>Il paradosso dei valori negativi:</strong> Raddoppiare una temperatura negativa come $-10\,^\circ\text{C}$ porterebbe algebricamente a $-20\,^\circ\text{C}$. Tuttavia, uno stato a $-20\,^\circ\text{C}$ descrive un livello energetico inferiore (pi&ugrave; freddo) rispetto a $-10\,^\circ\text{C}$, ribaltando completamente il significato dell'operazione!
+              <strong>Il paradosso dei valori negativi:</strong> Raddoppiare una temperatura negativa come $-10^{\circ}\text{C}$ porterebbe algebricamente a $-20^{\circ}\text{C}$. Tuttavia, uno stato a $-20^{\circ}\text{C}$ descrive un livello energetico inferiore (pi&ugrave; freddo) rispetto a $-10^{\circ}\text{C}$, ribaltando completamente il significato dell'operazione!
             </li>
             <li>
-              <strong>Inconsistenza energetica reale:</strong> Passare da $10\,^\circ\text{C}$ a $20\,^\circ\text{C}$ non raddoppia affatto l'energia cinetica media. In unit&agrave; assolute: $10\,^\circ\text{C} = 283{,}15\,\text{K}$ e $20\,^\circ\text{C} = 293{,}15\,\text{K}$. Il rapporto reale &egrave;:
+              <strong>Inconsistenza energetica reale:</strong> Passare da $10^{\circ}\text{C}$ a $20^{\circ}\text{C}$ non raddoppia affatto l'energia cinetica media. In unit&agrave; assolute: $10^{\circ}\text{C} = 283{,}15\,\text{K}$ e $20^{\circ}\text{C} = 293{,}15\,\text{K}$. Il rapporto reale &egrave;:
               $$\frac{293{,}15\,\text{K}}{283{,}15\,\text{K}} \approx 1{,}0353 \implies +3{,}53\%$$
               L'incremento energetico reale &egrave; di appena il $3{,}5\%$, ben lontano dal $+100\%$ atteso da un vero raddoppio.
             </li>
@@ -545,8 +567,15 @@
             $$\mathbf{\langle E_k \rangle = \frac{3}{2} \, k_B \, T}$$
           </p>
           <p style="margin: 0; font-size: 0.94rem;">
-            dove $k_B \approx 1{,}38 \times 10^{-23}\,\text{J/K}$ &egrave; la costante di Boltzmann e $T$ &egrave; la temperatura assoluta in <strong>Kelvin ($\text{K}$)</strong>, il cui zero ($0\,\text{K} = -273{,}15\,^\circ\text{C}$) corrisponde al limite asintotico di minima agitazione termica possibile.
+            dove $k_B \approx 1{,}38 \times 10^{-23}\,\text{J/K}$ &egrave; la costante di Boltzmann e $T$ &egrave; la temperatura assoluta in <strong>Kelvin ($\text{K}$)</strong>, il cui zero ($0\,\text{K} = -273{,}15^{\circ}\text{C}$) corrisponde al limite asintotico di minima agitazione termica possibile.
           </p>
+        </div>
+
+        <div class="screenshot-container" style="border-style:solid; margin:20px 0;">
+          <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+            <source src="media/GayLussacPistoneTermicoManim.mp4#t=0.001" type="video/mp4">
+          </video>
+          <div class="screenshot-caption">Animazione Scientifica Manim (Tema Chiaro): espansione termica isobara di un gas ideale ($V_1/T_1 = V_2/T_2$) con pistone mobile a pressione costante e riscaldamento continuo.</div>
         </div>
 
         <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;">
@@ -559,15 +588,15 @@
             ⚠️ Regola aurea: dobbiamo stare attentissimi all'unit&agrave; di misura! L'operazione di raddoppio ($T_2 = 2 T_1$) va applicata TASSATIVAMENTE alla temperatura assoluta in Kelvin ($T$), MAI ai gradi Celsius ($t$)!
           </p>
           <div style="background: #FFFFFF; border-left: 3px solid #D97706; padding: 10px 14px; font-size: 0.92rem; border-radius: 4px;">
-            <strong>Esempio Pratico:</strong> Se un gas si trova inizialmente a $t_1 = 20\,^\circ\text{C}$:
+            <strong>Esempio Pratico:</strong> Se un gas si trova inizialmente a $t_1 = 20^{\circ}\text{C}$:
             <ol style="margin: 6px 0 0 18px; line-height: 1.5;">
               <li>Si converte la temperatura iniziale in Kelvin: $T_1 = 20 + 273{,}15 = 293{,}15\,\text{K}$;</li>
               <li>Si raddoppia in scala assoluta: $T_2 = 2 \times T_1 = 2 \times 293{,}15\,\text{K} = 586{,}30\,\text{K}$;</li>
               <li>Si riconverte la temperatura finale in gradi Celsius:
-                $$t_2 = 586{,}30 - 273{,}15 = \mathbf{313{,}15\,^\circ\text{C}}$$
+                $$t_2 = 586{,}30 - 273{,}15 = \mathbf{313{,}15^{\circ}\text{C}}$$
               </li>
             </ol>
-            Scaldare il gas da $20\,^\circ\text{C}$ a $40\,^\circ\text{C}$ &egrave; un incremento termodinamico di appena il $6{,}8\%$; per raddoppiare davvero l'energia termica, il gas deve raggiungere oltre <strong>$313\,^\circ\text{C}$</strong>!
+            Scaldare il gas da $20^{\circ}\text{C}$ a $40^{\circ}\text{C}$ &egrave; un incremento termodinamico di appena il $6{,}8\%$; per raddoppiare davvero l'energia termica, il gas deve raggiungere oltre <strong>$313^{\circ}\text{C}$</strong>!
           </div>
         </div>
 
@@ -580,7 +609,7 @@
             $$\Delta T = T_b - T_a = (t_b + 273{,}15) - (t_a + 273{,}15) = t_b - t_a = \Delta t$$
           </p>
           <p style="margin: 0; font-size: 0.92rem;">
-            Di conseguenza: $\Delta t = 5\,^\circ\text{C} \implies 2 \times \Delta t = 10\,^\circ\text{C} \equiv 10\,\text{K}$.<br>
+            Di conseguenza: $\Delta t = 5^{\circ}\text{C} \implies 2 \times \Delta t = 10^{\circ}\text{C} \equiv 10\,\text{K}$.<br>
             <strong>In sintesi:</strong> ha senso moltiplicare un <em>intervallo termico</em> ($\Delta t$), ma <strong>non</strong> ha senso moltiplicare il <em>valore puntuale</em> di temperatura espresso in scala Celsius ($t$).
           </p>
         </div>
@@ -624,6 +653,13 @@
       <div class="card">
         <div class="card-title">Pressione Cinetica Microscopica</div>
         <p>$$\mathbf{p = \frac{1}{3} \, \frac{N}{V} \, m \, \langle v^2 \rangle = \frac{2}{3} \, \frac{N}{V} \, \langle K_{\text{trasl}} \rangle}$$</p>
+      </div>
+
+      <div class="screenshot-container" style="border-style:solid; margin:20px 0;">
+        <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+          <source src="media/TeoriaCineticaCuboManim.mp4#t=0.001" type="video/mp4">
+        </video>
+        <div class="screenshot-caption">Animazione Scientifica Manim (Tema Chiaro): modello microscopico di Joule della pressione cinetica con urti elastici contro la parete cubica ($\Delta p_x = 2mv_x$) e legame con l'energia cinetica media molecolare.</div>
       </div>
     </section>
 
@@ -694,6 +730,13 @@
             <text x="375" y="80" font-size="10" font-weight="bold" fill="#DC2626">&Delta;T</text>
           </svg>
         </div>
+      </div>
+
+      <div class="screenshot-container" style="border-style:solid; margin:20px 0;">
+        <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+          <source src="media/MulinelloJouleCaloreManim.mp4#t=0.001" type="video/mp4">
+        </video>
+        <div class="screenshot-caption">Animazione Scientifica Manim (Tema Chiaro): l'esperimento del mulinello di Joule (1845), caduta dei pesi gravanti ($W = 2mgh$), agitazione viscosa e misura dell'equivalente termico $J = 4{,}186\,\text{J/cal}$.</div>
       </div>
 
       <div class="card">
@@ -1380,7 +1423,7 @@
             <div class="result-box">$$Q \approx 2{,}51 \cdot 10^6\,\text{J} = 2{,}51\,\text{MJ}, \qquad E \approx 0{,}70\,\text{kWh}$$</div>
           </li>
           <li><strong>Fase 9: Valutazione di Plausibilit&agrave; Fisica e Casi Limite:</strong>
-            Il consumo di $0{,}70\,\text{kWh}$ corrisponde perfettamente all'energia termica necessaria per riscaldare $15\,\text{L}$ di acqua in un ciclo domestico; al costo medio di $0{,}25\text{ &euro;/kWh}$, l'onere per la sola energia termica &egrave; di circa $0{,}18\text{ &euro;}$.
+            Il consumo di $0{,}70\,\text{kWh}$ corrisponde perfettamente all'energia termica necessaria per riscaldare $15\,\text{L}$ di acqua in un ciclo domestico; al costo medio di $0{,}25$ €/kWh, l'onere per la sola energia termica &egrave; di circa $0{,}18$ €.
           </li>
         </ol>
       </div>
@@ -1835,7 +1878,7 @@
             {left: "\\(", right: "\\)", display: false},
             {left: "$", right: "$", display: false}
           ],
-          ignoredClasses: ["katex", "katex-display"],
+          ignoredClasses: ["katex"],
           throwOnError: false
         });
       }

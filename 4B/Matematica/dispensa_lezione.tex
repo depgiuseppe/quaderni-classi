@@ -196,7 +196,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small\sffamily\color{gray}Quaderno del Prof -- Classe 4B}
-\fancyhead[R]{\small\sffamily\color{gray}Esponenziali e Logaritmi}
+\fancyhead[R]{\small\sffamily\color{gray}Esponenziali, Logaritmi e Goniometria}
 \fancyfoot[C]{\small\sffamily\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -228,11 +228,11 @@
     {\Large\sffamily\bfseries\color{accentTeal} Matematica}\\[0.3cm]
     {\large\sffamily\color{methodSlate} Teoria Completa, Dimostrazioni Passo-Passo ed Esercizi Risolti}\\[1.5cm]
     
-    \rule{0.85\linewidth}{1.5pt}\\[1.8cm]
+    \rule{0.85\linewidth}{1.5pt}\\[1.5cm]
     
-    {\huge\sffamily\bfseries ESPONENZIALI E LOGARITMI}\\[1.8cm]
+    {\huge\sffamily\bfseries ESPONENZIALI, LOGARITMI\\ E INTRODUZIONE ALLA GONIOMETRIA}\\[1.5cm]
     
-    \rule{0.85\linewidth}{1.5pt}\\[2.5cm]
+    \rule{0.85\linewidth}{1.5pt}\\[2.0cm]
     
     {\Large\sffamily
     \textbf{Liceo Scientifico Statale «Leonardo da Vinci» -- Maglie}\\[0.3cm]
@@ -1228,5 +1228,480 @@ L'insieme delle soluzioni è dunque:
 \caption{Risoluzione grafica analitica della disequazione $f(x) \ge g(x)$: la curva simmetrica $y = f(x)$ (in blu) sovrasta la retta secante $y = g(x)$ (in ambra) nelle due regioni campite in verde. L'insieme delle soluzioni $\mathcal{S} = (-\infty, \alpha] \cup [2, 6]$ è proiettato sul canale analitico inferiore, preservando la totale continuità e leggibilità degli assi cartesiani.}
 \label{fig:grafico_esercizio_4_2}
 \end{figure}
+
+
+
+% ==============================================================================
+% CAPITOLO 5: FUNZIONI INVERSE, COMPOSIZIONE E STUDIO QUALITATIVO CON MODULO
+% ==============================================================================
+\chapter{Funzioni Inverse, Composizione e Studio Qualitativo con Valore Assoluto}
+
+La teoria delle funzioni esponenziali e logaritmiche trova il suo naturale completamento nello studio analitico e geometrico delle trasformazioni grafiche, nell'inversione di operatori trascendenti e nell'analisi qualitativa di funzioni composte con valore assoluto. In questo capitolo si affrontano gli argomenti delle pagine 20--25 del quaderno autentico, formalizzando i procedimenti di inversione, la composizione strutturale e il protocollo di studio dei segni con cancellazione delle regioni cartesiane.
+
+\section{Propriet\`a Geometriche e Analitiche del Valore Assoluto}
+
+\begin{definizione}[Definizione Metrica e Intorno Circolare]
+Dato un numero reale $a \in \mathbb{R}$ e un raggio $b > 0$, l'espressione $|x - a|$ rappresenta la distanza euclidea tra il punto $x$ e il punto $a$ sulla retta reale. La disequazione con valore assoluto:
+\begin{equation}
+|x - a| \le b \iff a - b \le x \le a + b
+\end{equation}
+individua un intorno chiuso e limitato di centro $a$ e raggio $b$, di ampiezza complessiva pari a $2b$.
+\end{definizione}
+
+\begin{esempio}[Risoluzione Metrica di Disequazione con Modulo]
+Risolvere la disequazione $|x + 1| \le 4$.
+Ponendo $a = -1$ e $b = 4$, si ricava immediatamente per via metrica:
+\begin{equation}
+-1 - 4 \le x \le -1 + 4 \iff -5 \le x \le 3
+\end{equation}
+L'insieme delle soluzioni coincide con l'intervallo compatto $[-5, \, 3]$.
+\end{esempio}
+
+\section{Inversione Analitica di Funzioni Logaritmiche Traslate}
+
+Una funzione $f \colon D \to \mathbb{R}$ \`e invertibile se e solo se \`e biunivoca (iniettiva e suriettiva sulla propria immagine). I grafici cartesiani di una funzione e della sua inversa $f^{-1}$ risultano geometricamente simmetrici rispetto alla retta bisettrice del primo e terzo quadrante ($y = x$).
+
+\begin{metodo}[Procedimento di Inversione di Funzione Logaritmica Traslata]
+Data la funzione logaritmica reale:
+\begin{equation}
+f(x) = 2\log_2(x + 1) - 1
+\end{equation}
+\begin{enumerate}
+\item \textbf{Determinazione del Dominio e Immagine:} L'argomento del logaritmo impone $x + 1 > 0 \implies D = (-1, +\infty)$. L'immagine coincide con tutto l'asse reale: $\mathrm{Im}(f) = \mathbb{R}$.
+\item \textbf{Inversione Algebrica:} Ponendo $y = 2\log_2(x + 1) - 1$ e scambiando formalmente i ruoli di $x$ e $y$:
+\begin{equation}
+x = 2\log_2(y + 1) - 1 \iff 2\log_2(y + 1) = x + 1 \iff \log_2(y + 1) = \frac{x + 1}{2}
+\end{equation}
+Applicando la definizione di logaritmo in base 2:
+\begin{equation}
+y + 1 = 2^{\frac{x + 1}{2}} \iff y = 2^{\frac{x + 1}{2}} - 1
+\end{equation}
+\item \textbf{Espressione della Funzione Inversa:}
+\begin{equation}
+f^{-1}(x) = 2^{\frac{x + 1}{2}} - 1, \quad \text{con } D_{f^{-1}} = \mathbb{R}, \quad \mathrm{Im}(f^{-1}) = (-1, +\infty)
+\end{equation}
+\end{enumerate}
+\end{metodo}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.92]
+  \draw[very thin, color=slateBorder!50, step=1cm] (-3.5,-3.5) grid (5.5,5.5);
+  \draw[->, line width=1.1pt, color=black] (-3.5,0) -- (5.5,0) node[right, font=\small] {$x$};
+  \draw[->, line width=1.1pt, color=black] (0,-3.5) -- (0,5.5) node[above, font=\small] {$y$};
+  \node[below left=2pt, font=\footnotesize] at (0,0) {$O$};
+
+  % Bisettrice y = x
+  \draw[dashed, line width=0.9pt, gray!80] (-3.2,-3.2) -- (5.2,5.2) node[above right, font=\footnotesize, text=gray!90!black] {$y = x$};
+
+  % Asintoto verticale di f(x): x = -1
+  \draw[densely dotted, line width=0.85pt, accentRed!70] (-1,-3.5) -- (-1,5.2) node[above, font=\footnotesize, text=accentRed!90!black] {$x = -1$};
+  % Asintoto orizzontale di f^-1(x): y = -1
+  \draw[densely dotted, line width=0.85pt, accentAmber!80!black] (-3.5,-1) -- (5.2,-1) node[right, font=\footnotesize, text=accentAmber!90!black] {$y = -1$};
+
+  % Grafico f(x) = 2*log2(x+1) - 1
+  \draw[domain=-0.7:5.2, samples=150, primaryBlue, line width=1.8pt] plot ({\x}, {2*ln(\x + 1)/ln(2) - 1});
+  \node[primaryBlue, font=\footnotesize, fill=white, inner sep=1.5pt] at (3.8, 3.1) {$f(x) = 2\log_2(x+1)-1$};
+
+  % Grafico f^-1(x) = 2^((x+1)/2) - 1
+  \draw[domain=-3.2:3.5, samples=150, accentGreen!80!black, line width=1.8pt] plot ({\x}, {2^((\x + 1)/2) - 1});
+  \node[accentGreen!80!black, font=\footnotesize, fill=white, inner sep=1.5pt] at (1.2, 4.3) {$f^{-1}(x) = 2^{\frac{x+1}{2}}-1$};
+
+  % Punti simmetrici notevoli
+  \filldraw[accentRed] (0, -1) circle (2.2pt) node[right=3pt, font=\footnotesize, fill=white, inner sep=1pt] {$P(0, -1)$};
+  \filldraw[accentRed] (-1, 0) circle (2.2pt) node[above left=2pt, font=\footnotesize, fill=white, inner sep=1pt] {$P'(-1, 0)$};
+  \filldraw[primaryBlue] (1, 1) circle (2.2pt) node[below right=2pt, font=\footnotesize, fill=white, inner sep=1pt] {$A(1, 1)$};
+\end{tikzpicture}
+\caption{Simmetria speculare rispetto alla bisettrice $y=x$ tra la funzione logaritmica traslata $f(x) = 2\log_2(x+1)-1$ e la sua inversa esponenziale $f^{-1}(x) = 2^{\frac{x+1}{2}}-1$. L'asintoto verticale $x=-1$ di $f(x)$ si trasforma nell'asintoto orizzontale $y=-1$ di $f^{-1}(x)$.}
+\label{fig:inversa_logaritmica_4b}
+\end{figure}
+
+\section{Composizione di Funzioni Logaritmiche e Valore Assoluto}
+
+Nello studio della composizione tra la funzione valore assoluto $f(x) = |x - 2|$ e la funzione logaritmo $g(x) = \log_2 x$, l'ordine di applicazione determina andamenti geometrici radicalmente differenti:
+
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item \textbf{Modulo esterno $h(x) = (f \circ g)(x) = f(g(x)) = |\log_2 x - 2|$:}\\
+Il dominio coincide con $x > 0$. Il grafico si ottiene traslando verticalmente di 2 unit\`a verso il basso il logaritmo canonico ($y = \log_2 x - 2$, con zero in $x = 4$) e successivamente ribaltando simmetricamente rispetto all'asse $x$ la porzione di curva situata al di sotto di esso ($0 < x < 4$). Il punto $P(4, 0)$ costituisce un punto angoloso.
+
+\item \textbf{Modulo interno $t(x) = (g \circ f)(x) = g(f(x)) = \log_2 |x - 2|$:}\\
+L'argomento del logaritmo impone $|x - 2| > 0 \implies x \neq 2$. Il dominio \`e $D = \mathbb{R} \setminus \{2\}$. Il grafico presenta una retta di simmetria verticale $x = 2$, lungo la quale la funzione diverge negativamente:
+\begin{equation}
+\lim_{x \to 2} \log_2 |x - 2| = -\infty
+\end{equation}
+Il grafico \`e formato da due rami speculari identici: per $x > 2$ coincide con $\log_2(x - 2)$ (traslazione orizzontale di 2 verso destra del logaritmo base), mentre per $x < 2$ ne \`e l'immagine riflessa rispetto all'asintoto $x = 2$.
+\end{enumerate}
+
+\section{Studio Qualitativo Completo della Funzione $f(x) = 2\log_2(x - 1) + 1$}
+
+Applicando il protocollo standard a 5 stadi documentato a pagina 24 del quaderno:
+\begin{enumerate}
+\item \textbf{Dominio di Definizione:}
+\begin{equation}
+x - 1 > 0 \iff x > 1 \implies D = (1, \, +\infty)
+\end{equation}
+Tutta la semiretta $x \le 1$ viene immediatamente cancellata dal piano cartesiano.
+
+\item \textbf{Comportamento Asintotico agli Estremi:}
+\begin{equation}
+\lim_{x \to 1^+} [2\log_2(x - 1) + 1] = -\infty \implies \text{Asintoto Verticale: } x = 1
+\end{equation}
+\begin{equation}
+\lim_{x \to +\infty} [2\log_2(x - 1) + 1] = +\infty
+\end{equation}
+
+\item \textbf{Intersezioni con gli Assi Cartesiani:}
+\begin{itemize}
+\item \textit{Asse $y$ ($x = 0$):} Nessuna intersezione, in quanto $0 \notin D$.
+\item \textit{Asse $x$ ($y = 0$):}
+\begin{equation}
+2\log_2(x - 1) + 1 = 0 \iff \log_2(x - 1) = -\frac{1}{2} \iff x - 1 = 2^{-\frac{1}{2}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}
+\end{equation}
+\begin{equation}
+x_0 = 1 + \frac{\sqrt{2}}{2} \approx 1 + 0{,}707 = 1{,}707 \implies A\left(1 + \frac{\sqrt{2}}{2}, \, 0\right)
+\end{equation}
+\end{itemize}
+
+\item \textbf{Studio del Segno della Funzione:}
+\begin{equation}
+f(x) > 0 \iff 2\log_2(x - 1) + 1 > 0 \iff \log_2(x - 1) > -\frac{1}{2}
+\end{equation}
+Essendo la base $2 > 1$, la disuguaglianza conserva il verso:
+\begin{equation}
+x - 1 > \frac{\sqrt{2}}{2} \iff x > 1 + \frac{\sqrt{2}}{2}
+\end{equation}
+Pertanto:
+\begin{equation}
+\begin{cases}
+f(x) > 0 & \text{per } x > 1 + \frac{\sqrt{2}}{2} \quad (\text{cancello la regione } y < 0)\\[4pt]
+f(x) < 0 & \text{per } 1 < x < 1 + \frac{\sqrt{2}}{2} \quad (\text{cancello la regione } y > 0)
+\end{cases}
+\end{equation}
+\end{enumerate}
+
+\section{Equazioni Logaritmiche Avanzate: Irrazionali e con Modulo}
+
+\begin{esercizio}[Esercizio 383: Equazione Logaritmica Irrazionale]
+Risolvere nell'insieme dei numeri reali l'equazione:
+\begin{equation}
+\sqrt{\log_2^2 x + \log_2 x - 2} = \log_2 x - 2
+\end{equation}
+\textbf{Risoluzione:}\\
+Il modello risolutivo canonico delle equazioni irrazionali $\sqrt{A(x)} = B(x)$ impone il sistema:
+\begin{equation}
+\begin{cases}
+B(x) \ge 0\\
+A(x) = [B(x)]^2
+\end{cases}
+\end{equation}
+1. \textit{Condizione di concordanza di segno:}\\
+$\log_2 x - 2 \ge 0 \iff \log_2 x \ge 2 \iff x \ge 4$.\\
+2. \textit{Elevamento a quadrato:}\\
+$\log_2^2 x + \log_2 x - 2 = (\log_2 x - 2)^2 \iff \log_2^2 x + \log_2 x - 2 = \log_2^2 x - 4\log_2 x + 4$.\\
+Semplificando i termini quadratici:
+\begin{equation}
+\log_2 x + 4\log_2 x = 4 + 2 \iff 5\log_2 x = 6 \iff \log_2 x = \frac{6}{5}
+\end{equation}
+\begin{equation}
+x = 2^{\frac{6}{5}} = \sqrt[5]{2^6} = 2\sqrt[5]{2} \approx 2{,}297
+\end{equation}
+3. \textit{Verifica di accettabilit\`a:}\\
+Poich\'e $x \approx 2{,}297 < 4$, la soluzione trovata non soddisfa la condizione di concordanza di segno. Di conseguenza, l'equazione non ammette soluzioni reali:
+\begin{equation}
+\mathcal{S} = \emptyset
+\end{equation}
+\end{esercizio}
+
+\begin{esercizio}[Esercizio 21: Equazione con Moduli e Propriet\`a di Riconduzione]
+Risolvere l'equazione:
+\begin{equation}
+2\log_4^2|x + 1| + \log_4|x^2 - 1| - \log_4|x - 1| - 1 = 0
+\end{equation}
+\textbf{Risoluzione:}\\
+1. \textit{Condizioni di Esistenza (C.E.):}
+\begin{equation}
+|x + 1| \neq 0 \implies x \neq -1, \quad |x^2 - 1| \neq 0 \implies x \neq \pm 1, \quad |x - 1| \neq 0 \implies x \neq 1 \implies x \neq \pm 1
+\end{equation}
+2. \textit{Scomposizione dell'argomento:}\\
+Poich\'e $|x^2 - 1| = |(x + 1)(x - 1)| = |x + 1| \cdot |x - 1|$, applicando il teorema del logaritmo del prodotto:
+\begin{equation}
+\log_4|x^2 - 1| = \log_4(|x + 1| \cdot |x - 1|) = \log_4|x + 1| + \log_4|x - 1|
+\end{equation}
+Sostituendo nell'equazione originaria:
+\begin{equation}
+2\log_4^2|x + 1| + (\log_4|x + 1| + \log_4|x - 1|) - \log_4|x - 1| - 1 = 0
+\end{equation}
+I termini opposti $\log_4|x - 1|$ si elidono esattamente, producendo:
+\begin{equation}
+2\log_4^2|x + 1| + \log_4|x + 1| - 1 = 0
+\end{equation}
+3. \textit{Risoluzione mediante incognita ausiliaria:}\\
+Ponendo $t = \log_4|x + 1|$:
+\begin{equation}
+2t^2 + t - 1 = 0 \iff t_{1,2} = \frac{-1 \pm \sqrt{1 + 8}}{4} = \frac{-1 \pm 3}{4} \implies t_1 = -1, \quad t_2 = \frac{1}{2}
+\end{equation}
+- Per $t_1 = -1$: $\log_4|x + 1| = -1 \iff |x + 1| = 4^{-1} = \frac{1}{4} \implies x + 1 = \pm \frac{1}{4} \implies x = -\frac{3}{4} \lor x = -\frac{5}{4}$.\\
+- Per $t_2 = \frac{1}{2}$: $\log_4|x + 1| = \frac{1}{2} \iff |x + 1| = 4^{\frac{1}{2}} = 2 \implies x + 1 = \pm 2 \implies x = 1 \text{ (non acc.)} \lor x = -3$.\\
+Ricordando la C.E. $x \neq \pm 1$, la soluzione $x = 1$ viene scartata. L'insieme delle soluzioni accettabili \`e:
+\begin{equation}
+\mathcal{S} = \left\{-3, \, -\frac{5}{4}, \, -\frac{3}{4}\right\}
+\end{equation}
+\end{esercizio}
+
+% ==============================================================================
+% CAPITOLO 6: INTRODUZIONE ALLA GONIOMETRIA E FUNZIONI CIRCOLARI FONDAMENTALI
+% ==============================================================================
+\chapter{Introduzione alla Goniometria e Funzioni Circolari Fondamentali}
+
+Con le lezioni documentate alle pagine 26--31 del quaderno di classe 4B, il percorso didattico si apre allo studio della goniometria. Lo strumento analitico fondante \`e la circonferenza goniometrica, su cui si definiscono le funzioni circolari di base (seno, coseno e tangente), si deducono geometricamente le relazioni fondamentali e si analizzano le propriet\`a di simmetria e parit\`a delle funzioni sinusoidali.
+
+\section{La Circonferenza Goniometrica e le Funzioni Fondamentali}
+
+\begin{definizione}[Definizione della Circonferenza Goniometrica]
+Si definisce \textbf{circonferenza goniometrica} la circonferenza avente centro nell'origine $O(0, 0)$ degli assi cartesiani ortogonali e raggio di lunghezza unitaria ($R = 1$):
+\begin{equation}
+x^2 + y^2 = 1
+\end{equation}
+L'origine degli archi e degli angoli \`e fissata convenzionalmente nel punto $A(1, 0)$ sull'asse delle ascisse. Il verso positivo di rotazione \`e quello antiorario.
+\end{definizione}
+
+Dato un angolo orientato $\alpha$, indichiamo con $P$ il punto di intersezione tra il secondo lato dell'angolo e la circonferenza goniometrica. Si pongono le seguenti definizioni operative:
+\begin{itemize}
+\item \textbf{Coseno ($\cos\alpha$):} \`e l'ascissa del punto associato $P$: $x_P = \cos\alpha$.
+\item \textbf{Seno ($\sin\alpha$):} \`e l'ordinata del punto associato $P$: $y_P = \sin\alpha$.
+\item \textbf{Tangente ($\tan\alpha$):} \`e l'ordinata del punto $T$ di intersezione tra il prolungamento del raggio $OP$ e la retta verticale tangente alla circonferenza nel punto $A(1, 0)$ di equazione $x = 1$.
+\end{itemize}
+
+\section{Dimostrazioni Geometriche delle Relazioni Fondamentali}
+
+\begin{teorema}[Prima Relazione Fondamentale della Goniometria]
+Per ogni angolo orientato $\alpha \in \mathbb{R}$:
+\begin{equation}
+\sin^2\alpha + \cos^2\alpha = 1
+\end{equation}
+\end{teorema}
+\begin{dimostrazione}[Dimostrazione Geometrica]
+Consideriamo la proiezione ortogonale $H$ del punto $P$ sull'asse delle ascisse. Il triangolo $OHP$ \`e un triangolo rettangolo in $H$, con:
+\begin{equation}
+\overline{OH} = |\cos\alpha|, \quad \overline{HP} = |\sin\alpha|, \quad \overline{OP} = R = 1
+\end{equation}
+Applicando il Teorema di Pitagora al triangolo $OHP$:
+\begin{equation}
+\overline{OH}^2 + \overline{HP}^2 = \overline{OP}^2 \iff |\cos\alpha|^2 + |\sin\alpha|^2 = 1^2 \iff \cos^2\alpha + \sin^2\alpha = 1
+\end{equation}
+\end{dimostrazione}
+
+\begin{teorema}[Seconda Relazione Fondamentale della Goniometria]
+Per ogni angolo $\alpha \neq \frac{\pi}{2} + k\pi$ ($k \in \mathbb{Z}$):
+\begin{equation}
+\tan\alpha = \frac{\sin\alpha}{\cos\alpha}
+\end{equation}
+\end{teorema}
+\begin{dimostrazione}[Dimostrazione Geometrica per Similitudine]
+Consideriamo il triangolo rettangolo $OTA$, formato dall'asse $x$, dalla retta tangente $x = 1$ e dalla semiretta secante $OT$. I due triangoli rettangoli $OHP$ e $OTA$ hanno l'angolo acuto in $O$ in comune (di ampiezza $\alpha$) e gli angoli in $H$ e $A$ retti; essi risultano pertanto simili per il primo criterio di similitudine:
+\begin{equation}
+\triangle OHP \sim \triangle OTA
+\end{equation}
+Dal rapporto di proporzionalit\`a tra i cateti omologhi:
+\begin{equation}
+\frac{\overline{TA}}{\overline{OA}} = \frac{\overline{HP}}{\overline{OH}} \iff \frac{\tan\alpha}{1} = \frac{\sin\alpha}{\cos\alpha} \iff \tan\alpha = \frac{\sin\alpha}{\cos\alpha}
+\end{equation}
+\end{dimostrazione}
+
+\section{Valori Notevoli e Tabella Sinottica nel Primo Quadrante}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Gradi ($\alpha^\circ$)} & \textbf{Radianti ($\alpha$)} & $\sin\alpha$ & $\cos\alpha$ & $\tan\alpha$ \\
+\midrule
+$0^\circ$ & $0$ & $0 = \frac{\sqrt{0}}{2}$ & $1 = \frac{\sqrt{4}}{2}$ & $0$ \\[3pt]
+$30^\circ$ & $\frac{\pi}{6}$ & $\frac{1}{2} = \frac{\sqrt{1}}{2}$ & $\frac{\sqrt{3}}{2}$ & $\frac{\sqrt{3}}{3}$ \\[4pt]
+$45^\circ$ & $\frac{\pi}{4}$ & $\frac{\sqrt{2}}{2}$ & $\frac{\sqrt{2}}{2}$ & $1$ \\[4pt]
+$60^\circ$ & $\frac{\pi}{3}$ & $\frac{\sqrt{3}}{2}$ & $\frac{1}{2} = \frac{\sqrt{1}}{2}$ & $\sqrt{3}$ \\[3pt]
+$90^\circ$ & $\frac{\pi}{2}$ & $1 = \frac{\sqrt{4}}{2}$ & $0 = \frac{\sqrt{0}}{2}$ & \textit{non esiste} \\
+\bottomrule
+\end{tabular}
+\caption{Quadro sinottico dei valori delle funzioni goniometriche fondamentali per gli archi notevoli del primo quadrante, con evidenziazione della regola mnemonica dei radicali crescenti per il seno.}
+\label{tab:valori_notevoli_4b}
+\end{table}
+
+\section{I Grafici delle Funzioni Fondamentali e Propriet\`a di Parit\`a}
+
+L'estensione delle funzioni goniometriche a tutto l'asse reale genera le funzioni periodiche d'onda:
+\begin{itemize}
+\item \textbf{Funzione Seno ($y = \sin x$):}
+Dominio $D = \mathbb{R}$, codominio $[-1, 1]$, periodo $T = 2\pi$. La funzione \`e \textbf{dispari}:
+\begin{equation}
+\sin(-x) = -\sin x \quad \forall x \in \mathbb{R}
+\end{equation}
+Geometricamente, il suo grafico cartesiano (la sinusoide) possiede una simmetria centrale rispetto all'origine $O(0, 0)$.
+
+\item \textbf{Funzione Coseno ($y = \cos x$):}
+Dominio $D = \mathbb{R}$, codominio $[-1, 1]$, periodo $T = 2\pi$. La funzione \`e \textbf{pari}:
+\begin{equation}
+\cos(-x) = \cos x \quad \forall x \in \mathbb{R}
+\end{equation}
+Geometricamente, il suo grafico cartesiano (la cosinusoide) \`e perfettamente simmetrico rispetto all'asse delle ordinate ($y$).
+\end{itemize}
+
+\begin{esempio}[Esercizi 137 e 138 dal quaderno]
+Calcolare il valore dell'espressione goniometrica:
+\begin{equation}
+\left[a\cos 2\pi + b\sin\left(\frac{7}{2}\pi\right)\right]^2 - \left[a\sin\left(-\frac{3}{2}\pi\right) + b\cos(-5\pi)\right]^2
+\end{equation}
+Sfruttando la periodicit\`a e le simmetrie degli angoli associati:
+\begin{itemize}
+\item $\cos 2\pi = 1$
+\item $\sin\left(\frac{7}{2}\pi\right) = \sin\left(3\pi + \frac{\pi}{2}\right) = \sin\left(\pi + \frac{\pi}{2}\right) = -1$
+\item $\sin\left(-\frac{3}{2}\pi\right) = -\sin\left(\frac{3}{2}\pi\right) = -(-1) = 1$
+\item $\cos(-5\pi) = \cos(5\pi) = \cos\pi = -1$
+\end{itemize}
+Sostituendo nell'espressione:
+\begin{equation}
+[a(1) + b(-1)]^2 - [a(1) + b(-1)]^2 = (a - b)^2 - (a - b)^2 = 0
+\end{equation}
+\end{esempio}
+
+% ==============================================================================
+% CAPITOLO 7: EQUAZIONI PARAMETRICHE GONIOMETRICHE, COTANGENTE, PENDENZA E ANGOLI ASSOCIATI
+% ==============================================================================
+\chapter{Equazioni Parametriche Goniometriche, Cotangente, Secante, Pendenza e Angoli Associati}
+
+Nelle pagine conclusive del quaderno (pagine 29--35), la classe 4B affronta l'analisi delle equazioni goniometriche contenenti parametri reali, l'interpretazione geometrica del coefficiente angolare della retta come tangente goniometrica, la definizione delle funzioni reciproche cotangente, secante e cosecante, e le regole di riduzione degli angoli associati al primo quadrante.
+
+\section{Equazioni Goniometriche Parametriche con Discussione}
+
+\begin{esercizio}[Esercizio 116: Equazione Parametrica Elementare]
+Determinare per quali valori del parametro reale $k$ l'equazione $\cos x = k - 2$ ammette soluzioni reali.\\
+\textbf{Risoluzione:}\\
+La funzione coseno \`e intrinsecamente limitata nell'intervallo $[-1, \, 1]$. Di conseguenza, l'equazione ammette soluzioni reali se e solo se il secondo membro soddisfa la condizione:
+\begin{equation}
+-1 \le k - 2 \le 1 \iff -1 + 2 \le k \le 1 + 2 \iff 1 \le k \le 3
+\end{equation}
+Per $k \in [1, \, 3]$ l'equazione ammette due famiglie di soluzioni reali nell'intervallo fondamentale $[0, 2\pi)$; per $k < 1$ o $k > 3$ l'equazione \`e impossibile.
+\end{esercizio}
+
+\begin{esercizio}[Esercizio 121: Equazione Parametrica Vincolata a un Quadrante]
+Determinare i valori del parametro $a \in \mathbb{R}$ affinch\'e l'equazione $(2a - 3)\cos x = -a + 4$ ammetta soluzioni con l'incognita $x$ appartenente al secondo quadrante: $\frac{\pi}{2} < x < \pi$.\\
+\textbf{Risoluzione:}\\
+1. \textit{Condizione di esistenza algebrica:} $2a - 3 \neq 0 \iff a \neq \frac{3}{2}$.\\
+2. \textit{Espressione del coseno:} $\cos x = \frac{-a + 4}{2a - 3}$.\\
+3. \textit{Vincolo geometrico nel secondo quadrante:}\\
+Per $x \in \left(\frac{\pi}{2}, \, \pi\right)$, il coseno \`e strettamente negativo e limitato inferiormente da $-1$:
+\begin{equation}
+-1 < \cos x < 0 \iff -1 < \frac{-a + 4}{2a - 3} < 0
+\end{equation}
+Il vincolo si traduce nel sistema di disequazioni fratte:
+\begin{equation}
+\begin{cases}
+\frac{-a + 4}{2a - 3} < 0 \iff \frac{a - 4}{2a - 3} > 0 \implies a < \frac{3}{2} \lor a > 4\\[6pt]
+\frac{-a + 4}{2a - 3} > -1 \iff \frac{-a + 4 + 2a - 3}{2a - 3} > 0 \iff \frac{a + 1}{2a - 3} > 0 \implies a < -1 \lor a > \frac{3}{2}
+\end{cases}
+\end{equation}
+Intersecando i due insiemi di soluzioni sul quadro dei segni:
+\begin{equation}
+\mathcal{S} = (-\infty, \, -1) \cup (4, \, +\infty)
+\end{equation}
+\end{esercizio}
+
+\section{La Funzione Cotangente e Confronto Grafico con la Tangente}
+
+\begin{definizione}[Definizione e Propriet\`a della Cotangente]
+Data un angolo orientato $\alpha \neq k\pi$ ($k \in \mathbb{Z}$), si definisce \textbf{cotangente} di $\alpha$ il rapporto tra il coseno e il seno:
+\begin{equation}
+\cot\alpha = \frac{\cos\alpha}{\sin\alpha} = \frac{1}{\tan\alpha}
+\end{equation}
+La cotangente \`e una funzione dispari ($\cot(-\alpha) = -\cot\alpha$) e periodica di periodo $T = \pi$.
+\end{definizione}
+
+Geometricamente, la cotangente rappresenta l'ascissa del punto di intersezione $C$ tra il prolungamento del raggio $OP$ e la retta tangente alla circonferenza nel punto $B(0, 1)$ di equazione $y = 1$. Il suo grafico cartesiano presenta asintoti verticali in corrispondenza degli zeri della funzione seno, ossia nelle rette $x = k\pi$.
+
+\section{Significato Geometrico del Coefficiente Angolare e Funzioni Reciproche}
+
+\begin{teorema}[Teorema del Coefficiente Angolare della Retta]
+Considerata una retta non verticale $r$ di equazione cartesiana $y = mx + q$, indicando con $\alpha$ l'angolo formato dalla retta con la direzione positiva dell'asse delle ascisse:
+\begin{equation}
+m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \tan\alpha
+\end{equation}
+\end{teorema}
+\begin{dimostrazione}[Dimostrazione Geometrica]
+Scelti due punti distinti $A(x_1, y_1)$ e $B(x_2, y_2)$ su $r$, si consideri il triangolo rettangolo $ABC$ con $C(x_2, y_1)$. L'angolo in $A$ coincide con l'angolo $\alpha$ di inclinazione della retta. Dal secondo teorema sui triangoli rettangoli:
+\begin{equation}
+\overline{BC} = \overline{AC} \cdot \tan\alpha \iff \Delta y = \Delta x \cdot \tan\alpha \iff \frac{\Delta y}{\Delta x} = \tan\alpha = m
+\end{equation}
+\end{dimostrazione}
+
+\begin{definizione}[Funzioni Secante e Cosecante]
+Si definiscono le funzioni goniometriche reciproche:
+\begin{equation}
+\sec\alpha = \frac{1}{\cos\alpha} \quad \left(\alpha \neq \frac{\pi}{2} + k\pi\right), \qquad \csc\alpha = \frac{1}{\sin\alpha} \quad (\alpha \neq k\pi)
+\end{equation}
+\end{definizione}
+
+\begin{esempio}[Esercizio 146: Campo di Esistenza di Funzione Goniometrica Irrazionale Fratta]
+Determinare il dominio naturale della funzione:
+\begin{equation}
+y = \frac{\sqrt{1 + \sin x}}{\cos x}
+\end{equation}
+Il sistema delle condizioni di esistenza richiede:
+\begin{equation}
+\begin{cases}
+1 + \sin x \ge 0 \quad (\text{radicando})\\
+\cos x \neq 0 \quad (\text{denominatore})
+\end{cases}
+\end{equation}
+Poich\'e per ogni $x \in \mathbb{R}$ si ha $\sin x \ge -1$, la disequazione $1 + \sin x \ge 0$ \`e sempre verificata ($\forall x \in \mathbb{R}$). L'unica limitazione effettiva \`e imposta dal denominatore:
+\begin{equation}
+\cos x \neq 0 \iff x \neq \frac{\pi}{2} + k\pi, \quad k \in \mathbb{Z}
+\end{equation}
+\end{esempio}
+
+\section{Parit\`a delle Funzioni Composte e Angoli Associati}
+
+\begin{metodo}[Regole di Composizione per Parit\`a e Disparit\`a]
+Indicando con $\mathcal{P}$ una funzione pari e con $\mathcal{D}$ una funzione dispari aventi domini simmetrici rispetto all'origine:
+\begin{equation}
+\mathcal{P} + \mathcal{P} = \mathcal{P}, \qquad \mathcal{D} + \mathcal{D} = \mathcal{D}, \qquad \mathcal{P} \cdot \mathcal{P} = \mathcal{P}, \qquad \mathcal{D} \cdot \mathcal{D} = \mathcal{P}, \qquad \mathcal{P} \cdot \mathcal{D} = \mathcal{D}
+\end{equation}
+\end{metodo}
+
+\begin{metodo}[Formule Fondamentali degli Angoli Associati (Riduzione al I Quadrante)]
+\begin{itemize}
+\item \textbf{Angoli Opposti ($-\alpha$):}
+\begin{equation}
+\sin(-\alpha) = -\sin\alpha, \qquad \cos(-\alpha) = \cos\alpha, \qquad \tan(-\alpha) = -\tan\alpha
+\end{equation}
+\item \textbf{Angoli Supplementari ($\pi - \alpha$):}
+\begin{equation}
+\sin(\pi - \alpha) = \sin\alpha, \qquad \cos(\pi - \alpha) = -\cos\alpha, \qquad \tan(\pi - \alpha) = -\tan\alpha
+\end{equation}
+\item \textbf{Angoli che differiscono di $\frac{\pi}{2}$ ($\frac{\pi}{2} + \alpha$):}
+\begin{equation}
+\sin\left(\frac{\pi}{2} + \alpha\right) = \cos\alpha, \qquad \cos\left(\frac{\pi}{2} + \alpha\right) = -\sin\alpha, \qquad \tan\left(\frac{\pi}{2} + \alpha\right) = -\cot\alpha
+\end{equation}
+\end{itemize}
+\end{metodo}
+
+\begin{esempio}[Esercizio 383 dal quaderno]
+Semplificare l'espressione goniometrica:
+\begin{equation}
+\sec\left(\frac{\pi}{2} + \alpha\right)\tan\alpha + \sin\left(\frac{\pi}{2} + \alpha\right) + \csc\left(\frac{\pi}{2} + \alpha\right)
+\end{equation}
+Applicando le relazioni degli angoli associati:
+\begin{itemize}
+\item $\sec\left(\frac{\pi}{2} + \alpha\right) = \frac{1}{\cos(\frac{\pi}{2} + \alpha)} = \frac{1}{-\sin\alpha} = -\frac{1}{\sin\alpha}$
+\item $\sin\left(\frac{\pi}{2} + \alpha\right) = \cos\alpha$
+\item $\csc\left(\frac{\pi}{2} + \alpha\right) = \frac{1}{\sin(\frac{\pi}{2} + \alpha)} = \frac{1}{\cos\alpha}$
+\item $\tan\alpha = \frac{\sin\alpha}{\cos\alpha}$
+\end{itemize}
+Sostituendo direttamente:
+\begin{equation}
+\left(-\frac{1}{\sin\alpha}\right)\left(\frac{\sin\alpha}{\cos\alpha}\right) + \cos\alpha + \frac{1}{\cos\alpha} = -\frac{1}{\cos\alpha} + \cos\alpha + \frac{1}{\cos\alpha} = \cos\alpha
+\end{equation}
+L'espressione si riduce elegantemente e rigorosamente alla sola funzione $\cos\alpha$.
+\end{esempio}
 
 \end{document}

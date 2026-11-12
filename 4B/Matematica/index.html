@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<title>Quaderno del Prof – Matematica 4B</title>
+<title>Quaderno del Prof – Matematica 4B: Esponenziali, Logaritmi e Goniometria</title>
 <!-- KaTeX CSS Locale e CDN per Font e Formule LaTeX -->
 <link href="reveal/katex/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
@@ -840,6 +840,13 @@
       <a href="#sec-8" class="nav-link">8. Simmetria Speculare</a>
       <a href="#sec-9" class="nav-link">9. C.E. &amp; Es. 4.2</a>
       <a href="#sec-10" class="nav-link">10. Fratta Esponenziale</a>
+      <a href="#sec-11" class="nav-link">11. Inversa &amp; Modulo</a>
+      <a href="#sec-12" class="nav-link">12. Goniometria &amp; Cerchio Unitario</a>
+      <a href="#sec-13" class="nav-link">13. Relazioni Fondamentali</a>
+      <a href="#sec-14" class="nav-link">14. Sinusoide &amp; Cosinusoide</a>
+      <a href="#sec-15" class="nav-link">15. Eq. Parametriche</a>
+      <a href="#sec-16" class="nav-link">16. Cotangente &amp; Pendenza</a>
+      <a href="#sec-17" class="nav-link">17. Angoli Associati</a>
     </div>
   </nav>
 <div class="document-container">
@@ -847,10 +854,44 @@
          INTESTAZIONE UFFICIALE: QUADERNO DEL PROF
          ======================================================================= -->
 <header class="document-master-header">
-<div class="doc-header-badge">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie • Classe 4B • A.S. 2025/2026</div>
+<div class="doc-header-badge">Liceo Scientifico Statale «Leonardo da Vinci» – Maglie • Classe 4B • A.S. 2026/2027</div>
 <h1 class="doc-header-title">Quaderno del Prof – Matematica 4B</h1>
-<p class="doc-header-subtitle">Compendio Multimediale Interattivo di Esponenziali e Logaritmi</p>
+<p class="doc-header-subtitle">Compendio Multimediale Interattivo di Esponenziali, Logaritmi e Goniometria</p>
+
+<!-- Pulsanti Navigazione Risorse e Download -->
+<div class="resource-links" style="margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+  <a href="../index.html" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #F1F5F9; color: #0F172A; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #CBD5E1;">
+    🏠 Portale Classe 4B
+  </a>
+  <a href="dispensa_lezione.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #184C78; color: #FFFFFF; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; box-shadow: 0 2px 6px rgba(24, 76, 120, 0.25);">
+    📥 Scarica Dispensa PDF
+  </a>
+  <a href="quaderno_prof.pdf" target="_blank" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FFFBEB; color: #92400E; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #FCD34D;">
+    📓 Manoscritto PDF
+  </a>
+  <a href="#manoscritto-iframe-box" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FEF3C7; color: #78350F; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #F59E0B;">
+    📖 Sfoglia Manoscritto (Iframe)
+  </a>
+</div>
 </header>
+
+<!-- SEZIONE MANOSCRITTO PDF INTERATTIVO (IFRAME) -->
+<div class="box-latex box-alert" id="manoscritto-iframe-box" style="margin: 20px 0; border: 2px solid #F59E0B; background: #FFFDF5;">
+  <div class="box-header" style="background: #FEF3C7; color: #92400E; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+    <span>📖 Quaderno Autografo del Prof — Note Manoscritte Originali (35 pagine)</span>
+    <div style="display: flex; gap: 8px;">
+      <a href="quaderno_prof.pdf" target="_blank" style="padding: 4px 10px; font-size: 12px; background: #92400E; color: #FFF; border-radius: 4px; text-decoration: none; font-weight: 600;">↗ Schermo Intero</a>
+      <a href="quaderno_prof.pdf" download style="padding: 4px 10px; font-size: 12px; background: #FCD34D; color: #78350F; border-radius: 4px; text-decoration: none; font-weight: 600;">📥 Scarica PDF</a>
+    </div>
+  </div>
+  <div class="box-body" style="padding: 12px;">
+    <div style="position: relative; width: 100%; height: 750px; border-radius: 8px; overflow: hidden; border: 1px solid #CBD5E1; background: #525659;">
+      <iframe src="quaderno_prof.pdf#toolbar=1&navpanes=0" style="width: 100%; height: 100%; border: none;" title="Manoscritto PDF del Prof">
+        <p style="color: #fff; padding: 20px; text-align: center;">Il tuo browser non supporta gli iframe PDF. <a href="quaderno_prof.pdf" target="_blank" style="color: #FCD34D;">Clicca qui per visualizzare il Manoscritto PDF</a>.</p>
+      </iframe>
+    </div>
+  </div>
+</div>
 <!-- =======================================================================
          SEZIONE 1: Frontespizio & Quadro del Corso
          ======================================================================= -->
@@ -861,20 +902,21 @@
 <div class="box-latex box-docente">
 <div class="box-header">👨‍🏫 Nota Didattica Introduttiva del Docente</div>
 <div class="box-body">
-<p>Cari ragazzi, questa lezione multimediale raccoglie e sistematizza in modo rigoroso l'intero percorso svolto in classe su <strong>funzioni esponenziali</strong>, <strong>genesi di Nepero e capitalizzazione di Bernoulli</strong>, <strong>equazioni e disequazioni esponenziali</strong>, <strong>teoria e teoremi dei logaritmi</strong> e <strong>risoluzione grafica di equazioni e disequazioni trascendenti</strong>.</p>
-<p>Negli appunti del quaderno sono spesso tracciati solo i passaggi algebrici sintetici e i grafici finali. Qui invece analizziamo la <em>deduzione formale completa</em>, il significato geometrico profondo, le simulazioni interattive e la confutazione degli errori più insidiosi rilevati nelle vostre verifiche.</p>
+<p>Cari ragazzi, questa lezione multimediale raccoglie e sistematizza in modo rigoroso l'intero percorso svolto in classe su <strong>funzioni esponenziali</strong>, <strong>genesi di Nepero e capitalizzazione di Bernoulli</strong>, <strong>equazioni e disequazioni esponenziali</strong>, <strong>teoria e teoremi dei logaritmi</strong>, <strong>risoluzione grafica di equazioni trascendenti</strong> e <strong>fondamenti di goniometria e trigonometria</strong> (circonferenza unitaria, relazioni fondamentali, sinusoidi, equazioni parametriche, cotangente, coefficiente angolare della retta e formule degli angoli associati).</p>
+<p>Negli appunti del quaderno sono spesso tracciati solo i passaggi algebrici sintetici e i grafici finali. Qui invece analizziamo la <em>deduzione formale completa</em>, il significato geometrico profondo, le animazioni vettoriali e la confutazione degli errori più insidiosi rilevati nelle vostre verifiche.</p>
 </div>
 </div>
 <div class="grid-2col">
 <div>
 <div class="box-latex box-def">
-<div class="box-header">🗺️ Le 4 Macro-Aree della Lezione</div>
+<div class="box-header">🗺️ Le 5 Macro-Aree della Lezione</div>
 <div class="box-body">
 <ul>
-<li><strong>Area 1: La Funzione Esponenziale e la Costante di Nepero:</strong> Dal problema economico di Jacob Bernoulli alla dimostrazione analitica della limitatezza <span class="math-inline">\(a_n &lt; 3\)</span> con il binomio di Newton e biforcazione di monotonia per <span class="math-inline">\(a &gt; 1\)</span> e <span class="math-inline">\(0 &lt; a &lt; 1\)</span>.</li>
+<li><strong>Area 1: La Funzione Esponenziale e la Costante di Nepero:</strong> Dal problema economico di Jacob Bernoulli alla dimostrazione analitica della limitatezza <span class="math-inline">\(a_n < 3\)</span> con il binomio di Newton e biforcazione di monotonia per <span class="math-inline">\(a > 1\)</span> e <span class="math-inline">\(0 < a < 1\)</span>.</li>
 <li><strong>Area 2: Equazioni e Disequazioni Esponenziali:</strong> Metodi algebrici analitici (stessa base, raccoglimento, incognita ausiliaria) e risoluzione grafica cartesiana di equazioni trascendenti miste.</li>
 <li><strong>Area 3: Teoria dei Logaritmi e Funzione Inversa:</strong> Definizione assiomatica, dimostrazioni formali dei teoremi fondamentali (prodotto, quoziente, potenza, cambio di base) e simmetria speculare rispetto alla bisettrice <span class="math-inline">\(y = x\)</span>.</li>
 <li><strong>Area 4: Equazioni e Disequazioni Logaritmiche:</strong> Ruolo preliminare tassativo delle Condizioni di Esistenza (C.E.), disequazioni fratte con basi reciproche e discussione parametrica con valore assoluto (Esercizio Svolto 4.2).</li>
+<li><strong>Area 5: Introduzione alla Goniometria e Trigonometria:</strong> Circonferenza unitaria, prima e seconda relazione fondamentale, valori notevoli, parità e grafici di seno/coseno, equazioni goniometriche parametriche, cotangente, significato geometrico di <span class="math-inline">\(m = \tan\alpha\)</span> e formule di riduzione degli angoli associati.</li>
 </ul>
 </div>
 </div>
@@ -884,7 +926,7 @@
 <img alt="Roadmap sequenziale" src="frames/slide1_roadmap.png"/>
 <div class="media-footer">
 <span>Mappa Concettuale Sequenziale del Programma di 4B</span>
-<span class="section-badge">4 Moduli Chiave</span>
+<span class="section-badge">5 Moduli Chiave</span>
 </div>
 </div>
 </div>
@@ -908,22 +950,22 @@
 <div class="box-latex box-docente">
 <div class="box-header">💡 Il Ragionamento Finanziario di Jacob Bernoulli (1683)</div>
 <div class="box-body">
-<p>Consideriamo un capitale iniziale <span class="math-inline">\(C = 1000\,€\)</span> depositato ad un tasso nominale annuo del <span class="math-inline">\(100\%\)</span> (<span class="math-inline">\(r = 1\)</span>). Se gli interessi vengono accreditati e ricapitalizzati in <span class="math-inline">\(n\)</span> intervalli uguali durante l'anno, il montante finale a 12 mesi è:</p>
+<p>Consideriamo un capitale iniziale <span class="math-inline">\(C = 1000\) €</span> depositato ad un tasso nominale annuo del <span class="math-inline">\(100\%\)</span> (<span class="math-inline">\(r = 1\)</span>). Se gli interessi vengono accreditati e ricapitalizzati in <span class="math-inline">\(n\)</span> intervalli uguali durante l'anno, il montante finale a 12 mesi è:</p>
           \[ M_n = C \left(1 + \frac{1}{n}\right)^n \]
           <ul>
-<li><strong><span class="math-inline">\(n = 1\)</span> (Capitalizzazione Annuale):</strong> <span class="math-inline">\(M_1 = 1000 \cdot (1 + 1)^1 = 2000\,€\)</span>. Guadagno netto: <span class="math-inline">\(1000\,€\)</span>.</li>
-<li><strong><span class="math-inline">\(n = 2\)</span> (Capitalizzazione Semestrale):</strong> <span class="math-inline">\(M_2 = 1000 \cdot (1 + 0{,}5)^2 = 1000 \cdot 2{,}25 = 2250\,€\)</span>. <br/>
-<em>Osservazione fondamentale:</em> Guadagniamo <span class="math-inline">\(250\,€\)</span> in più perché al secondo semestre maturano interessi anche sui <span class="math-inline">\(500\,€\)</span> di interessi maturati a metà anno! È il principio dell'<strong>interesse sull'interesse</strong>.</li>
-<li><strong><span class="math-inline">\(n = 4\)</span> (Trimestrale):</strong> <span class="math-inline">\(M_4 = 1000 \cdot (1 + 0{,}25)^4 \approx 2441{,}41\,€\)</span>.</li>
-<li><strong><span class="math-inline">\(n = 12\)</span> (Mensile):</strong> <span class="math-inline">\(M_{12} = 1000 \cdot (1 + 1/12)^{12} \approx 2613{,}04\,€\)</span>.</li>
-<li><strong><span class="math-inline">\(n = 365\)</span> (Giornaliero):</strong> <span class="math-inline">\(M_{365} = 1000 \cdot (1 + 1/365)^{365} \approx 2714{,}57\,€\)</span>.</li>
+<li><strong><span class="math-inline">\(n = 1\)</span> (Capitalizzazione Annuale):</strong> <span class="math-inline">\(M_1 = 1000 \cdot (1 + 1)^1 = 2000\) €</span>. Guadagno netto: <span class="math-inline">\(1000\) €</span>.</li>
+<li><strong><span class="math-inline">\(n = 2\)</span> (Capitalizzazione Semestrale):</strong> <span class="math-inline">\(M_2 = 1000 \cdot (1 + 0{,}5)^2 = 1000 \cdot 2{,}25 = 2250\) €</span>. <br/>
+<em>Osservazione fondamentale:</em> Guadagniamo <span class="math-inline">\(250\) €</span> in più perché al secondo semestre maturano interessi anche sui <span class="math-inline">\(500\) €</span> di interessi maturati a metà anno! È il principio dell'<strong>interesse sull'interesse</strong>.</li>
+<li><strong><span class="math-inline">\(n = 4\)</span> (Trimestrale):</strong> <span class="math-inline">\(M_4 = 1000 \cdot (1 + 0{,}25)^4 \approx 2441{,}41\) €</span>.</li>
+<li><strong><span class="math-inline">\(n = 12\)</span> (Mensile):</strong> <span class="math-inline">\(M_{12} = 1000 \cdot (1 + 1/12)^{12} \approx 2613{,}04\) €</span>.</li>
+<li><strong><span class="math-inline">\(n = 365\)</span> (Giornaliero):</strong> <span class="math-inline">\(M_{365} = 1000 \cdot (1 + 1/365)^{365} \approx 2714{,}57\) €</span>.</li>
 </ul>
 </div>
 </div>
 <div class="box-latex box-err">
 <div class="box-header">❓ Domanda Tipica: "Se la frequenza <span class="math-inline">\(n\)</span> cresce a dismisura il capitale cresce all'infinito?"</div>
 <div class="box-body">
-<p><strong>NO!</strong> Molti studenti ritengono erroneamente che capitalizzando istante per istante (con frequenza <span class="math-inline">\(n\)</span> arbitrariamente grande) la ricchezza esploda. In realtà, mentre il numero di periodi <span class="math-inline">\(n\)</span> aumenta a dismisura, la frazione di interesse <span class="math-inline">\(1/n\)</span> maturata in ciascun intervallo diventa infinitesima. La funzione è soggetta alla legge dei <strong>rendimenti marginali decrescenti</strong>: la crescita rallenta e sbatte contro il tetto asintotico invalicabile di <span class="math-inline">\(1000 \cdot e \approx 2718{,}28\,€\)</span>!</p>
+<p><strong>NO!</strong> Molti studenti ritengono erroneamente che capitalizzando istante per istante (con frequenza <span class="math-inline">\(n\)</span> arbitrariamente grande) la ricchezza esploda. In realtà, mentre il numero di periodi <span class="math-inline">\(n\)</span> aumenta a dismisura, la frazione di interesse <span class="math-inline">\(1/n\)</span> maturata in ciascun intervallo diventa infinitesima. La funzione è soggetta alla legge dei <strong>rendimenti marginali decrescenti</strong>: la crescita rallenta e sbatte contro il tetto asintotico invalicabile di <span class="math-inline">\(1000 \cdot e \approx 2718{,}28\) €</span>!</p>
 </div>
 </div>
 <!-- Striscia Didattica a Fumetti: La Gara delle Banche di Bernoulli -->
@@ -944,7 +986,7 @@
 <div style="background: #FFFFFF; padding: 12px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #E2E8F0;">
 <img alt="Infografica vettoriale: Le 4 Banche di Bernoulli" src="immagini/bernoulli_banche_fumetto.png" style="width: 100%; height: auto; border-radius: 8px; display: block;"/>
 <div style="font-size: 0.9rem; color: #475569; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #F1F5F9; padding-top: 8px;">
-<span><strong>Infografica di Confronto Rigoroso:</strong> Analisi dei montanti <span class="math-inline">\(C_1 = 2{,}00€\)</span>, <span class="math-inline">\(C_2 = 2{,}25€\)</span>, <span class="math-inline">\(C_4 = 2{,}441€\)</span> fino alla capitalizzazione continua (<span class="math-inline">\(e\)</span>).</span>
+<span><strong>Infografica di Confronto Rigoroso:</strong> Analisi dei montanti <span class="math-inline">\(C_1 = 2{,}00\) €</span>, <span class="math-inline">\(C_2 = 2{,}25\) €</span>, <span class="math-inline">\(C_4 = 2{,}441\) €</span> fino alla capitalizzazione continua (<span class="math-inline">\(e\)</span>).</span>
 <span class="section-badge" style="background: #E0E7FF; color: #3730A3;">Formula &amp; Montante</span>
 </div>
 </div>
@@ -1001,12 +1043,12 @@
 <div class="box-latex box-def">
 <div class="box-header">📘 Definizione Formale</div>
 <div class="box-body">
-<p>Data una base reale costante <span class="math-inline">\(a &gt; 0\)</span> con <span class="math-inline">\(a \neq 1\)</span>, si definisce <strong>funzione esponenziale elementare</strong> la funzione:</p>
+<p>Data una base reale costante <span class="math-inline">\(a > 0\)</span> con <span class="math-inline">\(a \neq 1\)</span>, si definisce <strong>funzione esponenziale elementare</strong> la funzione:</p>
           \[ f: \mathbb{R} \to (0, +\infty), \quad y = a^x \]
           <ul>
 <li><strong>Dominio Naturale:</strong> <span class="math-inline">\(\mathcal{D} = \mathbb{R} = (-\infty, +\infty)\)</span>. L'esponente può assumere qualunque valore reale.</li>
-<li><strong>Codominio (Insieme Immagine):</strong> <span class="math-inline">\(\mathcal{I} = \mathbb{R}^+ = (0, +\infty)\)</span>. La funzione è <strong>strettamente positiva</strong>: <span class="math-inline">\(a^x &gt; 0 \quad \forall x \in \mathbb{R}\)</span>. Non tocca mai l'asse <span class="math-inline">\(x\)</span>!</li>
-<li><strong>Punto Fisso Fondamentale:</strong> Il grafico passa sempre per <span class="math-inline">\(P(0, 1)\)</span> poiché <span class="math-inline">\(a^0 = 1\)</span> per ogni base <span class="math-inline">\(a &gt; 0\)</span>.</li>
+<li><strong>Codominio (Insieme Immagine):</strong> <span class="math-inline">\(\mathcal{I} = \mathbb{R}^+ = (0, +\infty)\)</span>. La funzione è <strong>strettamente positiva</strong>: <span class="math-inline">\(a^x > 0 \quad \forall x \in \mathbb{R}\)</span>. Non tocca mai l'asse <span class="math-inline">\(x\)</span>!</li>
+<li><strong>Punto Fisso Fondamentale:</strong> Il grafico passa sempre per <span class="math-inline">\(P(0, 1)\)</span> poiché <span class="math-inline">\(a^0 = 1\)</span> per ogni base <span class="math-inline">\(a > 0\)</span>.</li>
 <li><strong>Iniettività Globale:</strong> <span class="math-inline">\(a^{x_1} = a^{x_2} \iff x_1 = x_2\)</span>. Consente di uguagliare direttamente gli esponenti nelle equazioni.</li>
 </ul>
 </div>
@@ -1027,14 +1069,14 @@
 </thead>
 <tbody>
 <tr>
-<td><strong><span class="math-inline">\(a &gt; 1\)</span></strong></td>
+<td><strong><span class="math-inline">\(a > 1\)</span></strong></td>
 <td>Strettamente Crescente</td>
 <td>Si schiaccia su <span class="math-inline">\(y = 0\)</span> (<span class="math-inline">\(a^x \to 0\)</span> senza toccarlo)</td>
 <td>Crescita esplosiva verso l'alto (<span class="math-inline">\(a^x \to +\infty\)</span>)</td>
 <td><span class="math-inline">\(y = 0\)</span> (Asintoto orizzontale a sinistra)</td>
 </tr>
 <tr>
-<td><strong><span class="math-inline">\(0 &lt; a &lt; 1\)</span></strong></td>
+<td><strong><span class="math-inline">\(0 < a < 1\)</span></strong></td>
 <td>Strettamente Decrescente</td>
 <td>Cresce verso l'alto a sinistra (<span class="math-inline">\(a^x \to +\infty\)</span>)</td>
 <td>Si schiaccia su <span class="math-inline">\(y = 0\)</span> (<span class="math-inline">\(a^x \to 0\)</span> a destra)</td>
@@ -1050,7 +1092,7 @@
 <div class="box-header" style="color: #1D4ED8;">🎨 Infografica a Fumetti: Il Duello degli Esponenziali (Crescita vs Decadimento)</div>
 <div class="box-body">
 <p style="color: #334155; font-size: 1.02rem; line-height: 1.6; margin-bottom: 14px;">
-            La variazione della base <span class="math-inline">\(a\)</span> determina due comportamenti asimmetrici radicali nel mondo reale: la duplicazione biologica senza freni (<span class="math-inline">\(a &gt; 1\)</span>) e l'estinzione asintotica per dimezzamento (<span class="math-inline">\(0 &lt; a &lt; 1\)</span>).
+            La variazione della base <span class="math-inline">\(a\)</span> determina due comportamenti asimmetrici radicali nel mondo reale: la duplicazione biologica senza freni (<span class="math-inline">\(a > 1\)</span>) e l'estinzione asintotica per dimezzamento (<span class="math-inline">\(0 < a < 1\)</span>).
           </p>
 <div style="background: #FFFFFF; padding: 12px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #E2E8F0; text-align: center;">
 <img alt="Il Duello degli Esponenziali" src="immagini/duello_esponenziali.png" style="width: 100%; height: auto; border-radius: 8px; display: block;"/>
@@ -1106,8 +1148,8 @@
 <div class="box-header">1. Equazioni Elementari: <span class="math-inline">\(a^{f(x)} = b\)</span></div>
 <div class="box-body">
 <ul>
-<li>Se <span class="math-inline">\(b \le 0\)</span>: <strong>Impossibile</strong> nel campo reale, poiché <span class="math-inline">\(a^{f(x)} &gt; 0 \quad \forall x\)</span>. Ad esempio, <span class="math-inline">\(3^x = -4 \implies \emptyset\)</span>.</li>
-<li>Se <span class="math-inline">\(b &gt; 0\)</span>: Esiste un'unica soluzione reale data da <span class="math-inline">\(f(x) = \log_a b\)</span>.</li>
+<li>Se <span class="math-inline">\(b \le 0\)</span>: <strong>Impossibile</strong> nel campo reale, poiché <span class="math-inline">\(a^{f(x)} > 0 \quad \forall x\)</span>. Ad esempio, <span class="math-inline">\(3^x = -4 \implies \emptyset\)</span>.</li>
+<li>Se <span class="math-inline">\(b > 0\)</span>: Esiste un'unica soluzione reale data da <span class="math-inline">\(f(x) = \log_a b\)</span>.</li>
 </ul>
 </div>
 </div>
@@ -1117,7 +1159,7 @@
 <p>Risolvere l'equazione notevole del compito:</p>
               \[ 2^{2x} - 5 \cdot 2^x + 4 = 0 \]
               <ol>
-<li><strong>Scomposizione potenze:</strong> <span class="math-inline">\(2^{2x} = (2^x)^2\)</span>. Poniamo <span class="math-inline">\(t = 2^x\)</span>, con vincolo tassativo <span class="math-inline">\(t &gt; 0\)</span>.</li>
+<li><strong>Scomposizione potenze:</strong> <span class="math-inline">\(2^{2x} = (2^x)^2\)</span>. Poniamo <span class="math-inline">\(t = 2^x\)</span>, con vincolo tassativo <span class="math-inline">\(t > 0\)</span>.</li>
 <li><strong>Risoluzione ausiliaria:</strong> <span class="math-inline">\(t^2 - 5t + 4 = 0 \implies (t - 1)(t - 4) = 0 \implies t_1 = 1, \ t_2 = 4\)</span>. Entrambe accettabili poiché positive.</li>
 <li><strong>Ritorno alla variabile originaria <span class="math-inline">\(x\)</span>:</strong>
 <ul>
@@ -1159,7 +1201,7 @@
 <div class="box-body">
 <p>Quando l'incognita compare sia ad esponente che in un polinomio algebrico, l'equazione è detta <strong>trascendente mista</strong> e non può essere risolta isolando algebricamente la <span class="math-inline">\(x\)</span>.</p>
 <p>Si decompone l'equazione nell'intersezione di due curve note nel piano cartesiano:</p>
-          \[ \begin{cases} y = 2^x &amp; \text{(Esponenziale strettamente crescente)} \\ y = 1 - x^2 &amp; \text{(Parabola concava con vertice in } V(0, 1)\text{)} \end{cases} \]
+          \[ \begin{cases} y = 2^x & \text{(Esponenziale strettamente crescente)} \\ y = 1 - x^2 & \text{(Parabola concava con vertice in } V(0, 1)\text{)} \end{cases} \]
         </div>
 </div>
 <div class="grid-2col">
@@ -1169,8 +1211,8 @@
 <div class="box-body">
 <ul>
 <li><strong>Prima radice esatta (<span class="math-inline">\(x_1 = 0\)</span>):</strong> Verificata per ispezione diretta: <span class="math-inline">\(2^0 = 1 = 1 - 0^2\)</span>. Il punto <span class="math-inline">\(P_1(0, 1)\)</span> è comune ad entrambe le curve.</li>
-<li><strong>Seconda radice approssimata (<span class="math-inline">\(x_2 \approx -0{,}715\)</span>):</strong> Nel secondo quadrante (<span class="math-inline">\(x &lt; 0\)</span>), l'esponenziale scende verso l'asintoto mentre la parabola sale verso il vertice. Si intersecano nel punto <span class="math-inline">\(P_2(-0{,}715;\, 0{,}489)\)</span>.</li>
-<li><strong>Teorema di Unicità per Stretta Convessità:</strong> La funzione differenza <span class="math-inline">\(g(x) = 2^x + x^2 - 1\)</span> ha derivata seconda <span class="math-inline">\(g''(x) = 2^x(\ln 2)^2 + 2 &gt; 0 \quad \forall x\)</span>. Essendo strettamente convessa su tutto <span class="math-inline">\(\mathbb{R}\)</span>, non può ammettere più di 2 zeri reali!</li>
+<li><strong>Seconda radice approssimata (<span class="math-inline">\(x_2 \approx -0{,}715\)</span>):</strong> Nel secondo quadrante (<span class="math-inline">\(x < 0\)</span>), l'esponenziale scende verso l'asintoto mentre la parabola sale verso il vertice. Si intersecano nel punto <span class="math-inline">\(P_2(-0{,}715;\, 0{,}489)\)</span>.</li>
+<li><strong>Teorema di Unicità per Stretta Convessità:</strong> La funzione differenza <span class="math-inline">\(g(x) = 2^x + x^2 - 1\)</span> ha derivata seconda <span class="math-inline">\(g''(x) = 2^x(\ln 2)^2 + 2 > 0 \quad \forall x\)</span>. Essendo strettamente convessa su tutto <span class="math-inline">\(\mathbb{R}\)</span>, non può ammettere più di 2 zeri reali!</li>
 </ul>
 </div>
 </div>
@@ -1199,7 +1241,7 @@
 <div class="box-latex box-teo">
 <div class="box-header">📜 Teorema Fondamentale della Monotonia nelle Disequazioni</div>
 <div class="box-body">
-<p>Nel passaggio dal confronto tra potenze <span class="math-inline">\(a^{f(x)} &gt; a^{g(x)}\)</span> al confronto tra gli esponenti:</p>
+<p>Nel passaggio dal confronto tra potenze <span class="math-inline">\(a^{f(x)} > a^{g(x)}\)</span> al confronto tra gli esponenti:</p>
 <div class="table-container">
           <table class="latex-table">
 <thead>
@@ -1212,16 +1254,16 @@
 </thead>
 <tbody>
 <tr>
-<td><strong><span class="math-inline">\(a &gt; 1\)</span></strong></td>
+<td><strong><span class="math-inline">\(a > 1\)</span></strong></td>
 <td>Strettamente Crescente</td>
 <td><strong>IL VERSO SI CONSERVA</strong></td>
-<td><span class="math-inline">\(a^{f(x)} &gt; a^{g(x)} \iff f(x) &gt; g(x)\)</span></td>
+<td><span class="math-inline">\(a^{f(x)} > a^{g(x)} \iff f(x) > g(x)\)</span></td>
 </tr>
 <tr>
-<td><strong><span class="math-inline">\(0 &lt; a &lt; 1\)</span></strong></td>
+<td><strong><span class="math-inline">\(0 < a < 1\)</span></strong></td>
 <td>Strettamente Decrescente</td>
 <td><strong>IL VERSO SI INVERTE TASSATIVAMENTE</strong></td>
-<td><span class="math-inline">\(a^{f(x)} &gt; a^{g(x)} \iff f(x) &lt; g(x)\)</span></td>
+<td><span class="math-inline">\(a^{f(x)} > a^{g(x)} \iff f(x) < g(x)\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -1235,7 +1277,7 @@
 <div class="box-body">
 <p>Risolvere la disequazione: <span class="math-inline">\(\left(\frac{1}{2}\right)^{x^2 - 3} \ge \left(\frac{1}{2}\right)^{2x}\)</span></p>
 <ol>
-<li>La base è <span class="math-inline">\(a = 1/2\)</span>. Poiché <span class="math-inline">\(0 &lt; 1/2 &lt; 1\)</span>, invertiamo il verso:
+<li>La base è <span class="math-inline">\(a = 1/2\)</span>. Poiché <span class="math-inline">\(0 < 1/2 < 1\)</span>, invertiamo il verso:
                   \[ x^2 - 3 \le 2x \iff x^2 - 2x - 3 \le 0 \]
                 </li>
 <li>Fattorizzazione trinomio: <span class="math-inline">\((x - 3)(x + 1) \le 0\)</span>.</li>
@@ -1264,25 +1306,25 @@
 <div class="box-latex box-def">
 <div class="box-header">📘 Definizione Formale di Logaritmo</div>
 <div class="box-body">
-<p>Dati due numeri reali <span class="math-inline">\(a &gt; 0, a \neq 1\)</span> (base) e <span class="math-inline">\(b &gt; 0\)</span> (argomento), si definisce <strong>logaritmo in base <span class="math-inline">\(a\)</span> di <span class="math-inline">\(b\)</span></strong> l'esponente <span class="math-inline">\(x\)</span> a cui elevare la base per ottenere l'argomento:</p>
+<p>Dati due numeri reali <span class="math-inline">\(a > 0, a \neq 1\)</span> (base) e <span class="math-inline">\(b > 0\)</span> (argomento), si definisce <strong>logaritmo in base <span class="math-inline">\(a\)</span> di <span class="math-inline">\(b\)</span></strong> l'esponente <span class="math-inline">\(x\)</span> a cui elevare la base per ottenere l'argomento:</p>
           \[ x = \log_a b \iff a^x = b \]
-          <p>Da cui l'identità fondamentale: <span class="math-inline">\(a^{\log_a b} = b \quad \forall b &gt; 0\)</span>.</p>
+          <p>Da cui l'identità fondamentale: <span class="math-inline">\(a^{\log_a b} = b \quad \forall b > 0\)</span>.</p>
 </div>
 </div>
 <div class="box-latex box-teo">
 <div class="box-header">📜 I 4 Teoremi Fondamentali con Dimostrazione Deduttiva</div>
 <div class="box-body">
 <ol>
-<li><strong>Teorema del Prodotto:</strong> <span class="math-inline">\(\log_a(x \cdot y) = \log_a x + \log_a y \quad (\forall x, y &gt; 0)\)</span><br/>
+<li><strong>Teorema del Prodotto:</strong> <span class="math-inline">\(\log_a(x \cdot y) = \log_a x + \log_a y \quad (\forall x, y > 0)\)</span><br/>
 <em>Dimostrazione:</em> Poniamo <span class="math-inline">\(\alpha = \log_a x\)</span> e <span class="math-inline">\(\beta = \log_a y\)</span>. Per definizione: <span class="math-inline">\(x = a^\alpha\)</span> e <span class="math-inline">\(y = a^\beta\)</span>. Moltiplicando membro a membro: <span class="math-inline">\(x \cdot y = a^\alpha \cdot a^\beta = a^{\alpha + \beta}\)</span>. Riapplicando la definizione di logaritmo: <span class="math-inline">\(\log_a(x \cdot y) = \alpha + \beta = \log_a x + \log_a y \quad \blacksquare\)</span>.
             </li>
-<li style="margin-top:12px;"><strong>Teorema del Quoziente:</strong> <span class="math-inline">\(\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y \quad (\forall x, y &gt; 0)\)</span><br/>
+<li style="margin-top:12px;"><strong>Teorema del Quoziente:</strong> <span class="math-inline">\(\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y \quad (\forall x, y > 0)\)</span><br/>
 <em>Dimostrazione:</em> Dividendo membro a membro: <span class="math-inline">\(\frac{x}{y} = \frac{a^\alpha}{a^\beta} = a^{\alpha - \beta} \implies \log_a(x/y) = \alpha - \beta = \log_a x - \log_a y \quad \blacksquare\)</span>.
             </li>
-<li style="margin-top:12px;"><strong>Teorema della Potenza:</strong> <span class="math-inline">\(\log_a(x^k) = k \cdot \log_a x \quad (\forall x &gt; 0, k \in \mathbb{R})\)</span><br/>
+<li style="margin-top:12px;"><strong>Teorema della Potenza:</strong> <span class="math-inline">\(\log_a(x^k) = k \cdot \log_a x \quad (\forall x > 0, k \in \mathbb{R})\)</span><br/>
 <em>Dimostrazione:</em> Elevando ambo i membri di <span class="math-inline">\(x = a^\alpha\)</span> alla potenza <span class="math-inline">\(k\)</span>: <span class="math-inline">\(x^k = (a^\alpha)^k = a^{k\alpha} \implies \log_a(x^k) = k\alpha = k \log_a x \quad \blacksquare\)</span>.
             </li>
-<li style="margin-top:12px;"><strong>Formula del Cambio di Base:</strong> <span class="math-inline">\(\log_a b = \frac{\log_c b}{\log_c a} = \frac{1}{\log_b a} \quad (\forall a, b, c &gt; 0; a, c \neq 1)\)</span><br/>
+<li style="margin-top:12px;"><strong>Formula del Cambio di Base:</strong> <span class="math-inline">\(\log_a b = \frac{\log_c b}{\log_c a} = \frac{1}{\log_b a} \quad (\forall a, b, c > 0; a, c \neq 1)\)</span><br/>
 <em>Dimostrazione:</em> Poniamo <span class="math-inline">\(x = \log_a b \implies a^x = b\)</span>. Applichiamo ad ambo i membri il logaritmo in una nuova base <span class="math-inline">\(c\)</span>: <span class="math-inline">\(\log_c(a^x) = \log_c b \implies x \log_c a = \log_c b \implies x = \frac{\log_c b}{\log_c a} \quad \blacksquare\)</span>.
             </li>
 </ol>
@@ -1306,7 +1348,7 @@
               <ul>
 <li><strong>Dominio:</strong> <span class="math-inline">\(\mathcal{D} = (0, +\infty)\)</span> ← <em>Coincide con il codominio dell'esponenziale!</em></li>
 <li><strong>Codominio:</strong> <span class="math-inline">\(\mathcal{I} = \mathbb{R}\)</span> ← <em>Coincide con il dominio dell'esponenziale!</em></li>
-<li><strong>Asintoto Verticale:</strong> La retta <span class="math-inline">\(x = 0\)</span> (asse <span class="math-inline">\(y\)</span>). Infatti per <span class="math-inline">\(a &gt; 1\)</span>, man mano che <span class="math-inline">\(x\)</span> si avvicina a <span class="math-inline">\(0\)</span> da destra (<span class="math-inline">\(x \to 0^+\)</span>), la curva scende indefinitamente verso il basso lungo l'asse <span class="math-inline">\(y\)</span> senza mai toccarlo.</li>
+<li><strong>Asintoto Verticale:</strong> La retta <span class="math-inline">\(x = 0\)</span> (asse <span class="math-inline">\(y\)</span>). Infatti per <span class="math-inline">\(a > 1\)</span>, man mano che <span class="math-inline">\(x\)</span> si avvicina a <span class="math-inline">\(0\)</span> da destra (<span class="math-inline">\(x \to 0^+\)</span>), la curva scende indefinitamente verso il basso lungo l'asse <span class="math-inline">\(y\)</span> senza mai toccarlo.</li>
 <li><strong>Intersezione Asse <span class="math-inline">\(x\)</span>:</strong> Passa per <span class="math-inline">\(P(1, 0)\)</span> poiché <span class="math-inline">\(\log_a 1 = 0\)</span>.</li>
 </ul>
 </div>
@@ -1345,7 +1387,7 @@
 <div class="box-header">🚨 REGOLA AUREA: Fissare le C.E. Prima di Qualsiasi Proprietà!</div>
 <div class="box-body">
 <p>Le <strong>Condizioni di Esistenza (C.E.)</strong> vanno determinate <strong>SEMPRE SUL TESTO ORIGINALE</strong>, prima di manipolare l'espressione con i teoremi dei logaritmi.</p>
-<p>Infatti: <span class="math-inline">\(\log_a [f(x) \cdot g(x)]\)</span> richiede solo che il prodotto sia positivo (<span class="math-inline">\(f(x) \cdot g(x) &gt; 0\)</span>), ammettendo anche il caso in cui <em>entrambi siano negativi</em> (<span class="math-inline">\((-)\cdot(-) = +\)</span>). Ma la somma originaria <span class="math-inline">\(\log_a f(x) + \log_a g(x)\)</span> impone che siano <strong>entrambi strettamente positivi</strong>!</p>
+<p>Infatti: <span class="math-inline">\(\log_a [f(x) \cdot g(x)]\)</span> richiede solo che il prodotto sia positivo (<span class="math-inline">\(f(x) \cdot g(x) > 0\)</span>), ammettendo anche il caso in cui <em>entrambi siano negativi</em> (<span class="math-inline">\((-)\cdot(-) = +\)</span>). Ma la somma originaria <span class="math-inline">\(\log_a f(x) + \log_a g(x)\)</span> impone che siano <strong>entrambi strettamente positivi</strong>!</p>
 </div>
 </div>
 <div class="box-latex box-teo">
@@ -1355,11 +1397,11 @@
 <div style="background:#F0FDF4; padding:16px; border-radius:8px; border:1px solid #86EFAC; margin:14px 0;">
 <strong style="color:#15803D; font-size:1.05rem;">Fase 1: Condizioni di Esistenza Preliminari Tassative</strong><br/>
 Si impone la positività rigorosa degli argomenti sul testo originario:
-\[\begin{cases} x - 1 &gt; 0 \implies x &gt; 1 \\ x - 3 &gt; 0 \implies x &gt; 3 \end{cases} \implies \mathbf{C.E.:\; x &gt; 3}\]
+\[\begin{cases} x - 1 > 0 \implies x > 1 \\ x - 3 > 0 \implies x > 3 \end{cases} \implies \mathbf{C.E.:\; x > 3}\]
 </div>
 <div style="background:#F8FAFC; padding:16px; border-radius:8px; border:1px solid #E2E8F0; margin:14px 0;">
 <strong style="color:#184C78; font-size:1.05rem;">Fase 2: Applicazione del Teorema del Prodotto ed Esponenziazione</strong><br/>
-Nel dominio \(x &gt; 3\), accorpando i logaritmi ed esponenziando in base \(2 &gt; 1\):
+Nel dominio \(x > 3\), accorpando i logaritmi ed esponenziando in base \(2 > 1\):
 \[ \log_2[(x - 1)(x - 3)] \le 3 \iff (x - 1)(x - 3) \le 2^3 = 8 \]
 \[ x^2 - 4x + 3 \le 8 \iff x^2 - 4x - 5 \le 0 \iff (x - 5)(x + 1) \le 0 \implies -1 \le x \le 5 \]
 </div>
@@ -1374,7 +1416,7 @@ Nel dominio \(x &gt; 3\), accorpando i logaritmi ed esponenziando in base \(2 &g
 <div class="box-body">
 <p>Data la funzione \(f(x) = 2\log_2(a + |x - 1|) - 4\), con \(a \in \mathbb{R}\):</p>
 <ul>
-<li><strong>Dominio \(\mathbb{R}\):</strong> \(a + |x - 1| &gt; 0 \iff a &gt; 0\);</li>
+<li><strong>Dominio \(\mathbb{R}\):</strong> \(a + |x - 1| > 0 \iff a > 0\);</li>
 <li><strong>Condizione \(f(2) = 0\):</strong> \(2\log_2(a + 1) = 4 \implies a + 1 = 4 \implies \mathbf{a = 3}\);</li>
 <li><strong>Retta secante per \(x = 2\) e \(x = 6\):</strong> passa per \(P_1(2, 0)\) e \(P_2(6, 2)\) con pendenza \(m = 1/2 \implies \mathbf{g(x) = \frac{1}{2}x - 1}\);</li>
 <li><strong>Risoluzione grafica di \(f(x) \ge g(x)\):</strong> la curva sovrasta la retta per \(x \in [2, 6]\) e per \(x \le \alpha \approx 0{,}74\).</li>
@@ -1419,45 +1461,304 @@ Nel dominio \(x &gt; 3\), accorpando i logaritmi ed esponenziando in base \(2 &g
 </div>
 </div>
 </section>
+
 <!-- =======================================================================
-         SEZIONE 10: Studio del Segno di Funzione Fratta Esponenziale
+         SEZIONE 10: Inversione Analitica e Composizione con Valore Assoluto
          ======================================================================= -->
 <section class="lesson-section" id="sec-10">
-<div class="section-header">
-<h2>🔬 Studio del Segno e Dominio di Funzione Fratta Esponenziale <span class="section-badge">Modulo 2</span></h2>
-</div>
-<div class="box-latex box-def">
-<div class="box-header">🎯 Analisi di Dominio, Zeri e Segno di Frazione Esponenziale</div>
-<div class="box-body">
-<p>Nello studio di una funzione o disequazione fratta esponenziale, come <span class="math-inline">\(y = \frac{e^{-x} - \sqrt{e}}{e^{3x} - e^x}\)</span> oppure <span class="math-inline">\(y = \frac{e^x - 1}{e^x - 2}\)</span>:</p>
-<ul>
-<li><strong>Condizione di Esistenza (Dominio):</strong> Si impone il denominatore diverso da zero (<span class="math-inline">\(e^{3x} - e^x \neq 0 \iff e^x(e^{2x} - 1) \neq 0 \iff x \neq 0\)</span>), individuando la retta verticale di discontinuità.</li>
-<li><strong>Zeri della Funzione:</strong> Si annulla il numeratore (<span class="math-inline">\(e^{-x} - e^{1/2} = 0 \iff -x = \frac{1}{2} \iff x = -\frac{1}{2}\)</span>).</li>
-<li><strong>Quadro dei Segni:</strong> Si studiano separatamente la positività di numeratore e denominatore applicando la regola dei segni sui singoli intervalli ed escludendo le regioni proibite del piano cartesiano.</li>
-</ul>
-</div>
-</div>
-<div class="media-card">
-<video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-<source src="media/StudioSegnoFrattaEsponenziale.mp4#t=0.001" type="video/mp4"/>
-<img alt="Studio del segno fratta esponenziale" src="frames/StudioSegnoFrattaEsponenziale.png"/>
-</video>
-<div class="media-footer">
-<span>Animazione Scientifica Manim: Studio del Segno, Zeri e Regioni di Positività nel Piano Cartesiano</span>
-<span class="section-badge">Studio Completo</span>
-</div>
+  <div class="section-header">
+    <h2>🔄 Inversione Analitica e Composizione con Valore Assoluto <span class="section-badge">Modulo 3</span></h2>
+  </div>
+  
+  <div class="box-latex box-def">
+    <div class="box-header">🎯 Inversione di Funzione Logaritmica Traslata</div>
+    <p>Dalla biunivocit&agrave; della funzione logaritmica reale, data la funzione traslata \(f(x) = 2\log_2(x + 1) - 1\) con dominio \(D = (-1, +\infty)\), la sua funzione inversa si ricava per via algebrica scambiando il ruolo delle variabili:</p>
+    <div class="formula-display">\[x = 2\log_2(y + 1) - 1 \iff \log_2(y + 1) = \frac{x + 1}{2} \iff y + 1 = 2^{\frac{x+1}{2}} \iff f^{-1}(x) = 2^{\frac{x+1}{2}} - 1\]</div>
+    <p>I grafici di \(f(x)\) e \(f^{-1}(x)\) risultano perfettamente simmetrici rispetto alla retta bisettrice \(y = x\).</p>
+  </div>
+
+  <div class="box-latex box-teo">
+    <div class="box-header">📐 Esercizio 62: Composizione di Funzioni e Valore Assoluto</div>
+    <p>Siano \(f(x) = |x - 2|\) e \(g(x) = \log_2 x\). L'ordine di composizione determina andamenti geometrici differenti:</p>
+    <ul>
+      <li><strong>Modulo esterno \(h(x) = f(g(x)) = |\log_2 x - 2|\):</strong> la curva logaritmica viene traslata verticalmente di 2 verso il basso (\(y = \log_2 x - 2\), zero in \(x = 4\)); le quote negative per \(0 < x < 4\) vengono ribaltate specularmente verso l'alto con un punto angoloso in \((4, 0)\).</li>
+      <li><strong>Modulo interno \(t(x) = g(f(x)) = \log_2 |x - 2|\):</strong> definita per \(|x - 2| > 0 \iff x \neq 2\). Presenta un asintoto verticale bilaterale in \(x = 2\) con simmetria assiale perfetta rispetto alla retta \(x = 2\).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =======================================================================
+         SEZIONE 11: Studio Qualitativo Completo ed Equazioni Avanzate
+         ======================================================================= -->
+<section class="lesson-section" id="sec-11">
+  <div class="section-header">
+    <h2>🔬 Studio Qualitativo di \(f(x) = 2\log_2(x-1)+1\) ed Equazioni Avanzate <span class="section-badge">Modulo 3</span></h2>
+  </div>
+  
+  <div class="box-latex box-def">
+    <div class="box-header">📋 Protocollo a 5 Fasi per \(f(x) = 2\log_2(x - 1) + 1\)</div>
+    <ol>
+      <li><strong>Dominio:</strong> \(x - 1 > 0 \iff D = (1, +\infty)\). Cancellazione dell'intero semipiano non ammesso \(x \le 1\).</li>
+      <li><strong>Asintoti:</strong> per \(x \to 1^+\), \(f(x) \to -\infty \implies\) Asintoto Verticale destro in \(x = 1\).</li>
+      <li><strong>Intersezioni con gli Assi:</strong> Asse \(y\) nessuna (\(0 \notin D\)); Asse \(x\): \(2\log_2(x-1)+1=0 \iff \log_2(x-1)=-\frac{1}{2} \iff x-1=2^{-1/2}=\frac{\sqrt{2}}{2} \iff x_0 = 1 + \frac{\sqrt{2}}{2} \approx 1{,}707\). Punto \(A\left(1 + \frac{\sqrt{2}}{2}, 0\right)\).</li>
+      <li><strong>Segno della Funzione:</strong> \(f(x) > 0\) per \(x > 1 + \frac{\sqrt{2}}{2}\); \(f(x) < 0\) per \(1 < x < 1 + \frac{\sqrt{2}}{2}\).</li>
+      <li><strong>Cancellazione Regioni del Piano:</strong> per \(1 < x < 1{,}707\) si cancella \(y > 0\); per \(x > 1{,}707\) si cancella \(y < 0\).</li>
+    </ol>
+  </div>
+
+  <div class="box-latex box-alert">
+    <div class="box-header">⚡ Esercizio 383: Equazione Logaritmica Irrazionale</div>
+    <p>Risolvere \(\sqrt{\log_2^2 x + \log_2 x - 2} = \log_2 x - 2\):</p>
+    <div class="formula-display">\[\begin{cases} \log_2 x - 2 \ge 0 \implies x \ge 4 \\[4pt] \log_2^2 x + \log_2 x - 2 = (\log_2 x - 2)^2 = \log_2^2 x - 4\log_2 x + 4 \end{cases}\]</div>
+    <p>Semplificando: \(5\log_2 x = 6 \iff \log_2 x = \frac{6}{5} \iff x = 2^{6/5} \approx 2{,}297\). Poich&eacute; \(2{,}297 < 4\), la soluzione &egrave; non accettabile: \(\mathcal{S} = \emptyset\).</p>
+  </div>
+
+  <div class="box-latex box-alert">
+    <div class="box-header">⚡ Esercizio 21: Equazione Logaritmica con Modulo</div>
+    <p>Risolvere \(|\log_3(x - 2)| = 2\) con condizione tassativa \(C.E.: x - 2 > 0 \iff x > 2\):</p>
+    <div class="formula-display">\[\log_3(x - 2) = 2 \implies x - 2 = 9 \implies x_1 = 11 \quad (\text{accettabile})\]</div>
+    <div class="formula-display">\[\log_3(x - 2) = -2 \implies x - 2 = \frac{1}{9} \implies x_2 = \frac{19}{9} \approx 2{,}11 \quad (\text{accettabile})\]</div>
+    <p>Insieme delle soluzioni: \(\mathcal{S} = \left\{\frac{19}{9}, 11\right\}\).</p>
+  </div>
+    <!-- Video Animazione Manim Incorporato per Es. 21 -->
+    <div class="media-card">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/EquazioneModuloLogaritmo.mp4#t=0.001" type="video/mp4"/>
+        <img alt="Risoluzione Grafica Equazione con Modulo" src="frames/EquazioneModuloLogaritmo.png"/>
+      </video>
+      <div class="media-footer">
+        <span>Animazione Scientifica Manim: Risoluzione cartesiana di \(|\log_3(x-2)| = 2\) con biforcazione sui livelli \(y = \pm 2\) e verifica dell'asintoto \(x = 2\)</span>
+        <span class="section-badge">Manim HD</span>
+      </div>
+    </div>
+</section>
+
+<!-- =======================================================================
+         SEZIONE 12: Introduzione alla Goniometria e Circonferenza Unitaria
+         ======================================================================= -->
+<section class="lesson-section" id="sec-12">
+  <div class="section-header">
+    <h2>📐 Introduzione alla Goniometria e Circonferenza Unitaria <span class="section-badge">Modulo 4</span></h2>
+  </div>
+  
+  <div class="box-latex box-def">
+    <div class="box-header">⭕ La Circonferenza Goniometrica</div>
+    <p>Si definisce <strong>circonferenza goniometrica</strong> la circonferenza di raggio unitario avente centro nell'origine del piano cartesiano \(O(0, 0)\):</p>
+    <div class="formula-display">\[x^2 + y^2 = 1\]</div>
+    <p>Dato un angolo orientato \(\alpha\) con vertice in \(O\) e primo lato sull'asse positivo delle ascisse, il secondo lato interseca la circonferenza nel punto associato \(P(x_P, y_P)\):</p>
+    <ul>
+      <li><strong>Coseno (\(\cos\alpha\)):</strong> &egrave; l'ascissa del punto \(P\): \(x_P = \cos\alpha\);</li>
+      <li><strong>Seno (\(\sin\alpha\)):</strong> &egrave; l'ordinata del punto \(P\): \(y_P = \sin\alpha\);</li>
+      <li><strong>Tangente (\(\tan\alpha\)):</strong> &egrave; l'ordinata del punto di incontro \(T\) con la retta tangente \(x = 1\): \(y_T = \tan\alpha = \frac{\sin\alpha}{\cos\alpha}\) (\(\alpha \neq \frac{\pi}{2} + k\pi\)).</li>
+    </ul>
+  
+    <!-- Video Animazione Manim Circonferenza Goniometrica -->
+    <div class="media-card">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/CirconferenzaGoniometrica.mp4#t=0.001" type="video/mp4"/>
+      </video>
+      <div class="media-footer">
+        <span>Animazione Scientifica Manim: Raggio vettore rotante e proiezione cartesiana delle funzioni circolari \(\cos\alpha\), \(\sin\alpha\), \(\tan\alpha\)</span>
+        <span class="section-badge">Manim HD</span>
+      </div>
+    </div>
 </div>
 </section>
 
+<!-- =======================================================================
+         SEZIONE 13: Relazioni Fondamentali della Goniometria e Valori Notevoli
+         ======================================================================= -->
+<section class="lesson-section" id="sec-13">
+  <div class="section-header">
+    <h2>⚖️ Relazioni Fondamentali e Quadro Sinottico dei Valori Notevoli <span class="section-badge">Modulo 4</span></h2>
+  </div>
+  
+  <div class="box-latex box-teo">
+    <div class="box-header">🏆 Dimostrazione Geometrica Rigorosa delle Relazioni Fondamentali</div>
+    <p><strong>1ª Relazione Fondamentale:</strong> applicando il Teorema di Pitagora al triangolo rettangolo \(OPH\) inscritto nella circonferenza unitaria:</p>
+    <div class="formula-display">\[\cos^2\alpha + \sin^2\alpha = 1 \implies \sin\alpha = \pm\sqrt{1-\cos^2\alpha}, \quad \cos\alpha = \pm\sqrt{1-\sin^2\alpha}\]</div>
+    <p><strong>2ª Relazione Fondamentale:</strong> per similitudine tra i triangoli rettangoli \(OPH \sim OTA\):</p>
+    <div class="formula-display">\[\frac{\overline{TA}}{\overline{OA}} = \frac{\overline{HP}}{\overline{OH}} \iff \frac{\tan\alpha}{1} = \frac{\sin\alpha}{\cos\alpha} \iff \tan\alpha = \frac{\sin\alpha}{\cos\alpha} \quad \left(\alpha \neq \frac{\pi}{2} + k\pi\right)\]</div>
+  </div>
+
+  <div class="box-latex box-def">
+    <div class="box-header">📊 Tabella Sinottica degli Archi Notevoli del Primo Quadrante</div>
+    <div class="table-container">
+      <table style="width:100%; text-align:center; border-collapse:collapse;">
+        <thead>
+          <tr style="border-bottom:2px solid #184C78;">
+            <th>Gradi (\(\alpha^\circ\))</th>
+            <th>Radianti (\(\alpha\))</th>
+            <th>\(\sin\alpha\)</th>
+            <th>\(\cos\alpha\)</th>
+            <th>\(\tan\alpha\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #e2e8f0;"><td>\(0^\circ\)</td><td>\(0\)</td><td>\(\frac{\sqrt{0}}{2} = 0\)</td><td>\(\frac{\sqrt{4}}{2} = 1\)</td><td>\(0\)</td></tr>
+          <tr style="border-bottom:1px solid #e2e8f0;"><td>\(30^\circ\)</td><td>\(\frac{\pi}{6}\)</td><td>\(\frac{\sqrt{1}}{2} = \frac{1}{2}\)</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(\frac{\sqrt{3}}{3}\)</td></tr>
+          <tr style="border-bottom:1px solid #e2e8f0;"><td>\(45^\circ\)</td><td>\(\frac{\pi}{4}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(1\)</td></tr>
+          <tr style="border-bottom:1px solid #e2e8f0;"><td>\(60^\circ\)</td><td>\(\frac{\pi}{3}\)</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(\frac{\sqrt{1}}{2} = \frac{1}{2}\)</td><td>\(\sqrt{3}\)</td></tr>
+          <tr><td>\(90^\circ\)</td><td>\(\frac{\pi}{2}\)</td><td>\(\frac{\sqrt{4}}{2} = 1\)</td><td>\(\frac{\sqrt{0}}{2} = 0\)</td><td>Non esiste</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- =======================================================================
+         SEZIONE 14: Grafici della Sinusoide e Cosinusoide: Parità e Disparità
+         ======================================================================= -->
+<section class="lesson-section" id="sec-14">
+  <div class="section-header">
+    <h2>📈 Grafici della Sinusoide e Cosinusoide: Parità e Disparità <span class="section-badge">Modulo 4</span></h2>
+  </div>
+  
+  <div class="box-latex box-def">
+    <div class="box-header">🌊 Andamento Periodico e Parit&agrave; Funzionale</div>
+    <ul>
+      <li><strong>Funzione Seno (\(y = \sin x\)):</strong> Dominio \(\mathbb{R}\), Codominio \([-1, 1]\), Periodo \(T = 2\pi\), funzione <strong>dispari</strong> con simmetria centrale rispetto all'origine:
+        <div class="formula-display">\[\sin(-x) = -\sin x \quad \forall x \in \mathbb{R}\]</div>
+      </li>
+      <li><strong>Funzione Coseno (\(y = \cos x\)):</strong> Dominio \(\mathbb{R}\), Codominio \([-1, 1]\), Periodo \(T = 2\pi\), funzione <strong>pari</strong> con simmetria assiale rispetto all'asse delle ordinate:
+        <div class="formula-display">\[\cos(-x) = \cos x \quad \forall x \in \mathbb{R}\]</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="box-latex box-alert">
+    <div class="box-header">⚡ Esercizio 137 Svolto dal Quaderno</div>
+    <p>Calcolare il valore esatto dell'espressione:</p>
+    <div class="formula-display">\[\left[a\cos 2\pi + b\sin\left(\frac{3\pi}{2}\right)\right]^2 - \left[a\sin\left(\frac{\pi}{2}\right) + b\cos\pi\right]^2\]</div>
+    <p>Sostituendo i valori goniometrici notevoli \(\cos 2\pi = 1\), \(\sin\frac{3\pi}{2} = -1\), \(\sin\frac{\pi}{2} = 1\), \(\cos\pi = -1\):</p>
+    <div class="formula-display">\[= [a(1) + b(-1)]^2 - [a(1) + b(-1)]^2 = [a - b]^2 - [a - b]^2 = 0\]</div>
+  
+    <!-- Video Animazione Manim Srotolamento Sinusoide -->
+    <div class="media-card">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/SrotolamentoSinusoide.mp4#t=0.001" type="video/mp4"/>
+        <img alt="Srotolamento Sinusoide" src="frames/SrotolamentoSinusoide.png"/>
+      </video>
+      <div class="media-footer">
+        <span>Animazione Scientifica Manim: Generazione continua dell'onda sinusoidale \(y = \sin x\) per srotolamento geometrico della circonferenza goniometrica</span>
+        <span class="section-badge">Manim HD</span>
+      </div>
+    </div>
 </div>
-<!-- =========================================================================
+</section>
+
+<!-- =======================================================================
+         SEZIONE 15: Equazioni Goniometriche Parametriche con Discussione
+         ======================================================================= -->
+<section class="lesson-section" id="sec-15">
+  <div class="section-header">
+    <h2>⚖️ Equazioni Goniometriche Parametriche con Discussione <span class="section-badge">Modulo 4</span></h2>
+  </div>
+  
+  <div class="box-latex box-teo">
+    <div class="box-header">🎯 Esercizio 116: Limitatezza del Coseno</div>
+    <p>Determinare i valori del parametro reale \(k\) per cui l'equazione \(\cos x = k - 2\) ammette soluzioni reali:</p>
+    <div class="formula-display">\[-1 \le k - 2 \le 1 \iff 1 \le k \le 3\]</div>
+  </div>
+
+  <div class="box-latex box-teo">
+    <div class="box-header">🎯 Esercizio 121: Parametro con Vincolo di Quadrante</div>
+    <p>Determinare \(a \in \mathbb{R}\) per cui l'equazione \((2a - 3)\cos x = -a + 4\) ammette soluzioni nel secondo quadrante (\(\frac{\pi}{2} < x < \pi\)):</p>
+    <div class="formula-display">\[-1 < \cos x < 0 \iff -1 < \frac{-a + 4}{2a - 3} < 0 \iff \begin{cases} \frac{a - 4}{2a - 3} > 0 \implies a < \frac{3}{2} \;\lor\; a > 4 \\[6pt] \frac{a + 1}{2a - 3} > 0 \implies a < -1 \;\lor\; a > \frac{3}{2} \end{cases}\]</div>
+    <p>Intersecando i due sistemi di intervalli si ottiene la soluzione accettabile:</p>
+    <div class="formula-display">\[\mathcal{S} = (-\infty, -1) \cup (4, +\infty)\]</div>
+  </div>
+</section>
+
+<!-- =======================================================================
+         SEZIONE 16: Cotangente, Secante, Cosecante e Pendenza della Retta
+         ======================================================================= -->
+<section class="lesson-section" id="sec-16">
+  <div class="section-header">
+    <h2>📐 Cotangente, Funzioni Reciproche e Significato Geometrico di \(m = \tan\alpha\) <span class="section-badge">Modulo 4</span></h2>
+  </div>
+  
+  <div class="box-latex box-def">
+    <div class="box-header">📏 Cotangente, Secante e Cosecante</div>
+    <ul>
+      <li><strong>Cotangente:</strong> \(\cot\alpha = \frac{\cos\alpha}{\sin\alpha} = \frac{1}{\tan\alpha}\) (\(\alpha \neq k\pi\)), funzione dispari e periodica di periodo \(\pi\).</li>
+      <li><strong>Secante:</strong> \(\sec\alpha = \frac{1}{\cos\alpha}\) (\(\alpha \neq \frac{\pi}{2} + k\pi\)).</li>
+      <li><strong>Cosecante:</strong> \(\csc\alpha = \frac{1}{\sin\alpha}\) (\(\alpha \neq k\pi\)).</li>
+    </ul>
+  </div>
+
+  <div class="box-latex box-teo">
+    <div class="box-header">📈 Teorema del Coefficiente Angolare della Retta</div>
+    <p>Considerata la retta cartesiana \(y = mx + q\) inclinata dell'angolo \(\alpha\) rispetto all'asse positivo delle ascisse:</p>
+    <div class="formula-display">\[m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \tan\alpha\]</div>
+    <p>Il coefficiente angolare \(m\) coincide esattamente con la tangente goniometrica dell'angolo di inclinazione della retta.</p>
+  </div>
+  
+  <div class="box-latex box-alert">
+    <div class="box-header">⚡ Esercizio 146: Calcolo dell'Inclinazione</div>
+    <p>Dati i punti \(A(2, 3)\) e \(B(5, 3 + 3\sqrt{3})\):</p>
+    <div class="formula-display">\[m = \frac{3\sqrt{3}}{3} = \sqrt{3} \implies \tan\alpha = \sqrt{3} \implies \alpha = 60^\circ = \frac{\pi}{3}\]</div>
+  
+    <!-- Video Animazione Manim Pendenza e Tangente -->
+    <div class="media-card">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/TriangoliRettangoliPendenza.mp4#t=0.001" type="video/mp4"/>
+      </video>
+      <div class="media-footer">
+        <span>Animazione Scientifica Manim: Significato geometrico della tangente come pendenza cartesiana della retta \(m = \frac{\Delta y}{\Delta x} = \tan\alpha\)</span>
+        <span class="section-badge">Manim HD</span>
+      </div>
+    </div>
+</div>
+</section>
+
+<!-- =======================================================================
+         SEZIONE 17: Angoli Associati, Riduzione al I Quadrante ed Esercizio 383
+         ======================================================================= -->
+<section class="lesson-section" id="sec-17">
+  <div class="section-header">
+    <h2>🔄 Angoli Associati, Riduzione al I Quadrante ed Esercizio 383 <span class="section-badge">Modulo 4</span></h2>
+  </div>
+  
+  <div class="box-latex box-teo">
+    <div class="box-header">⭕ Formule degli Angoli Associati</div>
+    <ul>
+      <li><strong>Opposti (\(-\alpha\)):</strong> \(\sin(-\alpha) = -\sin\alpha\), \(\cos(-\alpha) = \cos\alpha\), \(\tan(-\alpha) = -\tan\alpha\).</li>
+      <li><strong>Supplementari (\(\pi - \alpha\)):</strong> \(\sin(\pi - \alpha) = \sin\alpha\), \(\cos(\pi - \alpha) = -\cos\alpha\), \(\tan(\pi - \alpha) = -\tan\alpha\).</li>
+      <li><strong>Che differiscono di \(\frac{\pi}{2}\) (\(\frac{\pi}{2} + \alpha\)):</strong> \(\sin\left(\frac{\pi}{2} + \alpha\right) = \cos\alpha\), \(\cos\left(\frac{\pi}{2} + \alpha\right) = -\sin\alpha\), \(\tan\left(\frac{\pi}{2} + \alpha\right) = -\cot\alpha\).</li>
+    </ul>
+  </div>
+
+  <div class="box-latex box-alert">
+    <div class="box-header">⚡ Esercizio 383 Svolto dal Quaderno</div>
+    <p>Semplificare l'espressione:</p>
+    <div class="formula-display">\[\sec\left(\frac{\pi}{2} + \alpha\right)\tan\alpha + \sin\left(\frac{\pi}{2} + \alpha\right) + \csc\left(\frac{\pi}{2} + \alpha\right)\]</div>
+    <p>Sostituendo le relazioni di riduzione al primo quadrante:</p>
+    <div class="formula-display">\[= \left(-\frac{1}{\sin\alpha}\right)\left(\frac{\sin\alpha}{\cos\alpha}\right) + \cos\alpha + \frac{1}{\cos\alpha} = -\frac{1}{\cos\alpha} + \cos\alpha + \frac{1}{\cos\alpha} = \cos\alpha\]</div>
+  
+    <!-- Video Animazione Manim Angoli Associati -->
+    <div class="media-card">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/AngoliAssociatiSovrapposizione.mp4#t=0.001" type="video/mp4"/>
+      </video>
+      <div class="media-footer">
+        <span>Animazione Scientifica Manim: Dimostrazione visuale per sovrapposizione rigida dei triangoli rettangoli negli angoli associati</span>
+        <span class="section-badge">Manim HD</span>
+      </div>
+    </div>
+</div>
+</section>
+
+  </div><!-- /main-container -->
+
+  <!-- =========================================================================
        SCRIPT KATEX LOCALE E CDN PER RENDERING FORMULE
        ========================================================================= -->
-<script src="reveal/katex/dist/katex.min.js"></script>
-<script src="reveal/katex/dist/contrib/auto-render.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-<script>
+  <script src="reveal/katex/dist/katex.min.js"></script>
+  <script src="reveal/katex/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
     function invokeKaTeXRender4B() {
       if (typeof renderMathInElement === "function") {
         renderMathInElement(document.body, {
@@ -1467,384 +1768,73 @@ Nel dominio \(x &gt; 3\), accorpando i logaritmi ed esponenziando in base \(2 &g
             {left: "\\(", right: "\\)", display: false},
             {left: "$", right: "$", display: false}
           ],
-          ignoredClasses: ["katex", "katex-display"],
+          ignoredClasses: ["katex"],
           throwOnError: false
         });
       }
     }
     document.addEventListener("DOMContentLoaded", function() {
       invokeKaTeXRender4B();
-      // Inizializza i simulatori interattivi
-      runBernoulliSim();
-      runExpSim();
     });
     window.addEventListener("load", function() {
       invokeKaTeXRender4B();
     });
-
-    // =========================================================================
-    // 1. SIMULATORE BERNOULLI (Canvas 1080x380)
-    // =========================================================================
-    function runBernoulliSim() {
-      const n = parseInt(document.getElementById('b-slider-n').value);
-      const C = parseFloat(document.getElementById('b-slider-c').value);
-      const r_pct = parseFloat(document.getElementById('b-slider-r').value);
-      const r = r_pct / 100;
-
-      document.getElementById('b-val-n').innerText = n;
-      document.getElementById('b-val-c').innerText = C + "€";
-      document.getElementById('b-val-r').innerText = r_pct + "%";
-
-      const canvas = document.getElementById('canvas-bernoulli');
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width, H = canvas.height;
-      ctx.clearRect(0, 0, W, H);
-
-      // Margini assi
-      const padL = 90, padR = 40, padT = 40, padB = 60;
-      const pw = W - padL - padR, ph = H - padT - padB;
-
-      // Limite continuo e montante corrente
-      const M_inf = C * Math.exp(r);
-      const Mn = C * Math.pow(1 + r/n, n);
-      const diff = M_inf - Mn;
-
-      // Range y
-      const yMin = C * 0.95;
-      const yMax = M_inf * 1.08;
-
-      function toX(valN) { return padL + (valN / 120) * pw; }
-      function toY(valM) { return padT + ph - ((valM - yMin) / (yMax - yMin)) * ph; }
-
-      // Griglia e Assi
-      ctx.strokeStyle = "#E2E8F0";
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      for (let gn = 0; gn <= 120; gn += 20) {
-        let gx = toX(gn);
-        ctx.moveTo(gx, padT); ctx.lineTo(gx, padT + ph);
-      }
-      for (let gy = Math.ceil(yMin/500)*500; gy <= yMax; gy += 500) {
-        let gy_pos = toY(gy);
-        ctx.moveTo(padL, gy_pos); ctx.lineTo(padL + pw, gy_pos);
-      }
-      ctx.stroke();
-
-      // Assi
-      ctx.strokeStyle = "#475569";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + ph);
-      ctx.lineTo(padL + pw, padT + ph);
-      ctx.stroke();
-
-      // Etichette assi
-      ctx.fillStyle = "#475569";
-      ctx.font = "14px KaTeX_Main, Georgia, serif";
-      ctx.textAlign = "center";
-      for (let gn = 0; gn <= 120; gn += 20) {
-        ctx.fillText(gn === 0 ? "n=0" : gn, toX(gn), padT + ph + 22);
-      }
-      ctx.fillText("Frequenza di Capitalizzazione n (annuale=1, semestrale=2, mensile=12, continua=∞)", padL + pw/2, padT + ph + 48);
-
-      ctx.textAlign = "right";
-      for (let gy = Math.ceil(yMin/500)*500; gy <= yMax; gy += 500) {
-        ctx.fillText(gy.toFixed(0) + " €", padL - 10, toY(gy) + 5);
-      }
-
-      // Linea asintotica tetto M_inf
-      const yAsint = toY(M_inf);
-      ctx.strokeStyle = "#DC2626";
-      ctx.lineWidth = 2.5;
-      ctx.setLineDash([8, 6]);
-      ctx.beginPath();
-      ctx.moveTo(padL, yAsint); ctx.lineTo(padL + pw, yAsint);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      ctx.fillStyle = "#DC2626";
-      ctx.font = "bold 15px KaTeX_Main, Georgia, serif";
-      ctx.textAlign = "right";
-      ctx.fillText(`Tetto Asintotico Invalicabile: M_∞ = C · e^r = ${M_inf.toFixed(2)} €`, padL + pw - 10, yAsint - 10);
-
-      // Tracciamento curva continua (1 + r/x)^x
-      ctx.strokeStyle = "#2563EB";
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      for (let xn = 1; xn <= 120; xn += 0.5) {
-        let ym = C * Math.pow(1 + r/xn, xn);
-        let px = toX(xn), py = toY(ym);
-        if (xn === 1) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
-      }
-      ctx.stroke();
-
-      // Punti salienti marcati
-      const notevoli = [1, 2, 4, 12, 52];
-      notevoli.forEach(kn => {
-        let km = C * Math.pow(1 + r/kn, kn);
-        ctx.fillStyle = "#16A34A";
-        ctx.beginPath();
-        ctx.arc(toX(kn), toY(km), 5, 0, Math.PI*2);
-        ctx.fill();
-      });
-
-      // Punto attivo selezionato
-      const curX = toX(n), curY = toY(Mn);
-      ctx.fillStyle = "#D97706";
-      ctx.beginPath();
-      ctx.arc(curX, curY, 8, 0, Math.PI*2);
-      ctx.fill();
-      ctx.strokeStyle = "#FFFFFF";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Linee proiettive punto attivo
-      ctx.strokeStyle = "#D97706";
-      ctx.lineWidth = 1.5;
-      ctx.setLineDash([4, 4]);
-      ctx.beginPath();
-      ctx.moveTo(curX, padT + ph); ctx.lineTo(curX, curY); ctx.lineTo(padL, curY);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      // Readout
-      let descPeriodo = "Personalizzata";
-      if (n === 1) descPeriodo = "Annuale (n=1)";
-      else if (n === 2) descPeriodo = "Semestrale (n=2)";
-      else if (n === 4) descPeriodo = "Trimestrale (n=4)";
-      else if (n === 12) descPeriodo = "Mensile (n=12)";
-      else if (n === 52) descPeriodo = "Settimanale (n=52)";
-      else if (n >= 100) descPeriodo = "Quasi-Continua (n=" + n + ")";
-
-      document.getElementById('b-readout').innerHTML = 
-        `<strong>Stato Attuale:</strong> ${descPeriodo} &rarr; Montante <strong>M_${n} = ${Mn.toFixed(2)} €</strong> | ` +
-        `Rapporto M/C = <strong>${(Mn/C).toFixed(5)}</strong><br>` +
-        `<strong>Capitalizzazione Continua (Nepero):</strong> M_&infin; = ${C} &times; e<sup>${r}</sup> = <strong>${M_inf.toFixed(2)} €</strong> | ` +
-        `Scarto residuo dal tetto: <span style="color:#DC2626; font-weight:700;">-${diff.toFixed(2)} €</span>`;
-    }
-
-    // =========================================================================
-    // 2. SIMULATORE ESPONENZIALE & LOGARITMO (Canvas 1080x420)
-    // =========================================================================
-    function runExpSim() {
-      const a = parseFloat(document.getElementById('exp-slider-a').value);
-      const showLog = document.getElementById('exp-show-log').checked;
-      document.getElementById('exp-val-a').innerText = a.toFixed(2);
-
-      const canvas = document.getElementById('canvas-exp');
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width, H = canvas.height;
-      ctx.clearRect(0, 0, W, H);
-
-      const ox = W / 2, oy = H / 2;
-      const scale = 55; // 55 px per unità
-
-      function toX(x) { return ox + x * scale; }
-      function toY(y) { return oy - y * scale; }
-
-      // Griglia
-      ctx.strokeStyle = "#F1F5F9";
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      for (let x = -8; x <= 8; x++) {
-        ctx.moveTo(toX(x), 0); ctx.lineTo(toX(x), H);
-      }
-      for (let y = -4; y <= 4; y++) {
-        ctx.moveTo(0, toY(y)); ctx.lineTo(W, toY(y));
-      }
-      ctx.stroke();
-
-      // Assi cartesiani
-      ctx.strokeStyle = "#64748B";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(0, oy); ctx.lineTo(W, oy);
-      ctx.moveTo(ox, 0); ctx.lineTo(ox, H);
-      ctx.stroke();
-
-      ctx.fillStyle = "#64748B";
-      ctx.font = "14px KaTeX_Main, Georgia, serif";
-      ctx.fillText("x", W - 20, oy - 10);
-      ctx.fillText("y", ox + 10, 20);
-
-      // Bisettrice y = x
-      if (showLog) {
-        ctx.strokeStyle = "#94A3B8";
-        ctx.lineWidth = 1.5;
-        ctx.setLineDash([6, 6]);
-        ctx.beginPath();
-        ctx.moveTo(toX(-4), toY(-4)); ctx.lineTo(toX(4), toY(4));
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.fillStyle = "#94A3B8";
-        ctx.fillText("Bisettrice y = x", toX(3.2), toY(3.5));
-      }
-
-      // Tracciamento Esponenziale y = a^x
-      ctx.strokeStyle = "#2563EB";
-      ctx.lineWidth = 3.5;
-      ctx.beginPath();
-      let started = false;
-      for (let x = -8; x <= 8; x += 0.05) {
-        let y = Math.pow(a, x);
-        if (y > 10 || isNaN(y)) continue;
-        let px = toX(x), py = toY(y);
-        if (!started) { ctx.moveTo(px, py); started = true; }
-        else { ctx.lineTo(px, py); }
-      }
-      ctx.stroke();
-
-      // Punto invariante (0, 1) su esponenziale
-      ctx.fillStyle = "#16A34A";
-      ctx.beginPath();
-      ctx.arc(toX(0), toY(1), 6, 0, Math.PI*2);
-      ctx.fill();
-      ctx.fillStyle = "#16A34A";
-      ctx.font = "bold 14px KaTeX_Main, Georgia, serif";
-      ctx.fillText("(0, 1)", toX(0) + 10, toY(1) - 8);
-
-      // Tracciamento Logaritmo Inverso y = log_a(x)
-      if (showLog) {
-        ctx.strokeStyle = "#7C3AED";
-        ctx.lineWidth = 3.5;
-        ctx.beginPath();
-        started = false;
-        for (let x = 0.02; x <= 8; x += 0.05) {
-          let y = Math.log(x) / Math.log(a);
-          if (y < -5 || y > 5 || isNaN(y)) continue;
-          let px = toX(x), py = toY(y);
-          if (!started) { ctx.moveTo(px, py); started = true; }
-          else { ctx.lineTo(px, py); }
-        }
-        ctx.stroke();
-
-        // Punto riflesso (1, 0) su logaritmo
-        ctx.fillStyle = "#7C3AED";
-        ctx.beginPath();
-        ctx.arc(toX(1), toY(0), 6, 0, Math.PI*2);
-        ctx.fill();
-        ctx.fillText("(1, 0)", toX(1) + 8, toY(0) + 20);
-      }
-
-      // Readout
-      let monotonia = a > 1 ? "Strettamente Crescente (a > 1)" : (a === 1 ? "Costante degenere (a = 1)" : "Strettamente Decrescente (0 < a < 1)");
-      let asintoto = a > 1 ? "Asintoto orizzontale sinistro: y = 0 per x &rarr; -&infin;" : "Asintoto orizzontale destro: y = 0 per x &rarr; +&infin;";
-      document.getElementById('exp-readout').innerHTML = 
-        `<strong>Base Attuale: a = ${a.toFixed(2)}</strong> &rarr; Comportamento: <strong>${monotonia}</strong><br>` +
-        `Esponenziale: ${asintoto} | Passante per (0, 1)<br>` +
-        (showLog ? `Logaritmo: Asintoto verticale x = 0 per x &rarr; 0<sup>+</sup> | Simmetria perfetta rispetto a y = x` : ``);
-    }
-
   </script>
 
-  <script>
-    // Global Touch-to-Mouse Adapter for Interactive Canvas on Mobile
-    document.addEventListener('DOMContentLoaded', function() {
-      const canvases = document.querySelectorAll('canvas');
-      canvases.forEach(function(canvas) {
-        function getTouchPos(e) {
-          const rect = canvas.getBoundingClientRect();
-          const touch = e.touches[0] || e.changedTouches[0];
-          return {
-            clientX: touch.clientX,
-            clientY: touch.clientY,
-            x: touch.clientX - rect.left,
-            y: touch.clientY - rect.top
-          };
-        }
-        function dispatchMouseEvent(type, touchInfo) {
-          const simEvent = new MouseEvent(type, {
-            bubbles: true,
-            cancelable: true,
-            view: window,
-            clientX: touchInfo.clientX,
-            clientY: touchInfo.clientY
-          });
-          canvas.dispatchEvent(simEvent);
-        }
-        canvas.addEventListener('touchstart', function(e) {
-          if (e.target === canvas) {
-            e.preventDefault();
-            const pos = getTouchPos(e);
-            dispatchMouseEvent('mousedown', pos);
-          }
-        }, { passive: false });
-        canvas.addEventListener('touchmove', function(e) {
-          if (e.target === canvas) {
-            e.preventDefault();
-            const pos = getTouchPos(e);
-            dispatchMouseEvent('mousemove', pos);
-          }
-        }, { passive: false });
-        canvas.addEventListener('touchend', function(e) {
-          if (e.target === canvas) {
-            e.preventDefault();
-            const pos = getTouchPos(e);
-            dispatchMouseEvent('mouseup', pos);
-            dispatchMouseEvent('click', pos);
-          }
-        }, { passive: false });
-      });
-    });
-  </script>
-
-
-  <!-- Supporto Gestuale, Trascinamento Touch/Mouse & Active Spy per Barra Capitoli -->
+  <!-- Script Navigazione Gestuale & Active Spy -->
   <script>
     (function() {
       function initChapterNav() {
-        const navTrack = document.querySelector('.navbar-menu, .sticky-nav');
+        const navTrack = document.querySelector('.top-navbar-track') || document.querySelector('.sticky-nav') || document.querySelector('.top-navbar');
         if (!navTrack) return;
 
-        // Trascinamento fluido Mouse su Desktop
         let isDown = false;
-        let startX, scrollLeftVal;
+        let startX = 0;
+        let scrollLeft = 0;
+
         navTrack.addEventListener('mousedown', function(e) {
           isDown = true;
-          navTrack.style.cursor = 'grabbing';
           startX = e.pageX - navTrack.offsetLeft;
-          scrollLeftVal = navTrack.scrollLeft;
+          scrollLeft = navTrack.scrollLeft;
         });
-        window.addEventListener('mouseup', function() {
-          if (isDown) {
-            isDown = false;
-            navTrack.style.cursor = '';
-          }
-        });
+        navTrack.addEventListener('mouseleave', function() { isDown = false; });
+        navTrack.addEventListener('mouseup', function() { isDown = false; });
         navTrack.addEventListener('mousemove', function(e) {
           if (!isDown) return;
           e.preventDefault();
           const x = e.pageX - navTrack.offsetLeft;
-          const walk = (x - startX) * 1.6;
-          navTrack.scrollLeft = scrollLeftVal - walk;
+          const walk = (x - startX) * 1.5;
+          navTrack.scrollLeft = scrollLeft - walk;
         });
 
-        // Spy Sezioni con Auto-Center del capitolo attivo nella barra
-        const links = navTrack.querySelectorAll('a');
+        const links = navTrack.querySelectorAll('a[href^="#"]');
         const sections = [];
         links.forEach(function(link) {
-          const href = link.getAttribute('href');
-          if (href && href.startsWith('#')) {
-            const target = document.querySelector(href);
-            if (target) sections.push({ link: link, target: target });
-          }
+          const id = link.getAttribute('href').substring(1);
+          const sec = document.getElementById(id);
+          if (sec) sections.push({ id: id, el: sec, link: link });
         });
 
         let scrollTimeout = null;
         function updateActiveSection() {
-          const scrollY = window.scrollY + 130;
+          const scrollPos = window.scrollY + 120;
           let current = null;
           for (let i = 0; i < sections.length; i++) {
-            if (scrollY >= sections[i].target.offsetTop) {
-              current = sections[i];
+            const sec = sections[i];
+            const top = sec.el.offsetTop;
+            const bottom = top + sec.el.offsetHeight;
+            if (scrollPos >= top && scrollPos < bottom) {
+              current = sec;
+              break;
             }
+          }
+          if (!current && sections.length > 0) {
+            if (window.scrollY < 200) current = sections[0];
+            else current = sections[sections.length - 1];
           }
           if (current) {
             links.forEach(function(l) { l.classList.remove('active'); });
             current.link.classList.add('active');
-
-            // Centra il pill del capitolo attivo con scorrimento fluido
             const trackRect = navTrack.getBoundingClientRect();
             const linkRect = current.link.getBoundingClientRect();
             const offset = (linkRect.left + linkRect.width / 2) - (trackRect.left + trackRect.width / 2);
@@ -1859,7 +1849,6 @@ Nel dominio \(x &gt; 3\), accorpando i logaritmi ed esponenziando in base \(2 &g
           scrollTimeout = requestAnimationFrame(updateActiveSection);
         }, { passive: true });
 
-        // Clic su capitolo: scroll smooth e centratura immediata
         links.forEach(function(link) {
           link.addEventListener('click', function() {
             links.forEach(function(l) { l.classList.remove('active'); });

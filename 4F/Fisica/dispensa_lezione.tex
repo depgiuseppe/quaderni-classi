@@ -76,12 +76,6 @@
   arc=3mm, boxrule=0.8pt, top=3mm, bottom=3mm, left=4mm, right=4mm
 }
 
-\newtcolorbox{approfondimento}[1][]{
-  enhanced, breakable, colback=primaryBlue!4!white, colframe=primaryBlue,
-  fonttitle=\bfseries\sffamily, title={Approfondimento Critico ed Errori Frequenti: #1},
-  arc=3mm, boxrule=1pt, top=3.5mm, bottom=3.5mm, left=4mm, right=4mm
-}
-
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small\sffamily Liceo Scientifico Statale «Leonardo da Vinci» – Maglie}
@@ -761,69 +755,6 @@ Introducendo la \textbf{temperatura assoluta Kelvin} $T = t + 273{,}15\,\text{K}
   \]
 \end{itemize}
 
-\begin{approfondimento}[Ha senso raddoppiare la temperatura in gradi Celsius? Considerazioni fisiche e scale di misura]
-\textbf{Risposta sintetica:} Dal punto di vista fisico e termodinamico, \textbf{no, non ha alcun senso}.
-
-La scala Celsius \`e una \textbf{scala a intervalli} (o affinemente traslata) e non una \textbf{scala di rapporti}. Il suo valore zero ($0\,{^\circ}\text{C}$) \`e un riferimento puramente convenzionale (il punto di fusione del ghiaccio a pressione atmosferica standard) e non corrisponde affatto all'assenza di agitazione termica o moto molecolare a livello microscopico.
-
-\subsection*{Le contraddizioni logiche e i paradossi fisici}
-L'applicazione di operazioni moltiplicative a grandezze definite su scale prive di uno zero assoluto conduce immediatamente a insanabili paradossi logico-fisici:
-\begin{itemize}[leftmargin=*, nosep]
-  \item \textbf{Il paradosso dello zero:} Moltiplicare per due una temperatura di $0\,{^\circ}\text{C}$ restituirebbe ancora $0\,{^\circ}\text{C}$:
-  \[
-  2 \times 0\,{^\circ}\text{C} = 0\,{^\circ}\text{C}
-  \]
-  Ci\`o implicherebbe che l'energia cinetica interna del sistema resti perfettamente invariata, rendendo il ``raddoppio'' del tutto fittizio e nullo.
-  \item \textbf{Il paradosso dei valori negativi:} Raddoppiare una temperatura negativa come $-10\,{^\circ}\text{C}$ porterebbe algebricamente a $-20\,{^\circ}\text{C}$. Tuttavia, uno stato a $-20\,{^\circ}\text{C}$ descrive un livello energetico inferiore (pi\`u freddo) rispetto a $-10\,{^\circ}\text{C}$, ribaltando e snaturando il significato fisico dell'operazione.
-  \item \textbf{Inconsistenza energetica reale:} Passare da $10\,{^\circ}\text{C}$ a $20\,{^\circ}\text{C}$ non raddoppia affatto l'energia cinetica media molecolare. In unit\`a termodinamiche assolute:
-  \[
-  10\,{^\circ}\text{C} = 283{,}15\text{ K}, \quad 20\,{^\circ}\text{C} = 293{,}15\text{ K}
-  \]
-  Il rapporto effettivo tra le temperature assolute \`e:
-  \[
-  \frac{293{,}15}{283{,}15} \approx 1{,}0353 \implies +3{,}53\%
-  \]
-  L'incremento energetico reale \`e di appena il $3{,}5\%$, ben lontano dal $+100\%$ atteso da un vero raddoppio.
-\end{itemize}
-
-\subsection*{La prospettiva termodinamica corretta e la costante di Boltzmann}
-La temperatura termodinamica rigorosa \`e una grandezza direttamente legata all'energia cinetica traslazionale media delle particelle che compongono la materia (per un gas ideale monoatomico):
-\[
-\langle E_k \rangle = \frac{3}{2} k_B T
-\]
-dove $k_B \approx 1{,}38 \times 10^{-23}\,\text{J/K}$ \`e la costante di Boltzmann e $T$ \`e la temperatura espressa nella scala assoluta dei \textbf{Kelvin} ($\text{K}$), il cui zero ($0\text{ K} = -273{,}15\,{^\circ}\text{C}$) corrisponde al limite asintotico di minima agitazione termica possibile.
-
-\subsection*{Attenzione fondamentale negli esercizi: il tranello del ``raddoppio''}
-\textbf{Avvertenza metodologica cruciale per compiti e verifiche:} Negli esercizi sui gas perfetti (trasformazioni isobare come nel successivo Esercizio 49, isocore o politropiche) si incontra spessissimo la formulazione:
-\begin{center}
-\textit{\textbf{<<La temperatura del gas raddoppia...>>}} \quad oppure \quad \textit{\textbf{<<Calcola a quale temperatura il volume raddoppia>>}}
-\end{center}
-\textbf{Bisogna prestare la massima attenzione all'unit\`a di misura!} Quando il testo di un problema afferma che la temperatura raddoppia, l'operazione moltiplicativa ($T_2 = 2 T_1$) deve essere applicata \textbf{tassativamente e unicamente alla temperatura assoluta in Kelvin ($T$)}, mai e poi mai ai gradi Celsius ($t$).
-
-\textbf{Esempio pratico di calcolo corretto:}\\
-Se un gas si trova inizialmente alla temperatura ambiente di $t_1 = 20\,{^\circ}\text{C}$, per \textbf{raddoppiare termodinamicamente la sua temperatura} occorre:
-\begin{enumerate}[leftmargin=*, nosep]
-  \item Convertire la temperatura iniziale in Kelvin: $T_1 = 20 + 273{,}15 = 293{,}15\text{ K}$;
-  \item Eseguire il raddoppio in scala termodinamica assoluta: $T_2 = 2 \times T_1 = 2 \times 293{,}15\text{ K} = 586{,}30\text{ K}$;
-  \item Riconvertire la temperatura finale in gradi Celsius:
-  \[
-  t_2 = 586{,}30 - 273{,}15 = \mathbf{313{,}15\,{^\circ}\text{C}}
-  \]
-\end{enumerate}
-Dunque, riscaldare il gas da $20\,{^\circ}\text{C}$ a $40\,{^\circ}\text{C}$ comporta un incremento termodinamico di appena il $6{,}8\%$; per un autentico raddoppio energetico, il sistema deve essere portato a oltre \textbf{$313\,{^\circ}\text{C}$}!
-
-\subsection*{L'unico caso ammissibile: l'intervallo termico $\Delta T$}
-L'operazione di moltiplicazione sui gradi Celsius acquisisce pieno significato fisico e matematico unicamente se applicata a una \textbf{variazione} (o differenza) di temperatura ($\Delta T$), poich\'e la differenza tra due punti \`e invariante rispetto alla traslazione dell'origine:
-\[
-\Delta T = T_b - T_a = (t_b + 273{,}15) - (t_a + 273{,}15) = t_b - t_a = \Delta t
-\]
-Di conseguenza:
-\[
-\Delta t = 5\,{^\circ}\text{C} \implies 2 \times \Delta t = 10\,{^\circ}\text{C} \equiv 10\text{ K}
-\]
-In sintesi: \textbf{ha senso moltiplicare un intervallo termico ($\Delta t$), ma non ha alcun senso moltiplicare il valore puntuale di temperatura espresso in scala Celsius ($t$)}.
-\end{approfondimento}
-
 % ------------------------------------------------------------------------------
 % ESERCIZIO 49
 % ------------------------------------------------------------------------------
@@ -1212,5 +1143,244 @@ si otterrebbe:
 Questo scostamento (da $8{,}3\%$ a $7{,}8\%$) \`e dovuto alla \textbf{cancellazione numerica}: quando si sottrae l'unit\`a $(p_2/p_1 - 1)$, la parte intera si elide e l'errore introdotto sui decimali si amplifica enormemente sulla percentuale finale. \'E fondamentale mantenere la forma frazionaria esatta fino al calcolo finale o impiegare direttamente le temperature assolute Kelvin.
 \end{avviso}
 \end{problema}
+
+% ==============================================================================
+% CAPITOLO 8: L'EQUAZIONE DI STATO DEL GAS PERFETTO E LA COSTANTE R
+% ==============================================================================
+
+\chapter{L'Equazione di Stato del Gas Perfetto e la Costante Universale $R$}
+
+\section{Il Modello Microscopico del Gas Ideale}
+
+Nelle lezioni precedenti abbiamo analizzato il comportamento dei gas attraverso le tre leggi empiriche (Boyle, prima e seconda legge di Gay-Lussac), ciascuna valida mantenendo costante una delle tre coordinate termodinamiche di stato ($p, V, T$). Per unificare queste relazioni in una legge generale valida per qualsiasi trasformazione, la fisica introduce il modello teorico di \textbf{gas ideale} (o \textbf{gas perfetto}).
+
+\begin{definizione}[Gas Perfetto o Ideale]
+Un gas reale approssima le propriet\`a di un \textbf{gas ideale} quando si verificano contemporaneamente le seguenti condizioni fenomenologiche e microscopiche:
+\begin{enumerate}
+  \item \textbf{Elevata rarefazione (bassa densit\`a numerica):} il numero di particelle per unit\`a di volume \`e sufficientemente piccolo da rendere la distanza media intermolecolare molto maggiore rispetto alle dimensioni geometriche delle molecole stesse;
+  \item \textbf{Temperatura ben al di sopra della temperatura critica di liquefazione ($T \gg T_{\text{liq}}$):} l'energia cinetica media del moto di agitazione termica supera largamente l'energia potenziale delle forze attrattive intermolecolari di Van der Waals;
+  \item \textbf{Particelle puntiformi con urti perfettamente elastici:} il volume proprio occupato dalle molecole (\textit{covolume}) \`e del tutto trascurabile rispetto al volume macroscopico del recipiente ($V_{\text{molecole}} \ll V_{\text{recipiente}}$). Le molecole interagiscono unicamente mediante collisioni istantanee e perfettamente elastiche contro le pareti e tra loro, senza perdita di energia cinetica e in assenza di forze a lungo raggio.
+\end{enumerate}
+\end{definizione}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+  % Recipiente
+  \draw[very thick, primaryBlue] (0, 0) rectangle (6, 4);
+  \node[above, font=\small\sffamily\bfseries, primaryBlue] at (3, 4) {Recipiente di Volume $V$ contenente un Gas Perfetto};
+  
+  % Particelle puntiformi con vettori velocita
+  \fill[accentRed] (1.0, 1.2) circle (2.5pt) coordinate (p1);
+  \draw[->, thick, accentRed] (p1) -- ++(0.7, 0.5) node[right, font=\scriptsize] {$\vec{v}_1$};
+  
+  \fill[accentRed] (2.2, 3.1) circle (2.5pt) coordinate (p2);
+  \draw[->, thick, accentRed] (p2) -- ++(-0.6, -0.4) node[left, font=\scriptsize] {$\vec{v}_2$};
+
+  \fill[accentRed] (4.5, 2.8) circle (2.5pt) coordinate (p3);
+  \draw[->, thick, accentRed] (p3) -- ++(0.8, -0.3) node[right, font=\scriptsize] {$\vec{v}_3$};
+
+  \fill[accentRed] (3.8, 1.0) circle (2.5pt) coordinate (p4);
+  \draw[->, thick, accentRed] (p4) -- ++(-0.5, 0.7) node[above, font=\scriptsize] {$\vec{v}_4$};
+
+  \fill[accentRed] (1.5, 2.5) circle (2.5pt) coordinate (p5);
+  \draw[->, thick, accentRed] (p5) -- ++(0.6, -0.6) node[below, font=\scriptsize] {$\vec{v}_5$};
+
+  \fill[accentRed] (5.2, 1.2) circle (2.5pt) coordinate (p6);
+  \draw[->, thick, accentRed] (p6) -- ++(-0.7, 0.3) node[above, font=\scriptsize] {$\vec{v}_6$};
+
+  % Urto elastico contro la parete
+  \draw[dashed, gray!80] (5.7, 2.0) -- (6.0, 2.3);
+  \fill[accentGreen] (6.0, 2.3) circle (2.5pt);
+  \draw[->, thick, accentGreen] (6.0, 2.3) -- ++(-0.8, 0.4) node[below left, font=\scriptsize\bfseries] {Urto elastico ($F_{\perp} \implies p = \frac{F}{A}$)};
+
+  \node[font=\footnotesize, textDark] at (3, 0.4) {\textbf{Ipotesi:} Particelle puntiformi $\cdot$ Urti elastici $\cdot$ Nessuna forza attrattiva a distanza};
+\end{tikzpicture}
+\caption{Rappresentazione microscopica del gas ideale: particelle puntiformi in perenne agitazione termica casuale (moti browniani) le cui collisioni elastiche con le pareti generano la pressione macroscopica $p$.}
+\label{fig:gas_perfetto_micro}
+\end{figure}
+
+\section{La Legge di Avogadro}
+
+Fondamentale per legare le propriet\`a macroscopiche del gas alla quantit\`a di materia \`e il principio formulato dal chimico e fisico italiano Amedeo Avogadro nel 1811:
+
+\begin{leggefisica}[Legge di Avogadro (1811)]
+\textbf{Volumi uguali di gas diversi, mantenuti nelle stesse condizioni di temperatura e di pressione, contengono lo stesso numero di moli (e dunque lo stesso identico numero di particelle/molecole $N$).}
+\[
+V \propto n \qquad (p = \text{costante}, \; T = \text{costante})
+\]
+Ne consegue che il rapporto $\dfrac{V}{n}$ dipende esclusivamente dalla pressione e dalla temperatura del gas, e assume il medesimo valore universale per qualsiasi sostanza gassosa.
+\end{leggefisica}
+
+\section{L'Equazione di Stato del Gas Perfetto}
+
+Combinando la legge di Boyle ($V \propto \frac{1}{p}$ a $T=\text{cost}$), la prima legge di Gay-Lussac ($V \propto T$ a $p=\text{cost}$) e la legge di Avogadro ($V \propto n$ a $p,T=\text{cost}$), si deduce che il volume occupato da un gas ideale \`e direttamente proporzionale alla quantit\`a di sostanza $n$ e alla temperatura assoluta $T$, ed \`e inversamente proporzionale alla pressione $p$:
+\[
+V \propto \frac{n \cdot T}{p} \iff \frac{p \cdot V}{n \cdot T} = \text{costante universale} = R
+\]
+Si ottiene cos\`i l'\textbf{Equazione di Stato dei Gas Perfetti} (o \textbf{Equazione di Clapeyron}):
+
+\begin{definizione}[Equazione di Stato del Gas Perfetto]
+Lo stato termodinamico di equilibrio di una quantit\`a $n$ di gas perfetto \`e univocamente descritto dalla relazione fondamentale:
+\begin{equation}
+\bm{p \cdot V = n \cdot R \cdot T}
+\label{eq:stato_gas_perfetto}
+\end{equation}
+in cui le grandezze fisiche sono espresse rigorosamente nelle unit\`a del Sistema Internazionale:
+\begin{itemize}
+  \item $p$: pressione assoluta del gas in Pascal ($\text{Pa} = \text{N}/\text{m}^2$);
+  \item $V$: volume occupato dal gas in metri cubi ($\text{m}^3$);
+  \item $n$: quantit\`a di sostanza in moli ($\text{mol}$);
+  \item $T$: temperatura assoluta termodinamica in Kelvin ($\text{K}$);
+  \item $R$: \textbf{costante universale dei gas perfetti}.
+\end{itemize}
+\end{definizione}
+
+\section{Analisi Dimensionale del Prodotto $p \cdot V$ e della Costante $R$}
+
+Esplicitiamo la costante universale $R$ dall'equazione di stato:
+\[
+R = \frac{p \cdot V}{n \cdot T}
+\]
+Determiniamo l'espressione dimensionale del numeratore $p \cdot V$. Poich\'e la pressione \`e definita come forza per unit\`a di superficie ($[p] = \text{N}/\text{m}^2$) e il volume \`e espresso in metri cubi ($[V] = \text{m}^3$):
+\[
+[p \cdot V] = \left(\frac{\text{N}}{\text{m}^2}\right) \cdot \text{m}^3 = \text{N} \cdot \text{m} = \text{Joule } (\text{J})
+\]
+\begin{commento}[Significato Fisico del Prodotto $p \cdot V$: Lavoro Meccanico ed Energia]
+Il prodotto della pressione per il volume possiede le stesse dimensioni fisiche di un'\textbf{energia} o di un \textbf{lavoro termodinamico}.\\
+Consideriamo infatti un pistone di sezione $A$ che subisce uno spostamento infinitesimo $\Delta s$ sotto l'azione della forza normale $F_{\perp} = p \cdot A$ esercitata dal gas. Il lavoro compiuto dal gas \`e dato da:
+\[
+L = F_{\perp} \cdot \Delta s = (p \cdot A) \cdot \Delta s = p \cdot (A \cdot \Delta s) = p \cdot \Delta V
+\]
+Di conseguenza, la costante universale $R$ rappresenta il lavoro compiuto da una mole di gas ideale quando la sua temperatura termodinamica aumenta di un Kelvin:
+\[
+[R] = \frac{[p \cdot V]}{[n] \cdot [T]} = \frac{\text{J}}{\text{mol} \cdot \text{K}}
+\]
+\end{commento}
+
+\section{Valori della Costante Universale $R$ e Volume Molare Standard (STP)}
+
+Il valore numerico di $R$ dipende dalle unit\`a di misura prescelte per pressione e volume:
+
+\begin{enumerate}
+  \item \textbf{Nel Sistema Internazionale (SI):}\\
+  Adottando la pressione in Pascal ($\text{Pa}$) e il volume in metri cubi ($\text{m}^3$):
+  \[
+  \bm{R = 8{,}31446\,\frac{\text{J}}{\text{mol}\cdot\text{K}} \approx 8{,}314\,\frac{\text{J}}{\text{mol}\cdot\text{K}} \approx 8{,}31\,\frac{\text{J}}{\text{mol}\cdot\text{K}}}
+  \]
+  
+  \item \textbf{Nelle Unit\`a Chimiche Pratiche ($\text{atm} \cdot \text{L}$):}\\
+  Esprimendo la pressione in atmosfere standard ($\text{atm}$) e il volume in litri ($\text{L} = \text{dm}^3$):
+  \[
+  \bm{R \approx 0{,}082057\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}} \approx 0{,}0821\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}}}
+  \]
+\end{enumerate}
+
+\begin{metodo}[Fattore di Conversione tra $\text{L}\cdot\text{atm}$ e Joule]
+Verifichiamo analiticamente la perfetta equivalenza tra i due valori numerici conoscendo i fattori di conversione:
+\[
+1\,\text{L} = 10^{-3}\,\text{m}^3, \qquad 1\,\text{atm} = 101\,325\,\text{Pa} = 101\,325\,\frac{\text{N}}{\text{m}^2}
+\]
+Moltiplicando le due grandezze:
+\[
+1\,\text{L}\cdot\text{atm} = (10^{-3}\,\text{m}^3) \cdot (101\,325\,\text{Pa}) = 101{,}325\,\text{Pa}\cdot\text{m}^3 = \mathbf{101{,}325\,\text{J}}
+\]
+Convertiamo il valore di $R$ espresso in litri-atmosfere nel Sistema Internazionale:
+\[
+R = 0{,}082057\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}} \cdot \left(101{,}325\,\frac{\text{J}}{\text{L}\cdot\text{atm}}\right) = \mathbf{8{,}3144\,\frac{\text{J}}{\text{mol}\cdot\text{K}}}
+\]
+La perfetta concordanza algebrica dimostra la consistenza dimensionale delle due formulazioni.
+\end{metodo}
+
+\begin{definizione}[Volume Molare Standard a STP (Condizioni Normali)]
+Si definiscono \textbf{Condizioni Normali di Temperatura e Pressione} (\textit{Standard Temperature and Pressure}, \textbf{STP}):
+\[
+T_0 = 0\,^\circ\text{C} = 273{,}15\,\text{K}, \qquad p_0 = 1\,\text{atm} = 101\,325\,\text{Pa}
+\]
+Applicando l'equazione di stato per una quantit\`a di sostanza pari a $n = 1{,}00\,\text{mol}$, ricaviamo il \textbf{volume molare standard} $V_0$:
+\[
+V_0 = \frac{n \cdot R \cdot T_0}{p_0} = \frac{1{,}00\,\text{mol} \cdot 0{,}082057\,\dfrac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}} \cdot 273{,}15\,\text{K}}{1{,}00\,\text{atm}} \approx \mathbf{22{,}414\,\text{L} \approx 22{,}4\,\text{L}}
+\]
+Nel Sistema Internazionale:
+\[
+V_0 = \frac{1{,}00\,\text{mol} \cdot 8{,}3145\,\dfrac{\text{J}}{\text{mol}\cdot\text{K}} \cdot 273{,}15\,\text{K}}{101\,325\,\text{Pa}} \approx 0{,}022414\,\text{m}^3 = 22{,}414\,\text{dm}^3 = \mathbf{22{,}4\,\text{L}}
+\]
+Una mole di qualunque gas a condizioni STP occupa esattamente un volume di $22{,}4\,\text{litri}$.
+\end{definizione}
+
+\section{Derivazione Teorica Unificata delle Tre Leggi Empiriche}
+
+L'equazione di stato racchiude in s\'e, come casi particolari, le tre storiche leggi sperimentali dei gas ideali:
+
+\begin{enumerate}
+  \item \textbf{Trasformazione Isoterma ($T = \text{costante}$): Legge di Boyle}\\
+  Se la temperatura $T$ e la quantit\`a di gas $n$ non variano:
+  \[
+  p \cdot V = \underbrace{n \cdot R \cdot T}_{\text{costante}} \implies \bm{p \cdot V = \text{costante}} \iff p \propto \frac{1}{V}
+  \]
+  La pressione e il volume sono \textbf{inversamente proporzionali}. Nel piano di Clapeyron $(V, p)$, la trasformazione \`e descritta da un ramo di iperbole equilatera.
+
+  \item \textbf{Trasformazione Isobara ($p = \text{costante}$): Prima Legge di Gay-Lussac}\\
+  Mantenendo costante la pressione $p$:
+  \[
+  \frac{V}{T} = \underbrace{\frac{n \cdot R}{p}}_{\text{costante}} \implies \bm{\frac{V}{T} = \text{costante}} \iff V \propto T \quad (\text{con } T \text{ in Kelvin})
+  \]
+  Il volume e la temperatura assoluta Kelvin sono \textbf{direttamente proporzionali}. Nel piano $(T, V)$, la trasformazione \`e una semiretta passante per l'origine assoluta.
+
+  \item \textbf{Trasformazione Isocora ($V = \text{costante}$): Seconda Legge di Gay-Lussac}\\
+  Mantenendo costante il volume $V$:
+  \[
+  \frac{p}{T} = \underbrace{\frac{n \cdot R}{V}}_{\text{costante}} \implies \bm{\frac{p}{T} = \text{costante}} \iff p \propto T \quad (\text{con } T \text{ in Kelvin})
+  \]
+  La pressione e la temperatura assoluta Kelvin sono \textbf{direttamente proporzionali}. Nel piano $(T, p)$, la trasformazione \`e una semiretta passante per lo zero termodinamico.
+\end{enumerate}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.95]
+  % Grafico Boyle (p-V)
+  \begin{scope}[xshift=0cm]
+    \draw[->, thick] (0, 0) -- (4.2, 0) node[right, font=\footnotesize] {$V$};
+    \draw[->, thick] (0, 0) -- (0, 3.8) node[above, font=\footnotesize] {$p$};
+    \draw[very thick, primaryBlue, domain=0.8:3.8, samples=50] plot (\x, {2.5/\x});
+    \node[primaryBlue, font=\scriptsize\bfseries] at (3.2, 1.4) {$T = \text{cost}$};
+    \node[above, font=\small\sffamily\bfseries] at (2.0, 4.0) {Boyle ($T = \text{cost}$)};
+    \node[below, font=\scriptsize] at (2.1, -0.3) {$p \cdot V = nRT = \text{cost}$};
+  \end{scope}
+
+  % Grafico 1 Gay-Lussac (T-V)
+  \begin{scope}[xshift=5.2cm]
+    \draw[->, thick] (0, 0) -- (4.2, 0) node[right, font=\footnotesize] {$T\,(\text{K})$};
+    \draw[->, thick] (0, 0) -- (0, 3.8) node[above, font=\footnotesize] {$V$};
+    \draw[dashed, gray!70] (0, 0) -- (1.0, 0.8);
+    \draw[very thick, accentGreen] (1.0, 0.8) -- (3.8, 3.04);
+    \node[accentGreen, font=\scriptsize\bfseries] at (2.8, 1.7) {$p = \text{cost}$};
+    \node[above, font=\small\sffamily\bfseries] at (2.0, 4.0) {1ª Gay-Lussac ($p = \text{cost}$)};
+    \node[below, font=\scriptsize] at (2.1, -0.3) {$\frac{V}{T} = \frac{nR}{p} = \text{cost}$};
+  \end{scope}
+
+  % Grafico 2 Gay-Lussac (T-p)
+  \begin{scope}[xshift=10.4cm]
+    \draw[->, thick] (0, 0) -- (4.2, 0) node[right, font=\footnotesize] {$T\,(\text{K})$};
+    \draw[->, thick] (0, 0) -- (0, 3.8) node[above, font=\footnotesize] {$p$};
+    \draw[dashed, gray!70] (0, 0) -- (1.0, 0.7);
+    \draw[very thick, accentAmber] (1.0, 0.7) -- (3.8, 2.66);
+    \node[accentAmber, font=\scriptsize\bfseries] at (2.8, 1.4) {$V = \text{cost}$};
+    \node[above, font=\small\sffamily\bfseries] at (2.0, 4.0) {2ª Gay-Lussac ($V = \text{cost}$)};
+    \node[below, font=\scriptsize] at (2.1, -0.3) {$\frac{p}{T} = \frac{nR}{V} = \text{cost}$};
+  \end{scope}
+\end{tikzpicture}
+\caption{Confronto sintetico tra le tre leggi empiriche dei gas ideali ottenute per sezioni isonivele dell'equazione di stato $pV = nRT$.}
+\label{fig:confronto_tre_leggi}
+\end{figure}
+
+\begin{avviso}[Uso Corretto dell'Equazione di Stato nei Calcoli Numerici]
+Nell'applicazione dell'equazione $p \cdot V = n R T$ \`e necessario verificare tassativamente la coerenza delle unit\`a di misura:
+\begin{itemize}
+  \item Se si impiega $R = 8{,}314\,\text{J}/(\text{mol}\cdot\text{K})$, la pressione \textbf{deve} essere espressa in Pascal ($1\,\text{bar} = 10^5\,\text{Pa}$, $1\,\text{atm} = 101\,325\,\text{Pa}$) e il volume \textbf{deve} essere convertito in metri cubi ($1\,\text{L} = 10^{-3}\,\text{m}^3$);
+  \item Se si impiega $R = 0{,}0821\,\text{L}\cdot\text{atm}/(\text{mol}\cdot\text{K})$, la pressione deve essere in atmosfere e il volume in litri;
+  \item La temperatura $T$ \textbf{deve sempre e senza eccezioni} essere espressa in Kelvin ($T = t + 273{,}15$). L'inserimento diretto della temperatura centigrada $t\,(^\circ\text{C})$ rappresenta un gravissimo errore concettuale.
+\end{itemize}
+\end{avviso}
 
 \end{document}
