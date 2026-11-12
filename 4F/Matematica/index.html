@@ -870,10 +870,29 @@
           📥 Scarica Dispensa PDF
         </a>
         <a href="quaderno_prof.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FFFBEB; color: #92400E; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #FCD34D;">
-          📓 Scarica Quaderno del Prof (Note Manoscritte)
+          📓 Scarica Manoscritto PDF
+        </a>
+        <a href="#manoscritto-iframe-box" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FEF3C7; color: #78350F; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #F59E0B;">
+          📖 Sfoglia Manoscritto (Iframe)
         </a>
       </div>
     </header>
+
+    <!-- SEZIONE MANOSCRITTO PDF INTERATTIVO (IFRAME) -->
+    <div class="card" id="manoscritto-iframe-box" style="margin: 24px 0 32px; border: 2px solid #F59E0B; background: #FFFDF5; border-radius: 12px; padding: 18px; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.12);">
+      <div style="background: #FEF3C7; color: #92400E; padding: 12px 16px; border-radius: 8px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <span style="font-weight: 700; font-size: 1.05rem;">📖 Quaderno Autografo del Prof — Note Manoscritte Originali (Matematica 4F)</span>
+        <div style="display: flex; gap: 8px;">
+          <a href="quaderno_prof.pdf" target="_blank" style="padding: 6px 12px; font-size: 13px; background: #92400E; color: #FFF; border-radius: 6px; text-decoration: none; font-weight: 600;">↗ Schermo Intero</a>
+          <a href="quaderno_prof.pdf" download style="padding: 6px 12px; font-size: 13px; background: #FCD34D; color: #78350F; border-radius: 6px; text-decoration: none; font-weight: 600;">📥 Scarica PDF</a>
+        </div>
+      </div>
+      <div style="position: relative; width: 100%; height: 750px; border-radius: 8px; overflow: hidden; border: 1px solid #CBD5E1; background: #525659; box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);">
+        <iframe src="quaderno_prof.pdf#toolbar=1&navpanes=0" style="width: 100%; height: 100%; border: none;" title="Manoscritto PDF Matematica 4F">
+          <p style="color: #fff; padding: 20px; text-align: center;">Il tuo browser non supporta gli iframe PDF. <a href="quaderno_prof.pdf" target="_blank" style="color: #FCD34D; font-weight: 700;">Clicca qui per visualizzare il Manoscritto PDF</a>.</p>
+        </iframe>
+      </div>
+    </div>
 
     <!-- =======================================================================
          SEZIONE 1: Frontespizio & Quadro del Corso
