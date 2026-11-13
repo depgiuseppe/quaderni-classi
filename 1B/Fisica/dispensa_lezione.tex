@@ -1074,4 +1074,93 @@ Equazione iniziale assegnata:
 \end{enumerate}
 \end{metodo}
 
+% ==============================================================================
+% CAPITOLO: UNITÀ DI MISURA DERIVATE, VOLUME E ANALISI DIMENSIONALE (TAVOLA 14)
+% ==============================================================================
+\chapter{Unit\`a di Misura Derivate, Volume e Analisi Dimensionale Rigorosa}
+
+\section{La Misura del Volume: Il Litro, Equivalenze Geometriche e Densit\`a dell'Acqua}
+
+\begin{definizione}[Volume e Litro come Unit\`a di Capacit\`a (Tavola 14)]
+Nel Sistema Internazionale l'unit\`a di misura del volume \`e il \textbf{metro cubo} ($\mathrm{m}^3$). Per i fluidi e i liquidi si adotta comunemente l'\textbf{unit\`a di capacit\`a}: il \textbf{litro} ($\mathrm{L}$).
+L'equivalenza fondamentale che raccorda le unit\`a di volume con la capacit\`a \`e:
+\begin{equation}
+    \mathbf{1\,\mathrm{dm}^3 = 1\,\mathrm{L}}
+\end{equation}
+ovvero: un litro corrisponde esattamente allo spazio occupato da un cubo avente il lato di un decimetro ($10\,\mathrm{cm}$).
+\end{definizione}
+
+\begin{metodo}[Scala delle Equivalenze: Volumi Cubici e Capacit\`a in Litri]
+Poich\'e le unit\`a volumetriche scalano secondo il cubo dei prefissi lineari ($10^3 = 1000$):
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ccccccc}
+$\mathbf{m^3}$ & $\longleftrightarrow$ & $\mathbf{dm^3}$ & $\longleftrightarrow$ & $\mathbf{cm^3}$ & $\longleftrightarrow$ & $\mathbf{mm^3}$ \\
+$\parallel$ & & $\parallel$ & & $\parallel$ & & \\
+$\mathrm{kL}$ & $\mathrm{hL}\quad\mathrm{daL}$ & $\mathbf{L}$ & $\mathrm{dL}\quad\mathrm{cL}$ & $\mathbf{mL}$ & & \\
+\end{tabular}
+\end{center}
+In particolare:
+\begin{itemize}[leftmargin=2em]
+    \item $1\,\mathrm{m}^3 = 1000\,\mathrm{dm}^3 = 1000\,\mathrm{L} = 1\,\mathrm{kL}$ (un metro cubo equivale a mille litri).
+    \item $1\,\mathrm{dm}^3 = 1\,\mathrm{L} = 1000\,\mathrm{mL} = 1000\,\mathrm{cm}^3 \implies \mathbf{1\,\mathrm{cm}^3 = 1\,\mathrm{mL}}$.
+\end{itemize}
+\end{metodo}
+
+\begin{commento}[La Densit\`a dell'Acqua Distillata e la Coerenza delle Unit\`a di Misura]
+La densit\`a dell'acqua pura a temperatura di $4\,^\circ\mathrm{C}$ \`e convenzionalmente pari a $1000\,\mathrm{kg/m^3}$:
+\begin{equation}
+    d_{\mathrm{acqua}} = 1000\,\frac{\mathrm{kg}}{\mathrm{m}^3} = \frac{1000\,\mathrm{kg}}{1000\,\mathrm{dm}^3} = 1\,\frac{\mathrm{kg}}{\mathrm{dm}^3} = \mathbf{1\,\frac{\mathrm{kg}}{\mathrm{L}}}
+\end{equation}
+Un litro d'acqua pura possiede esattamente la massa di un chilogrammo!
+\end{commento}
+
+\section{Il Metodo dell'Analisi Dimensionale e Verifica di Congruenza delle Equazioni}
+
+\begin{definizione}[Analisi Dimensionale di un'Equazione Fisica (Tavola 14)]
+L'\textbf{analisi dimensionale} di un'equazione in cui compaiono delle grandezze fisiche consiste nel \textbf{verificare la congruenza delle unit\`a di misura in cui sono espressi i suoi due membri}.\\
+\textbf{Regola aurea:} \textit{Le dimensioni fisiche e le unit\`a di misura del primo membro devono essere identiche a quelle del secondo membro.}
+\end{definizione}
+
+\begin{metodo}[Verifica Comparativa della Formula del Volume: $V = m \cdot d$ vs $V = \frac{m}{d}$]
+Siano date la massa $m$ ($[M] = \mathrm{kg}$) e la densit\`a $d = \frac{m}{V}$ $\left(\left[\frac{M}{L^3}\right] = \frac{\mathrm{kg}}{\mathrm{m}^3}\right)$. Vogliamo ricavare la formula per il volume $V$ ($[L^3] = \mathrm{m}^3$).
+
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Test dell'ipotesi errata $V = m \cdot d$:}
+    \begin{align}
+        1^\circ\text{ Membro: } & [V] = [\mathrm{m}^3] = [L^3] \\
+        2^\circ\text{ Membro: } & [m \cdot d] = [\mathrm{kg}] \cdot \left[\frac{\mathrm{kg}}{\mathrm{m}^3}\right] = \left[M \cdot \frac{M}{L^3}\right] = \left[\frac{M^2}{L^3}\right] = \left[\frac{\mathrm{kg}^2}{\mathrm{m}^3}\right]
+    \end{align}
+    Poich\'e $[L^3] \neq \left[\frac{M^2}{L^3}\right]$, l'uguaglianza \`e \textbf{dimensionalmente falsa} ($\text{\textcolor{accentRed}{\textbf{ERRORE!}}}$). Moltiplicare la massa per la densit\`a non produce un volume!
+    
+    \item \textbf{Test della formula corretta $V = \frac{m}{d}$:}
+    \begin{align}
+        1^\circ\text{ Membro: } & [V] = [\mathrm{m}^3] = [L^3] \\
+        2^\circ\text{ Membro: } & \left[\frac{m}{d}\right] = \left[\frac{\mathrm{kg}}{\frac{\mathrm{kg}}{\mathrm{m}^3}}\right] = \left[\frac{\mathrm{kg}}{1} \cdot \frac{\mathrm{m}^3}{\mathrm{kg}}\right] = [\mathrm{m}^3] = [L^3]
+    \end{align}
+    Poich\'e $[L^3] = [L^3]$, la congruenza dimensionale \`e \textbf{perfettamente verificata} ($\text{\textcolor{accentGreen}{\textbf{CORRETTO!}}}$).
+\end{enumerate}
+\end{metodo}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+    \draw[line width=1.2pt, accentRed, fill=accentRed!5!white, rounded corners=6pt] (-5.5, -2) rectangle (-0.5, 2);
+    \node at (-3, 1.5) [font=\bfseries\sffamily, color=accentRed] {Ipotesi Errata: $V = m \cdot d$};
+    \node at (-3, 0.7) [font=\small] {$1^\circ$ Membro: $[V] = \mathrm{m}^3 = [L^3]$};
+    \node at (-3, 0.0) [font=\small] {$2^\circ$ Membro: $[m \cdot d] = \mathrm{kg} \cdot \frac{\mathrm{kg}}{\mathrm{m}^3} = \frac{\mathrm{kg}^2}{\mathrm{m}^3}$};
+    \node at (-3, -0.7) [font=\small\bfseries, color=accentRed] {$[L^3] \neq \left[\frac{M^2}{L^3}\right]$};
+    \node at (-3, -1.4) [font=\Large\bfseries, color=accentRed] {\textbf{INCONGRUENTE \texttimes}};
+
+    \draw[line width=1.2pt, accentGreen, fill=accentGreen!5!white, rounded corners=6pt] (0.5, -2) rectangle (5.5, 2);
+    \node at (3, 1.5) [font=\bfseries\sffamily, color=accentGreen] {Formula Corretta: $V = \frac{m}{d}$};
+    \node at (3, 0.7) [font=\small] {$1^\circ$ Membro: $[V] = \mathrm{m}^3 = [L^3]$};
+    \node at (3, 0.0) [font=\small] {$2^\circ$ Membro: $\left[\frac{m}{d}\right] = \frac{\mathrm{kg}}{\mathrm{kg}/\mathrm{m}^3} = \mathrm{m}^3$};
+    \node at (3, -0.7) [font=\small\bfseries, color=accentGreen] {$[L^3] = [L^3]$};
+    \node at (3, -1.4) [font=\Large\bfseries, color=accentGreen] {\textbf{CONGRUENTE \checkmark}};
+\end{tikzpicture}
+\caption{Quadro comparativo dell'analisi dimensionale (Tavola 14 del quaderno): verifica della coerenza delle unit\`a di misura tra l'errata moltiplicazione $V = m \cdot d$ e la corretta divisione $V = \frac{m}{d}$.}
+\label{fig:analisi_dimensionale_volume}
+\end{figure}
+
 \end{document}

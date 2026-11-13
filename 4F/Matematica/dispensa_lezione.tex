@@ -2175,6 +2175,355 @@ La retta $y = x$ forma con il semiasse positivo delle ascisse un angolo fondamen
 \label{fig:simmetria_bisettrice_complementari}
 \end{figure}
 
+\newpage
+
+% ==============================================================================
+% SEZIONE: IL RECIPROCO DI UNA FUNZIONE E STUDIO DELLA RETTA (PAGINA 32)
+% ==============================================================================
+\section{Il Reciproco di una Funzione e lo Studio della Retta (Pagina 32)}
+
+\begin{definizione}[Reciproco di una Funzione Reale]
+Data una funzione reale di variabile reale $y = f(x)$, si definisce \textbf{funzione reciproca} (o semplicemente \textbf{reciproco} della funzione) la funzione $y'$ ottenuta calcolando l'inverso moltiplicativo di ogni sua ordinata non nulla:
+\begin{equation}
+    y' = \frac{1}{y} = \frac{1}{f(x)}
+\end{equation}
+Il dominio naturale di $y'$ \`e dato da tutti i punti del dominio di $f$ in cui la funzione originaria non si annulla:
+\begin{equation}
+    \mathrm{dom}(y') = \{x \in \mathrm{dom}(f) \mid f(x) \neq 0\}
+\end{equation}
+\end{definizione}
+
+\begin{metodo}[Le 5 Regole Fondamentali per il Tracciamento Grafico del Reciproco]
+Per dedurre direttamente il grafico della curva reciproca $y' = \frac{1}{f(x)}$ a partire dal grafico noto di $y = f(x)$, si applicano le seguenti regole analitiche:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Conservazione del Segno:} La funzione reciproca possiede esattamente lo stesso segno della funzione originaria:
+    \begin{equation}
+        f(x) > 0 \iff \frac{1}{f(x)} > 0, \qquad f(x) < 0 \iff \frac{1}{f(x)} < 0
+    \end{equation}
+    Se $f(x)$ giace nel semipiano superiore ($y > 0$), anche $y'$ giace sopra l'asse delle ascisse; se giace sotto ($y < 0$), anche il reciproco permane sotto l'asse $x$.
+    
+    \item \textbf{Comportamento Opposto (Inversione di Monotonia):} Negli intervalli in cui $f(x)$ \`e strettamente crescente, il reciproco $\frac{1}{f(x)}$ \`e strettamente decrescente, e viceversa:
+    \begin{equation}
+        f(x_1) < f(x_2) \iff \frac{1}{f(x_1)} > \frac{1}{f(x_2)} \quad (\text{a parit\`a di segno})
+    \end{equation}
+    
+    \item \textbf{Punti Fissi della Trasformazione ($y = 1$ e $y = -1$):} I punti in cui la funzione originaria interseca le rette orizzontali $y = 1$ o $y = -1$ restano invariati, poich\'e:
+    \begin{equation}
+        \frac{1}{1} = 1, \qquad \frac{1}{-1} = -1
+    \end{equation}
+    Nel piano cartesiano, tali punti rappresentano le intersezioni tra la curva originaria e il suo reciproco.
+    
+    \item \textbf{Zeri della Funzione e Asintoti Verticali ($y = 0$):} Nei punti $x_0$ in cui la funzione originaria tocca o taglia l'asse $x$ ($f(x_0) = 0$), il reciproco non esiste in quanto la divisione per zero \`e impossibile ($\frac{1}{0}$ privo di senso). In corrispondenza di tali punti si generano \textbf{asintoti verticali} di equazione $x = x_0$.
+    
+    \item \textbf{Comportamento Asintotico agli Estremi:}
+    \begin{itemize}
+        \item Quando $f(x)$ si avvicina a $0$ ($f(x) \to 0^{\pm}$), il reciproco esplode in modulo ($y' \to \pm\infty$), addossandosi all'asintoto verticale.
+        \item Quando $f(x)$ cresce indefinitamente in modulo ($f(x) \to \pm\infty$), il reciproco si schiaccia progressivamente verso lo zero ($y' \to 0^{\pm}$), facendo dell'asse $x$ ($y = 0$) un \textbf{asintoto orizzontale}.
+    \end{itemize}
+\end{enumerate}
+\end{metodo}
+
+\subsection*{Caso di Studio: Il Reciproco della Retta $y = 2x$}
+Consideriamo la retta passante per l'origine $y = 2x$. Il suo reciproco \`e l'iperbole equilatera:
+\begin{equation}
+    y' = \frac{1}{2x}
+\end{equation}
+Costruiamo la tabella comparativa dei punti come riportato nella tavola 32 del docente:
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|l|}
+\hline
+\textbf{$x$} & \textbf{$y = 2x$} & \textbf{$y' = \frac{1}{2x}$} & \textbf{Caratteristica Geometrica} \\
+\hline
+$3$ & $6$ & $\frac{1}{6}$ & Ramo asintotico verso l'asse $x$ \\
+$2$ & $4$ & $\frac{1}{4}$ & Schiacciamento verso $y = 0$ \\
+$1$ & $2$ & $\frac{1}{2}$ & Ramo decrescente nel I quadrante \\
+$\frac{1}{2}$ & $\mathbf{1}$ & $\mathbf{1}$ & \textbf{Punto Fisso} $\left(\frac{1}{2}, \, 1\right)$ di intersezione \\
+$\frac{1}{4}$ & $\frac{1}{2}$ & $2$ & Crescita verso l'asintoto verticale \\
+$0$ & $\mathbf{0}$ & $\bm{\not\exists}$ & \textbf{Asintoto Verticale} $x = 0$ (asse $y$) \\
+$-\frac{1}{4}$ & $-\frac{1}{2}$ & $-2$ & Discesa asintotica a $-\infty$ \\
+$-\frac{1}{2}$ & $\mathbf{-1}$ & $\mathbf{-1}$ & \textbf{Punto Fisso} $\left(-\frac{1}{2}, \, -1\right)$ di intersezione \\
+$-1$ & $-2$ & $-\frac{1}{2}$ & Ramo decrescente nel III quadrante \\
+$-2$ & $-4$ & $-\frac{1}{4}$ & Schiacciamento verso $y = 0$ \\
+$-3$ & $-6$ & $-\frac{1}{6}$ & Ramo asintotico a $0^-$ \\
+\hline
+\end{tabular}
+\caption{Tabella analitica dei valori cartesiani per la retta $y = 2x$ e la sua iperbole reciproca $y' = \frac{1}{2x}$ (Tavola 32).}
+\label{tab:valori_reciproco_retta}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.15]
+    % Griglia millimetrata
+    \draw[step=0.5cm, gray!20, very thin] (-4.5,-4.5) grid (4.5,4.5);
+    \draw[step=1cm, gray!35, thin] (-4.5,-4.5) grid (4.5,4.5);
+    
+    % Assi cartesiani
+    \draw[->, >=Latex, line width=1.1pt] (-4.5,0) -- (4.8,0) node[right, font=\small\bfseries] {$x$};
+    \draw[->, >=Latex, line width=1.1pt] (0,-4.5) -- (0,4.8) node[above, font=\small\bfseries] {$y$};
+    \node at (-0.25,-0.25) [font=\small] {$O$};
+    
+    % Tacche unità
+    \foreach \x in {-4,-3,-2,-1,1,2,3,4}
+        \draw (\x, 0.08) -- (\x, -0.08) node[below, font=\scriptsize] {$\x$};
+    \foreach \y in {-4,-3,-2,-1,1,2,3,4}
+        \draw (0.08, \y) -- (-0.08, \y) node[left, font=\scriptsize] {$\y$};
+        
+    % Asintoto verticale tratteggiato in rosso x = 0
+    \draw[line width=1.2pt, alertRed, dashed] (0, -4.5) -- (0, 4.5);
+    \node at (0.35, 4.3) [font=\scriptsize\bfseries, color=alertRed] {$x = 0$};
+    
+    % Linee di livello punti fissi y = 1 e y = -1
+    \draw[thin, dotted, gray!60] (-4.5, 1) -- (4.5, 1);
+    \draw[thin, dotted, gray!60] (-4.5, -1) -- (4.5, -1);
+    
+    % Retta y = 2x (in blu)
+    \draw[line width=1.4pt, primaryBlue] (-2.25, -4.5) -- (2.25, 4.5) node[above right, font=\small\bfseries, color=primaryBlue] {$y = 2x$};
+    
+    % Ramo positivo iperbole y' = 1/(2x) (in rosso)
+    \draw[line width=1.4pt, alertRed, samples=120, domain=0.11:4.5] plot (\x, {1/(2*\x)});
+    % Ramo negativo iperbole y' = 1/(2x)
+    \draw[line width=1.4pt, alertRed, samples=120, domain=-4.5:-0.11] plot (\x, {1/(2*\x)});
+    \node at (3.2, 0.7) [font=\small\bfseries, color=alertRed] {$y' = \dfrac{1}{2x}$};
+    
+    % Punti fissi evidenziati
+    \fill[primaryBlue!80!black] (0.5, 1) circle (2.5pt);
+    \fill[alertRed] (0.5, 1) circle (1.5pt);
+    \node at (1.1, 1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(\frac{1}{2},\, 1\right)$};
+    
+    \fill[primaryBlue!80!black] (-0.5, -1) circle (2.5pt);
+    \fill[alertRed] (-0.5, -1) circle (1.5pt);
+    \node at (-1.1, -1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(-\frac{1}{2},\, -1\right)$};
+    
+    % Punti campione dalla tabella
+    \fill[primaryBlue] (1, 2) circle (1.8pt);
+    \fill[alertRed] (1, 0.5) circle (1.8pt);
+    \draw[thin, dotted, gray!70] (1, 0) -- (1, 2);
+    
+    \fill[primaryBlue] (2, 4) circle (1.8pt);
+    \fill[alertRed] (2, 0.25) circle (1.8pt);
+    \draw[thin, dotted, gray!70] (2, 0) -- (2, 4);
+    
+    \fill[primaryBlue] (0.25, 0.5) circle (1.8pt);
+    \fill[alertRed] (0.25, 2) circle (1.8pt);
+    \draw[thin, dotted, gray!70] (0.25, 0) -- (0.25, 2);
+\end{tikzpicture}
+\caption{Rappresentazione cartesiana comparativa del reciproco di una retta (Tavola 32): la retta $y = 2x$ (blu) e la sua curva reciproca $y' = \frac{1}{2x}$ (rosso). Sono evidenziati i punti fissi di intersezione in $\left(\pm\frac{1}{2}, \, \pm 1\right)$, l'asintoto verticale tratteggiato in $x = 0$ generato dall'annullamento della retta originaria, e l'asintoto orizzontale $y = 0$.}
+\label{fig:reciproco_retta_iperbole}
+\end{figure}
+
+\newpage
+
+% ==============================================================================
+% SEZIONE: LE FUNZIONI GONIOMETRICHE RECIPROCHE: SECANTE E COSECANTE (PAGINA 33)
+% ==============================================================================
+\section{Le Funzioni Goniometriche Reciproche: Secante e Cosecante (Pagina 33)}
+
+Applicando i principi generali del reciproco di una funzione alle funzioni goniometriche elementari $\cos\alpha$ e $\sin\alpha$, si ottengono due funzioni fondamentali dell'analisi trigonometrica: la \textbf{secante} e la \textbf{cosecante}.
+
+\begin{definizione}[Funzione Secante]
+Si definisce \textbf{secante} di un angolo $\alpha$ la funzione reciproca del coseno:
+\begin{equation}
+    \sec\alpha = \frac{1}{\cos\alpha}
+\end{equation}
+Propriet\`a analitiche fondamentali:
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Dominio:} Richiede $\cos\alpha \neq 0$, pertanto l'angolo non pu\`o assumere i valori in cui il raggio vettore \`e verticale:
+    \begin{equation}
+        \alpha \neq \frac{\pi}{2} + k\pi, \quad k \in \mathbb{Z}
+    \end{equation}
+    \item \textbf{Insieme Immagine (Codominio):} Poich\'e $-1 \le \cos\alpha \le 1$ con $\cos\alpha \neq 0$, il reciproco assume valori esterni all'intervallo $(-1, 1)$:
+    \begin{equation}
+        \sec\alpha \in (-\infty, -1] \cup [1, +\infty)
+    \end{equation}
+    \item \textbf{Periodo:} Il periodo \`e $T = 2\pi$, ereditato dal coseno.
+    \item \textbf{Parit\`a:} La secante \`e una funzione \textbf{pari}, il cui grafico \`e simmetrico rispetto all'asse delle ordinate:
+    \begin{equation}
+        \sec(-\alpha) = \frac{1}{\cos(-\alpha)} = \frac{1}{\cos\alpha} = \sec\alpha
+    \end{equation}
+\end{itemize}
+\end{definizione}
+
+\begin{definizione}[Funzione Cosecante]
+Si definisce \textbf{cosecante} di un angolo $\alpha$ la funzione reciproca del seno:
+\begin{equation}
+    \csc\alpha = \frac{1}{\sin\alpha}
+\end{equation}
+Propriet\`a analitiche fondamentali:
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Dominio:} Richiede $\sin\alpha \neq 0$, pertanto l'angolo non pu\`o essere un multiplo intero di $\pi$:
+    \begin{equation}
+        \alpha \neq k\pi, \quad k \in \mathbb{Z}
+    \end{equation}
+    \item \textbf{Insieme Immagine (Codominio):} Essendo $-1 \le \sin\alpha \le 1$, per la funzione reciproca vale:
+    \begin{equation}
+        \csc\alpha \in (-\infty, -1] \cup [1, +\infty)
+    \end{equation}
+    \item \textbf{Periodo:} Il periodo \`e $T = 2\pi$.
+    \item \textbf{Disparit\`a:} La cosecante \`e una funzione \textbf{dispari}, il cui grafico \`e simmetrico rispetto all'origine degli assi $O$:
+    \begin{equation}
+        \csc(-\alpha) = \frac{1}{\sin(-\alpha)} = \frac{1}{-\sin\alpha} = -\csc\alpha
+    \end{equation}
+\end{itemize}
+\end{definizione}
+
+\subsection*{Costruzione Geometrica sulla Circonferenza Goniometrica}
+Sulla circonferenza unitaria, la secante e la cosecante ammettono una visualizzazione geometrica diretta tramite la \textbf{retta tangente alla circonferenza nel punto $P(\cos\alpha, \sin\alpha)$}:
+\begin{itemize}[leftmargin=2em]
+    \item La retta tangente in $P$ interseca l'asse delle ascisse nel punto $S(\sec\alpha, \, 0)$. La lunghezza orientata del segmento $OS$ rappresenta esattamente $\sec\alpha$.
+    \item La stessa retta tangente interseca l'asse delle ordinate nel punto $C(0, \, \csc\alpha)$. La lunghezza orientata del segmento $OC$ rappresenta $\csc\alpha$.
+\end{itemize}
+Ci\`o discende direttamente dalla similitudine dei triangoli rettangoli formati dalle proiezioni del raggio vettore con gli assi cartesiani.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=2.2]
+    % Assi cartesiani
+    \draw[->, >=Latex, line width=0.9pt] (-1.4, 0) -- (2.3, 0) node[right, font=\small\bfseries] {$x$};
+    \draw[->, >=Latex, line width=0.9pt] (0, -1.4) -- (0, 2.5) node[above, font=\small\bfseries] {$y$};
+    \node at (-0.12, -0.12) [font=\small] {$O$};
+    
+    % Circonferenza goniometrica (R = 1)
+    \draw[line width=1.1pt, black] (0,0) circle (1.2);
+    
+    % Angolo alpha = 35 gradi
+    \coordinate (P) at ({1.2*cos(35)}, {1.2*sin(35)});
+    \draw[line width=1.2pt, primaryBlue] (0,0) -- (P);
+    
+    % Retta tangente in P alla circonferenza
+    % Il vettore perpendicolare al raggio OP è (-sin(35), cos(35))
+    % L'intersezione con l'asse x è a x = 1.2 / cos(35)
+    % L'intersezione con l'asse y è a y = 1.2 / sin(35)
+    \coordinate (S) at ({1.2/cos(35)}, 0);
+    \coordinate (C) at (0, {1.2/sin(35)});
+    
+    % Tracciamento retta tangente
+    \draw[line width=1.3pt, alertRed] ($(P)!-0.35!(S)$) -- ($(P)!1.1!(C)$);
+    
+    % Segmenti secante e cosecante sugli assi
+    \draw[line width=1.8pt, primaryBlue] (0,0) -- (S);
+    \draw[line width=1.8pt, formulaGreen] (0,0) -- (C);
+    
+    % Proiezioni del punto P
+    \draw[thin, dotted, gray!70] ({1.2*cos(35)}, 0) -- (P) -- (0, {1.2*sin(35)});
+    
+    % Punti notevoli
+    \fill[black] (P) circle (1.8pt) node[above right, font=\small\bfseries] {$P(\cos\alpha, \, \sin\alpha)$};
+    \fill[primaryBlue] (S) circle (2pt) node[below right, font=\small\bfseries, color=primaryBlue] {$S(\sec\alpha, \, 0)$};
+    \fill[formulaGreen] (C) circle (2pt) node[above left, font=\small\bfseries, color=formulaGreen] {$C(0, \, \csc\alpha)$};
+    
+    % Archetto angolo alpha
+    \draw[line width=0.8pt, primaryBlue, ->] (0.35, 0) arc (0:35:0.35);
+    \node at (0.45, 0.12) [font=\footnotesize\bfseries, color=primaryBlue] {$\alpha$};
+    
+    % Etichette segmenti
+    \node at ({0.5*1.2/cos(35)}, -0.15) [font=\small\bfseries, color=primaryBlue] {$\sec\alpha$};
+    \node at (-0.22, {0.5*1.2/sin(35)}) [font=\small\bfseries, color=formulaGreen] {$\csc\alpha$};
+    \node at ({1.2*cos(35)}, -0.12) [font=\footnotesize] {$\cos\alpha$};
+    \node at (-0.18, {1.2*sin(35)}) [font=\footnotesize] {$\sin\alpha$};
+    
+    % Simbolo angolo retto in P tra raggio e retta tangente
+    \draw[thin, gray!70] ($(P)!6pt!(0,0)$) -- ($($(P)!6pt!(0,0)$) + ($(P)!6pt!(S)$) - (P)$) -- ($(P)!6pt!(S)$);
+\end{tikzpicture}
+\caption{Interpretazione geometrica di secante e cosecante sulla circonferenza unitaria (Tavola 33): la retta tangente alla circonferenza nel punto $P(\cos\alpha, \sin\alpha)$ interseca l'asse $x$ nel punto $S$ a distanza $\sec\alpha = \frac{1}{\cos\alpha}$ dall'origine, e l'asse $y$ nel punto $C$ a ordinata $\csc\alpha = \frac{1}{\sin\alpha}$.}
+\label{fig:circonferenza_secante_cosecante}
+\end{figure}
+
+\subsection*{Rappresentazione Grafica di Secante e Cosecante nel Piano Cartesiano}
+Nei grafici cartesiani seguenti, le curve di $\sec\alpha$ e $\csc\alpha$ sono tracciate sovrapposte rispettivamente a $\cos\alpha$ e $\sin\alpha$, evidenziando l'inversione delle cuspidi/vertici in $y = \pm 1$ e gli asintoti verticali:
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.95]
+    % Assi
+    \draw[->, >=Latex, line width=0.9pt] (-3.8, 0) -- (4.2, 0) node[right, font=\scriptsize\bfseries] {$\alpha$};
+    \draw[->, >=Latex, line width=0.9pt] (0, -3.2) -- (0, 3.5) node[above, font=\scriptsize\bfseries] {$y$};
+    
+    % Asintoti verticali secante a +/- pi/2 e +/- 3pi/2
+    \foreach \x in {-1.5*pi, -0.5*pi, 0.5*pi, 1.5*pi} {
+        \draw[thin, alertRed, dashed] (\x, -3.2) -- (\x, 3.5);
+    }
+    
+    % Linee di livello y = 1 e y = -1
+    \draw[thin, dotted, gray!60] (-3.8, 1) -- (4, 1);
+    \draw[thin, dotted, gray!60] (-3.8, -1) -- (4, -1);
+    
+    % Tacche asse x
+    \node at (0.5*pi, -0.28) [font=\tiny] {$\frac{\pi}{2}$};
+    \node at (pi, -0.28) [font=\tiny] {$\pi$};
+    \node at (1.5*pi, -0.28) [font=\tiny] {$\frac{3\pi}{2}$};
+    \node at (-0.5*pi, -0.28) [font=\tiny] {$-\frac{\pi}{2}$};
+    \node at (-pi, -0.28) [font=\tiny] {$-\pi$};
+    \node at (-1.5*pi, -0.28) [font=\tiny] {$-\frac{3\pi}{2}$};
+    
+    % Funzione cos(alpha) in rosso
+    \draw[line width=1.1pt, alertRed, samples=80, domain=-3.8:4.0] plot (\x, {cos(\x r)});
+    \node at (3.8, 1.2) [font=\tiny\bfseries, color=alertRed] {$\cos\alpha$};
+    
+    % Rami di sec(alpha) in nero spesso
+    % Ramo centrale (-pi/2, pi/2)
+    \draw[line width=1.3pt, black, samples=60, domain=-1.35:1.35] plot (\x, {1/cos(\x r)});
+    % Ramo destro (pi/2, 3pi/2)
+    \draw[line width=1.3pt, black, samples=60, domain=1.78:2.95] plot (\x, {1/cos(\x r)});
+    \draw[line width=1.3pt, black, samples=60, domain=3.35:4.0] plot (\x, {1/cos(\x r)});
+    % Ramo sinistro (-3pi/2, -pi/2)
+    \draw[line width=1.3pt, black, samples=60, domain=-2.95:-1.78] plot (\x, {1/cos(\x r)});
+    \draw[line width=1.3pt, black, samples=60, domain=-4.0:-3.35] plot (\x, {1/cos(\x r)});
+    
+    \node at (0, 3.2) [font=\scriptsize\bfseries] {$\sec\alpha = \frac{1}{\cos\alpha}$};
+\end{tikzpicture}
+\caption*{Grafico di $\sec\alpha$ sovrapposto a $\cos\alpha$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.95]
+    % Assi
+    \draw[->, >=Latex, line width=0.9pt] (-3.8, 0) -- (4.2, 0) node[right, font=\scriptsize\bfseries] {$\alpha$};
+    \draw[->, >=Latex, line width=0.9pt] (0, -3.2) -- (0, 3.5) node[above, font=\scriptsize\bfseries] {$y$};
+    
+    % Asintoti verticali cosecante a 0, +/- pi, +/- 2pi
+    \foreach \x in {-pi, 0, pi} {
+        \draw[thin, alertRed, dashed] (\x, -3.2) -- (\x, 3.5);
+    }
+    
+    % Linee di livello y = 1 e y = -1
+    \draw[thin, dotted, gray!60] (-3.8, 1) -- (4, 1);
+    \draw[thin, dotted, gray!60] (-3.8, -1) -- (4, -1);
+    
+    % Tacche asse x
+    \node at (0.5*pi, -0.28) [font=\tiny] {$\frac{\pi}{2}$};
+    \node at (pi, -0.28) [font=\tiny] {$\pi$};
+    \node at (-0.5*pi, -0.28) [font=\tiny] {$-\frac{\pi}{2}$};
+    \node at (-pi, -0.28) [font=\tiny] {$-\pi$};
+    
+    % Funzione sin(alpha) in rosso
+    \draw[line width=1.1pt, alertRed, samples=80, domain=-3.8:4.0] plot (\x, {sin(\x r)});
+    \node at (3.8, 0.4) [font=\tiny\bfseries, color=alertRed] {$\sin\alpha$};
+    
+    % Rami di csc(alpha) in nero spesso
+    % Ramo (0, pi)
+    \draw[line width=1.3pt, black, samples=60, domain=0.35:2.8] plot (\x, {1/sin(\x r)});
+    % Ramo (pi, 2pi)
+    \draw[line width=1.3pt, black, samples=60, domain=3.48:4.0] plot (\x, {1/sin(\x r)});
+    % Ramo (-pi, 0)
+    \draw[line width=1.3pt, black, samples=60, domain=-2.8:-0.35] plot (\x, {1/sin(\x r)});
+    % Ramo (-2pi, -pi)
+    \draw[line width=1.3pt, black, samples=60, domain=-4.0:-3.48] plot (\x, {1/sin(\x r)});
+    
+    \node at (1.5, 3.2) [font=\scriptsize\bfseries] {$\csc\alpha = \frac{1}{\sin\alpha}$};
+\end{tikzpicture}
+\caption*{Grafico di $\csc\alpha$ sovrapposto a $\sin\alpha$}
+\end{minipage}
+\caption{Grafici cartesiani delle funzioni reciproche $\sec\alpha$ e $\csc\alpha$ (Tavola 33). I vertici dei rami coincidono con i punti di massimo e minimo ($y = \pm 1$) delle funzioni sinusoidali, mentre gli zeri di $\cos\alpha$ e $\sin\alpha$ determinano gli asintoti verticali tratteggiati.}
+\label{fig:grafici_secante_cosecante}
+\end{figure}
 
 \newpage
 

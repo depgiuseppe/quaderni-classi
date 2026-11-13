@@ -1704,4 +1704,83 @@ Sostituendo direttamente:
 L'espressione si riduce elegantemente e rigorosamente alla sola funzione $\cos\alpha$.
 \end{esempio}
 
+% ==============================================================================
+% SEZIONE: IL RECIPROCO DI UNA FUNZIONE E REGOLE DI COSTRUZIONE GRAFICA (PAGINA 36)
+% ==============================================================================
+\section{Il Reciproco di una Funzione: Studio Analitico e Regole di Costruzione Grafica (Pagina 36)}
+
+\begin{definizione}[Funzione Reciproca]
+Data una funzione reale $y = f(x)$, si definisce \textbf{funzione reciproca} la funzione $y'$ ottenuta calcolando l'inverso moltiplicativo di ogni sua ordinata non nulla:
+\begin{equation}
+    y' = \frac{1}{y} = \frac{1}{f(x)}
+\end{equation}
+Essa \`e definita per tutti i valori di $x$ appartenenti al dominio di $f(x)$ per i quali $f(x) \neq 0$.
+\end{definizione}
+
+\begin{metodo}[Le 5 Regole Fondamentali per il Disegno del Reciproco (Tavola 36)]
+Per costruire con immediatezza il grafico della funzione reciproca a partire dal grafico noto di $y = f(x)$, si seguono i seguenti criteri analitico-geometrici:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Il Segno non Cambia:} Nei punti in cui la funzione originaria \`e positiva (sopra l'asse $x$), anche il suo reciproco sar\`a positivo. Dove $f(x)$ \`e negativa (sotto l'asse $x$), anche $\frac{1}{f(x)}$ rimarr\`a negativa:
+    \begin{equation}
+        \mathrm{sgn}\left(\frac{1}{f(x)}\right) = \mathrm{sgn}(f(x))
+    \end{equation}
+    
+    \item \textbf{Comportamento Opposto (Inversione di Monotonia):} Quando i valori di $y = f(x)$ aumentano (crescita), i valori del reciproco $y'$ diminuiscono (decrescita), e viceversa.
+    
+    \item \textbf{Punti Fissi della Trasformazione ($y = 1$ e $y = -1$):} I punti in cui la funzione originaria assume valore $1$ o $-1$ rimangono invariati nella funzione reciproca, poich\'e:
+    \begin{equation}
+        \frac{1}{1} = 1, \qquad \frac{1}{-1} = -1
+    \end{equation}
+    Nel piano cartesiano, essi rappresentano le \textbf{intersezioni esatte} tra la curva originaria e la curva reciproca.
+    
+    \item \textbf{Zeri e Asintoti Verticali ($y = 0$):} Nei punti in cui la funzione originaria tocca l'asse $x$ ($f(x) = 0$), il reciproco non esiste poich\'e la divisione per zero \`e impossibile ($\frac{1}{0}$ \`e priva di senso in $\mathbb{R}$). In corrispondenza di tali punti si genera un \textbf{asintoto verticale} (linea tratteggiata rossa).
+    
+    \item \textbf{Valori Estremi e Asintoti Orizzontali:}
+    \begin{itemize}
+        \item Se $y \to 0^{\pm}$, il reciproco esplode: $y' \to \pm\infty$ (avvicinamento asintotico verticale).
+        \item Se $y \to \pm\infty$, il reciproco tende a schiacciarsi a zero: $y' \to 0^{\pm}$, trasformando l'asse delle ascisse $y = 0$ in un \textbf{asintoto orizzontale}.
+    \end{itemize}
+\end{enumerate}
+\end{metodo}
+
+\subsection*{Applicazione Grafica: Retta $y = 2x$ e Iperbole Reciproca $y = \frac{1}{2x}$}
+Come esemplificato nel quaderno, applicando le regole alla retta $y = 2x$:
+\begin{itemize}
+    \item Lo zero $x = 0$ genera l'asintoto verticale $x = 0$ (l'asse $y$).
+    \item I punti fissi $2x = 1 \implies x = \frac{1}{2}$ e $2x = -1 \implies x = -\frac{1}{2}$ individuano le intersezioni in $\left(\frac{1}{2}, \, 1\right)$ e $\left(-\frac{1}{2}, \, -1\right)$.
+    \item Per $x \to \pm\infty$, la curva $y' = \frac{1}{2x}$ si schiaccia sull'asse orizzontale $y = 0$.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+    \draw[step=0.5cm, gray!20, very thin] (-4.2,-4.2) grid (4.2,4.2);
+    \draw[->, >=Latex, line width=1pt] (-4.2,0) -- (4.5,0) node[right, font=\small\bfseries] {$x$};
+    \draw[->, >=Latex, line width=1pt] (0,-4.2) -- (0,4.5) node[above, font=\small\bfseries] {$y$};
+    \node at (-0.2,-0.2) [font=\small] {$O$};
+    
+    % Asintoto verticale tratteggiato in rosso x = 0
+    \draw[line width=1.1pt, alertRed, dashed] (0, -4.2) -- (0, 4.2) node[above right, font=\scriptsize\bfseries, color=alertRed] {$x = 0$};
+    
+    % Retta y = 2x
+    \draw[line width=1.3pt, primaryBlue] (-2.1, -4.2) -- (2.1, 4.2) node[above right, font=\small\bfseries, color=primaryBlue] {$y = 2x$};
+    
+    % Iperbole reciproca y = 1/(2x)
+    \draw[line width=1.3pt, alertRed, samples=100, domain=0.12:4.2] plot (\x, {1/(2*\x)});
+    \draw[line width=1.3pt, alertRed, samples=100, domain=-4.2:-0.12] plot (\x, {1/(2*\x)});
+    \node at (3.2, 0.6) [font=\small\bfseries, color=alertRed] {$y' = \dfrac{1}{2x}$};
+    
+    % Punti fissi
+    \fill[primaryBlue] (0.5, 1) circle (2pt);
+    \fill[alertRed] (0.5, 1) circle (1.2pt);
+    \node at (1.0, 1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(\frac{1}{2}, \, 1\right)$};
+    
+    \fill[primaryBlue] (-0.5, -1) circle (2pt);
+    \fill[alertRed] (-0.5, -1) circle (1.2pt);
+    \node at (-1.0, -1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(-\frac{1}{2}, \, -1\right)$};
+\end{tikzpicture}
+\caption{Costruzione geometrica del reciproco di una retta (Tavola 36 del quaderno): la retta $y = 2x$ (blu) e l'iperbole reciproca $y' = \frac{1}{2x}$ (rosso) con punti fissi d'intersezione in $\left(\pm\frac{1}{2}, \, \pm 1\right)$ e asintoto verticale in $x = 0$.}
+\label{fig:reciproco_retta_4b}
+\end{figure}
+
 \end{document}

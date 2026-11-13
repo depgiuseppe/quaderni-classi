@@ -956,4 +956,91 @@ Zu Chongzhi (Mil\"u) & $\dfrac{355}{113}$ & $3{,}14159292\dots$ & $+2{,}67 \cdot
 \caption{Confronto analitico delle principali frazioni approssimanti razionali di $\pi$.}
 \end{table}
 
+% ==============================================================================
+% SEZIONI INTEGRATIVE: FRAZIONI CONTINUE DI PI GRECO E RADICE DI 2 (TAVOLE 5 E 6)
+% ==============================================================================
+\section{Lo Sviluppo in Frazione Continua di \texorpdfstring{$\pi$}{pi} e la Frazione di Zu Chongzhi (Tavola 5)}
+
+\begin{definizione}[Frazione Continua Semplice]
+Una \textbf{frazione continua semplice} \`e un'espressione matematica della forma:
+\begin{equation}
+    x = a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \dots}}}
+\end{equation}
+dove $a_0 \in \mathbb{Z}$ e $a_1, a_2, a_3, \dots$ sono interi positivi ($a_i \ge 1$), detti \textbf{quozienti parziali}. Troncare la frazione a un determinato livello produce una frazione razionale $\frac{p_k}{q_k}$, detta \textbf{convergente}, che costituisce la \textbf{migliore approssimazione razionale possibile} di $x$ rispetto a qualsiasi altra frazione avente denominatore non superiore a $q_k$.
+\end{definizione}
+
+\begin{laboratorio}[Sviluppo Algoritmico della Frazione Continua di $\pi$ (Tavola 5)]
+Come evidenziato negli appunti della Tavola 5, per il numero $\pi$ si ha:
+\begin{equation}
+    \pi = 3 + \cfrac{1}{7 + \cfrac{1}{16 + \dots}}
+\end{equation}
+Calcoliamo esplicitamente le convergenti razionali intermedie:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Troncamento al livello intermedio con denominatore 15:}
+    \begin{equation}
+    \begin{aligned}
+        3 + \cfrac{1}{7 + \dfrac{1}{15}} &= 3 + \cfrac{1}{\dfrac{105 + 1}{15}} = 3 + \frac{15}{106} \\
+        &= \frac{3 \cdot 106 + 15}{106} = \mathbf{\frac{333}{106}} \approx \mathbf{3{,}1415094\dots}
+    \end{aligned}
+    \end{equation}
+    
+    \item \textbf{Troncamento al quoziente autentico 16 (Frazione di Zu Chongzhi):}
+    \begin{equation}
+    \begin{aligned}
+        3 + \cfrac{1}{7 + \dfrac{1}{16}} &= 3 + \cfrac{1}{\dfrac{112 + 1}{16}} = 3 + \frac{16}{113} \\
+        &= \frac{3 \cdot 113 + 16}{113} = \mathbf{\boxed{\frac{355}{113}}}
+    \end{aligned}
+    \end{equation}
+    Il valore numerico di $\frac{355}{113}$ \`e:
+    \begin{equation}
+        \frac{355}{113} \approx \mathbf{3{,}14159292\dots}
+    \end{equation}
+    Confrontato con il valore reale $\pi = \mathbf{3{,}14159265\dots}$, l'errore \`e di appena $2{,}7 \cdot 10^{-7}$! Questa frazione garantisce ben sei cifre decimali esatte con un denominatore di appena tre cifre.
+\end{enumerate}
+\end{laboratorio}
+
+\section{Lo Sviluppo in Frazione Continua di \texorpdfstring{$\sqrt{2}$}{sqrt(2)} e la Periodicit\`a (Tavole 5 e 6)}
+
+\begin{laboratorio}[Algoritmo di Sviluppo per $\sqrt{2}$ dalle Tavole 5 e 6 del Docente]
+Consideriamo il numero irrazionale quadratico:
+\begin{equation}
+    \sqrt{2} = 1{,}41421356237\dots
+\end{equation}
+Isoliamo la parte intera e la parte decimale:
+\begin{equation}
+    \sqrt{2} = 1 + (\sqrt{2} - 1) = 1 + 0{,}4142135\dots
+\end{equation}
+Invertiamo la parte decimale:
+\begin{equation}
+    \frac{1}{0{,}4142135\dots} = \frac{1}{\sqrt{2} - 1} = \frac{\sqrt{2} + 1}{(\sqrt{2} - 1)(\sqrt{2} + 1)} = \sqrt{2} + 1 = 2{,}4142135\dots
+\end{equation}
+Procediamo iterativamente per ricavare i successivi convergenti razionali:
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{$1^\circ$ Ordine:} $\sqrt{2} \approx \mathbf{1}$
+    \item \textbf{$2^\circ$ Ordine:} $\sqrt{2} = 1 + \cfrac{1}{2{,}414\dots} \approx 1 + \frac{1}{2} = \mathbf{1{,}5} = \mathbf{\frac{3}{2}}$
+    \item \textbf{$3^\circ$ Ordine (Tavola 6):}
+    \begin{equation}
+        \sqrt{2} = 1 + \cfrac{1}{2 + \dfrac{1}{2{,}414\dots}} \approx 1 + \cfrac{1}{2 + \dfrac{1}{2}} = 1 + \cfrac{1}{\dfrac{5}{2}} = 1 + \frac{2}{5} = \frac{5 + 2}{5} = \mathbf{\boxed{\frac{7}{5}}} = \mathbf{1{,}4}
+    \end{equation}
+\end{itemize}
+\end{laboratorio}
+
+\begin{metodo}[La Frazione Continua Periodica Infinita di $\sqrt{2}$]
+Poich\'e ad ogni passo di inversione la parte decimale residua si ripete identicamente ($2{,}4142135\dots - 2 = 0{,}4142135\dots$), il quoziente parziale \`e perennemente pari a $2$.
+La frazione continua di $\sqrt{2}$ \`e quindi \textbf{periodica infinita}:
+\begin{equation}
+    \mathbf{\sqrt{2} = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \dots}}}}} = \bm{[1; \, \overline{2}]}
+\end{equation}
+\textbf{Dimostrazione Algebrica Elegante:}\\
+Posto $x = \sqrt{2} - 1$, si ha:
+\begin{align}
+    x + 1 = \sqrt{2} &\implies (x + 1)^2 = 2 \implies x^2 + 2x + 1 = 2 \\
+    &\implies x^2 + 2x = 1 \implies x(x + 2) = 1 \implies x = \frac{1}{2 + x}
+\end{align}
+Sostituendo iterativamente l'espressione $x = \frac{1}{2 + x}$ dentro se stessa:
+\begin{equation}
+    x = \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \dots}}} \implies \sqrt{2} = 1 + x = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \dots}}} \qedhere
+\end{equation}
+\end{metodo}
+
 \end{document}

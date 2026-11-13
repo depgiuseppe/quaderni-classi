@@ -503,6 +503,7 @@
     <a href="#divisibilita">6. Criteri di Divisibilità</a>
     <a href="#mcm-mcd">7. mcm & MCD</a>
     <a href="#pi-greco">8. Approssimazione di $\pi$</a>
+    <a href="#frazioni-continue">9. Frazioni Continue ($\pi$ & $\sqrt{2}$)</a>
   </nav>
 
   <div class="doc-container">
@@ -838,6 +839,138 @@
             <td>$3{,}14159265\dots$</td>
             <td>$0$</td>
             <td>0%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEZIONE 9: FRAZIONI CONTINUE (TAVOLE 5 & 6) -->
+    <h2 id="frazioni-continue">9. Sviluppo in Frazioni Continue: Algoritmo di Zu Chongzhi e Periodicità di $\sqrt{2}$</h2>
+    <p>
+      Nelle <strong>Tavole 5 e 6</strong> degli appunti del docente viene introdotto lo strumento analitico delle <strong>frazioni continue semplici</strong>. Questo formalismo permette di approssimare qualsiasi numero reale irrazionale mediante una successione di quozienti parziali interi positivi, garantendo la «migliore approssimazione razionale possibile» per ogni ordine di grandezza del denominatore.
+    </p>
+
+    <div class="card blue">
+      <div class="card-title" style="color: var(--col-blue);">Definizione Analitica di Frazione Continua Semplice</div>
+      <p>
+        Ogni numero reale positivo $x \in \mathbb{R}^+$ può essere espresso nella forma standard:
+      </p>
+      $$\displaystyle x = a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \dots}}} = [a_0; \, a_1, a_2, a_3, \dots]$$
+      <p style="margin-top: 8px;">
+        dove $a_0 = \lfloor x \rfloor \in \mathbb{N}_0$ rappresenta la parte intera e i termini $a_i \in \mathbb{N}^+$ ($i \ge 1$) sono i <em>quozienti parziali</em> ottenuti invertendo ricorsivamente la parte frazionaria.
+      </p>
+    </div>
+
+    <div class="card green">
+      <div class="card-title" style="color: var(--col-green);">1. Sviluppo Algoritmico per $\pi$ e Convergenti Razionali (Tavola 5)</div>
+      <p>
+        Dalla misura euclidea del cerchio $\pi = 3{,}1415926535\dots$, il docente ricava i passaggi dell'algoritmo di inversione della parte frazionaria:
+      </p>
+      <ol style="margin: 10px 0 10px 20px; line-height: 1.6;">
+        <li><strong>Troncamento di ordine zero:</strong> $a_0 = \lfloor \pi \rfloor = 3$. La parte decimale residua è $\pi - 3 \approx 0{,}14159265$.</li>
+        <li><strong>Primo quoziente parziale:</strong> Invertendo il residuo:
+          $$\frac{1}{0{,}14159265\dots} \approx 7{,}0625133\dots \implies a_1 = 7, \quad \text{con convergente Archimedeo } 3 + \frac{1}{7} = \mathbf{\frac{22}{7}} \approx 3{,}142857$$
+        </li>
+        <li><strong>Secondo quoziente parziale:</strong> Invertendo il residuo $0{,}0625133\dots$:
+          $$\frac{1}{0{,}0625133\dots} \approx 15{,}99659\dots \approx 16$$
+        </li>
+      </ol>
+      
+      <p style="font-weight: 600; margin-top: 12px;">Calcolo esplicito delle convergenti intermedie ed esatte dagli appunti:</p>
+      
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px; margin: 10px 0;">
+        <p style="margin: 0 0 6px 0; font-weight: 700; color: #1E293B;">A) Troncamento con denominatore intermedio 15 (Tavola 5):</p>
+        $$\displaystyle 3 + \cfrac{1}{7 + \dfrac{1}{15}} = 3 + \cfrac{1}{\dfrac{106}{15}} = 3 + \frac{15}{106} = \frac{3 \cdot 106 + 15}{106} = \mathbf{\frac{333}{106}} \approx \mathbf{3{,}1415094\dots}$$
+        <div style="font-size: 13.5px; color: #64748B;">Errore assoluto: $\varepsilon = |3{,}1415094 - \pi| \approx 8{,}3 \cdot 10^{-5}$ (precisione a 4 cifre decimali).</div>
+      </div>
+
+      <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 14px; margin: 10px 0;">
+        <p style="margin: 0 0 6px 0; font-weight: 700; color: #166534;">B) Troncamento al quoziente autentico 16 — Frazione di Zu Chongzhi (Tavola 5):</p>
+        $$\displaystyle 3 + \cfrac{1}{7 + \dfrac{1}{16}} = 3 + \cfrac{1}{\dfrac{113}{16}} = 3 + \frac{16}{113} = \frac{3 \cdot 113 + 16}{113} = \mathbf{\boxed{\frac{355}{113}}} \approx \mathbf{3{,}14159292\dots}$$
+        <div style="font-size: 13.5px; color: #15803D;">Errore assoluto: $\varepsilon = 2{,}67 \cdot 10^{-7}$! Con un denominatore di sole tre cifre ($113$) si ottengono ben <strong>6 cifre decimali esatte</strong> ($3{,}141592$).</div>
+      </div>
+    </div>
+
+    <div class="card purple">
+      <div class="card-title" style="color: var(--col-purple);">2. Sviluppo in Frazione Continua di $\sqrt{2}$ e Periodicità Infinita (Tavole 5 e 6)</div>
+      <p>
+        A differenza di $\pi$ (la cui frazione continua è aperiodica e caotica), i numeri irrazionali quadratici come $\sqrt{2}$ generano frazioni continue <strong>strettamente periodiche</strong>.
+      </p>
+      
+      <p style="margin-top: 8px;"><strong>Algoritmo ricorsivo del docente:</strong></p>
+      $$\sqrt{2} = 1 + (\sqrt{2} - 1) = 1 + 0{,}41421356\dots$$
+      Invertendo la parte decimale e razionalizzando il denominatore:
+      $$\frac{1}{\sqrt{2} - 1} = \frac{\sqrt{2} + 1}{(\sqrt{2} - 1)(\sqrt{2} + 1)} = \frac{\sqrt{2} + 1}{2 - 1} = \sqrt{2} + 1 = 2{,}41421356\dots$$
+      Sottraendo la nuova parte intera ($2$), il residuo decimale è di nuovo:
+      $$(\sqrt{2} + 1) - 2 = \sqrt{2} - 1$$
+      Poiché il residuo frazionario si riproduce identico a ogni passo, lo sviluppo è infinito e periodico:
+      $$\displaystyle \sqrt{2} = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \dots}}}} = [1; \, \overline{2}]$$
+
+      <div style="margin-top: 14px;">
+        <strong>Dimostrazione Algebrica Diretta (Tavola 6 degli Appunti):</strong>
+        <p>Posto $x = \sqrt{2} - 1$, si ha $x + 1 = \sqrt{2}$. Elevando ambo i membri al quadrato:</p>
+        $$(x + 1)^2 = 2 \implies x^2 + 2x + 1 = 2 \implies x^2 + 2x = 1$$
+        Raccogliendo $x$ a fattor comune a sinistra:
+        $$x(2 + x) = 1 \iff x = \frac{1}{2 + x}$$
+        Sostituendo iterativamente la definizione di $x$ dentro se stessa:
+        $$x = \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \dots}}} \implies \sqrt{2} = 1 + x = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \dots}}$$
+      </div>
+    </div>
+
+    <!-- Tabella riassuntiva convergenti sqrt(2) -->
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Ordine $k$</th>
+            <th>Formula Convergente $C_k$</th>
+            <th>Frazione $\frac{p}{q}$</th>
+            <th>Valore Decimale</th>
+            <th>Errore vs $\sqrt{2} \approx 1{,}41421356$</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$C_0$</td>
+            <td>$1$</td>
+            <td>$\frac{1}{1}$</td>
+            <td>$1{,}000000$</td>
+            <td>$-0{,}414214$</td>
+          </tr>
+          <tr>
+            <td>$C_1$</td>
+            <td>$1 + \frac{1}{2}$</td>
+            <td>$\frac{3}{2}$</td>
+            <td>$1{,}500000$</td>
+            <td>$+0{,}085786$</td>
+          </tr>
+          <tr>
+            <td>$C_2$</td>
+            <td>$1 + \frac{1}{2 + \frac{1}{2}} = 1 + \frac{2}{5}$</td>
+            <td>$\frac{7}{5}$</td>
+            <td>$1{,}400000$</td>
+            <td>$-0{,}014214$</td>
+          </tr>
+          <tr>
+            <td>$C_3$</td>
+            <td>$1 + \frac{1}{2 + \frac{2}{5}} = 1 + \frac{5}{12}$</td>
+            <td>$\frac{17}{12}$</td>
+            <td>$1{,}416667$</td>
+            <td>$+0{,}002453$</td>
+          </tr>
+          <tr>
+            <td>$C_4$</td>
+            <td>$1 + \frac{1}{2 + \frac{5}{12}} = 1 + \frac{12}{29}$</td>
+            <td>$\frac{41}{29}$</td>
+            <td>$1{,}413793$</td>
+            <td>$-0{,}000420$</td>
+          </tr>
+          <tr style="background: #F1F5F9; font-weight: 700;">
+            <td>$\infty$</td>
+            <td>$[1; \, \overline{2}]$</td>
+            <td>$\sqrt{2}$</td>
+            <td>$1{,}41421356\dots$</td>
+            <td>$0$ (Valore Esatto)</td>
           </tr>
         </tbody>
       </table>

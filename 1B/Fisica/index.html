@@ -409,6 +409,7 @@
     <a href="#sim-lineare">7. Lab: Pendenza</a>
     <a href="#formule">8. Formule Inverse</a>
     <a href="#esercizi">9. Esercizi del Libro</a>
+    <a href="#volume-analisi">10. Volume & Analisi Dimensionale</a>
   </nav>
 
   <div class="main-container">
@@ -426,9 +427,6 @@
         </a>
         <a href="dispensa_lezione.pdf" class="btn-resource" download style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #184C78; color: #FFFFFF; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; box-shadow: 0 2px 6px rgba(24, 76, 120, 0.25);">
           📥 Scarica Dispensa PDF
-        </a>
-        <a href="quaderno_prof.pdf" target="_blank" class="btn-resource" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FFFBEB; color: #92400E; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 13.5px; border: 1px solid #FCD34D;">
-          📓 Manoscritto PDF
         </a>
       </div>
     </div>
@@ -527,13 +525,6 @@
         <text x="525" y="142" font-size="11" fill="#184C78" font-weight="bold" text-anchor="middle">Campioni m0</text>
       </svg>
       <div class="figure-caption">Figura 1: Modello fisico della bilancia a bracci uguali in equilibrio statico ($m_x = m_0$).</div>
-    </div>
-
-    <div class="figure-container" style="background:#FFFFFF; margin:20px 0;">
-      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-        <source src="media/BilanciaBracciUgualiManim.mp4#t=0.001" type="video/mp4">
-      </video>
-      <div class="figure-caption">Animazione Scientifica Manim (Tema Chiaro): equilibrio statico della bilancia a bracci uguali, annullamento dei momenti torcenti ($\tau_1 = \tau_2$) e invarianza fondamentale rispetto all'accelerazione di gravità $g$ ($m_1 = m_2$).</div>
     </div>
 
     <!-- Sezione 3 -->
@@ -732,13 +723,6 @@
       </table>
     </div>
 
-    <div class="figure-container" style="background:#FFFFFF; margin:20px 0;">
-      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
-        <source src="media/DensitaAnalisiDimensionaleManim.mp4#t=0.001" type="video/mp4">
-      </video>
-      <div class="figure-caption">Animazione Scientifica Manim (Tema Chiaro): misura della densità per immersione di un solido ($\Delta V = 20\,\text{cm}^3$) e verifica rigorosa dell'analisi dimensionale: $V = m/d$ in $\text{m}^3$ contro l'assurdo dimensionale $m \cdot d$.</div>
-    </div>
-
     <!-- Sezione 9: Esercizi del Libro di Testo -->
     <h2 id="esercizi">9. Esercizi e Problemi Svolti dal Libro di Testo</h2>
     <p>
@@ -900,6 +884,49 @@
         <li>4. Riduzione termini simili: $-7x = 9$</li>
         <li>5. Divisione per il coefficiente ($2^\circ$ principio): $\mathbf{x = -\frac{9}{7}}$</li>
       </ul>
+    </div>
+
+    <!-- Sezione 10: Volume, Litro e Analisi Dimensionale (Tavola 14) -->
+    <h2 id="volume-analisi">10. Volume in Litri, Densità dell'Acqua e Analisi Dimensionale Rigorosa</h2>
+    <p>
+      Dalla Tavola 14 del quaderno: approfondimento metrologico sulle unità di misura del volume, l'equivalenza fondamentale del litro, e il metodo formale dell'<strong>analisi dimensionale</strong> per verificare la congruenza di qualsiasi formula fisica.
+    </p>
+
+    <div class="card">
+      <div class="card-title" style="color: var(--col-primary);">Il Litro come Unità di Capacità ed Equivalenza Geometrica</div>
+      <p>
+        Nel SI il volume è misurato in <strong>metri cubi</strong> ($\text{m}^3$). Per liquidi e fluidi si utilizza comunemente il <strong>litro</strong> ($\text{L}$), con l'equivalenza fondamentale:
+      </p>
+      <div style="text-align:center; font-size:1.25em; font-weight:700; color:var(--col-primary); margin:12px 0;">
+        $$1\text{ dm}^3 = 1\text{ L}$$
+      </div>
+      <p>
+        Un litro d'acqua pura occupa lo spazio di un cubo con spigolo di $10\text{ cm}$ ($1\text{ dm}$) ed ha una massa di esattamente $1\text{ kg}$:
+      </p>
+      <div style="text-align:center; font-size:1.1em; color:var(--col-green); font-weight:700;">
+        $$d_{\text{acqua}} = 1000\,\frac{\text{kg}}{\text{m}^3} = \frac{1000\text{ kg}}{1000\text{ dm}^3} = 1\,\frac{\text{kg}}{\text{dm}^3} = \mathbf{1\,\frac{\text{kg}}{\text{L}}}$$
+      </div>
+    </div>
+
+    <div class="card comment">
+      <div class="card-title" style="color: var(--col-amber);">Metodo: Analisi Dimensionale e Verifica delle Equazioni</div>
+      <p>
+        L'<strong>analisi dimensionale</strong> consiste nel verificare che le unità di misura e le dimensioni fisiche del primo membro siano identiche a quelle del secondo membro:
+      </p>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-top:16px;">
+        <div style="background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:14px;">
+          <div style="font-weight:700; color:#DC2626; margin-bottom:6px;">❌ Ipotesi Errata: $V = m \cdot d$</div>
+          <p style="margin:4px 0; font-size:14px;">$1^\circ$ Membro: $[V] = [\text{m}^3] = [L^3]$</p>
+          <p style="margin:4px 0; font-size:14px;">$2^\circ$ Membro: $[m \cdot d] = [\text{kg}] \cdot [\text{kg}/\text{m}^3] = [\text{kg}^2/\text{m}^3] = [M^2/L^3]$</p>
+          <div style="font-weight:700; color:#DC2626; margin-top:8px;">$[L^3] \neq [M^2/L^3] \implies \text{Dimensionalmente IMPOSSIBILE!}$</div>
+        </div>
+        <div style="background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:14px;">
+          <div style="font-weight:700; color:#16A34A; margin-bottom:6px;">✅ Formula Corretta: $V = \frac{m}{d}$</div>
+          <p style="margin:4px 0; font-size:14px;">$1^\circ$ Membro: $[V] = [\text{m}^3] = [L^3]$</p>
+          <p style="margin:4px 0; font-size:14px;">$2^\circ$ Membro: $[m/d] = [\text{kg}] / [\text{kg}/\text{m}^3] = [\text{kg} \cdot \text{m}^3/\text{kg}] = [\text{m}^3] = [L^3]$</p>
+          <div style="font-weight:700; color:#16A34A; margin-top:8px;">$[L^3] = [L^3] \implies \text{Dimensioni PERFETTAMENTE CONGRUENTI!}$</div>
+        </div>
+      </div>
     </div>
 
   </div>
