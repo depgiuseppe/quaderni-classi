@@ -1223,7 +1223,13 @@
               <ul>
                 <li><strong>Prima radice esatta (<span class="math-inline">\(x_1 = 0\)</span>):</strong> Verificata per ispezione diretta: <span class="math-inline">\(2^0 = 1 = 1 - 0^2\)</span>. Il punto <span class="math-inline">\(P_1(0, 1)\)</span> è comune ad entrambe le curve.</li>
                 <li><strong>Seconda radice approssimata (<span class="math-inline">\(x_2 \approx -0{,}715\)</span>):</strong> Nel secondo quadrante (<span class="math-inline">\(x < 0\)</span>), l'esponenziale scende verso l'asintoto mentre la parabola sale verso il vertice. Si intersecano nel punto <span class="math-inline">\(P_2(-0{,}715;\, 0{,}489)\)</span>.</li>
-                <li><strong>Teorema di Unicità per Stretta Convessità:</strong> La funzione differenza <span class="math-inline">\(g(x) = 2^x + x^2 - 1\)</span> ha derivata seconda <span class="math-inline">\(g''(x) = 2^x(\ln 2)^2 + 2 > 0 \quad \forall x\)</span>. Essendo strettamente convessa su tutto <span class="math-inline">\(\mathbb{R}\)</span>, non può ammettere più di 2 zeri reali!</li>
+                <li><strong>Unicità e Delimitazione Rigorosa delle Soluzioni (Metodo degli Intervalli):</strong>
+<ul>
+<li>Per <span class="math-inline">\(x > 0\)</span>: <span class="math-inline">\(2^x > 1\)</span> mentre <span class="math-inline">\(1 - x^2 < 1\)</span> (nessuna intersezione possibile).</li>
+<li>Per <span class="math-inline">\(x \le -1\)</span>: la parabola è non positiva (<span class="math-inline">\(1 - x^2 \le 0\)</span>) mentre l'esponenziale è strettamente positiva (<span class="math-inline">\(2^x > 0\)</span>).</li>
+<li>Dunque le uniche intersezioni nell'intero asse reale sono esattamente <span class="math-inline">\(x_1 = 0\)</span> e la radice <span class="math-inline">\(x_2 \approx -0{,}715 \in (-1, 0)\)</span>.</li>
+</ul>
+</li>
               </ul>
             </div>
           </div>
