@@ -236,7 +236,8 @@
     {\Large\sffamily
     \textbf{Liceo Scientifico Statale «Leonardo da Vinci» -- Maglie}\\[0.3cm]
     Classe: \textbf{4F MAT}\\[0.2cm]
-    Materia: \textbf{Matematica e Fisica}
+    Materia: \textbf{Matematica e Fisica}\\[0.4cm]
+    \large\color{primaryBlue}\textbf{Edizione Completa Monografica -- 31 Pagine Autentiche di Appunti}
     }
     
     \vfill
@@ -1490,8 +1491,8 @@ I due triangoli rettangoli $\triangle OPH$ e $\triangle OTA$ condividono l'angol
 \end{equation}
 \end{dimostrazione}
 
-\subsection{Relazioni tra Tangente, Coseno e Seno ed Esercizi 236--237 (Pagine 29--30)}
-A pagina 29 del quaderno viene ricavato il legame algebrico diretto che consente di esprimere il coseno e il seno in funzione della tangente goniometrica.
+\subsection{Relazioni tra Tangente, Coseno e Seno e Formule Parametriche (Pagina 29)}
+A pagina 29 del quaderno viene ricavato il legame algebrico diretto che consente di esprimere il coseno e il seno in funzione della tangente goniometrica, introducendo le celebri \textbf{formule parametriche razionali}.
 
 Partendo dalla Prima Relazione Fondamentale $\sin^2\alpha + \cos^2\alpha = 1$, si ricavano anzitutto le formule inverse dirette:
 \begin{equation}
@@ -1507,9 +1508,27 @@ Invertendo ambo i membri ed estraendo la radice quadrata, si ottiene l'espressio
 \end{equation}
 In maniera analoga, sostituendo $\cos^2\alpha$ in $\sin^2\alpha = 1 - \cos^2\alpha$ (oppure moltiplicando per $\tan\alpha = \frac{\sin\alpha}{\cos\alpha}$):
 \begin{equation}
-    \sin^2\alpha = \frac{\tan^2\alpha}{1 + \tan^2\alpha} \quad \implies \quad \mathbf{\sin\alpha = \pm \frac{|\tan\alpha|}{\sqrt{1 + \tan^2\alpha}}}
+    \sin^2\alpha = \frac{\tan^2\alpha}{1 + \tan^2\alpha} \quad \implies \quad \mathbf{\sin\alpha = \pm \frac{\tan\alpha}{\sqrt{1 + \tan^2\alpha}}}
 \end{equation}
-dove la scelta del segno $+$ oppure $-$ dipende dal quadrante a cui appartiene l'angolo $\alpha$.
+dove la scelta del segno $+$ oppure $-$ dipende dal quadrante di appartenenza dell'angolo $\alpha$.
+
+\begin{teorema}[Formule Parametriche Razionali in Goniometria (Pagina 29)]
+Le relazioni razionali in $\tan\alpha$ costituiscono il fondamento delle \textbf{formule parametriche razionali}, indispensabili per razionalizzare integrali ed equazioni goniometriche lineari e omogenee.
+\begin{enumerate}
+    \item \textbf{Formule di duplicazione espresse in $\tan\alpha$:}
+    \begin{align}
+        \sin(2\alpha) &= 2\sin\alpha\cos\alpha = 2\tan\alpha\cos^2\alpha = \mathbf{\frac{2\tan\alpha}{1 + \tan^2\alpha}} \\
+        \cos(2\alpha) &= \cos^2\alpha - \sin^2\alpha = \cos^2\alpha(1 - \tan^2\alpha) = \mathbf{\frac{1 - \tan^2\alpha}{1 + \tan^2\alpha}} \\
+        \tan(2\alpha) &= \mathbf{\frac{2\tan\alpha}{1 - \tan^2\alpha}}
+    \end{align}
+    \item \textbf{Formule parametriche universali in $t = \tan\left(\frac{\alpha}{2}\right)$ (per $\alpha \neq \pi + 2k\pi$):}
+    Ponendo $t = \tan\left(\frac{\alpha}{2}\right)$, per qualsiasi angolo $\alpha$ valgono le identità razionali pure:
+    \begin{equation}
+        \mathbf{\sin\alpha = \frac{2t}{1 + t^2}}, \qquad \mathbf{\cos\alpha = \frac{1 - t^2}{1 + t^2}}, \qquad \mathbf{\tan\alpha = \frac{2t}{1 - t^2}}
+    \end{equation}
+    Queste formule consentono di trasformare qualsiasi espressione razionale in $\sin\alpha$ e $\cos\alpha$ in una frazione algebrica standard nella variabile reale $t$.
+\end{enumerate}
+\end{teorema}
 
 \begin{esercizio}[Esercizio 236 a Pagina 29 del Quaderno]
 Verificare l'identità goniometrica svolta a pagina 29 del quaderno:
@@ -2048,6 +2067,112 @@ Come illustrato nel disegno di pagina 31 del quaderno, tracciamo sulla circonfer
 \end{tikzpicture}
 \caption{Rappresentazione fedele a pagina 31 del quaderno per gli angoli complementari $\left(\alpha, \, \frac{\pi}{2} - \alpha\right)$: i due triangoli rettangoli nel primo quadrante sono congruenti (stessa ipotenusa $r = 1$ e stessi angoli acuti), per cui il cateto orizzontale $\cos\left(\frac{\pi}{2} - \alpha\right)$ è uguale al cateto verticale $\sin\alpha$ (in blu) e il cateto verticale $\sin\left(\frac{\pi}{2} - \alpha\right)$ è uguale al cateto orizzontale $\cos\alpha$ (in verde).}
 \label{fig:angoli_complementari}
+\end{figure}
+
+\subsection{Dimostrazione Geometrica per Simmetria rispetto alla Bisettrice $y = x$ (Pagina 31)}
+A pagina 31 del quaderno, accanto alla deduzione per congruenza dei triangoli, viene formalizzata l'interpretazione globale per \textbf{simmetria assiale rispetto alla bisettrice del primo e terzo quadrante}: la retta di equazione cartesiana $y = x$.
+
+\begin{teorema}[Dimostrazione Analitica per Simmetria Assiale Speculare]
+La retta $y = x$ forma con il semiasse positivo delle ascisse un angolo fondamentale pari a $\frac{\pi}{4}$ ($45^\circ$).
+\begin{enumerate}
+    \item \textbf{Equidistanza angolare dalla bisettrice:}
+    Dato un angolo acuto $\alpha < \frac{\pi}{4}$, la sua deviazione angolare rispetto alla retta $y = x$ vale:
+    \begin{equation}
+        \Delta\theta_1 = \frac{\pi}{4} - \alpha
+    \end{equation}
+    L'angolo complementare $\beta = \frac{\pi}{2} - \alpha$ supera la retta $y = x$ di un'identica ampiezza angolare:
+    \begin{equation}
+        \Delta\theta_2 = \left(\frac{\pi}{2} - \alpha\right) - \frac{\pi}{4} = \frac{\pi}{4} - \alpha = \Delta\theta_1
+    \end{equation}
+    Di conseguenza, i raggi vettori individuati dagli angoli $\alpha$ e $\frac{\pi}{2} - \alpha$ sono l'uno il \textbf{simmetrico speculare} dell'altro rispetto all'asse di simmetria $y = x$.
+    
+    \item \textbf{Equazioni della riflessione assiale nel piano cartesiano:}
+    La trasformazione geometrica di riflessione assiale rispetto alla retta $y = x$ scambia le coordinate cartesiane di ciascun punto:
+    \begin{equation}
+        \sigma_{y=x} \colon \begin{cases}
+            x' = y \\
+            y' = x
+        \end{cases}
+    \end{equation}
+    
+    \item \textbf{Deduzione immediata delle relazioni goniometriche:}
+    Il punto associato all'angolo $\alpha$ sulla circonferenza unitaria ha coordinate:
+    \begin{equation}
+        P = (\cos\alpha, \, \sin\alpha)
+    \end{equation}
+    Applicando la simmetria assiale $\sigma_{y=x}$, il punto riflesso $P' = \sigma_{y=x}(P)$ ha coordinate:
+    \begin{equation}
+        P' = (\sin\alpha, \, \cos\alpha)
+    \end{equation}
+    D'altra parte, per la definizione goniometrica di punto sulla circonferenza unitaria associato all'angolo $\frac{\pi}{2} - \alpha$:
+    \begin{equation}
+        P' = \left(\cos\left(\frac{\pi}{2} - \alpha\right), \, \sin\left(\frac{\pi}{2} - \alpha\right)\right)
+    \end{equation}
+    Uguagliando componente per componente le coordinate di $P'$ si ottengono direttamente le identità cercate:
+    \begin{align}
+        \mathbf{\cos\left(\frac{\pi}{2} - \alpha\right)} &= \mathbf{\sin\alpha} \\
+        \mathbf{\sin\left(\frac{\pi}{2} - \alpha\right)} &= \mathbf{\cos\alpha} \qedhere
+    \end{align}
+\end{enumerate}
+\end{teorema}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=2.6]
+    % Assi cartesiani
+    \draw[->, >=Latex, line width=0.9pt, accentAmber!90!black] (-0.3, 0) -- (1.5, 0) node[right, font=\small\bfseries, color=black] {$x$};
+    \draw[->, >=Latex, line width=0.9pt, accentAmber!90!black] (0, -0.3) -- (0, 1.5) node[above, font=\small\bfseries, color=black] {$y$};
+    \node at (-0.08, -0.08) [font=\small] {$O$};
+    
+    % Arco circonferenza unitaria nel primo quadrante
+    \draw[line width=1.1pt, black] (1.2, 0) arc (0:90:1.2);
+    \draw[line width=0.5pt, gray!40] (0,0) circle (1.2);
+    
+    % Bisettrice y = x
+    \draw[line width=1.2pt, examplePurple, dashed] (-0.1, -0.1) -- (1.35, 1.35) node[above right, font=\small\bfseries, color=examplePurple] {$y = x$ ($\theta = \frac{\pi}{4}$)};
+    
+    % Angolo alpha = 24 gradi e angolo complementare = 66 gradi (r = 1.2)
+    \coordinate (P) at ({1.2*cos(24)}, {1.2*sin(24)});
+    \coordinate (Pprime) at ({1.2*cos(66)}, {1.2*sin(66)});
+    
+    % Raggi vettori
+    \draw[line width=1.3pt, primaryBlue] (0,0) -- (P) node[midway, below right, font=\footnotesize] {$r = 1$};
+    \draw[line width=1.3pt, accentTeal] (0,0) -- (Pprime) node[midway, above left, font=\footnotesize] {$r = 1$};
+    
+    % Segmento congiungente perpendicolare alla bisettrice
+    \draw[line width=1.1pt, alertRed, densely dashed] (P) -- (Pprime);
+    
+    % Punto medio sulla bisettrice e simbolo angolo retto
+    \coordinate (M) at ($0.5*(P) + 0.5*(Pprime)$);
+    \fill[alertRed] (M) circle (1.2pt);
+    
+    % Punti P e P'
+    \fill[primaryBlue] (P) circle (1.8pt) node[right=2pt, font=\small\bfseries, color=primaryBlue] {$P(\cos\alpha, \, \sin\alpha)$};
+    \fill[accentTeal] (Pprime) circle (1.8pt) node[above=2pt, font=\small\bfseries, color=accentTeal] {$P'(\sin\alpha, \, \cos\alpha)$};
+    
+    % Proiezioni cartesiane di P
+    \draw[thin, dotted, gray!70] ({1.2*cos(24)}, 0) -- (P) -- (0, {1.2*sin(24)});
+    \node at ({1.2*cos(24)}, -0.1) [font=\footnotesize, color=primaryBlue] {$\cos\alpha$};
+    \node at (-0.18, {1.2*sin(24)}) [font=\footnotesize, color=primaryBlue] {$\sin\alpha$};
+    
+    % Proiezioni cartesiane di P'
+    \draw[thin, dotted, gray!70] ({1.2*cos(66)}, 0) -- (Pprime) -- (0, {1.2*sin(66)});
+    \node at ({1.2*cos(66)}, -0.1) [font=\footnotesize, color=accentTeal] {$\sin\alpha$};
+    \node at (-0.22, {1.2*sin(66)}) [font=\footnotesize, color=accentTeal] {$\cos\alpha$};
+    
+    % Archi angolari
+    \draw[line width=0.9pt, primaryBlue, ->] (0.4, 0) arc (0:24:0.4);
+    \node at (0.5, 0.1) [font=\footnotesize\bfseries, color=primaryBlue] {$\alpha$};
+    
+    \draw[line width=0.9pt, accentTeal, ->] (0.32, 0) arc (0:66:0.32);
+    \node at (0.22, 0.38) [font=\footnotesize\bfseries, color=accentTeal] {$\frac{\pi}{2} - \alpha$};
+    
+    % Frecce di simmetria rispetto a y=x
+    \draw[<->, >=Latex, line width=0.8pt, alertRed] ({0.75*cos(24)}, {0.75*sin(24)}) to[bend right=25] ({0.75*cos(66)}, {0.75*sin(66)});
+    \node at (0.75, 0.75) [font=\scriptsize\bfseries, color=alertRed, fill=white, inner sep=1pt] {$\sigma_{y=x}$};
+\end{tikzpicture}
+\caption{Dimostrazione geometrica di pagina 31 tramite simmetria assiale rispetto alla bisettrice $y = x$: i punti $P(\cos\alpha, \sin\alpha)$ e $P'(\cos(\frac{\pi}{2}-\alpha), \sin(\frac{\pi}{2}-\alpha))$ sono speculari rispetto alla retta $y = x$, scambiando le rispettive coordinate cartesiane: $(x, y) \mapsto (y, x)$.}
+\label{fig:simmetria_bisettrice_complementari}
 \end{figure}
 
 
