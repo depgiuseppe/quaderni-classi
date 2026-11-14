@@ -409,7 +409,8 @@
     <a href="#sim-lineare">7. Lab: Pendenza</a>
     <a href="#formule">8. Formule Inverse</a>
     <a href="#esercizi">9. Esercizi del Libro</a>
-    <a href="#volume-analisi">10. Volume & Analisi Dimensionale</a>
+    <a href="#volume-analisi">10. Volume &amp; Analisi Dimensionale</a>
+    <a href="#misura-sensibilita">11. La Misura &amp; Sensibilità</a>
   </nav>
 
   <div class="main-container">
@@ -648,7 +649,7 @@
       <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:16px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
         <source src="media/MetodoSperimentaleProporzioniManim.mp4#t=0.001" type="video/mp4">
       </video>
-      <div class="figure-caption">Animazione Scientifica Manim (Tema Chiaro): equilibrio della bilancia a bracci uguali e tracciamento della retta di proporzionalità diretta $y = kx$ con pendenza costante e iperbole di proporzionalità inversa $xy = k$.</div>
+      <div class="figure-caption">Animazione Scientifica Vettoriale (Tema Chiaro): equilibrio della bilancia a bracci uguali e tracciamento della retta di proporzionalità diretta $y = kx$ con pendenza costante e iperbole di proporzionalità inversa $xy = k$.</div>
     </div>
 
     <!-- Sezione 6: Simulatore Bilancia a Bracci Uguali -->
@@ -927,6 +928,254 @@
           <div style="font-weight:700; color:#16A34A; margin-top:8px;">$[L^3] = [L^3] \implies \text{Dimensioni PERFETTAMENTE CONGRUENTI!}$</div>
         </div>
       </div>
+    </div>
+
+    <!-- Sezione 11: La Misura Operativa, Sensibilità, Incertezza e Misure Dirette vs Indirette (Tavole 15-16) -->
+    <h2 id="misura-sensibilita">11. La Misura Operativa, Errore di Sensibilità, Incertezza e Misure Dirette vs Indirette</h2>
+    <p>
+      Dalle <strong>Tavole 15 e 16</strong> del quaderno di lavoro: studio operativo della misura della lunghezza di un'asta tramite righello graduato, definizione rigorosa di <strong>errore di sensibilità</strong> e di <strong>incertezza $\Delta x$</strong>, scrittura formale del risultato $X = (x_m \pm \Delta x)\,\text{udm}$ e distinzione tra <strong>misure dirette</strong> e <strong>misure indirette</strong>.
+    </p>
+
+    <h3>11.1 Misura di un'Asta con il Righello ed Errore di Sensibilità (Tavola 15)</h3>
+    <div class="card">
+      <div class="card-title" style="color: var(--col-primary);">Procedura di Lettura sulla Scala Graduata e Tacca più Vicina</div>
+      <ul style="margin: 6px 0 0 0;">
+        <li>Allineando l'estremità sinistra dell'asta con lo zero del righello graduato (con tacche ogni $0{,}5\text{ cm}$), osserviamo dove cade l'estremità destra.</li>
+        <li><strong>Regola operativa:</strong> <em>per la misura bisogna considerare la tacca più vicina</em>. Nel caso dell'asta della Tavola 15, l'estremità cade esattamente sulla tacca intermedia tra $6\text{ cm}$ e $7\text{ cm}$, dunque:
+          $$\mathbf{L = 6{,}5\text{ cm}}$$
+        </li>
+        <li>Tutti gli strumenti di misura sono caratterizzati da un inevitabile <strong>errore di sensibilità</strong>.</li>
+      </ul>
+    </div>
+
+    <div style="text-align: center; margin: 18px 0;">
+      <img src="immagini/traccia_sensibilita_p15.png" alt="Definizione Errore di Sensibilità - Tavola 15" style="max-width: 88%; border-radius: 6px; border: 1px solid #E2E8F0; box-shadow: 0 2px 8px rgba(15,23,42,0.06);">
+      <div class="figure-caption">Ritaglio originale dal libro di testo (Tavola 15): definizione di errore di sensibilità.</div>
+    </div>
+
+    <div class="card comment">
+      <div class="card-title" style="color: var(--col-amber);">Definizione e Calcolo dell'Errore di Sensibilità</div>
+      <p style="margin: 0;">
+        L'<strong>errore di sensibilità</strong> di uno strumento di misura è la <strong>più piccola variazione della grandezza che lo strumento è in grado di rilevare</strong>.<br>
+        Operativamente, su una scala graduata, l'errore di sensibilità è la <em>«distanza» tra una tacca e quella immediatamente successiva</em>. Nel caso del metro da sarti (o righello graduato al mezzo centimetro) della Tavola 15, considerando le due tacche consecutive $7{,}5\text{ cm}$ e $8{,}0\text{ cm}$:
+        $$\mathbf{\Delta x = 8{,}0\text{ cm} - 7{,}5\text{ cm} = 0{,}5\text{ cm}}$$
+      </p>
+    </div>
+
+    <!-- Grafico Vettoriale SVG GeoGebra-grade del Righello e dell'Asta (Tavola 15) -->
+    <div class="figure-panel" style="background: #FFFFFF;">
+      <svg viewBox="0 0 740 250" style="width:100%; max-width:720px; height:auto;">
+        <defs>
+          <marker id="arrRed15" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#DC2626"/>
+          </marker>
+          <marker id="arrBlue15" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#184C78"/>
+          </marker>
+        </defs>
+
+        <!-- Etichetta Superiore Sensibilità tra 7,5 e 8,0 cm -->
+        <rect x="385" y="10" width="335" height="32" rx="6" fill="#FFFBEB" stroke="#D97706" stroke-width="1.3" />
+        <text x="552" y="31" font-size="13" font-weight="bold" fill="#B45309" text-anchor="middle">Sensibilità: Δx = 8,0 − 7,5 = 0,5 cm</text>
+
+        <!-- Frecce rosse sulle tacche 7,5 cm (x=602.5) e 8,0 cm (x=640) -->
+        <line x1="602.5" y1="45" x2="602.5" y2="76" stroke="#DC2626" stroke-width="2.2" marker-end="url(#arrRed15)" />
+        <line x1="640.0" y1="45" x2="640.0" y2="76" stroke="#DC2626" stroke-width="2.2" marker-end="url(#arrRed15)" />
+
+        <!-- Corpo del Righello (da x=40 [0 cm] a x=640 [8 cm], passo 1 cm = 75 px, 0.5 cm = 37.5 px) -->
+        <rect x="20" y="80" width="665" height="68" rx="4" fill="#F8FAFC" stroke="#184C78" stroke-width="2.2" />
+
+        <!-- Tacche intermedie (0.5, 1.5, ..., 7.5 cm) -->
+        <g stroke="#184C78" stroke-width="1.8">
+          <line x1="77.5"  y1="80" x2="77.5"  y2="100" />
+          <line x1="152.5" y1="80" x2="152.5" y2="100" />
+          <line x1="227.5" y1="80" x2="227.5" y2="100" />
+          <line x1="302.5" y1="80" x2="302.5" y2="100" />
+          <line x1="377.5" y1="80" x2="377.5" y2="100" />
+          <line x1="452.5" y1="80" x2="452.5" y2="100" />
+          <line x1="527.5" y1="80" x2="527.5" y2="100" stroke="#DC2626" stroke-width="2.5" />
+          <line x1="602.5" y1="80" x2="602.5" y2="100" stroke="#DC2626" stroke-width="2.2" />
+        </g>
+
+        <!-- Tacche principali (0, 1, 2, 3, 4, 5, 6, 7, 8 cm) -->
+        <g stroke="#0F172A" stroke-width="2.4">
+          <line x1="40"  y1="80" x2="40"  y2="112" />
+          <line x1="115" y1="80" x2="115" y2="112" />
+          <line x1="190" y1="80" x2="190" y2="112" />
+          <line x1="265" y1="80" x2="265" y2="112" />
+          <line x1="340" y1="80" x2="340" y2="112" />
+          <line x1="415" y1="80" x2="415" y2="112" />
+          <line x1="490" y1="80" x2="490" y2="112" />
+          <line x1="565" y1="80" x2="565" y2="112" />
+          <line x1="640" y1="80" x2="640" y2="112" stroke="#DC2626" />
+        </g>
+
+        <!-- Numeri del Righello -->
+        <g font-size="14" font-weight="bold" fill="#0F172A" text-anchor="middle">
+          <text x="40"  y="134">0</text>
+          <text x="115" y="134">1</text>
+          <text x="190" y="134">2</text>
+          <text x="265" y="134">3</text>
+          <text x="340" y="134">4</text>
+          <text x="415" y="134">5</text>
+          <text x="490" y="134">6</text>
+          <text x="565" y="134">7</text>
+          <text x="640" y="134">8</text>
+          <text x="668" y="134" font-size="13" fill="#475569">cm</text>
+        </g>
+
+        <!-- Linee di proiezione tratteggiate rosse (0,0 cm e 6,5 cm -> x=527.5) -->
+        <line x1="40"    y1="72" x2="40"    y2="205" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4" />
+        <line x1="527.5" y1="72" x2="527.5" y2="205" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4" />
+
+        <!-- Asta Rossa (da x=40 a x=527.5) -->
+        <rect x="40" y="172" width="487.5" height="18" rx="3" fill="#EF4444" stroke="#B91C1C" stroke-width="2" />
+
+        <!-- Etichetta misura asta -->
+        <rect x="145" y="204" width="280" height="30" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.2" />
+        <text x="285" y="224" font-size="14" font-weight="bold" fill="#B91C1C" text-anchor="middle">Tacca più vicina: L = 6,5 cm</text>
+      </svg>
+      <div class="figure-caption">Figura 4 (Tavola 15): Misura diretta della lunghezza di un'asta ($L = 6{,}5\text{ cm}$) con righello graduato avente errore di sensibilità $\Delta x = 8{,}0 - 7{,}5 = 0{,}5\text{ cm}$.</div>
+    </div>
+
+    <h3>11.2 L'Incertezza $\Delta x$ e la Scrittura Formale della Misura (Tavola 15)</h3>
+
+    <div style="text-align: center; margin: 18px 0;">
+      <img src="immagini/traccia_incertezza_p15.png" alt="Definizione Incertezza Delta x - Tavola 15" style="max-width: 88%; border-radius: 6px; border: 1px solid #E2E8F0; box-shadow: 0 2px 8px rgba(15,23,42,0.06);">
+      <div class="figure-caption">Ritaglio originale dal libro di testo (Tavola 15): definizione di incertezza $\Delta x$.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color: var(--col-primary);">Scrittura Formale di una Misura Fisica</div>
+      <p style="margin: 0 0 10px 0;">
+        L'<strong>incertezza $\Delta x$</strong> quantifica il grado di imprecisione nell'individuazione del valore di una grandezza.
+        <strong>Se misuriamo la lunghezza di un'asta una sola volta con il righello, l'incertezza e la sensibilità sono sinonimi</strong> ($\Delta x = 0{,}5\text{ cm}$).
+        La misura di qualsiasi grandezza fisica si esprime nella forma universale:
+      </p>
+      <div class="formula-box" style="font-size: 1.2em; border-color: var(--col-primary);">
+        $$\mathbf{X = (x_m \pm \Delta x)\,\text{udm}} \qquad \Longrightarrow \qquad \mathbf{L = (6{,}5 \pm 0{,}5)\,\text{cm}}$$
+      </div>
+      <ul style="margin: 10px 0 0 0;">
+        <li>$\mathbf{X}$: <strong>simbolo della grandezza</strong> fisica (es. $L$ per la lunghezza dell'asta);</li>
+        <li>$\mathbf{x_m}$: <strong>valore della grandezza</strong> letto sulla scala dello strumento ($6{,}5$);</li>
+        <li>$\mathbf{\Delta x}$: <strong>incertezza assoluta / sensibilità</strong> dello strumento ($0{,}5$);</li>
+        <li>$\mathbf{\text{udm}}$: <strong>unità di misura</strong> posta fuori parentesi ($\text{cm}$), comune sia a $x_m$ sia a $\Delta x$;</li>
+        <li><strong>Intervallo di confidenza:</strong> il valore vero cade tra $L_{\min} = 6{,}5 - 0{,}5 = 6{,}0\text{ cm}$ e $L_{\max} = 6{,}5 + 0{,}5 = 7{,}0\text{ cm}$, ossia $L \in [6{,}0\text{ cm};\; 7{,}0\text{ cm}]$, con errore relativo $e_r = \frac{0{,}5}{6{,}5} = \frac{1}{13} \approx 7{,}7\%$.</li>
+      </ul>
+    </div>
+
+    <!-- Schema SVG Annotato della Formula X = (x_m +- Delta x) udm -->
+    <div class="figure-panel" style="background: #FFFFFF;">
+      <svg viewBox="0 0 680 190" style="width:100%; max-width:650px; height:auto;">
+        <!-- Box centrale formula -->
+        <rect x="170" y="65" width="340" height="58" rx="8" fill="#EFF6FF" stroke="#184C78" stroke-width="2" />
+        <text x="340" y="102" font-size="24" font-weight="bold" fill="#0F172A" text-anchor="middle">
+          <tspan fill="#DC2626">X</tspan> = ( <tspan fill="#184C78">xₘ</tspan> ± <tspan fill="#D97706">Δx</tspan> ) <tspan fill="#16A34A">udm</tspan>
+        </text>
+
+        <!-- Legenda X -->
+        <line x1="215" y1="123" x2="150" y2="155" stroke="#DC2626" stroke-width="2" />
+        <rect x="20" y="152" width="230" height="28" rx="5" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.2" />
+        <text x="135" y="170" font-size="12.5" font-weight="bold" fill="#B91C1C" text-anchor="middle">Simbolo della grandezza (X)</text>
+
+        <!-- Legenda x_m -->
+        <line x1="305" y1="65" x2="210" y2="35" stroke="#184C78" stroke-width="2" />
+        <rect x="65" y="8" width="240" height="28" rx="5" fill="#EFF6FF" stroke="#184C78" stroke-width="1.2" />
+        <text x="185" y="26" font-size="12.5" font-weight="bold" fill="#184C78" text-anchor="middle">Valore della grandezza (xₘ)</text>
+
+        <!-- Legenda Delta x -->
+        <line x1="375" y1="65" x2="470" y2="35" stroke="#D97706" stroke-width="2" />
+        <rect x="355" y="8" width="260" height="28" rx="5" fill="#FFFBEB" stroke="#D97706" stroke-width="1.2" />
+        <text x="485" y="26" font-size="12.5" font-weight="bold" fill="#B45309" text-anchor="middle">Incertezza / Sensibilità (Δx)</text>
+
+        <!-- Legenda udm -->
+        <line x1="455" y1="123" x2="520" y2="155" stroke="#16A34A" stroke-width="2" />
+        <rect x="415" y="152" width="235" height="28" rx="5" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.2" />
+        <text x="532" y="170" font-size="12.5" font-weight="bold" fill="#15803D" text-anchor="middle">Unità di misura (udm)</text>
+      </svg>
+      <div class="figure-caption">Figura 5 (Tavola 15): Anatomia della scrittura formale di una misura fisica con il significato di ciascun elemento.</div>
+    </div>
+
+    <!-- Video Animazione Scientifica Vettoriale -->
+    <div class="figure-panel" style="background:#FFFFFF;">
+      <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:760px; height:auto; display:block; margin:12px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+        <source src="media/MisuraRighelloSensibilitaManim.mp4#t=0.001" type="video/mp4">
+      </video>
+      <div class="figure-caption">Animazione Scientifica Vettoriale (Tema Chiaro): allineamento dell'asta sul righello graduato, individuazione della sensibilità $\Delta x = 8{,}0 - 7{,}5 = 0{,}5\text{ cm}$, scrittura formale $L = (6{,}5 \pm 0{,}5)\,\text{cm}$ e confronto tra misura diretta e indiretta.</div>
+    </div>
+
+    <!-- Simulatore Interattivo Righello e Sensibilità -->
+    <h3>11.3 Laboratorio Virtuale: Simulatore del Righello e dell'Errore di Sensibilità</h3>
+    <div class="interactive-panel">
+      <div class="slider-container">
+        <label for="rodLenSlider">Lunghezza Asta ($L$):</label>
+        <input type="range" id="rodLenSlider" min="1.0" max="7.5" step="0.1" value="6.5">
+        <span class="val-display" id="rodLenVal">6,5 cm</span>
+      </div>
+      <div class="slider-container">
+        <label for="rulerSensSelect">Sensibilità del Righello ($\Delta x$):</label>
+        <select id="rulerSensSelect" style="flex:1; padding:8px 12px; border-radius:6px; border:1px solid #CBD5E1; font-size:15px; font-weight:600; color:#0F172A;">
+          <option value="0.5" selected>Metro da sarti (Tavola 15): Δx = 0,5 cm</option>
+          <option value="1.0">Righello a centimetri interi: Δx = 1,0 cm</option>
+          <option value="0.2">Righello di precisione: Δx = 0,2 cm</option>
+        </select>
+      </div>
+      <div style="text-align: center; margin-bottom: 8px;">
+        <span id="rulerFormalBadge" class="badge-status badge-balanced" style="font-size:15px; padding:6px 14px;">
+          Misura Formale: L = (6,5 ± 0,5) cm | Intervallo: [6,0 cm ; 7,0 cm]
+        </span>
+      </div>
+      <canvas id="rulerCanvas" width="660" height="190"></canvas>
+      <div style="font-size: 14px; color: var(--col-text-muted); text-align: center;">
+        Trascina l'estremità dell'asta o cambia la sensibilità $\Delta x$: il simulatore individua automaticamente la <strong>tacca più vicina</strong> $x_m$ e aggiorna l'intervallo di incertezza $[x_m - \Delta x;\; x_m + \Delta x]$.
+      </div>
+    </div>
+
+    <h3>11.4 Misure Dirette e Misure Indirette (Tavole 15 e 16)</h3>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap:18px; margin:20px 0;">
+      <div class="card success" style="margin:0;">
+        <div class="card-title" style="color: var(--col-green);">Misura Diretta (Tavola 15)</div>
+        <p style="margin:0;">
+          Una misura si dice <strong>diretta</strong> se il valore della grandezza lo leggo <strong>direttamente dal display o dalla scala graduata dello strumento</strong>.<br><br>
+          <em>Esempio (Tavola 15):</em> lettura diretta della lunghezza dell'asta sul righello:
+          $$\mathbf{L = (6{,}5 \pm 0{,}5)\,\text{cm}}$$
+        </p>
+      </div>
+      <div class="card comment" style="margin:0;">
+        <div class="card-title" style="color: var(--col-amber);">Misura Indiretta (Tavola 16)</div>
+        <p style="margin:0;">
+          Una misura si dice <strong>indiretta</strong> se la ottengo <strong>mediante calcoli algebrici a partire da altre grandezze</strong> misurate direttamente.<br><br>
+          <em>Esempio (Tavola 16 — Superficie del pavimento):</em> misurati i lati $a = (4{,}0 \pm 0{,}1)\,\text{m}$ e $b = (3{,}0 \pm 0{,}1)\,\text{m}$, l'area si ottiene moltiplicando $S = a \cdot b$:
+          $$\mathbf{S = (12{,}0 \pm 0{,}7)\,\text{m}^2}$$
+        </p>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Tipologia di Misura</th>
+            <th>Come si ottiene il Valore $x_m$</th>
+            <th>Come si determina l'Incertezza $\Delta x$</th>
+            <th>Esempi Tipici</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Misura Diretta</strong> (Tavola 15)</td>
+            <td>Confronto diretto con lo strumento e lettura della tacca più vicina (o del display digitale).</td>
+            <td>Per una singola misura coincide con l'<strong>errore di sensibilità</strong> dello strumento ($\Delta x = \text{distanza tra due tacche consecutive}$).</td>
+            <td>Lunghezza di un'asta col righello ($L = 6{,}5\text{ cm}$), massa sulla bilancia, tempo col cronometro.</td>
+          </tr>
+          <tr>
+            <td><strong>Misura Indiretta</strong> (Tavola 16)</td>
+            <td>Calcolo algebrico mediante una formula matematica a partire da grandezze misurate direttamente.</td>
+            <td>Propagazione degli errori dalle grandezze dirette (somma degli errori assoluti per $x \pm y$, somma degli errori relativi per $x \cdot y$ o $x/y$).</td>
+            <td>Superficie del pavimento ($S = a \cdot b$), volume di un solido ($V = a \cdot b \cdot c$), densità ($d = m/V$), velocità ($v = s/t$).</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
@@ -1308,6 +1557,149 @@
     lineCanvas.addEventListener('touchmove', handleLineMove, { passive: false });
     lineCanvas.addEventListener('touchend', handleLineEnd, { passive: false });
     lineCanvas.addEventListener('touchcancel', handleLineEnd, { passive: false });
+
+    // -------------------------------------------------------------
+    // SIMULATORE 3: RIGHELLO GRADUATO E SENSIBILITÀ (TAVOLA 15)
+    // -------------------------------------------------------------
+    const rulerCanvas = document.getElementById('rulerCanvas');
+    const rCtx = rulerCanvas.getContext('2d');
+    const rodLenSlider = document.getElementById('rodLenSlider');
+    const rulerSensSelect = document.getElementById('rulerSensSelect');
+    const rodLenVal = document.getElementById('rodLenVal');
+    const rulerFormalBadge = document.getElementById('rulerFormalBadge');
+
+    function fmtIt(num, dec) {
+      return num.toFixed(dec).replace('.', ',');
+    }
+
+    function drawRulerSim() {
+      const trueLen = parseFloat(rodLenSlider.value);
+      const sens = parseFloat(rulerSensSelect.value);
+      const xm = Math.round(trueLen / sens) * sens;
+      const dec = sens >= 1.0 ? 1 : 1;
+
+      rodLenVal.textContent = fmtIt(trueLen, 1) + ' cm';
+      const lMin = Math.max(0, xm - sens);
+      const lMax = xm + sens;
+      rulerFormalBadge.textContent =
+        'Misura Formale: L = (' + fmtIt(xm, dec) + ' ± ' + fmtIt(sens, dec) + ') cm | Intervallo: [' +
+        fmtIt(lMin, dec) + ' cm ; ' + fmtIt(lMax, dec) + ' cm]';
+
+      const w = rulerCanvas.width;
+      const h = rulerCanvas.height;
+      rCtx.clearRect(0, 0, w, h);
+
+      const x0 = 40;
+      const pxPerCm = 70; // 8 cm = 560 px
+      const ry = 45;
+      const rh = 56;
+
+      // Corpo righello
+      rCtx.fillStyle = '#F8FAFC';
+      rCtx.strokeStyle = '#184C78';
+      rCtx.lineWidth = 2;
+      rCtx.fillRect(x0 - 15, ry, 8 * pxPerCm + 45, rh);
+      rCtx.strokeRect(x0 - 15, ry, 8 * pxPerCm + 45, rh);
+
+      // Tacche in base alla sensibilita selezionata
+      const numTicks = Math.round(8.0 / sens);
+      for (let i = 0; i <= numTicks; i++) {
+        const val = +(i * sens).toFixed(2);
+        const tx = x0 + val * pxPerCm;
+        const isInt = Math.abs(val - Math.round(val)) < 1e-4;
+        const isHalf = Math.abs((val * 2) - Math.round(val * 2)) < 1e-4;
+        const isNearest = Math.abs(val - xm) < 1e-4;
+
+        rCtx.strokeStyle = isNearest ? '#DC2626' : '#0F172A';
+        rCtx.lineWidth = isNearest ? 2.8 : (isInt ? 2.2 : 1.3);
+        const tLen = isInt ? 26 : (isHalf ? 18 : 11);
+        rCtx.beginPath();
+        rCtx.moveTo(tx, ry);
+        rCtx.lineTo(tx, ry + tLen);
+        rCtx.stroke();
+
+        if (isInt) {
+          rCtx.fillStyle = '#0F172A';
+          rCtx.font = 'bold 13px sans-serif';
+          rCtx.textAlign = 'center';
+          rCtx.fillText(Math.round(val).toString(), tx, ry + 44);
+        }
+      }
+      rCtx.fillStyle = '#475569';
+      rCtx.font = 'bold 12px sans-serif';
+      rCtx.fillText('cm', x0 + 8 * pxPerCm + 16, ry + 44);
+
+      // Banda intervallo di incertezza [xm - sens, xm + sens]
+      const xMinPx = x0 + lMin * pxPerCm;
+      const xMaxPx = x0 + lMax * pxPerCm;
+      rCtx.fillStyle = 'rgba(22, 163, 74, 0.14)';
+      rCtx.fillRect(xMinPx, ry + rh + 14, xMaxPx - xMinPx, 36);
+
+      // Asta rossa sotto il righello
+      const rodEndPx = x0 + trueLen * pxPerCm;
+      const xmPx = x0 + xm * pxPerCm;
+      rCtx.fillStyle = '#EF4444';
+      rCtx.strokeStyle = '#B91C1C';
+      rCtx.lineWidth = 2;
+      rCtx.fillRect(x0, ry + rh + 24, rodEndPx - x0, 16);
+      rCtx.strokeRect(x0, ry + rh + 24, rodEndPx - x0, 16);
+
+      // Linee tratteggiate su 0 e sulla tacca piu vicina xm
+      rCtx.setLineDash([4, 4]);
+      rCtx.strokeStyle = '#DC2626';
+      rCtx.lineWidth = 1.8;
+      rCtx.beginPath();
+      rCtx.moveTo(x0, ry);
+      rCtx.lineTo(x0, ry + rh + 48);
+      rCtx.moveTo(xmPx, ry);
+      rCtx.lineTo(xmPx, ry + rh + 48);
+      rCtx.stroke();
+      rCtx.setLineDash([]);
+
+      rCtx.fillStyle = '#B91C1C';
+      rCtx.font = 'bold 13px sans-serif';
+      rCtx.textAlign = 'center';
+      rCtx.fillText('Tacca più vicina: xₘ = ' + fmtIt(xm, dec) + ' cm', (x0 + xmPx) / 2, h - 10);
+    }
+
+    rodLenSlider.addEventListener('input', drawRulerSim);
+    rulerSensSelect.addEventListener('change', drawRulerSim);
+    drawRulerSim();
+
+    let isDraggingRuler = false;
+    function updateRulerFromPointer(e) {
+      const rect = rulerCanvas.getBoundingClientRect();
+      const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : e.clientX;
+      const scaleX = rulerCanvas.width / rect.width;
+      const xCanvas = (clientX - rect.left) * scaleX;
+      const cmVal = Math.max(1.0, Math.min(7.5, (xCanvas - 40) / 70));
+      rodLenSlider.value = cmVal.toFixed(1);
+      drawRulerSim();
+    }
+    rulerCanvas.addEventListener('pointerdown', (e) => {
+      isDraggingRuler = true;
+      updateRulerFromPointer(e);
+    });
+    rulerCanvas.addEventListener('pointermove', (e) => {
+      if (isDraggingRuler) updateRulerFromPointer(e);
+    });
+    rulerCanvas.addEventListener('pointerup', () => { isDraggingRuler = false; });
+    rulerCanvas.addEventListener('pointercancel', () => { isDraggingRuler = false; });
+
+    // IntersectionObserver per Lazy Video Playback (PROMPT_MASTER_5.0)
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const vid = entry.target;
+          if (entry.isIntersecting) {
+            vid.play().catch(() => {});
+          } else {
+            vid.pause();
+          }
+        });
+      }, { threshold: 0.25 });
+      document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
+    }
   </script>
 
   <script>

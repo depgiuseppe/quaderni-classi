@@ -768,7 +768,7 @@ La tabella seguente sintetizza le formule inverse delle relazioni fisiche più u
 \centering
 \small
 \renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{llll}
+\begin{tabularx}{\textwidth}{lllX}
 \toprule
 \textbf{Legge Fisica} & \textbf{Formula Diretta} & \textbf{Formule Inverse} & \textbf{Significato delle Variabili} \\
 \midrule
@@ -1162,5 +1162,225 @@ Siano date la massa $m$ ($[M] = \mathrm{kg}$) e la densit\`a $d = \frac{m}{V}$ $
 \caption{Quadro comparativo dell'analisi dimensionale (Tavola 14 del quaderno): verifica della coerenza delle unit\`a di misura tra l'errata moltiplicazione $V = m \cdot d$ e la corretta divisione $V = \frac{m}{d}$.}
 \label{fig:analisi_dimensionale_volume}
 \end{figure}
+
+% ==============================================================================
+% CAPITOLO 9: LA MISURA OPERATIVA, SENSIBILITÀ, INCERTEZZA E MISURE DIRETTE/INDIRETTE (TAVOLE 15-16)
+% ==============================================================================
+\chapter{La Misura Operativa, Errore di Sensibilit\`a, Incertezza e Misure Dirette vs Indirette}
+
+\section{Misura della Lunghezza di un'Asta con il Righello ed Errore di Sensibilit\`a (Tavola 15)}
+
+Misurare una grandezza fisica significa confrontarla con l'unit\`a di misura campione mediante uno strumento tarato. Consideriamo l'esperimento fondamentale illustrato nella \textbf{Tavola 15} del quaderno: la misura della lunghezza $L$ di un'asta rigida tramite un righello graduato (o un metro da sarti) avente tacche spaziate ogni $0{,}5\,\mathrm{cm}$.
+
+\begin{metodo}[Procedura Operativa di Lettura sulla Scala Graduata]
+Per eseguire correttamente la lettura della lunghezza $L$ dell'asta:
+\begin{enumerate}[leftmargin=2em]
+    \item Si allinea con precisione l'estremit\`a sinistra dell'asta con la tacca dello \textbf{zero} ($0{,}0\,\mathrm{cm}$) della scala graduata, evitando disallineamenti o errori di parallasse.
+    \item Si osserva la posizione dell'estremit\`a destra dell'asta rispetto alla scala e \textbf{si considera la tacca pi\`u vicina}: nel nostro caso l'estremit\`a cade sulla tacca intermedia tra $6\,\mathrm{cm}$ e $7\,\mathrm{cm}$, per cui:
+    \[
+        \mathbf{L = 6{,}5\,\mathrm{cm}}
+    \]
+    \item Poich\'e nessuna scala graduata pu\`o avere suddivisioni infinitamente fitte, \textbf{tutti gli strumenti di misura sono caratterizzati da un errore di sensibilit\`a}.
+\end{enumerate}
+\end{metodo}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\linewidth]{immagini/traccia_sensibilita_p15.png}
+\caption{Definizione dal libro di testo (Tavola 15): l'errore di sensibilit\`a di uno strumento di misura.}
+\label{fig:traccia_sensibilita_p15}
+\end{figure}
+
+\begin{definizione}[Errore di Sensibilit\`a di uno Strumento di Misura (Tavola 15)]
+L'\textbf{errore di sensibilit\`a} (o semplicemente \textbf{sensibilit\`a}) di uno strumento di misura \`e la \textbf{pi\`u piccola variazione della grandezza che lo strumento \`e in grado di rilevare}.\\
+Operativamente, su uno strumento analogico a scala graduata, l'errore di sensibilit\`a \`e la \textbf{``distanza'' (differenza di valore) tra una tacca e quella immediatamente successiva}.
+Nel caso del metro da sarti (o righello graduato al mezzo centimetro) rappresentato nella Tavola 15, prendendo due tacche consecutive qualsiasi (ad esempio $7{,}5\,\mathrm{cm}$ e $8{,}0\,\mathrm{cm}$), la sensibilit\`a vale:
+\begin{equation}
+    \mathbf{\Delta x = 8{,}0\,\mathrm{cm} - 7{,}5\,\mathrm{cm} = 0{,}5\,\mathrm{cm}}
+\end{equation}
+\end{definizione}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.15, >=stealth]
+    % Corpo del righello graduato (da 0 a 8 cm)
+    \fill[primaryBlue!4!white, draw=primaryBlue!80!black, line width=1.2pt, rounded corners=2pt]
+        (-0.4, 1.0) rectangle (8.8, 2.3);
+
+    % Tacche del righello (passo 0.5 cm da 0.0 a 8.0)
+    \foreach \x in {0, 1, ..., 8} {
+        \draw[line width=1.3pt, primaryBlue!90!black] (\x, 2.3) -- (\x, 1.75);
+        \node[font=\small\bfseries, color=primaryBlue!90!black, fill=white, fill opacity=0.9, text opacity=1, inner sep=1pt]
+            at (\x, 1.42) {$\x$};
+    }
+    \foreach \x in {0.5, 1.5, ..., 7.5} {
+        \draw[line width=0.9pt, primaryBlue!80!black] (\x, 2.3) -- (\x, 1.92);
+    }
+    \node[font=\footnotesize\bfseries, color=primaryBlue!80!black] at (8.45, 1.42) {$\mathrm{cm}$};
+
+    % Linee di proiezione tratteggiate rosse (da 0.0 cm e da 6.5 cm)
+    \draw[dashed, line width=1.2pt, accentRed] (0.0, 2.45) -- (0.0, 0.15);
+    \draw[dashed, line width=1.2pt, accentRed] (6.5, 2.45) -- (6.5, 0.15);
+
+    % Asta rossa sotto il righello (da 0.0 a 6.5 cm)
+    \fill[accentRed!85!white, draw=accentRed!90!black, line width=1.2pt, rounded corners=1.5pt]
+        (0.0, 0.35) rectangle (6.5, 0.65);
+    \node[font=\small\bfseries, color=accentRed!90!black, fill=white, fill opacity=0.9, text opacity=1, inner sep=2pt]
+        at (3.25, -0.05) {Lunghezza dell'asta (tacca pi\`u vicina): $L = 6{,}5\,\mathrm{cm}$};
+
+    % Evidenziazione della sensibilita tra 7.5 cm e 8.0 cm con frecce rosse
+    \draw[->, line width=1.4pt, accentRed] (7.5, 3.05) -- (7.5, 2.35);
+    \draw[->, line width=1.4pt, accentRed] (8.0, 3.05) -- (8.0, 2.35);
+    \draw[<->, line width=1.0pt, accentAmber!90!black] (7.5, 2.75) -- (8.0, 2.75);
+
+    \node[font=\footnotesize\bfseries, color=accentRed!90!black, fill=white, fill opacity=0.9, text opacity=1, inner sep=2pt]
+        at (6.2, 3.38) {Distanza tra due tacche consecutive: $\Delta x = 8{,}0 - 7{,}5 = 0{,}5\,\mathrm{cm}$};
+
+    % Etichetta allineamento zero
+    \node[font=\footnotesize\bfseries, color=primaryBlue, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt]
+        at (1.25, 2.75) {Allineamento a $0{,}0\,\mathrm{cm}$};
+    \draw[->, thick, primaryBlue] (0.45, 2.75) -- (0.05, 2.40);
+\end{tikzpicture}
+\caption{Rappresentazione vettoriale della misura diretta della lunghezza di un'asta con il righello graduato (Tavola 15): l'estremit\`a destra cade in corrispondenza della tacca $6{,}5\,\mathrm{cm}$, mentre la distanza tra due tacche consecutive ($7{,}5\,\mathrm{cm}$ e $8{,}0\,\mathrm{cm}$) definisce l'errore di sensibilit\`a $\Delta x = 0{,}5\,\mathrm{cm}$.}
+\label{fig:misura_righello_tav15}
+\end{figure}
+
+\section{L'Incertezza $\Delta x$ e la Scrittura Formale di una Misura (Tavola 15)}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\linewidth]{immagini/traccia_incertezza_p15.png}
+\caption{Definizione dal libro di testo (Tavola 15): l'incertezza $\Delta x$ di una misura.}
+\label{fig:traccia_incertezza_p15}
+\end{figure}
+
+\begin{definizione}[Incertezza $\Delta x$ e Scrittura Formale della Misura (Tavola 15)]
+L'\textbf{incertezza $\Delta x$} quantifica il \textbf{grado di imprecisione nell'individuazione del valore di una grandezza}.\\
+\textbf{Regola fondamentale per la misura singola:} \textit{Se misuriamo una sola volta la lunghezza di un'asta con il righello, l'\textbf{incertezza} e la \textbf{sensibilit\`a} dello strumento sono sinonimi} ($\Delta x = \text{sensibilit\`a}$).
+
+La misura completa di una grandezza fisica $X$ si scrive sempre nella forma canonica:
+\begin{equation}
+    \mathbf{\boxed{X = (x_m \pm \Delta x)\,\mathrm{udm}}}
+\end{equation}
+dove:
+\begin{itemize}[leftmargin=2em]
+    \item $\mathbf{X}$ \`e il \textbf{simbolo della grandezza fisica} misurata (es. $L$ per una lunghezza, $m$ per una massa, $t$ per un tempo);
+    \item $\mathbf{x_m}$ \`e il \textbf{valore della grandezza} (il valore misurato letto sulla tacca pi\`u vicina, o il valore medio in caso di misure ripetute);
+    \item $\mathbf{\Delta x}$ \`e l'\textbf{incertezza assoluta} associata alla misura;
+    \item $\mathbf{\mathrm{udm}}$ \`e l'\textbf{unit\`a di misura}, posta fuori dalle parentesi tonde poich\'e si riferisce sia a $x_m$ sia a $\Delta x$.
+\end{itemize}
+\end{definizione}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.05, >=stealth]
+    % Riquadro centrale formula
+    \draw[line width=1.4pt, primaryBlue, fill=primaryBlue!5!white, rounded corners=6pt]
+        (-4.2, -0.75) rectangle (4.2, 0.75);
+
+    \node[font=\LARGE\bfseries, color=primaryBlue!95!black] at (0, 0)
+        {$X \;=\; (\,x_m \;\pm\; \Delta x\,)\;\mathrm{udm}$};
+
+    % Frecce e legende esplicative (stile Tavola 15)
+    % X -> simbolo della grandezza
+    \draw[->, line width=1.2pt, accentRed] (-2.55, -0.45) -- (-3.4, -1.45);
+    \node[font=\small\bfseries, color=accentRed, fill=white, fill opacity=0.9, text opacity=1, inner sep=2pt]
+        at (-3.6, -1.75) {Simbolo della grandezza ($X$)};
+
+    % x_m -> valore della grandezza
+    \draw[->, line width=1.2pt, primaryBlue] (-0.75, 0.50) -- (-1.6, 1.45);
+    \node[font=\small\bfseries, color=primaryBlue, fill=white, fill opacity=0.9, text opacity=1, inner sep=2pt]
+        at (-1.8, 1.75) {Valore della grandezza ($x_m$)};
+
+    % Delta x -> incertezza / sensibilita
+    \draw[->, line width=1.2pt, accentAmber!90!black] (0.85, 0.50) -- (1.8, 1.45);
+    \node[font=\small\bfseries, color=accentAmber!90!black, fill=white, fill opacity=0.9, text opacity=1, inner sep=2pt]
+        at (2.2, 1.75) {Incertezza / Sensibilit\`a ($\Delta x$)};
+
+    % udm -> unita di misura
+    \draw[->, line width=1.2pt, accentGreen!85!black] (2.45, -0.45) -- (3.3, -1.45);
+    \node[font=\small\bfseries, color=accentGreen!85!black, fill=white, fill opacity=0.9, text opacity=1, inner sep=2pt]
+        at (3.4, -1.75) {Unit\`a di misura ($\mathrm{udm}$)};
+\end{tikzpicture}
+\caption{Anatomia della scrittura formale di una misura fisica secondo lo schema della Tavola 15.}
+\label{fig:anatomia_scrittura_misura}
+\end{figure}
+
+\begin{metodo}[Applicazione all'Asta della Tavola 15 e Significato Fisico dell'Intervallo]
+Sostituendo i valori rilevati per l'asta ($x_m = 6{,}5\,\mathrm{cm}$ e $\Delta x = 0{,}5\,\mathrm{cm}$), la misura va scritta formalmente come:
+\begin{equation}
+    \mathbf{\boxed{L = (6{,}5 \pm 0{,}5)\,\mathrm{cm}}}
+\end{equation}
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Intervallo di incertezza (o di confidenza):} Scrivere $L = (6{,}5 \pm 0{,}5)\,\mathrm{cm}$ significa affermare che la lunghezza reale dell'asta \`e compresa tra un valore minimo $L_{\min}$ e un valore massimo $L_{\max}$:
+    \[
+        L_{\min} = 6{,}5 - 0{,}5 = 6{,}0\,\mathrm{cm}, \quad L_{\max} = 6{,}5 + 0{,}5 = 7{,}0\,\mathrm{cm} \implies L \in [6{,}0;\; 7{,}0]\,\mathrm{cm}
+    \]
+    \item \textbf{Coerenza delle cifre decimali:} L'incertezza $\Delta x = 0{,}5\,\mathrm{cm}$ \`e espressa con una sola cifra significativa (sulla posizione dei decimi di centimetro), e il valore misurato $x_m = 6{,}5\,\mathrm{cm}$ \`e arrotondato esattamente alla medesima posizione decimale (i decimi).
+    \item \textbf{Precisione della misura (Errore Relativo e Percentuale):}
+    \[
+        e_r = \frac{\Delta L}{L_m} = \frac{0{,}5\,\mathrm{cm}}{6{,}5\,\mathrm{cm}} = \frac{1}{13} \approx 0{,}0769 \quad \implies \quad e_p = e_r \cdot 100\% \approx \mathbf{7{,}7\%}
+    \]
+\end{itemize}
+\end{metodo}
+
+\section{Misure Dirette e Misure Indirette (Tavole 15 e 16)}
+
+Le procedure sperimentali con cui si determina il valore di una grandezza fisica si suddividono in due categorie fondamentali: \textbf{misure dirette} e \textbf{misure indirette}.
+
+\begin{definizione}[Misura Diretta vs Misura Indiretta (Tavole 15 e 16)]
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Misura Diretta (Tavola 15):}\\
+    Una misura si dice \textbf{diretta} se il valore della grandezza fisica viene \textbf{letto direttamente dal display} (negli strumenti digitali) \textbf{o dalla scala graduata} (negli strumenti analogici) dello strumento di misura, confrontando direttamente la grandezza con l'unit\`a campione.\\
+    \textit{Esempi:} la misura della lunghezza $L = (6{,}5 \pm 0{,}5)\,\mathrm{cm}$ di un'asta con il righello; la lettura della massa su una bilancia; la lettura di un intervallo di tempo con un cronometro o della temperatura con un termometro.
+
+    \item \textbf{Misura Indiretta (Tavola 16):}\\
+    Una misura si dice \textbf{indiretta} se il valore della grandezza viene ottenuto \textbf{mediante calcoli algebrici} (applicando una formula matematica o geometrica) a partire dai valori di altre grandezze misurate direttamente.\\
+    \textit{Esempio canonico (Tavola 16):} la misura della \textbf{superficie del pavimento} di una stanza ($S = a \cdot b$), determinata moltiplicando tra loro le lunghezze dei due lati $a$ e $b$ misurate direttamente con il metro.
+\end{enumerate}
+\end{definizione}
+
+\begin{metodo}[Esempio Svolto Completo: Misura Indiretta della Superficie di un Pavimento (Tavola 16)]
+Vogliamo determinare la superficie $S$ di un pavimento rettangolare.
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Fase 1 — Misure Dirette dei Lati:} Con una rotella metrica (sensibilit\`a $\Delta x = 0{,}1\,\mathrm{m}$) misuriamo direttamente la lunghezza $a$ e la larghezza $b$ della stanza:
+    \[
+        a = (4{,}0 \pm 0{,}1)\,\mathrm{m}, \qquad b = (3{,}0 \pm 0{,}1)\,\mathrm{m}
+    \]
+    \item \textbf{Fase 2 — Calcolo Algebrico del Valore Attendibile (Misura Indiretta):} Applichiamo la formula geometrica dell'area del rettangolo:
+    \[
+        S_m = a_m \cdot b_m = 4{,}0\,\mathrm{m} \cdot 3{,}0\,\mathrm{m} = \mathbf{12{,}0\,\mathrm{m}^2}
+    \]
+    \item \textbf{Fase 3 — Propagazione dell'Incertezza sul Prodotto:} Poich\'e la superficie \`e il prodotto di due grandezze affette da incertezza, l'errore relativo sul prodotto \`e la somma degli errori relativi sui singoli fattori:
+    \[
+        e_{r,S} = \frac{\Delta a}{a_m} + \frac{\Delta b}{b_m} = \frac{0{,}1}{4{,}0} + \frac{0{,}1}{3{,}0} = 0{,}025 + 0{,}0333 = 0{,}0583
+    \]
+    Da cui l'incertezza assoluta $\Delta S$ sulla superficie vale:
+    \[
+        \Delta S = S_m \cdot e_{r,S} = 12{,}0\,\mathrm{m}^2 \cdot 0{,}0583 = 0{,}7\,\mathrm{m}^2
+    \]
+    \item \textbf{Scrittura Formale della Misura Indiretta:}
+    \[
+        \mathbf{\boxed{S = (12{,}0 \pm 0{,}7)\,\mathrm{m}^2}}
+    \]
+\end{enumerate}
+\end{metodo}
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Caratteristica} & \textbf{Misura Diretta (Tavola 15)} & \textbf{Misura Indiretta (Tavola 16)} \\
+\midrule
+\textbf{Procedura Operativa} & Lettura immediata sulla scala graduata o sul display dello strumento. & Calcolo algebrico tramite una formula matematica a partire da misure dirette. \\
+\textbf{Origine dell'Incertezza} & Per singola misura coincide direttamente con l'errore di sensibilit\`a $\Delta x$ dello strumento. & Si ottiene mediante le leggi di propagazione degli errori a partire dalle incertezze delle grandezze dirette. \\
+\textbf{Esempi di Laboratorio} & Lunghezza dell'asta col righello $L = (6{,}5 \pm 0{,}5)\,\mathrm{cm}$; tempo col cronometro; massa con la bilancia. & Superficie del pavimento $S = a \cdot b$; volume di un cilindro $V = \pi r^2 h$; densit\`a $d = m/V$; velocit\`a $v = s/t$. \\
+\bottomrule
+\end{tabularx}
+\caption{Quadro sinottico comparativo tra misure dirette e misure indirette (Tavole 15 e 16).}
+\label{tab:confronto_diretta_indiretta}
+\end{table}
 
 \end{document}
