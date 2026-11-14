@@ -2257,60 +2257,35 @@ $-3$ & $-6$ & $-\frac{1}{6}$ & Ramo asintotico a $0^-$ \\
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[scale=1.15]
-    % Griglia millimetrata
-    \draw[step=0.5cm, gray!20, very thin] (-4.5,-4.5) grid (4.5,4.5);
-    \draw[step=1cm, gray!35, thin] (-4.5,-4.5) grid (4.5,4.5);
+\begin{tikzpicture}[scale=1.1]
+    \draw[step=0.5cm, gray!20, very thin] (-4.2,-4.2) grid (4.2,4.2);
+    \draw[->, >=Latex, line width=1pt] (-4.2,0) -- (4.5,0) node[right, font=\small\bfseries] {$x$};
+    \draw[->, >=Latex, line width=1pt] (0,-4.2) -- (0,4.5) node[above, font=\small\bfseries] {$y$};
+    \node at (-0.2,-0.2) [font=\small] {$O$};
     
-    % Assi cartesiani
-    \draw[->, >=Latex, line width=1.1pt] (-4.5,0) -- (4.8,0) node[right, font=\small\bfseries] {$x$};
-    \draw[->, >=Latex, line width=1.1pt] (0,-4.5) -- (0,4.8) node[above, font=\small\bfseries] {$y$};
-    \node at (-0.25,-0.25) [font=\small] {$O$};
-    
-    % Tacche unità
-    \foreach \x in {-4,-3,-2,-1,1,2,3,4}
-        \draw (\x, 0.08) -- (\x, -0.08) node[below, font=\scriptsize] {$\x$};
-    \foreach \y in {-4,-3,-2,-1,1,2,3,4}
-        \draw (0.08, \y) -- (-0.08, \y) node[left, font=\scriptsize] {$\y$};
-        
     % Asintoto verticale tratteggiato in rosso x = 0
-    \draw[line width=1.2pt, alertRed, dashed] (0, -4.5) -- (0, 4.5);
-    \node at (0.35, 4.3) [font=\scriptsize\bfseries, color=alertRed] {$x = 0$};
+    \draw[line width=1.1pt, alertRed, dashed] (0, -4.2) -- (0, 4.2) node[above right, font=\scriptsize\bfseries, color=alertRed] {$x = 0$};
     
-    % Linee di livello punti fissi y = 1 e y = -1
-    \draw[thin, dotted, gray!60] (-4.5, 1) -- (4.5, 1);
-    \draw[thin, dotted, gray!60] (-4.5, -1) -- (4.5, -1);
+    % Linee guida punteggiate per i punti fissi y = 1 e y = -1
+    \draw[thin, dotted, gray!60] (-4.2, 1) -- (4.2, 1);
+    \draw[thin, dotted, gray!60] (-4.2, -1) -- (4.2, -1);
     
-    % Retta y = 2x (in blu)
-    \draw[line width=1.4pt, primaryBlue] (-2.25, -4.5) -- (2.25, 4.5) node[above right, font=\small\bfseries, color=primaryBlue] {$y = 2x$};
+    % Retta y = 2x
+    \draw[line width=1.3pt, primaryBlue] (-2.1, -4.2) -- (2.1, 4.2) node[above right, font=\small\bfseries, color=primaryBlue] {$y = 2x$};
     
-    % Ramo positivo iperbole y' = 1/(2x) (in rosso)
-    \draw[line width=1.4pt, alertRed, samples=120, domain=0.11:4.5] plot (\x, {1/(2*\x)});
-    % Ramo negativo iperbole y' = 1/(2x)
-    \draw[line width=1.4pt, alertRed, samples=120, domain=-4.5:-0.11] plot (\x, {1/(2*\x)});
-    \node at (3.2, 0.7) [font=\small\bfseries, color=alertRed] {$y' = \dfrac{1}{2x}$};
+    % Iperbole reciproca y' = 1/(2x)
+    \draw[line width=1.3pt, alertRed, samples=120, domain=0.12:4.2] plot (\x, {1/(2*\x)});
+    \draw[line width=1.3pt, alertRed, samples=120, domain=-4.2:-0.12] plot (\x, {1/(2*\x)});
+    \node at (3.2, 0.6) [font=\small\bfseries, color=alertRed] {$y' = \dfrac{1}{2x}$};
     
-    % Punti fissi evidenziati
-    \fill[primaryBlue!80!black] (0.5, 1) circle (2.5pt);
-    \fill[alertRed] (0.5, 1) circle (1.5pt);
-    \node at (1.1, 1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(\frac{1}{2},\, 1\right)$};
+    % Punti fissi di intersezione
+    \fill[primaryBlue] (0.5, 1) circle (2pt);
+    \fill[alertRed] (0.5, 1) circle (1.2pt);
+    \node at (1.0, 1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(\frac{1}{2}, \, 1\right)$};
     
-    \fill[primaryBlue!80!black] (-0.5, -1) circle (2.5pt);
-    \fill[alertRed] (-0.5, -1) circle (1.5pt);
-    \node at (-1.1, -1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(-\frac{1}{2},\, -1\right)$};
-    
-    % Punti campione dalla tabella
-    \fill[primaryBlue] (1, 2) circle (1.8pt);
-    \fill[alertRed] (1, 0.5) circle (1.8pt);
-    \draw[thin, dotted, gray!70] (1, 0) -- (1, 2);
-    
-    \fill[primaryBlue] (2, 4) circle (1.8pt);
-    \fill[alertRed] (2, 0.25) circle (1.8pt);
-    \draw[thin, dotted, gray!70] (2, 0) -- (2, 4);
-    
-    \fill[primaryBlue] (0.25, 0.5) circle (1.8pt);
-    \fill[alertRed] (0.25, 2) circle (1.8pt);
-    \draw[thin, dotted, gray!70] (0.25, 0) -- (0.25, 2);
+    \fill[primaryBlue] (-0.5, -1) circle (2pt);
+    \fill[alertRed] (-0.5, -1) circle (1.2pt);
+    \node at (-1.0, -1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(-\frac{1}{2}, \, -1\right)$};
 \end{tikzpicture}
 \caption{Rappresentazione cartesiana comparativa del reciproco di una retta (Tavola 32): la retta $y = 2x$ (blu) e la sua curva reciproca $y' = \frac{1}{2x}$ (rosso). Sono evidenziati i punti fissi di intersezione in $\left(\pm\frac{1}{2}, \, \pm 1\right)$, l'asintoto verticale tratteggiato in $x = 0$ generato dall'annullamento della retta originaria, e l'asintoto orizzontale $y = 0$.}
 \label{fig:reciproco_retta_iperbole}
@@ -2440,7 +2415,7 @@ Nei grafici cartesiani seguenti, le curve di $\sec\alpha$ e $\csc\alpha$ sono tr
 \centering
 \begin{minipage}{0.48\textwidth}
 \centering
-\begin{tikzpicture}[scale=0.95]
+\begin{tikzpicture}[scale=0.75]
     % Assi
     \draw[->, >=Latex, line width=0.9pt] (-3.8, 0) -- (4.2, 0) node[right, font=\scriptsize\bfseries] {$\alpha$};
     \draw[->, >=Latex, line width=0.9pt] (0, -3.2) -- (0, 3.5) node[above, font=\scriptsize\bfseries] {$y$};
@@ -2483,7 +2458,7 @@ Nei grafici cartesiani seguenti, le curve di $\sec\alpha$ e $\csc\alpha$ sono tr
 \hfill
 \begin{minipage}{0.48\textwidth}
 \centering
-\begin{tikzpicture}[scale=0.95]
+\begin{tikzpicture}[scale=0.75]
     % Assi
     \draw[->, >=Latex, line width=0.9pt] (-3.8, 0) -- (4.2, 0) node[right, font=\scriptsize\bfseries] {$\alpha$};
     \draw[->, >=Latex, line width=0.9pt] (0, -3.2) -- (0, 3.5) node[above, font=\scriptsize\bfseries] {$y$};
