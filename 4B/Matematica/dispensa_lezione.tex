@@ -1325,9 +1325,9 @@ Nello studio della composizione tra la funzione valore assoluto $f(x) = |x - 2|$
 Il dominio coincide con $x > 0$. Il grafico si ottiene traslando verticalmente di 2 unit\`a verso il basso il logaritmo canonico ($y = \log_2 x - 2$, con zero in $x = 4$) e successivamente ribaltando simmetricamente rispetto all'asse $x$ la porzione di curva situata al di sotto di esso ($0 < x < 4$). Il punto $P(4, 0)$ costituisce un punto angoloso.
 
 \item \textbf{Modulo interno $t(x) = (g \circ f)(x) = g(f(x)) = \log_2 |x - 2|$:}\\
-L'argomento del logaritmo impone $|x - 2| > 0 \implies x \neq 2$. Il dominio \`e $D = \mathbb{R} \setminus \{2\}$. Il grafico presenta una retta di simmetria verticale $x = 2$, lungo la quale la funzione diverge negativamente:
+L'argomento del logaritmo impone $|x - 2| > 0 \implies x \neq 2$. Il dominio \`e $D = \mathbb{R} \setminus \{2\}$. Il grafico presenta una retta di simmetria verticale $x = 2$, lungo la quale la funzione scende indefinitamente verso il basso:
 \begin{equation}
-\lim_{x \to 2} \log_2 |x - 2| = -\infty
+\text{Per } x \to 2 \implies \log_2 |x - 2| \to -\infty \quad (\text{Asintoto Verticale: } x = 2)
 \end{equation}
 Il grafico \`e formato da due rami speculari identici: per $x > 2$ coincide con $\log_2(x - 2)$ (traslazione orizzontale di 2 verso destra del logaritmo base), mentre per $x < 2$ ne \`e l'immagine riflessa rispetto all'asintoto $x = 2$.
 \end{enumerate}
@@ -1342,12 +1342,12 @@ x - 1 > 0 \iff x > 1 \implies D = (1, \, +\infty)
 \end{equation}
 Tutta la semiretta $x \le 1$ viene immediatamente cancellata dal piano cartesiano.
 
-\item \textbf{Comportamento Asintotico agli Estremi:}
+\item \textbf{Comportamento Asintotico agli Estremi (Analisi Pre-Calcolo):}
 \begin{equation}
-\lim_{x \to 1^+} [2\log_2(x - 1) + 1] = -\infty \implies \text{Asintoto Verticale: } x = 1
+\text{Per } x \to 1^+ \implies 2\log_2(x - 1) + 1 \to -\infty \quad (\text{Asintoto Verticale: } x = 1)
 \end{equation}
 \begin{equation}
-\lim_{x \to +\infty} [2\log_2(x - 1) + 1] = +\infty
+\text{Per } x \to +\infty \implies 2\log_2(x - 1) + 1 \to +\infty
 \end{equation}
 
 \item \textbf{Intersezioni con gli Assi Cartesiani:}
@@ -1704,10 +1704,41 @@ Sostituendo direttamente:
 L'espressione si riduce elegantemente e rigorosamente alla sola funzione $\cos\alpha$.
 \end{esempio}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.44\textwidth]{immagini/angoli_supplementari_box.png}
+\caption{Scheda visiva degli angoli supplementari $(\pi - \alpha)$ dal quaderno (Tavola 35): confronto tra $30^\circ$ e $150^\circ$ sulla circonferenza goniometrica ($\sin(\pi-\alpha)=\sin\alpha$, $\cos(\pi-\alpha)=-\cos\alpha$).}
+\label{fig:angoli_supplementari_4b}
+\end{figure}
+
+\begin{esercizio}[Esercizio 388: Riduzione con Angoli Supplementari (Tavola 35)]
+\begin{center}
+\includegraphics[width=0.72\textwidth]{immagini/es_388_traccia.png}
+\end{center}
+Semplificare la seguente espressione goniometrica:
+\begin{equation}
+2\big[\sin\alpha\sin(180^\circ - \alpha) - \cos\alpha\cos(180^\circ - \alpha)\big] - 5\cos 180^\circ
+\end{equation}
+\textbf{Risoluzione passo-passo:}\\
+1. \textit{Riduzione degli angoli supplementari e valore noto a $180^\circ$:}\\
+Ricordando che $180^\circ - \alpha \equiv \pi - \alpha$, si applicano le formule degli angoli supplementari:
+\begin{equation}
+\sin(180^\circ - \alpha) = \sin\alpha, \qquad \cos(180^\circ - \alpha) = -\cos\alpha, \qquad \cos 180^\circ = -1
+\end{equation}
+2. \textit{Sostituzione nell'espressione originaria (attenzione ai segni):}
+\begin{align}
+2\big[\sin\alpha \cdot \sin\alpha - \cos\alpha \cdot (-\cos\alpha)\big] - 5\cdot(-1) &= 2\big[\sin^2\alpha + \cos^2\alpha\big] + 5
+\end{align}
+3. \textit{Applicazione della prima relazione fondamentale ($\sin^2\alpha + \cos^2\alpha = 1$):}
+\begin{equation}
+2(1) + 5 = 2 + 5 = \mathbf{7}
+\end{equation}
+\end{esercizio}
+
 % ==============================================================================
-% SEZIONE: IL RECIPROCO DI UNA FUNZIONE E REGOLE DI COSTRUZIONE GRAFICA (PAGINA 36)
+% SEZIONE: IL RECIPROCO DI UNA FUNZIONE E REGOLE DI COSTRUZIONE GRAFICA (PAGINE 35-36)
 % ==============================================================================
-\section{Il Reciproco di una Funzione: Studio Analitico e Regole di Costruzione Grafica (Pagina 36)}
+\section{Il Reciproco di una Funzione: Studio Analitico e Regole di Costruzione Grafica (Tavole 35--36)}
 
 \begin{definizione}[Funzione Reciproca]
 Data una funzione reale $y = f(x)$, si definisce \textbf{funzione reciproca} la funzione $y'$ ottenuta calcolando l'inverso moltiplicativo di ogni sua ordinata non nulla:
@@ -1737,50 +1768,357 @@ Per costruire con immediatezza il grafico della funzione reciproca a partire dal
     
     \item \textbf{Valori Estremi e Asintoti Orizzontali:}
     \begin{itemize}
-        \item Se $y \to 0^{\pm}$, il reciproco esplode: $y' \to \pm\infty$ (avvicinamento asintotico verticale).
-        \item Se $y \to \pm\infty$, il reciproco tende a schiacciarsi a zero: $y' \to 0^{\pm}$, trasformando l'asse delle ascisse $y = 0$ in un \textbf{asintoto orizzontale}.
+        \item Se $y$ si avvicina moltissimo a $0$, il modulo del reciproco $|y'|$ cresce indefinitamente (avvicinamento asintotico verticale alla retta $x = x_0$).
+        \item Se $|y|$ diventa grandissimo, il reciproco $y'$ si avvicina progressivamente a $0$, trasformando l'asse delle ascisse $y = 0$ in un \textbf{asintoto orizzontale}.
     \end{itemize}
 \end{enumerate}
 \end{metodo}
 
-\subsection*{Applicazione Grafica: Retta $y = 2x$ e Iperbole Reciproca $y = \frac{1}{2x}$}
-Come esemplificato nel quaderno, applicando le regole alla retta $y = 2x$:
+\subsection*{Applicazione Tabellare e Grafica: Retta $y = 2x$ e Iperbole Reciproca $y' = \frac{1}{2x}$ (Tavola 35)}
+Come esemplificato alla Tavola 35 del quaderno, la funzione di partenza $y = 2x$ \`e una funzione \textbf{dispari} ($f(-x) = -2x = -f(x)$); tale simmetria centrale rispetto all'origine si conserva nella funzione reciproca $y' = \frac{1}{2x}$:
 \begin{itemize}
-    \item Lo zero $x = 0$ genera l'asintoto verticale $x = 0$ (l'asse $y$).
-    \item I punti fissi $2x = 1 \implies x = \frac{1}{2}$ e $2x = -1 \implies x = -\frac{1}{2}$ individuano le intersezioni in $\left(\frac{1}{2}, \, 1\right)$ e $\left(-\frac{1}{2}, \, -1\right)$.
-    \item Per $x \to \pm\infty$, la curva $y' = \frac{1}{2x}$ si schiaccia sull'asse orizzontale $y = 0$.
+    \item Lo zero $x = 0$ genera l'asintoto verticale $x = 0$ (l'asse $y$, ove $y'$ non esiste).
+    \item I punti fissi $2x = 1 \implies x = \frac{1}{2}$ e $2x = -1 \implies x = -\frac{1}{2}$ individuano le intersezioni invarianti $\left(\frac{1}{2}, \, 1\right)$ e $\left(-\frac{1}{2}, \, -1\right)$.
+    \item All'aumentare di $|x|$ verso valori molto grandi, la curva $y' = \frac{1}{2x}$ si schiaccia sull'asse orizzontale $y = 0$.
 \end{itemize}
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{0.88\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+\textbf{$x$} & \textbf{$y = 2x$} & \textbf{$y' = \dfrac{1}{2x}$} & \textbf{Nota Geometrica} \\
+\midrule
+$-3$ & $-6$ & $-\frac{1}{6}$ & Avvicinamento ad asintoto orizz. $y=0$ \\
+$-2$ & $-4$ & $-\frac{1}{4}$ & Semipiano inferiore ($y'<0$) \\
+$-1$ & $-2$ & $-\frac{1}{2}$ & Inversione di pendenza \\
+$-\frac{1}{2}$ & $\mathbf{-1}$ & $\mathbf{-1}$ & \textbf{Punto fisso invariante $P_2$} \\
+$-\frac{1}{4}$ & $-\frac{1}{2}$ & $-2$ & $|y'|$ cresce verso l'asintoto \\
+$0$ & $0$ & $\nexists$ & \textbf{Asintoto verticale $x = 0$} \\
+$\frac{1}{4}$ & $\frac{1}{2}$ & $2$ & $|y'|$ cresce verso l'asintoto \\
+$\frac{1}{2}$ & $\mathbf{1}$ & $\mathbf{1}$ & \textbf{Punto fisso invariante $P_1$} \\
+$1$ & $2$ & $\frac{1}{2}$ & Semipiano superiore ($y'>0$) \\
+$2$ & $4$ & $\frac{1}{4}$ & Decrescenza del ramo positivo \\
+$3$ & $6$ & $\frac{1}{6}$ & Avvicinamento ad asintoto orizz. $y=0$ \\
+\bottomrule
+\end{tabularx}
+\caption{Tabella dei valori notevoli per la retta $y = 2x$ e la sua reciproca $y' = \frac{1}{2x}$ (Tavola 35 del quaderno).}
+\label{tab:reciproco_retta_4b}
+\end{table}
 
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[scale=1.1]
     \draw[step=0.5cm, gray!20, very thin] (-4.2,-4.2) grid (4.2,4.2);
-    \draw[->, >=Latex, line width=1pt] (-4.2,0) -- (4.5,0) node[right, font=\small\bfseries] {$x$};
-    \draw[->, >=Latex, line width=1pt] (0,-4.2) -- (0,4.5) node[above, font=\small\bfseries] {$y$};
-    \node at (-0.2,-0.2) [font=\small] {$O$};
+    \draw[->, >=Latex, line width=1pt] (-4.2,0) -- (4.5,0) node[right, font=\small\bfseries, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt] {$x$};
+    \draw[->, >=Latex, line width=1pt] (0,-4.2) -- (0,4.5) node[above, font=\small\bfseries, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt] {$y$};
+    \node at (-0.25,-0.25) [font=\small, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt] {$O$};
     
     % Asintoto verticale tratteggiato in rosso x = 0
-    \draw[line width=1.1pt, alertRed, dashed] (0, -4.2) -- (0, 4.2) node[above right, font=\scriptsize\bfseries, color=alertRed] {$x = 0$};
+    \draw[line width=1.1pt, alertRed, dashed] (0, -4.2) -- (0, 4.2);
+    \node at (0.85, 3.85) [font=\small\bfseries, color=alertRed, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$x = 0$};
     
-    % Retta y = 2x
-    \draw[line width=1.3pt, primaryBlue] (-2.1, -4.2) -- (2.1, 4.2) node[above right, font=\small\bfseries, color=primaryBlue] {$y = 2x$};
+    % Linee guida orizzontali y = 1 e y = -1
+    \draw[line width=0.8pt, gray!60, dashed] (-4.2, 1) -- (4.2, 1);
+    \draw[line width=0.8pt, gray!60, dashed] (-4.2, -1) -- (4.2, -1);
+
+    % Retta y = 2x (segmento continuo puro)
+    \draw[line width=1.3pt, primaryBlue] (-2.1, -4.2) -- (2.1, 4.2);
+    \node at (2.45, 3.85) [font=\small\bfseries, color=primaryBlue, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$y = 2x$};
     
     % Iperbole reciproca y = 1/(2x)
-    \draw[line width=1.3pt, alertRed, samples=100, domain=0.12:4.2] plot (\x, {1/(2*\x)});
-    \draw[line width=1.3pt, alertRed, samples=100, domain=-4.2:-0.12] plot (\x, {1/(2*\x)});
-    \node at (3.2, 0.6) [font=\small\bfseries, color=alertRed] {$y' = \dfrac{1}{2x}$};
+    \draw[line width=1.3pt, alertRed, samples=120, domain=0.12:4.2] plot (\x, {1/(2*\x)});
+    \draw[line width=1.3pt, alertRed, samples=120, domain=-4.2:-0.12] plot (\x, {1/(2*\x)});
+    \node at (3.15, 0.55) [font=\small\bfseries, color=alertRed, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$y' = \dfrac{1}{2x}$};
     
     % Punti fissi
-    \fill[primaryBlue] (0.5, 1) circle (2pt);
-    \fill[alertRed] (0.5, 1) circle (1.2pt);
-    \node at (1.0, 1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(\frac{1}{2}, \, 1\right)$};
+    \fill[primaryBlue] (0.5, 1) circle (2.2pt);
+    \fill[alertRed] (0.5, 1) circle (1.3pt);
+    \node at (1.35, 1.35) [font=\small\bfseries, color=alertRed, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$P_1\left(\frac{1}{2}, \, 1\right)$};
     
-    \fill[primaryBlue] (-0.5, -1) circle (2pt);
-    \fill[alertRed] (-0.5, -1) circle (1.2pt);
-    \node at (-1.0, -1.25) [font=\scriptsize\bfseries, color=alertRed] {$\left(-\frac{1}{2}, \, -1\right)$};
+    \fill[primaryBlue] (-0.5, -1) circle (2.2pt);
+    \fill[alertRed] (-0.5, -1) circle (1.3pt);
+    \node at (-1.45, -1.35) [font=\small\bfseries, color=alertRed, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$P_2\left(-\frac{1}{2}, \, -1\right)$};
 \end{tikzpicture}
-\caption{Costruzione geometrica del reciproco di una retta (Tavola 36 del quaderno): la retta $y = 2x$ (blu) e l'iperbole reciproca $y' = \frac{1}{2x}$ (rosso) con punti fissi d'intersezione in $\left(\pm\frac{1}{2}, \, \pm 1\right)$ e asintoto verticale in $x = 0$.}
+\caption{Costruzione geometrica del reciproco di una retta (Tavola 35 del quaderno): la retta $y = 2x$ (blu) e l'iperbole reciproca $y' = \frac{1}{2x}$ (rosso) con punti fissi d'intersezione in $\left(\pm\frac{1}{2}, \, \pm 1\right)$ e asintoto verticale in $x = 0$.}
 \label{fig:reciproco_retta_4b}
 \end{figure}
+
+\begin{attenzione}[Distinzione tra Funzione Reciproca e Funzione Inversa (Tavola 36)]
+Non bisogna confondere il grafico della \textbf{funzione reciproca} $y' = \frac{1}{f(x)}$ con quello della \textbf{funzione inversa} $y = f^{-1}(x)$ (richiamata sul quaderno con l'esempio $y = x^2$ per $x \ge 0$ e $y = \sqrt{x}$):
+\begin{itemize}
+    \item La \textbf{funzione inversa} scambia i ruoli di $x$ e $y$, generando una simmetria speculare rispetto alla bisettrice del I e III quadrante ($y = x$).
+    \item La \textbf{funzione reciproca} mantiene fissa la variabile $x$ e trasforma l'ordinata $y$ in $\frac{1}{y}$, conservando invariati i punti sulle rette $y = \pm 1$ e generando asintoti verticali sugli zeri di $f(x)$.
+\end{itemize}
+\end{attenzione}
+
+% ==============================================================================
+% CAPITOLO 8: FORMULE GONIOMETRICHE DI ADDIZIONE E SOTTRAZIONE (TAVOLE 36-37)
+% ==============================================================================
+\chapter{Formule Goniometriche di Addizione e Sottrazione (Tavole 36--37)}
+
+Con le lezioni documentate alle tavole 36 e 37 del quaderno di classe 4B, lo studio della goniometria compie un passaggio algebrico fondamentale: la deduzione analitica e geometrica delle formule per il calcolo delle funzioni goniometriche della somma e della differenza di due angoli qualunque ($\alpha \pm \beta$).
+
+\section{Attenzione al Tranello: Non Linearit\`a delle Funzioni Circolari}
+
+\begin{attenzione}[Falsa Linearit\`a delle Funzioni Goniometriche (Tavola 36)]
+Uno degli errori pi\`u gravi e ricorrenti nell'algebra goniometrica consiste nel considerare le funzioni circolari come operatori algebrici lineari o distributivi rispetto alla somma:
+\begin{equation}
+    \cos(\alpha + \beta) \neq \cos\alpha + \cos\beta \qquad \text{\textbf{\color{alertRed}[FALSO!]}}
+\end{equation}
+\begin{equation}
+    \sin(\alpha + \beta) \neq \sin\alpha + \sin\beta \qquad \text{\textbf{\color{alertRed}[FALSO!]}}
+\end{equation}
+\textbf{Controesempio immediato:}\\
+Ponendo $\alpha = 60^\circ$ e $\beta = 30^\circ$:
+\begin{equation}
+    \cos(60^\circ + 30^\circ) = \cos 90^\circ = 0
+\end{equation}
+Mentre la somma dei singoli coseni restituisce:
+\begin{equation}
+    \cos 60^\circ + \cos 30^\circ = \frac{1}{2} + \frac{\sqrt{3}}{2} = \frac{1 + \sqrt{3}}{2} \neq 0
+\end{equation}
+Le funzioni circolari richiedono formule di scomposizione strutturate, che tengano conto dell'interazione geometrica tra le proiezioni ortogonali sulla circonferenza unitaria.
+\end{attenzione}
+
+\section{Dimostrazione Rigorosa: Formula di Sottrazione del Coseno (Tavola 36)}
+
+La formula capostipite dell'intero impianto trigonometrico \`e la formula di sottrazione del coseno. Nel quaderno del docente viene dimostrata con il metodo analitico pi\`u elegante e sintetico: il \textbf{prodotto scalare tra vettori unitari}.
+
+\begin{teorema}[Formula di Sottrazione del Coseno]
+Per ogni coppia di angoli orientati $\alpha, \beta \in \mathbb{R}$:
+\begin{equation}
+    \cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta
+\end{equation}
+\end{teorema}
+
+\begin{dimostrazione}[Dimostrazione Vettoriale tramite Prodotto Scalare (Tavola 36)]
+Consideriamo nel piano cartesiano ortogonale la circonferenza goniometrica con centro nell'origine $O(0, 0)$ e raggio unitario $R = 1$.
+Definiamo due vettori applicati nell'origine, $\vec{a}$ e $\vec{b}$, aventi per estremi i punti sulla circonferenza associati rispettivamente agli angoli $\alpha$ e $\beta$:
+\begin{equation}
+    \vec{a} = (\cos\alpha, \, \sin\alpha), \qquad \vec{b} = (\cos\beta, \, \sin\beta)
+\end{equation}
+Essendo i punti sulla circonferenza di raggio unitario, i due vettori hanno modulo pari a $1$:
+\begin{equation}
+    |\vec{a}| = \sqrt{\cos^2\alpha + \sin^2\alpha} = 1, \qquad |\vec{b}| = \sqrt{\cos^2\beta + \sin^2\beta} = 1
+\end{equation}
+Nel caso di angoli nel primo quadrante con $\alpha \ge \beta$ (generalizzabile a qualunque coppia di angoli grazie alla parit\`a del coseno), l'angolo convesso compreso tra i due vettori $\vec{a}$ e $\vec{b}$ ha ampiezza pari a $(\alpha - \beta)$.
+
+Calcoliamo il prodotto scalare $\vec{a} \cdot \vec{b}$ attraverso le due definizioni equivalenti:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Definizione Geometrica del Prodotto Scalare:}
+    \begin{equation}
+        \vec{a} \cdot \vec{b} = |\vec{a}| \, |\vec{b}| \cos(\alpha - \beta) = 1 \cdot 1 \cdot \cos(\alpha - \beta) = \cos(\alpha - \beta)
+    \end{equation}
+    \item \textbf{Definizione Analitica per Componenti Cartesiane:}
+    \begin{equation}
+        \vec{a} \cdot \vec{b} = a_x b_x + a_y b_y = |\vec{a}|\cos\alpha \cdot |\vec{b}|\cos\beta + |\vec{a}|\sin\alpha \cdot |\vec{b}|\sin\beta = \cos\alpha\cos\beta + \sin\alpha\sin\beta
+    \end{equation}
+\end{enumerate}
+Eguagliando le due espressioni scalari, si ottiene direttamente l'identit\`a cercata:
+\begin{equation}
+    \cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta
+\end{equation}
+\end{dimostrazione}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=2.2]
+    % Griglia sottile e assi
+    \draw[step=0.5cm, gray!15, very thin] (-1.3,-1.3) grid (1.3,1.3);
+    \draw[->, >=Latex, line width=0.9pt] (-1.25,0) -- (1.35,0) node[right, font=\small\bfseries, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt] {$x$};
+    \draw[->, >=Latex, line width=0.9pt] (0,-1.25) -- (0,1.35) node[above, font=\small\bfseries, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt] {$y$};
+    \node at (-0.14,-0.14) [font=\small, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$O$};
+    
+    % Circonferenza goniometrica
+    \draw[line width=1.1pt, primaryBlue] (0,0) circle (1);
+    \node at (-0.95, 0.95) [font=\small, color=primaryBlue, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$x^2+y^2=1$};
+    
+    % Angoli: beta = 25°, alpha = 70°
+    \coordinate (O) at (0,0);
+    \coordinate (B) at ({cos(25)}, {sin(25)});
+    \coordinate (A) at ({cos(70)}, {sin(70)});
+    
+    % Proiezioni tratteggiate
+    \draw[dashed, gray!60] (B) -- ({cos(25)}, 0);
+    \draw[dashed, gray!60] (A) -- ({cos(70)}, 0);
+
+    % Vettori a e b
+    \draw[->, >=Latex, line width=1.4pt, alertRed] (O) -- (B);
+    \node at (1.38, 0.45) [font=\small\bfseries, color=alertRed, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$\vec{b} \, (\cos\beta, \sin\beta)$};
+    \draw[->, >=Latex, line width=1.4pt, accentTeal] (O) -- (A);
+    \node at (0.78, 1.16) [font=\small\bfseries, color=accentTeal, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$\vec{a} \, (\cos\alpha, \sin\alpha)$};
+    
+    % Archi per gli angoli
+    \draw[line width=0.8pt, alertRed] (0.32,0) arc (0:25:0.32);
+    \node at (0.43, 0.10) [font=\small\bfseries, color=alertRed, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.2pt, rounded corners=1pt] {$\beta$};
+    
+    \draw[line width=0.8pt, accentTeal] (0.50,0) arc (0:70:0.50);
+    \node at (0.34, 0.42) [font=\small\bfseries, color=accentTeal, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.2pt, rounded corners=1pt] {$\alpha$};
+    
+    \draw[line width=1.1pt, examplePurple] ({0.68*cos(25)}, {0.68*sin(25)}) arc (25:70:0.68);
+    \node at ({0.83*cos(47.5)}, {0.83*sin(47.5)}) [font=\small\bfseries, color=examplePurple, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.2pt, rounded corners=1pt] {$\alpha - \beta$};
+\end{tikzpicture}
+\caption{Dimostrazione geometrico-vettoriale della formula di sottrazione del coseno (Tavola 36 del quaderno): i vettori unitari $\vec{a}$ e $\vec{b}$ individuano l'angolo $(\alpha - \beta)$; il prodotto scalare analitico uguaglia la componente geometrica.}
+\label{fig:dimostrazione_cos_diff_4b}
+\end{figure}
+
+\begin{esempio}[Esercizio Notevole: Calcolo Esatto di $\cos 15^\circ$ (Tavola 36)]
+Calcolare il valore esatto di $\cos 15^\circ$ decomponendo $15^\circ$ come differenza tra archi notevoli:\\
+Ponendo $15^\circ = 45^\circ - 30^\circ$:
+\begin{align}
+    \cos 15^\circ &= \cos(45^\circ - 30^\circ) = \cos 45^\circ\cos 30^\circ + \sin 45^\circ\sin 30^\circ \\
+    &= \left(\frac{\sqrt{2}}{2}\right)\left(\frac{\sqrt{3}}{2}\right) + \left(\frac{\sqrt{2}}{2}\right)\left(\frac{1}{2}\right) = \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4} = \frac{\sqrt{6} + \sqrt{2}}{4}
+\end{align}
+\end{esempio}
+
+\section{Dimostrazione Rigorosa: Formula di Addizione del Coseno (Tavola 37)}
+
+\begin{teorema}[Formula di Addizione del Coseno]
+Per ogni coppia di angoli orientati $\alpha, \beta \in \mathbb{R}$:
+\begin{equation}
+    \cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta
+\end{equation}
+\end{teorema}
+
+\begin{dimostrazione}[Dimostrazione Analitica tramite Parit\`a e Disparit\`a (Tavola 37)]
+Riscriviamo la somma algebrica $\alpha + \beta$ come differenza tra l'angolo $\alpha$ e l'angolo opposto $(-\beta)$:
+\begin{equation}
+    \cos(\alpha + \beta) = \cos(\alpha - (-\beta))
+\end{equation}
+Applicando la formula di sottrazione del coseno con secondo argomento pari a $(-\beta)$:
+\begin{equation}
+    \cos(\alpha - (-\beta)) = \cos\alpha\cos(-\beta) + \sin\alpha\sin(-\beta)
+\end{equation}
+Poich\'e la funzione coseno \`e \textbf{pari} ($\cos(-\beta) = \cos\beta$) e la funzione seno \`e \textbf{dispari} ($\sin(-\beta) = -\sin\beta$):
+\begin{equation}
+    \cos(\alpha + \beta) = \cos\alpha(\cos\beta) + \sin\alpha(-\sin\beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta
+\end{equation}
+\end{dimostrazione}
+
+\begin{metodo}[Forma Compatta per il Coseno di Somma e Differenza]
+Riunendo le due relazioni dedotte alle tavole 36 e 37:
+\begin{equation}
+    \cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta
+\end{equation}
+\textit{Regola mnemonica: per il coseno, il segno tra i prodotti \`e sempre \textbf{invertito} rispetto al segno dell'argomento composto ($\pm \to \mp$).}
+\end{metodo}
+
+\section{Dimostrazione Rigorosa: Formula di Addizione del Seno (Tavola 37)}
+
+\begin{teorema}[Formula di Addizione del Seno]
+Per ogni coppia di angoli orientati $\alpha, \beta \in \mathbb{R}$:
+\begin{equation}
+    \sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta
+\end{equation}
+\end{teorema}
+
+\begin{dimostrazione}[Dimostrazione tramite Archi Complementari (Tavola 37)]
+Ricordando la propriet\`a fondamentale degli angoli complementari (esplicitata nel triangolo rettangolo e sulla circonferenza goniometrica di tavola 37 con $c_1 = i\cos\alpha$ e $c_2 = i\sin\alpha$):
+\begin{equation}
+    \sin\theta = \cos\left(\frac{\pi}{2} - \theta\right), \qquad \cos\theta = \sin\left(\frac{\pi}{2} - \theta\right)
+\end{equation}
+Ponendo $\theta = \alpha + \beta$:
+\begin{equation}
+    \sin(\alpha + \beta) = \cos\left[\frac{\pi}{2} - (\alpha + \beta)\right] = \cos\left[\left(\frac{\pi}{2} - \alpha\right) - \beta\right]
+\end{equation}
+Applichiamo la formula di sottrazione del coseno assumendo come primo angolo $\left(\frac{\pi}{2} - \alpha\right)$ e come secondo angolo $\beta$:
+\begin{equation}
+    \cos\left[\left(\frac{\pi}{2} - \alpha\right) - \beta\right] = \cos\left(\frac{\pi}{2} - \alpha\right)\cos\beta + \sin\left(\frac{\pi}{2} - \alpha\right)\sin\beta
+\end{equation}
+Poich\'e $\cos\left(\frac{\pi}{2} - \alpha\right) = \sin\alpha$ e $\sin\left(\frac{\pi}{2} - \alpha\right) = \cos\alpha$, sostituendo si ottiene immediatamente:
+\begin{equation}
+    \sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta
+\end{equation}
+\end{dimostrazione}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=2.0]
+    \draw[step=0.5cm, gray!15, very thin] (-1.3,-1.3) grid (1.3,1.3);
+    \draw[->, >=Latex, line width=0.9pt] (-1.25,0) -- (1.35,0) node[right, font=\small\bfseries, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt] {$x$};
+    \draw[->, >=Latex, line width=0.9pt] (0,-1.25) -- (0,1.35) node[above, font=\small\bfseries, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt] {$y$};
+    \draw[line width=1.1pt, primaryBlue] (0,0) circle (1);
+    \coordinate (O) at (0,0);
+    \coordinate (P1) at ({cos(28)}, {sin(28)});
+    \coordinate (P2) at ({cos(62)}, {sin(62)});
+    % Triangolo rettangolo per alpha = 28°
+    \draw[line width=1.2pt, accentTeal] (O) -- (P1);
+    \draw[line width=1.4pt, alertRed] ({cos(28)}, 0) -- (P1);
+    \draw[line width=1.4pt, accentTeal] (O) -- ({cos(28)}, 0);
+    % Triangolo rettangolo per pi/2 - alpha = 62°
+    \draw[line width=1.2pt, examplePurple] (O) -- (P2);
+    \draw[line width=1.4pt, accentTeal] ({cos(62)}, 0) -- (P2);
+    \draw[line width=1.4pt, alertRed] (O) -- ({cos(62)}, 0);
+    % Archi e legende con Halo Shield
+    \draw[line width=0.8pt, accentTeal] (0.34,0) arc (0:28:0.34);
+    \node at (0.64, 0.13) [font=\small\bfseries, color=accentTeal, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.2pt, rounded corners=1pt] {$\alpha$};
+    \draw[line width=0.9pt, examplePurple] (0.52,0) arc (0:62:0.52);
+    \node at (0.32, 1.15) [font=\small\bfseries, color=examplePurple, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$\frac{\pi}{2}-\alpha$};
+    \node at (1.12, 0.28) [font=\small\bfseries, color=alertRed, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$\sin\alpha$};
+    \node at (0.55, -0.18) [font=\small\bfseries, color=accentTeal, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt, rounded corners=1pt] {$\cos\alpha$};
+    \node at (-0.15,-0.15) [font=\small, fill=white, fill opacity=0.9, text opacity=1, inner sep=1.5pt] {$O$};
+\end{tikzpicture}
+\caption{Congruenza dei due triangoli rettangoli complementari sulla circonferenza goniometrica (Tavola 37): lo scambio dei cateti giustifica immediatamente $\cos\left(\frac{\pi}{2}-\alpha\right)=\sin\alpha$ e $\sin\left(\frac{\pi}{2}-\alpha\right)=\cos\alpha$.}
+\label{fig:complementari_seno_4b}
+\end{figure}
+
+\begin{esempio}[Esercizio Notevole: Calcolo Esatto di $\sin 75^\circ$ (Tavola 37)]
+Calcolare il valore esatto di $\sin 75^\circ$ mediante la decomposizione $75^\circ = 45^\circ + 30^\circ$:
+\begin{align}
+    \sin 75^\circ &= \sin(45^\circ + 30^\circ) = \sin 45^\circ\cos 30^\circ + \cos 45^\circ\sin 30^\circ \\
+    &= \left(\frac{\sqrt{2}}{2}\right)\left(\frac{\sqrt{3}}{2}\right) + \left(\frac{\sqrt{2}}{2}\right)\left(\frac{1}{2}\right) = \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4} = \frac{\sqrt{6} + \sqrt{2}}{4}
+\end{align}
+\textbf{Osservazione di Coerenza Didattica:}\\
+Si constata che:
+\begin{equation}
+    \sin 75^\circ = \cos 15^\circ = \frac{\sqrt{6} + \sqrt{2}}{4}
+\end{equation}
+Il risultato conferma in modo impeccabile la legge degli angoli complementari: poich\'e $75^\circ + 15^\circ = 90^\circ$, il seno di un angolo coincide esattamente con il coseno del suo complementare.
+\end{esempio}
+
+\section{Dimostrazione Rigorosa: Formula di Sottrazione del Seno e Quadro Sinottico (Tavola 37)}
+
+\begin{teorema}[Formula di Sottrazione del Seno]
+Per ogni coppia di angoli orientati $\alpha, \beta \in \mathbb{R}$:
+\begin{equation}
+    \sin(\alpha - \beta) = \sin\alpha\cos\beta - \cos\alpha\sin\beta
+\end{equation}
+\end{teorema}
+
+\begin{dimostrazione}[Dimostrazione Analitica (Tavola 37)]
+Esprimiamo la differenza come somma dell'angolo opposto: $\sin(\alpha - \beta) = \sin(\alpha + (-\beta))$.
+Applicando la formula di addizione del seno e sfruttando la disparit\`a del seno e la parit\`a del coseno:
+\begin{align}
+    \sin(\alpha - \beta) &= \sin\alpha\cos(-\beta) + \cos\alpha\sin(-\beta) \\
+    &= \sin\alpha(\cos\beta) + \cos\alpha(-\sin\beta) = \sin\alpha\cos\beta - \cos\alpha\sin\beta
+\end{align}
+\end{dimostrazione}
+
+\begin{metodo}[Forma Compatta per il Seno di Somma e Differenza (Tavola 37)]
+\begin{equation}
+    \sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta
+\end{equation}
+\textit{Regola mnemonica: per il seno, il segno tra i prodotti mantiene lo \textbf{stesso segno} dell'argomento composto ($\pm \to \pm$).}
+\end{metodo}
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{p{3.9cm}Xp{4.8cm}}
+\toprule
+\textbf{Funzione Composta} & \textbf{Formula Esplicita di Espansione} & \textbf{Regola Mnemonica dei Segni} \\
+\midrule
+$\cos(\alpha - \beta)$ & $\cos\alpha\cos\beta + \sin\alpha\sin\beta$ & Segno opposto ($+$ per differenza) \\
+$\cos(\alpha + \beta)$ & $\cos\alpha\cos\beta - \sin\alpha\sin\beta$ & Segno opposto ($-$ per somma) \\
+$\sin(\alpha + \beta)$ & $\sin\alpha\cos\beta + \cos\alpha\sin\beta$ & Stesso segno ($+$ per somma) \\
+$\sin(\alpha - \beta)$ & $\sin\alpha\cos\beta - \cos\alpha\sin\beta$ & Stesso segno ($-$ per differenza) \\
+\bottomrule
+\end{tabularx}
+\caption{Quadro sinottico comparativo delle formule di addizione e sottrazione goniometriche dedotte alle Tavole 36 e 37 del quaderno.}
+\label{tab:formule_addizione_sottrazione_4b}
+\end{table}
 
 \end{document}
