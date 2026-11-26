@@ -451,6 +451,7 @@
       <a href="#sec-calore">Calore ed Equivalenza</a>
       <a href="#sec-simulatore">Simulatore Interattivo</a>
       <a href="#sec-problemi">Problemi dal Testo</a>
+      <a href="#sec-stato-propagazione">Stato &amp; Propagazione</a>
     </div>
   </nav>
 
@@ -740,6 +741,26 @@
         <p>$$\mathbf{T_{\text{eq}} = \frac{m_1 T_1 + m_2 T_2}{m_1 + m_2}}$$</p>
       </div>
 
+      <div class="card">
+        <div class="card">
+        <div class="card-title">Esempi Numerici di Mescolamento ed Equivalenza Unità (Tavola 18)</div>
+        <ul>
+          <li><strong>1° Caso — Stessa sostanza, diverse masse, differente temperatura (acqua + acqua):</strong>
+            $m_1 = 2\,\text{kg}$ a $T_1 = 40\,^\circ\text{C}$ e $m_2 = 1\,\text{kg}$ a $T_2 = 60\,^\circ\text{C}$ ($m_{\text{tot}} = 3\,\text{kg}$):
+            $$T_e = \frac{m_1 T_1 + m_2 T_2}{m_1 + m_2} = \frac{2\,\text{kg}\cdot 40\,^\circ\text{C} + 1\,\text{kg}\cdot 60\,^\circ\text{C}}{3\,\text{kg}} = \frac{140}{3}\,^\circ\text{C} \approx \mathbf{46{,}6\,^\circ\text{C}}$$
+          </li>
+          <li><strong>2° Caso — Diverse sostanze (detergente svelto + acqua), diverse masse, differente temperatura:</strong>
+            $m_1 = 2\,\text{kg}$ ($c_1 = 3700\,\text{J/(kg}\cdot^\circ\text{C)}$) a $T_1 = 40\,^\circ\text{C}$ e $m_2 = 1\,\text{kg}$ ($c_2 = 4186\,\text{J/(kg}\cdot^\circ\text{C)}$) a $T_2 = 60\,^\circ\text{C}$:
+            $$T_e = \frac{m_1 c_1 T_1 + m_2 c_2 T_2}{m_1 c_1 + m_2 c_2} = \frac{2\cdot 3700\cdot 40 + 1\cdot 4186\cdot 60}{2\cdot 3700 + 1\cdot 4186} \approx \mathbf{47{,}2\,^\circ\text{C}}$$
+          </li>
+          <li><strong>Quesito c. — Equivalenza delle unità di misura del calore specifico:</strong>
+            <div class="screenshot-container" style="margin:10px 0;">
+              <img src="immagini/es_c_conversione_cal.png" alt="Equivalenza calore specifico Pagina 18" style="max-width:480px; height:auto;">
+            </div>
+            $$1\,\frac{\text{cal}}{\text{g}\cdot^\circ\text{C}} = \frac{1 \cdot 4{,}2 \cdot 10^{-3}\,\text{kJ}}{10^{-3}\,\text{kg}\cdot\text{K}} = \mathbf{4{,}2\,\frac{\text{kJ}}{\text{kg}\cdot\text{K}}} = \mathbf{4{,}2 \cdot 10^3\,\frac{\text{J}}{\text{kg}\cdot\text{K}}}$$
+          </li>
+        </ul>
+      </div>
       <div class="card">
         <div class="card-title">Il Kilowattora ($\text{kWh}$) nei Consumi Domestici</div>
         <p>$$\mathbf{1\,\text{kWh} = 1000\,\text{W} \times 3600\,\text{s} = 3{,}60 \cdot 10^6\,\text{J} = 3{,}60\,\text{MJ}}$$</p>
@@ -1272,10 +1293,6 @@
         </ol>
       </div>
 
-    </section>
-  </div>
-
-  <!-- Script Simulatore Interattivo Canvas con Deformazione Dinamica -->
       <!-- Problema 6: Es 6 -->
       <div class="card problema">
         <div class="card-title">Problema 6 (Es. 6 del Testo): Confronto tra Calori Specifici — Alluminio e Ferro</div>
@@ -1481,6 +1498,206 @@
           </li>
         </ol>
       </div>
+
+    </section>
+
+    <!-- Sezione 8: Cambiamenti di Stato e Propagazione del Calore (Tavola 21) -->
+    <section id="sec-stato-propagazione">
+      <h2>8. Cambiamenti di Stato, Calore Latente e Propagazione del Calore (Tavola 21)</h2>
+      <p>Alla Tavola 21 del quaderno di classe 4B vengono analizzati i passaggi di stato di aggregazione della materia (soste termiche isoterme governate dal <strong>calore latente</strong>) e le leggi fisiche che regolano la <strong>propagazione del calore</strong> per conduzione e per irraggiamento.</p>
+
+      <div class="card">
+        <div class="card-title">Cambiamenti di Stato e Calore Latente ($L_f, L_v$ — Tavola 21)</div>
+        <p>Mentre all'interno di una singola fase (solido, liquido o gas) lo scambio termico fa variare la temperatura secondo la legge $Q = m \cdot c \cdot \Delta T$, durante un <strong>passaggio di stato</strong> a pressione costante la temperatura rimane rigorosamente invariata ($T = \text{costante}$) poiché l'energia termica viene impiegata per spezzare i legami intermolecolari:</p>
+        <p>$$\mathbf{Q = m \cdot L_f} \quad (\text{Fusione a } T = 273\,\text{K}), \qquad \mathbf{Q = m \cdot L_v} \quad (\text{Vaporizzazione a } T = 373\,\text{K})$$</p>
+        <ul>
+          <li><strong>Calore latente di fusione ($L_f$):</strong> per il ghiaccio a $273\,\text{K}$ ($0\,^\circ\text{C}$) vale $\mathbf{L_f = 3{,}34 \cdot 10^5\,\text{J/kg}}$ ($334\,\text{kJ/kg}$);</li>
+          <li><strong>Calore latente di vaporizzazione ($L_v$):</strong> per l'acqua a $373\,\text{K}$ ($100\,^\circ\text{C}$) vale $\mathbf{L_v = 2{,}26 \cdot 10^6\,\text{J/kg}}$ (corrispondente al calore latente molare $\mathbf{L_{v,\text{mol}} = 4{,}06 \cdot 10^4\,\text{J/mol}} = 40{,}6\,\text{kJ/mol}$).</li>
+        </ul>
+
+        <!-- SVG Curva di riscaldamento e passaggi di stato (Tavola 21) -->
+        <div style="margin: 18px 0; text-align: center;">
+          <svg viewBox="0 0 640 310" style="width: 100%; max-width: 600px; height: auto; background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 8px; font-family: system-ui, sans-serif;">
+            <!-- Assi -->
+            <line x1="65" y1="265" x2="605" y2="265" stroke="#0F172A" stroke-width="1.6"/>
+            <polygon points="603,261 615,265 603,269" fill="#0F172A"/>
+            <text x="618" y="269" font-size="13" font-weight="bold" fill="#0F172A">Q (J)</text>
+            <line x1="65" y1="280" x2="65" y2="22" stroke="#0F172A" stroke-width="1.6"/>
+            <polygon points="61,24 65,12 69,24" fill="#0F172A"/>
+            <text x="73" y="22" font-size="13" font-weight="bold" fill="#0F172A">T (K)</text>
+
+            <!-- Quote T: 253 K (y=235), 273 K (y=190), 373 K (y=110), 1300 K (y=40) -->
+            <line x1="65" y1="190" x2="240" y2="190" stroke="#94A3B8" stroke-dasharray="4,4"/>
+            <line x1="65" y1="110" x2="495" y2="110" stroke="#94A3B8" stroke-dasharray="4,4"/>
+            <text x="58" y="239" font-size="11.5" font-weight="bold" fill="#DC2626" text-anchor="end">253 K</text>
+            <text x="58" y="194" font-size="11.5" font-weight="bold" fill="#1E40AF" text-anchor="end">273 K</text>
+            <text x="58" y="114" font-size="11.5" font-weight="bold" fill="#1E40AF" text-anchor="end">373 K</text>
+            <text x="565" y="38" font-size="11.5" font-weight="bold" fill="#DC2626">T = 1300 K</text>
+
+            <!-- Tratti obliqui Q = m c dT e tratti orizzontali Q = m L -->
+            <line x1="80" y1="235" x2="135" y2="190" stroke="#2563EB" stroke-width="2.6"/>
+            <line x1="135" y1="190" x2="240" y2="190" stroke="#16A34A" stroke-width="3.4"/>
+            <line x1="240" y1="190" x2="340" y2="110" stroke="#2563EB" stroke-width="2.6"/>
+            <line x1="340" y1="110" x2="495" y2="110" stroke="#D97706" stroke-width="3.4"/>
+            <line x1="495" y1="110" x2="560" y2="42" stroke="#2563EB" stroke-width="2.6"/>
+
+            <!-- Proiezioni verticali tratteggiate -->
+            <line x1="135" y1="190" x2="135" y2="265" stroke="#CBD5E1" stroke-dasharray="3,3"/>
+            <line x1="240" y1="190" x2="240" y2="265" stroke="#CBD5E1" stroke-dasharray="3,3"/>
+            <line x1="340" y1="110" x2="340" y2="265" stroke="#CBD5E1" stroke-dasharray="3,3"/>
+            <line x1="495" y1="110" x2="495" y2="265" stroke="#CBD5E1" stroke-dasharray="3,3"/>
+
+            <!-- Etichette con Halo Shield -->
+            <rect x="82" y="198" width="44" height="16" fill="#FFFFFF" fill-opacity="0.92" rx="2"/>
+            <text x="104" y="210" font-size="11" font-weight="bold" fill="#2563EB" text-anchor="middle">solido</text>
+
+            <rect x="148" y="212" width="80" height="20" fill="#FFFFFF" fill-opacity="0.95" stroke="#16A34A" rx="3"/>
+            <text x="188" y="226" font-size="11.5" font-weight="bold" fill="#16A34A" text-anchor="middle">Q = m · Lf</text>
+
+            <rect x="266" y="136" width="50" height="16" fill="#FFFFFF" fill-opacity="0.92" rx="2"/>
+            <text x="291" y="148" font-size="11" font-weight="bold" fill="#2563EB" text-anchor="middle">liquido</text>
+
+            <rect x="378" y="135" width="82" height="20" fill="#FFFFFF" fill-opacity="0.95" stroke="#D97706" rx="3"/>
+            <text x="419" y="149" font-size="11.5" font-weight="bold" fill="#D97706" text-anchor="middle">Q = m · Lv</text>
+
+            <rect x="518" y="68" width="34" height="16" fill="#FFFFFF" fill-opacity="0.92" rx="2"/>
+            <text x="535" y="80" font-size="11" font-weight="bold" fill="#2563EB" text-anchor="middle">gas</text>
+
+            <rect x="110" y="26" width="160" height="22" fill="#FFFFFF" fill-opacity="0.95" stroke="#DC2626" rx="4"/>
+            <text x="190" y="41" font-size="11.5" font-weight="bold" fill="#DC2626" text-anchor="middle">Tratti obliqui: Q = m·c·ΔT</text>
+
+            <rect x="295" y="26" width="215" height="22" fill="#FFFFFF" fill-opacity="0.95" stroke="#1E40AF" rx="4"/>
+            <text x="402" y="41" font-size="11.5" font-weight="bold" fill="#1E40AF" text-anchor="middle">Tratti orizzontali: Passaggi di stato</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Propagazione del Calore: Conduzione (Fourier) e Irraggiamento (Stefan-Boltzmann) — Tavola 21</div>
+        <ul>
+          <li><strong>1. Conduzione Termica attraverso una parete di area $A$ e spessore $d$ ($T_1 < T_2$):</strong>
+            $$\mathbf{Q = \frac{h \cdot A \cdot \Delta T \cdot \Delta t}{d}}$$
+            dove $h$ è la <strong>conducibilità termica</strong> del materiale, misurata nel Sistema Internazionale in $\mathbf{\left[\frac{\text{W}}{\text{K}\cdot\text{m}}\right]}$, $\Delta T = T_2 - T_1$ è il salto termico tra le due facce e $\Delta t$ è l'intervallo di tempo.
+          </li>
+          <li style="margin-top:12px;"><strong>2. Irraggiamento Termico Elettromagnetico (Legge di Stefan-Boltzmann):</strong>
+            $$\mathbf{Q = e \cdot \sigma \cdot A \cdot T^4 \cdot \Delta t}$$
+            dove $e \in [0, 1]$ è l'<strong>emittività</strong> superficiale ($e=1$ per il corpo nero), $\sigma = 5{,}67 \cdot 10^{-8}\,\frac{\text{W}}{\text{m}^2\cdot\text{K}^4}$ è la <strong>costante di Stefan-Boltzmann</strong>, $A$ è l'area emittente, $T$ è la <strong>temperatura assoluta in Kelvin</strong> ($\text{K}$) e $\Delta t$ è l'intervallo di tempo ($\text{s}$).
+          </li>
+        </ul>
+      </div>
+
+      <!-- Simulatore Interattivo Canvas HTML5: Conduzione Termica & Irraggiamento con Deformazione Geometrica -->
+      <div class="card">
+        <div class="card-title">🎛️ Laboratorio Interattivo: Conduzione di Fourier &amp; Irraggiamento di Stefan-Boltzmann</div>
+        <p>Modifica lo spessore $d$ della parete, l'area trasversale $A$ e le temperature $T_1, T_2$ per osservare la deformazione geometrica in tempo reale della parete conduttiva e il calcolo della potenza termica condotta $\mathcal{P}_{\text{cond}} = \frac{Q}{\Delta t} = \frac{h A (T_2 - T_1)}{d}$ e irraggiata $\mathcal{P}_{\text{irr}} = e \sigma A T_2^4$.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; background:#F8FAFC; padding:12px 16px; border-radius:8px; border:1px solid #CBD5E1; margin-bottom:14px;">
+          <label style="font-size:13px; font-weight:600; color:#1E40AF;">
+            Spessore $d$ [m]: <span id="val-cond-d">0.20</span>
+            <input type="range" id="slider-cond-d" min="0.05" max="0.60" step="0.05" value="0.20">
+          </label>
+          <label style="font-size:13px; font-weight:600; color:#059669;">
+            Area $A$ [m²]: <span id="val-cond-a">2.0</span>
+            <input type="range" id="slider-cond-a" min="0.5" max="4.0" step="0.5" value="2.0">
+          </label>
+          <label style="font-size:13px; font-weight:600; color:#DC2626;">
+            $T_2$ Calda [K]: <span id="val-cond-t2">350</span>
+            <input type="range" id="slider-cond-t2" min="280" max="600" step="10" value="350">
+          </label>
+          <div id="readout-cond-4b" style="font-size:13px; font-weight:700; color:#B45309; margin-left:auto;"></div>
+        </div>
+        <canvas id="canvas-propagazione-4b" width="760" height="260" style="width:100%; max-width:760px; height:auto; display:block; margin:0 auto; background:#FFFFFF; border:1px solid #CBD5E1; border-radius:8px;"></canvas>
+      </div>
+      <script>
+        (function() {
+          const c = document.getElementById('canvas-propagazione-4b');
+          if (!c) return;
+          const ctx = c.getContext('2d');
+          const slD = document.getElementById('slider-cond-d');
+          const slA = document.getElementById('slider-cond-a');
+          const slT2 = document.getElementById('slider-cond-t2');
+          const vD = document.getElementById('val-cond-d');
+          const vA = document.getElementById('val-cond-a');
+          const vT2 = document.getElementById('val-cond-t2');
+          const ro = document.getElementById('readout-cond-4b');
+
+          function drawCond() {
+            const d = parseFloat(slD.value);
+            const A = parseFloat(slA.value);
+            const T2 = parseFloat(slT2.value);
+            const T1 = 273;
+            const h = 0.8; // W/(K*m) mattone pieno
+            const sigma = 5.67e-8;
+            vD.textContent = d.toFixed(2);
+            vA.textContent = A.toFixed(1);
+            vT2.textContent = T2.toFixed(0);
+
+            const Pcond = (h * A * (T2 - T1)) / d;
+            const Pirr = 0.9 * sigma * A * Math.pow(T2, 4);
+            ro.textContent = 'P_cond = ' + Pcond.toFixed(1) + ' W | P_irr = ' + Pirr.toFixed(1) + ' W';
+
+            ctx.clearRect(0, 0, c.width, c.height);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, c.width, c.height);
+
+            const cx = 360, cy = 135;
+            const wallW = 40 + d * 220;
+            const wallH = 70 + A * 32;
+            const xLeft = cx - wallW / 2;
+            const xRight = cx + wallW / 2;
+            const yTop = cy - wallH / 2;
+            const yBot = cy + wallH / 2;
+
+            // Zona fredda T1 a sinistra
+            ctx.fillStyle = '#EFF6FF';
+            ctx.fillRect(60, yTop, xLeft - 60, wallH);
+            ctx.fillStyle = '#1E40AF';
+            ctx.font = 'bold 13px system-ui, sans-serif';
+            ctx.fillText('T₁ = 273 K (Freddo)', 80, yTop + 24);
+
+            // Zona calda T2 a destra
+            ctx.fillStyle = '#FEF2F2';
+            ctx.fillRect(xRight, yTop, 700 - xRight, wallH);
+            ctx.fillStyle = '#DC2626';
+            ctx.fillText('T₂ = ' + T2 + ' K (Caldo)', xRight + 18, yTop + 24);
+
+            // Parete di spessore d e area A
+            ctx.fillStyle = '#FEF3C7';
+            ctx.strokeStyle = '#D97706';
+            ctx.lineWidth = 2.5;
+            ctx.fillRect(xLeft, yTop, wallW, wallH);
+            ctx.strokeRect(xLeft, yTop, wallW, wallH);
+
+            // Frecce del flusso di calore Q da T2 (destra) a T1 (sinistra)
+            ctx.strokeStyle = '#EA580C';
+            ctx.fillStyle = '#EA580C';
+            ctx.lineWidth = 3;
+            for (let i = 1; i <= 3; i++) {
+              const fy = yTop + (wallH * i) / 4;
+              ctx.beginPath();
+              ctx.moveTo(xRight + 12, fy);
+              ctx.lineTo(xLeft - 12, fy);
+              ctx.stroke();
+              ctx.beginPath();
+              ctx.moveTo(xLeft - 18, fy);
+              ctx.lineTo(xLeft - 8, fy - 5);
+              ctx.lineTo(xLeft - 8, fy + 5);
+              ctx.closePath();
+              ctx.fill();
+            }
+
+            ctx.fillStyle = '#0F172A';
+            ctx.font = 'bold 12px system-ui, sans-serif';
+            ctx.fillText('d = ' + d.toFixed(2) + ' m, A = ' + A.toFixed(1) + ' m²', cx - 55, yBot + 22);
+          }
+
+          slD.addEventListener('input', drawCond);
+          slA.addEventListener('input', drawCond);
+          slT2.addEventListener('input', drawCond);
+          drawCond();
+        })();
+      </script>
+    </section>
+  </div>
 
   <script>
     const canvas = document.getElementById('gasCanvas');
