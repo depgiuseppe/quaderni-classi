@@ -367,6 +367,7 @@
     <a href="#cap6">6. Mole & Avogadro</a>
     <a href="#cap7">7. Leggi dei Gas</a>
     <a href="#cap8">8. Eq. di Stato & R</a>
+    <a href="#cap9">9. Teoria Cinetica</a>
   </nav>
 
   <div class="main-container">
@@ -1061,6 +1062,86 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         CAPITOLO 9: LA TEORIA CINETICA DEI GAS (TAVOLA 18)
+         ========================================================================= -->
+    <h2 class="chapter-header" id="cap9">Capitolo 9: La Teoria Cinetica dei Gas — Velocità Quadratica Media e Urti Molecolari (Tavola 18)</h2>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">1. Distribuzione delle Velocità Molecolari e Significato Microscopico della Temperatura (Tavola 18)</div>
+      <p>
+        La <strong>Temperatura assoluta $T$</strong> di un gas è direttamente proporzionale al <em>«disordine»</em> (agitazione termica) delle molecole o degli atomi che lo compongono: <strong>più ampia è la distribuzione delle velocità molecolari, maggiore sarà la temperatura del gas</strong> ($T_3 \gg T_1 = T_2$).<br>
+        Inoltre, <strong>la temperatura non dipende dal sistema di riferimento da cui la si misura</strong>: essa dipende esclusivamente dall'agitazione termica interna disordinata rispetto al centro di massa del recipiente.
+      </p>
+
+      <div style="margin: 16px 0; text-align: center;">
+        <svg viewBox="0 0 600 250" style="width: 100%; max-width: 560px; height: auto; background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 8px; font-family: system-ui, sans-serif;">
+          <line x1="50" y1="215" x2="565" y2="215" stroke="#0F172A" stroke-width="1.6"/>
+          <polygon points="563,211 573,215 563,219" fill="#0F172A"/>
+          <text x="530" y="236" font-size="12.5" font-weight="bold" fill="#0F172A">velocità v</text>
+          <line x1="50" y1="225" x2="50" y2="22" stroke="#0F172A" stroke-width="1.6"/>
+          <polygon points="46,24 50,14 54,24" fill="#0F172A"/>
+          <text x="58" y="24" font-size="12.5" font-weight="bold" fill="#0F172A">n° particelle</text>
+
+          <!-- Picco 1 stretto (T1) -->
+          <path d="M 85 215 L 95 190 L 105 90 L 112 38 L 119 90 L 129 190 L 139 215" fill="none" stroke="#DC2626" stroke-width="2.4"/>
+          <line x1="112" y1="38" x2="112" y2="215" stroke="#94A3B8" stroke-dasharray="3,3"/>
+          <text x="112" y="232" font-size="12" font-weight="bold" fill="#0F172A" text-anchor="middle">v₁</text>
+          <text x="112" y="30" font-size="12" font-weight="bold" fill="#DC2626" text-anchor="middle">T₁</text>
+
+          <!-- Campana allargata T3 >> T1 = T2 -->
+          <path d="M 165 215 Q 225 200 250 135 Q 275 80 300 135 Q 325 200 385 215" fill="none" stroke="#2563EB" stroke-width="2.6"/>
+          <line x1="230" y1="155" x2="320" y2="155" stroke="#DC2626" stroke-width="1.8"/>
+          <text x="275" y="98" font-size="12.5" font-weight="bold" fill="#2563EB" text-anchor="middle">T₃</text>
+          <text x="275" y="232" font-size="12" font-weight="bold" fill="#0F172A" text-anchor="middle">v₃</text>
+
+          <!-- Picco 2 stretto (T2 = T1) -->
+          <path d="M 420 215 L 430 190 L 440 90 L 447 38 L 454 90 L 464 190 L 474 215" fill="none" stroke="#DC2626" stroke-width="2.4"/>
+          <line x1="447" y1="38" x2="447" y2="215" stroke="#94A3B8" stroke-dasharray="3,3"/>
+          <text x="447" y="232" font-size="12" font-weight="bold" fill="#0F172A" text-anchor="middle">v₂</text>
+          <text x="447" y="30" font-size="12" font-weight="bold" fill="#DC2626" text-anchor="middle">T₂</text>
+
+          <rect x="468" y="45" width="110" height="24" fill="#FFFFFF" stroke="#2563EB" rx="4"/>
+          <text x="523" y="61" font-size="12" font-weight="bold" fill="#2563EB" text-anchor="middle">T₃ ≫ T₁ = T₂</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">2. L'Energia Cinetica Media e la Velocità Quadratica Media $\langle v_N \rangle$ (Tavola 18)</div>
+      <p>Consideriamo la somma di tutte le energie cinetiche traslazionali delle $N$ singole particelle (ciascuna di massa $m$):</p>
+      <p>$$K_{\text{TOT}} = K_1 + K_2 + \dots + K_N = \left(\frac{1}{2}mv_1^2 + \frac{1}{2}mv_2^2 + \dots + \frac{1}{2}mv_N^2\right) = \frac{1}{2}m\left(v_1^2 + v_2^2 + \dots + v_N^2\right)$$</p>
+      <p>Dividendo per il numero totale di particelle $N$, si ottiene l'<strong>energia cinetica media</strong> $K_m$:</p>
+      <p>$$K_m = \frac{K_{\text{TOT}}}{N} = \frac{\displaystyle\sum_{i=1}^N K_i}{N} = \frac{m}{2}\underbrace{\frac{\displaystyle\sum_{i=1}^N v_i^2}{N}}_{\langle v_N \rangle^2} \implies \mathbf{K_m = \frac{1}{2} \, m \, \langle v_N \rangle^2}$$</p>
+      <p>dove il simbolo $\langle \dots \rangle$ indica la media statistica e $\langle v_N \rangle$ è la <strong>velocità quadratica media</strong>:</p>
+      <p>$$\mathbf{\langle v_N \rangle = \sqrt{\frac{\displaystyle\sum_{i=1}^N v_i^2}{N}}}$$</p>
+    </div>
+
+    <div class="card theory">
+      <div class="card-title" style="color: var(--col-primary);">3. Modello Dinamico degli Urti Elastici contro la Parete e Forza Molecolare $F_{\text{TOT}}$ (Tavola 18)</div>
+      <ol style="line-height: 1.7; margin-left: 18px;">
+        <li><strong>Variazione della quantità di moto nell'urto elastico:</strong> scomponendo $\vec{p} = m\vec{v} = \vec{p}_{\perp} + \vec{p}_{\parallel}$, nell'urto elastico contro la parete la componente parallela si conserva ($\vec{p}'_{\parallel} = \vec{p}_{\parallel}$) mentre quella perpendicolare si inverte ($\vec{p}'_{\perp} = -\vec{p}_{\perp}$):
+          $$\Delta\vec{p} = \vec{p}' - \vec{p} = (-\vec{p}_{\perp} + \vec{p}'_{\parallel}) - (\vec{p}_{\perp} + \vec{p}_{\parallel}) = -2\vec{p}_{\perp} \implies \mathbf{\Delta p_{\text{parete}} = 2 p_{\perp} = 2 m v_{\perp}}$$
+        </li>
+        <li><strong>Intervallo di tempo $\Delta t$ tra due urti successivi sulla stessa parete</strong> (percorso di andata e ritorno $2l$ in un contenitore di lato $l$):
+          $$\mathbf{\Delta t = \frac{2l}{v_{\perp}}}$$
+        </li>
+        <li><strong>Forza media esercitata da una singola particella sulla parete ($F = \frac{\Delta p}{\Delta t}$):</strong>
+          $$F = \frac{\Delta p_{\text{parete}}}{\Delta t} = \frac{2 p_{\perp}}{\dfrac{2l}{v_{\perp}}} = \frac{v_{\perp} \cdot p_{\perp}}{l} = \frac{v_{\perp} \cdot m v_{\perp}}{l} = \mathbf{\frac{m v_{\perp}^2}{l}}$$
+        </li>
+        <li><strong>Forza totale esercitata dalle $N$ particelle sulla parete:</strong>
+          $$\mathbf{F_{\text{TOT}} = \sum_{i=1}^N \frac{m v_{i\perp}^2}{l} = \frac{m}{l}\sum_{i=1}^N v_{i\perp}^2 = \frac{m}{l} \cdot \langle v_{N\perp} \rangle^2 \cdot N}$$
+        </li>
+      </ol>
+
+      <div style="margin: 18px 0; text-align: center;">
+        <video autoplay loop muted playsinline webkit-playsinline controls preload="metadata" style="width:100%; max-width:740px; height:auto; display:block; margin:14px auto; border-radius:10px; border:1px solid #CBD5E1; box-shadow:0 4px 12px rgba(15,23,42,0.06);">
+          <source src="media/TeoriaCineticaCuboManim.mp4#t=0.001" type="video/mp4">
+        </video>
+        <div style="font-size: 13px; color: #475569; font-style: italic;">Animazione Scientifica Vettoriale (Tema Chiaro): urti elastici molecolari nel cubo di lato $l$, inversione della quantità di moto $\Delta p_{\text{parete}} = 2mv_{\perp}$ e tempo di volo $\Delta t = 2l/v_{\perp}$.</div>
       </div>
     </div>
 
