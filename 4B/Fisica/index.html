@@ -1586,113 +1586,354 @@
         </ul>
       </div>
 
-      <!-- Simulatore Interattivo Canvas HTML5: Conduzione Termica & Irraggiamento con Deformazione Geometrica -->
+      <!-- Simulatore Interattivo Canvas HTML5: Conduzione Termica & Irraggiamento con Deformazione Geometrica e Grafico Q(d) -->
       <div class="card">
-        <div class="card-title">🎛️ Laboratorio Interattivo: Conduzione di Fourier &amp; Irraggiamento di Stefan-Boltzmann</div>
-        <p>Modifica lo spessore $d$ della parete, l'area trasversale $A$ e le temperature $T_1, T_2$ per osservare la deformazione geometrica in tempo reale della parete conduttiva e il calcolo della potenza termica condotta $\mathcal{P}_{\text{cond}} = \frac{Q}{\Delta t} = \frac{h A (T_2 - T_1)}{d}$ e irraggiata $\mathcal{P}_{\text{irr}} = e \sigma A T_2^4$.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; background:#F8FAFC; padding:12px 16px; border-radius:8px; border:1px solid #CBD5E1; margin-bottom:14px;">
-          <label style="font-size:13px; font-weight:600; color:#1E40AF;">
-            Spessore $d$ [m]: <span id="val-cond-d">0.20</span>
-            <input type="range" id="slider-cond-d" min="0.05" max="0.60" step="0.05" value="0.20">
-          </label>
-          <label style="font-size:13px; font-weight:600; color:#059669;">
-            Area $A$ [m²]: <span id="val-cond-a">2.0</span>
-            <input type="range" id="slider-cond-a" min="0.5" max="4.0" step="0.5" value="2.0">
-          </label>
-          <label style="font-size:13px; font-weight:600; color:#DC2626;">
-            $T_2$ Calda [K]: <span id="val-cond-t2">350</span>
-            <input type="range" id="slider-cond-t2" min="280" max="600" step="10" value="350">
-          </label>
-          <div id="readout-cond-4b" style="font-size:13px; font-weight:700; color:#B45309; margin-left:auto;"></div>
+        <div class="card-title">🎛️ Laboratorio Interattivo: Conduzione Termica di Fourier $Q = \dfrac{h \cdot A \cdot \Delta T \cdot \Delta t}{d}$ &amp; Irraggiamento</div>
+        <p>Seleziona un <strong>materiale di prova</strong> (con la sua conducibilità termica $h$ in chiaro) e usa gli slider per variare lo <strong>spessore $d$</strong>, l'<strong>area $A$</strong>, la <strong>temperatura calda $T_2$</strong> e il <strong>tempo $\Delta t$</strong>. Osserva a sinistra la deformazione fisica della parete, il gradiente termico interno $T(x)$ e l'intensità delle frecce del flusso di calore, e a destra il <strong>grafico cartesiano della conduzione $Q(d)$ in funzione dello spessore $d$</strong> (proporzionalità inversa $Q \propto 1/d$).</p>
+
+        <!-- Selettore Materiale di Prova e Sliders delle Grandezze Fisiche -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; background:#F8FAFC; padding:14px 16px; border-radius:10px; border:1px solid #CBD5E1; margin-bottom:14px;">
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <label for="select-cond-mat" style="font-size:13px; font-weight:700; color:#0F172A;">🧱 Materiale di Prova (Conducibilità $h$):</label>
+            <select id="select-cond-mat" style="padding:6px 8px; border-radius:6px; border:1px solid #94A3B8; background:#FFFFFF; font-size:13px; font-weight:600; color:#0F172A;">
+              <option value="0.80|Mattone pieno (muratura)|#FDE68A|#D97706" selected>Mattone pieno — h = 0,80 W/(K·m)</option>
+              <option value="0.035|Poliuretano (cappotto isolante)|#FEF08A|#CA8A04">Poliuretano isolante — h = 0,035 W/(K·m)</option>
+              <option value="0.15|Legno di abete|#FED7AA|#C2410C">Legno di abete — h = 0,15 W/(K·m)</option>
+              <option value="1.00|Vetro finestra|#E0F2FE|#0284C7">Vetro finestra — h = 1,00 W/(K·m)</option>
+              <option value="1.40|Calcestruzzo armato|#E2E8F0|#475569">Calcestruzzo — h = 1,40 W/(K·m)</option>
+              <option value="16.0|Acciaio inox|#CBD5E1|#334155">Acciaio inox — h = 16,0 W/(K·m)</option>
+              <option value="237.0|Alluminio puro|#DBEAFE|#1D4ED8">Alluminio — h = 237 W/(K·m)</option>
+              <option value="390.0|Rame elettrolitico|#FECACA|#B91C1C">Rame — h = 390 W/(K·m)</option>
+            </select>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <label for="slider-cond-d" style="font-size:13px; font-weight:700; color:#1E40AF;">
+              📏 Spessore parete $d$: <span id="val-cond-d">0.20 m (20 cm)</span>
+            </label>
+            <input type="range" id="slider-cond-d" min="0.05" max="0.80" step="0.01" value="0.20">
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <label for="slider-cond-a" style="font-size:13px; font-weight:700; color:#059669;">
+              📐 Area parete $A$: <span id="val-cond-a">2.0 m²</span>
+            </label>
+            <input type="range" id="slider-cond-a" min="0.5" max="5.0" step="0.5" value="2.0">
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <label for="slider-cond-t2" style="font-size:13px; font-weight:700; color:#DC2626;">
+              🔥 Temp. faccia calda $T_2$: <span id="val-cond-t2">350 K (ΔT = 77 K)</span>
+            </label>
+            <input type="range" id="slider-cond-t2" min="283" max="473" step="5" value="350">
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <label for="slider-cond-dt" style="font-size:13px; font-weight:700; color:#7C3AED;">
+              ⏱️ Intervallo di tempo $\Delta t$: <span id="val-cond-dt">60 s</span>
+            </label>
+            <input type="range" id="slider-cond-dt" min="10" max="600" step="10" value="60">
+          </div>
         </div>
-        <canvas id="canvas-propagazione-4b" width="760" height="260" style="width:100%; max-width:760px; height:auto; display:block; margin:0 auto; background:#FFFFFF; border:1px solid #CBD5E1; border-radius:8px;"></canvas>
+
+        <!-- Quadro Grandezze Fisiche in Chiaro e Formula Calcolata in Tempo Reale -->
+        <div id="box-grandezze-chiaro-4b" style="background:#FFFBEB; border:1.5px solid #F59E0B; border-radius:10px; padding:12px 16px; margin-bottom:14px; font-size:13.5px; color:#0F172A; line-height:1.65;">
+        </div>
+
+        <canvas id="canvas-propagazione-4b" width="880" height="390" style="width:100%; max-width:880px; height:auto; display:block; margin:0 auto; background:#FFFFFF; border:1px solid #CBD5E1; border-radius:8px;"></canvas>
       </div>
       <script>
         (function() {
           const c = document.getElementById('canvas-propagazione-4b');
           if (!c) return;
           const ctx = c.getContext('2d');
+          const selMat = document.getElementById('select-cond-mat');
           const slD = document.getElementById('slider-cond-d');
           const slA = document.getElementById('slider-cond-a');
           const slT2 = document.getElementById('slider-cond-t2');
+          const slDt = document.getElementById('slider-cond-dt');
+
           const vD = document.getElementById('val-cond-d');
           const vA = document.getElementById('val-cond-a');
           const vT2 = document.getElementById('val-cond-t2');
-          const ro = document.getElementById('readout-cond-4b');
+          const vDt = document.getElementById('val-cond-dt');
+          const boxChiaro = document.getElementById('box-grandezze-chiaro-4b');
+
+          function fmtNum(val) {
+            if (val >= 10000) return (val / 1000).toFixed(1) + ' k';
+            if (val >= 100) return val.toFixed(0) + ' ';
+            if (val >= 10) return val.toFixed(1) + ' ';
+            return val.toFixed(2) + ' ';
+          }
 
           function drawCond() {
+            const matParts = selMat.value.split('|');
+            const h = parseFloat(matParts[0]);
+            const matName = matParts[1];
+            const matFill = matParts[2];
+            const matStroke = matParts[3];
+
             const d = parseFloat(slD.value);
             const A = parseFloat(slA.value);
-            const T2 = parseFloat(slT2.value);
             const T1 = 273;
-            const h = 0.8; // W/(K*m) mattone pieno
+            const T2 = parseFloat(slT2.value);
+            const dT = T2 - T1;
+            const dt = parseFloat(slDt.value);
             const sigma = 5.67e-8;
-            vD.textContent = d.toFixed(2);
-            vA.textContent = A.toFixed(1);
-            vT2.textContent = T2.toFixed(0);
+            const emitt = 0.90;
 
-            const Pcond = (h * A * (T2 - T1)) / d;
-            const Pirr = 0.9 * sigma * A * Math.pow(T2, 4);
-            ro.textContent = 'P_cond = ' + Pcond.toFixed(1) + ' W | P_irr = ' + Pirr.toFixed(1) + ' W';
+            vD.textContent = d.toFixed(2) + ' m (' + (d * 100).toFixed(0) + ' cm)';
+            vA.textContent = A.toFixed(1) + ' m²';
+            vT2.textContent = T2.toFixed(0) + ' K (ΔT = ' + dT.toFixed(0) + ' K)';
+            vDt.textContent = dt.toFixed(0) + ' s';
 
+            // Calcolo conduzione di Fourier Q = h * A * dT * dt / d e potenza P = Q / dt
+            const Pcond = (h * A * dT) / d; // Watt (J/s)
+            const Qcond = Pcond * dt;       // Joule
+            const Pirr = emitt * sigma * A * Math.pow(T2, 4);
+            const Qirr = Pirr * dt;
+
+            // Aggiorna quadro con tutte le grandezze in chiaro
+            const qStr = Qcond >= 1e6 ? (Qcond / 1e6).toFixed(2) + ' MJ' : (Qcond >= 1e3 ? (Qcond / 1e3).toFixed(2) + ' kJ' : Qcond.toFixed(1) + ' J');
+            const pStr = Pcond >= 1e3 ? (Pcond / 1e3).toFixed(2) + ' kW' : Pcond.toFixed(1) + ' W';
+            boxChiaro.innerHTML =
+              '<div style="display:flex; flex-wrap:wrap; gap:10px 22px; align-items:center; justify-content:space-between;">' +
+                '<div><strong>🧱 Materiale di prova:</strong> <span style="color:#B45309; font-weight:700;">' + matName + '</span> &nbsp;|&nbsp; ' +
+                '<strong>Conducibilità termica:</strong> <code style="background:#FFFFFF; padding:2px 6px; border-radius:4px; border:1px solid #F59E0B; font-weight:700; color:#B91C1C;">h = ' + h + ' W/(K·m)</code></div>' +
+                '<div><strong>Faccia fredda:</strong> T₁ = 273 K (0 °C) &nbsp;|&nbsp; <strong>Faccia calda:</strong> T₂ = ' + T2 + ' K (' + (T2 - 273) + ' °C) &nbsp;|&nbsp; <strong>Salto termico:</strong> ΔT = T₂ − T₁ = <strong>' + dT + ' K</strong></div>' +
+              '</div>' +
+              '<div style="margin-top:8px; padding-top:8px; border-top:1px dashed #F59E0B; display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center;">' +
+                '<div><strong>📐 Legge di Fourier (Conduzione):</strong> ' +
+                '<code>Q = (h · A · ΔT · Δt) / d = (' + h + ' × ' + A.toFixed(1) + ' × ' + dT + ' × ' + dt + ') / ' + d.toFixed(2) + '</code> ' +
+                '&rarr; <strong style="color:#DC2626; font-size:15px;">Q = ' + qStr + '</strong> &nbsp;(<strong style="color:#1E40AF;">Potenza P = Q/Δt = ' + pStr + '</strong>)</div>' +
+                '<div style="margin-left:auto; font-size:12.5px; color:#475569;"><strong>☀️ Irraggiamento (e=0,90):</strong> P_irr = ' + Pirr.toFixed(0) + ' W (Q_irr = ' + (Qirr / 1000).toFixed(1) + ' kJ)</div>' +
+              '</div>';
+
+            // PULIZIA CANVAS (880 x 390)
             ctx.clearRect(0, 0, c.width, c.height);
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, c.width, c.height);
 
-            const cx = 360, cy = 135;
-            const wallW = 40 + d * 220;
-            const wallH = 70 + A * 32;
+            // =================================================================
+            // PANNELLO SINISTRO (x: 15..425): MODELLO GEOMETRICO DELLA PARETE
+            // =================================================================
+            ctx.strokeStyle = '#E2E8F0';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(12, 12, 415, 366);
+
+            ctx.fillStyle = '#0F172A';
+            ctx.font = 'bold 13px system-ui, sans-serif';
+            ctx.fillText('1. Geometria Parete, Profilo T(x) e Flusso Q', 24, 32);
+
+            const cx = 220, cy = 195;
+            // Lo spessore d (0.05..0.80 m) deforma fortemente la larghezza della parete (da 22 px a 210 px)
+            const wallW = 14 + (d / 0.80) * 196;
+            // L'area A (0.5..5.0 m²) deforma l'altezza della parete (da 90 px a 215 px)
+            const wallH = 82 + ((A - 0.5) / 4.5) * 130;
             const xLeft = cx - wallW / 2;
             const xRight = cx + wallW / 2;
             const yTop = cy - wallH / 2;
             const yBot = cy + wallH / 2;
 
-            // Zona fredda T1 a sinistra
+            // Camera Fredda T1 a sinistra
             ctx.fillStyle = '#EFF6FF';
-            ctx.fillRect(60, yTop, xLeft - 60, wallH);
-            ctx.fillStyle = '#1E40AF';
-            ctx.font = 'bold 13px system-ui, sans-serif';
-            ctx.fillText('T₁ = 273 K (Freddo)', 80, yTop + 24);
+            ctx.fillRect(24, yTop, Math.max(20, xLeft - 24), wallH);
+            ctx.strokeStyle = '#BFDBFE';
+            ctx.strokeRect(24, yTop, Math.max(20, xLeft - 24), wallH);
 
-            // Zona calda T2 a destra
+            // Camera Calda T2 a destra
             ctx.fillStyle = '#FEF2F2';
-            ctx.fillRect(xRight, yTop, 700 - xRight, wallH);
-            ctx.fillStyle = '#DC2626';
-            ctx.fillText('T₂ = ' + T2 + ' K (Caldo)', xRight + 18, yTop + 24);
+            ctx.fillRect(xRight, yTop, Math.max(20, 414 - xRight), wallH);
+            ctx.strokeStyle = '#FECACA';
+            ctx.strokeRect(xRight, yTop, Math.max(20, 414 - xRight), wallH);
 
-            // Parete di spessore d e area A
-            ctx.fillStyle = '#FEF3C7';
-            ctx.strokeStyle = '#D97706';
+            // Parete conduttiva di spessore d e area A
+            ctx.fillStyle = matFill;
+            ctx.strokeStyle = matStroke;
             ctx.lineWidth = 2.5;
             ctx.fillRect(xLeft, yTop, wallW, wallH);
             ctx.strokeRect(xLeft, yTop, wallW, wallH);
 
-            // Frecce del flusso di calore Q da T2 (destra) a T1 (sinistra)
+            // Retta del profilo termico interno T(x) dentro la parete (da T2 in alto a destra a T1 in basso a sinistra)
+            const t1Y = yBot - 18;
+            const t2Y = yBot - 18 - ((T2 - 273) / 200) * (wallH - 36);
+            ctx.save();
+            ctx.strokeStyle = '#7C3AED';
+            ctx.lineWidth = 2.2;
+            ctx.setLineDash([4, 3]);
+            ctx.beginPath();
+            ctx.moveTo(xLeft, t1Y);
+            ctx.lineTo(xRight, t2Y);
+            ctx.stroke();
+            ctx.restore();
+
+            // Frecce dinamiche del flusso termico Q (da T2 destra verso T1 sinistra):
+            // Spessore e dimensione frecce crescono con 1/d e con dT!
+            const normFlux = Math.min(1.0, Math.max(0.15, (0.20 / d) * (dT / 77) * (A / 2.0)));
+            const arrowWidth = 1.5 + normFlux * 5.5;
+            const headSize = 5 + normFlux * 6;
+            const numArrows = A >= 3.5 ? 4 : (A <= 1.0 ? 2 : 3);
+
             ctx.strokeStyle = '#EA580C';
             ctx.fillStyle = '#EA580C';
-            ctx.lineWidth = 3;
-            for (let i = 1; i <= 3; i++) {
-              const fy = yTop + (wallH * i) / 4;
+            ctx.lineWidth = arrowWidth;
+            for (let i = 1; i <= numArrows; i++) {
+              const fy = yTop + (wallH * i) / (numArrows + 1);
               ctx.beginPath();
-              ctx.moveTo(xRight + 12, fy);
-              ctx.lineTo(xLeft - 12, fy);
+              ctx.moveTo(xRight + 14, fy);
+              ctx.lineTo(xLeft - 10, fy);
               ctx.stroke();
               ctx.beginPath();
-              ctx.moveTo(xLeft - 18, fy);
-              ctx.lineTo(xLeft - 8, fy - 5);
-              ctx.lineTo(xLeft - 8, fy + 5);
+              ctx.moveTo(xLeft - 10 - headSize, fy);
+              ctx.lineTo(xLeft - 10, fy - headSize * 0.65);
+              ctx.lineTo(xLeft - 10, fy + headSize * 0.65);
               ctx.closePath();
               ctx.fill();
             }
 
+            // Etichette T1, T2, materiale, h, d, A con cuscino bianco (Halo Shield)
+            function drawTag(tx, ty, text, color, align) {
+              ctx.save();
+              ctx.font = 'bold 11.5px system-ui, sans-serif';
+              const w = ctx.measureText(text).width + 10;
+              const rx = align === 'center' ? tx - w / 2 : (align === 'right' ? tx - w : tx);
+              ctx.fillStyle = 'rgba(255,255,255,0.92)';
+              ctx.fillRect(rx, ty - 13, w, 17);
+              ctx.strokeStyle = '#CBD5E1';
+              ctx.lineWidth = 0.8;
+              ctx.strokeRect(rx, ty - 13, w, 17);
+              ctx.fillStyle = color;
+              ctx.textAlign = 'left';
+              ctx.fillText(text, rx + 5, ty);
+              ctx.restore();
+            }
+
+            drawTag(30, yTop - 8, 'T₁ = 273 K (Freddo)', '#1E40AF', 'left');
+            drawTag(410, yTop - 8, 'T₂ = ' + T2 + ' K (Caldo)', '#DC2626', 'right');
+            drawTag(cx, yTop - 8, matName.split(' ')[0] + ' (h=' + h + ')', '#B45309', 'center');
+
+            // Quota spessore d sotto la parete
+            const qY = yBot + 22;
+            ctx.strokeStyle = '#1E40AF';
+            ctx.lineWidth = 1.6;
+            ctx.beginPath();
+            ctx.moveTo(xLeft, yBot + 4); ctx.lineTo(xLeft, qY + 4);
+            ctx.moveTo(xRight, yBot + 4); ctx.lineTo(xRight, qY + 4);
+            ctx.moveTo(xLeft, qY); ctx.lineTo(xRight, qY);
+            ctx.stroke();
+            drawTag(cx, qY + 18, 'd = ' + d.toFixed(2) + ' m  |  A = ' + A.toFixed(1) + ' m²', '#1E40AF', 'center');
+            drawTag(cx, 368, 'Flusso Q = ' + qStr + '  (Gradiente ΔT/d = ' + (dT / d).toFixed(0) + ' K/m)', '#DC2626', 'center');
+
+            // =================================================================
+            // PANNELLO DESTRO (x: 440..868): GRAFICO CARTESIANO Q(d) vs SPESSORE d
+            // =================================================================
+            ctx.strokeStyle = '#E2E8F0';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(438, 12, 430, 366);
+
+            ctx.fillStyle = '#0F172A';
+            ctx.font = 'bold 13px system-ui, sans-serif';
+            ctx.fillText('2. Grafico della Conduzione Q(d) in funzione di d', 452, 32);
+
+            const gx0 = 498, gy0 = 325, gw = 340, gh = 255;
+            const dMin = 0.05, dMax = 0.80;
+            // Scala verticale adattiva sul valore massimo Q(dMin) per il materiale/parametri correnti
+            const Qmax = (h * A * dT * dt) / dMin;
+            const useKJ = Qmax >= 1000;
+            const unitFactor = useKJ ? 1000 : 1;
+            const unitLabel = useKJ ? 'Q [kJ]' : 'Q [J]';
+            const yMaxPlot = (Qmax / unitFactor) * 1.08;
+
+            // Griglia del grafico Q(d)
+            ctx.strokeStyle = '#F1F5F9';
+            ctx.lineWidth = 1;
+            for (let i = 1; i <= 4; i++) {
+              const py = gy0 - (gh * i) / 4;
+              ctx.beginPath(); ctx.moveTo(gx0, py); ctx.lineTo(gx0 + gw, py); ctx.stroke();
+              ctx.fillStyle = '#64748B';
+              ctx.font = '11px system-ui, sans-serif';
+              ctx.textAlign = 'right';
+              const valTick = (yMaxPlot * i) / 4;
+              ctx.fillText(valTick >= 100 ? valTick.toFixed(0) : valTick.toFixed(1), gx0 - 6, py + 4);
+            }
+            const dTicks = [0.1, 0.2, 0.4, 0.6, 0.8];
+            dTicks.forEach(dtick => {
+              const px = gx0 + ((dtick - dMin) / (dMax - dMin)) * gw;
+              ctx.beginPath(); ctx.moveTo(px, gy0 - gh); ctx.lineTo(px, gy0); ctx.stroke();
+              ctx.fillStyle = '#64748B';
+              ctx.font = '11px system-ui, sans-serif';
+              ctx.textAlign = 'center';
+              ctx.fillText(dtick.toFixed(1), px, gy0 + 16);
+            });
+            ctx.textAlign = 'left';
+
+            // Assi cartesiani del grafico Q(d)
+            ctx.strokeStyle = '#0F172A';
+            ctx.lineWidth = 1.6;
+            ctx.beginPath();
+            ctx.moveTo(gx0, gy0 - gh - 10);
+            ctx.lineTo(gx0, gy0);
+            ctx.lineTo(gx0 + gw + 12, gy0);
+            ctx.stroke();
+
             ctx.fillStyle = '#0F172A';
             ctx.font = 'bold 12px system-ui, sans-serif';
-            ctx.fillText('d = ' + d.toFixed(2) + ' m, A = ' + A.toFixed(1) + ' m²', cx - 55, yBot + 22);
+            ctx.fillText(unitLabel, gx0 - 38, gy0 - gh - 12);
+            ctx.fillText('Spessore d [m]', gx0 + gw - 70, gy0 + 34);
+
+            // Tracciamento analitico dell'iperbole di conduzione Q(d) = (h * A * dT * dt) / d
+            ctx.save();
+            ctx.strokeStyle = '#2563EB';
+            ctx.lineWidth = 2.8;
+            ctx.beginPath();
+            for (let i = 0; i <= 150; i++) {
+              const di = dMin + (i / 150) * (dMax - dMin);
+              const qi = ((h * A * dT * dt) / di) / unitFactor;
+              const px = gx0 + ((di - dMin) / (dMax - dMin)) * gw;
+              const py = gy0 - (qi / yMaxPlot) * gh;
+              if (i === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+            ctx.restore();
+
+            // Punto operativo corrente (d, Q(d)) sul grafico
+            const curQ = (Qcond / unitFactor);
+            const curPx = gx0 + ((d - dMin) / (dMax - dMin)) * gw;
+            const curPy = gy0 - (curQ / yMaxPlot) * gh;
+
+            // Linee di proiezione tratteggiate sugli assi d e Q
+            ctx.save();
+            ctx.strokeStyle = '#DC2626';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(curPx, gy0); ctx.lineTo(curPx, curPy);
+            ctx.moveTo(gx0, curPy); ctx.lineTo(curPx, curPy);
+            ctx.stroke();
+            ctx.restore();
+
+            // Pallino rosso del punto di lavoro (d, Q)
+            ctx.fillStyle = '#DC2626';
+            ctx.beginPath();
+            ctx.arc(curPx, curPy, 6, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Etichetta del punto (d, Q) con Halo Shield
+            const labelX = curPx > gx0 + gw * 0.58 ? curPx - 12 : curPx + 12;
+            const labelAlign = curPx > gx0 + gw * 0.58 ? 'right' : 'left';
+            drawTag(labelX, Math.max(gy0 - gh + 18, curPy - 10), 'd = ' + d.toFixed(2) + ' m → Q = ' + qStr, '#DC2626', labelAlign);
+            drawTag(gx0 + gw - 6, gy0 - gh + 22, 'Legge: Q(d) ∝ 1 / d', '#2563EB', 'right');
           }
 
+          selMat.addEventListener('change', drawCond);
           slD.addEventListener('input', drawCond);
           slA.addEventListener('input', drawCond);
           slT2.addEventListener('input', drawCond);
+          slDt.addEventListener('input', drawCond);
           drawCond();
         })();
       </script>
